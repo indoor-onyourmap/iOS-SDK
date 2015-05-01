@@ -327,7 +327,7 @@ Below the different methods to retrieve the areas:
 getAreasForUuid:(NSString*)uuid
 ```
 
-- ```objective-c
+```objective-c
 getAreasForArray:(NSArray*)ids
 ```
 
