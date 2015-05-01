@@ -104,19 +104,24 @@ OYMIndoor* indoor = [[OYMIndoor alloc] initWithUrl:@"https://indoor.onyourmap.co
 Once the user is correctly logged in to the server, the user can start retrieving information from the server. In order to retrieve the buildings available, there are several functions to match the user requirements for each case. It can be specified a list of IDs to be retrieved, a bounding box to limit the search and pagination.
 
 Below the different methods to retrieve the buildings:
-- ```objective-c
+
+```objective-c
 getBuildings
 ```
-- ```objective-c
+
+```objective-c
 getBuildingsWithArray:(NSArray*)buildingIdList
 ```
-- ```objective-c
+
+```objective-c
 getBuildingsWithBoundingBox:(NSString*)boundingBox
 ```
-- ```objective-c
+
+```objective-c
 getBuildingsWithArray:(NSArray *)buildingIdList andBoundingBox:(NSString*)boundingBox
 ```
-- ```objective-c
+
+```objective-c
 getBuildingsWithArray:(NSArray*)buildingIdList andBoundingBox:(NSString*)boundingBox andOffset:(int)offset andBucketSize:(int)bucketSize
 ```
 
@@ -140,10 +145,12 @@ All the buildings available in the server need to be retrieved. The user shall u
 In order to retrieve the iBeacons, it can be done by specifying the id(s) of the building or floor in which the iBeacons are located.
 
 Below the different methods to retrieve the buildings:
-- ```objective-c
+
+```objective-c
 getIbeaconsForUuid:(NSString*)uuid
 ```
-- ```objective-c
+
+```objective-c
 getIbeaconsForArray:(NSArray*)ids
 ```
 
@@ -315,9 +322,11 @@ Once the user is correctly logged in to the server as explained in the OYMIndoor
 
 
 Below the different methods to retrieve the areas:
-- ```objective-c
+
+```objective-c
 getAreasForUuid:(NSString*)uuid
 ```
+
 - ```objective-c
 getAreasForArray:(NSArray*)ids
 ```
