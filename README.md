@@ -24,7 +24,7 @@ floor | NSNumber* | Floor number
 type | NSString* | String defining the floor type
 tileProvider | OYMTileProvider* | Tile provider for indoor tiles
 
-> **Note:** This class can also offer the tiles using the Google Maps GMSURLTileLayer*. In order to be able to retrieve it from the OYMFloor object it is required to define the macro `INDOOR_HASGOOGLEMAP` before including the framework and include all the Google Maps for iOS frameworks [+info](https://developers.google.com/maps/documentation/ios/).
+&gt; **Note:** This class can also offer the tiles using the Google Maps GMSURLTileLayer*. In order to be able to retrieve it from the OYMFloor object it is required to define the macro `INDOOR_HASGOOGLEMAP` before including the framework and include all the Google Maps for iOS frameworks [+info](https://developers.google.com/maps/documentation/ios/).
 
 ### OYMBuilding class
 This class includes all the information regarding the Building shapes stored in the server. As well, it includes the floors related with the building.
@@ -67,7 +67,7 @@ Parameter | Type | Description
 url | NSString* | URL to the server
 user | NSString* | Username (user@indoor.test)
 pwd | NSString* | Password
-deleg | id<OYMIndoorDelegate> | Indoor delegate to handle the output of the SDK
+deleg | id&lt;OYMIndoorDelegate&gt; | Indoor delegate to handle the output of the SDK
 *ac* | *BOOL* | *Flag to enable the autoconnect with the default number (3) of retries*
 *attemps* | *int* | *Enables the autoconnect feature with the defined number of retries*
 
@@ -75,17 +75,17 @@ To initialize an OYMIndoor object we have three different constructors to be use
 - Constructor without autoconnect 
 
 ```objective-c
-- (instancetype) initWithUrl:(NSString*)url andUser:(NSString*)user andPassword:(NSString*)pwd andDelegate:(id<OYMIndoorDelegate>)deleg
+- (instancetype) initWithUrl:(NSString*)url andUser:(NSString*)user andPassword:(NSString*)pwd andDelegate:(id&lt;OYMIndoorDelegate&gt;)deleg
 ```
 - Constructor with a fixed number (3) of reconnections
 
 ```objective-c
-- (instancetype) initWithUrl:(NSString*)url andUser:(NSString*)user andPassword:(NSString*)pwd andDelegate:(id<OYMIndoorDelegate>)deleg withAutoconnect:(BOOL)ac
+- (instancetype) initWithUrl:(NSString*)url andUser:(NSString*)user andPassword:(NSString*)pwd andDelegate:(id&lt;OYMIndoorDelegate&gt;)deleg withAutoconnect:(BOOL)ac
 ```
 - Constructor with an user-defined number of reconnections
 
 ```objective-c
-- (instancetype) initWithUrl:(NSString*)url andUser:(NSString*)user andPassword:(NSString*)pwd andDelegate:(id<OYMIndoorDelegate>)deleg withAutoconnectAttempts:(int)attempts
+- (instancetype) initWithUrl:(NSString*)url andUser:(NSString*)user andPassword:(NSString*)pwd andDelegate:(id&lt;OYMIndoorDelegate&gt;)deleg withAutoconnectAttempts:(int)attempts
 ```
 
 Once the OYMIndoor object is initialized, the delegate will be called.
@@ -197,12 +197,12 @@ Where if not defined, the weighted average type will be selected by default. It 
 - Constructor using the average type by default
 
 ```objective-c
-- (instancetype) initWithUrl:(NSString*)webServiceUrl andUser:(NSString*)user andPassword:(NSString*)pwd withDelegate:(id<OYMIndoorLocationDelegate>)deleg
+- (instancetype) initWithUrl:(NSString*)webServiceUrl andUser:(NSString*)user andPassword:(NSString*)pwd withDelegate:(id&lt;OYMIndoorLocationDelegate&gt;)deleg
 ```
 - Constructor using the user-defined type
 
 ```objective-c
-- (instancetype) initWithUrl:(NSString*)webServiceUrl andUser:(NSString*)user andPassword:(NSString*)pwd withType:(int)posType andDelegate:(id<OYMIndoorLocationDelegate>)deleg
+- (instancetype) initWithUrl:(NSString*)webServiceUrl andUser:(NSString*)user andPassword:(NSString*)pwd withType:(int)posType andDelegate:(id&lt;OYMIndoorLocationDelegate&gt;)deleg
 ```
 
 Parameter | Type | Description
@@ -210,7 +210,7 @@ Parameter | Type | Description
 webServiceUrl | NSString* | Server URL
 user | NSString* | Username (user@foo.bar)
 pwd | NSString* | Password
-delegate | id<OYMIndoorLocationDelegate> | Indoor location delegate to handle the output of the SDK
+delegate | id&lt;OYMIndoorLocationDelegate&gt; | Indoor location delegate to handle the output of the SDK
 *type* | *int* | *Indoor location type*
 
 The delegate also provides feedback with respect the autoconnect feature. When the session is expired the *didAutoconnectDisconnected* method is called while the library tries to reconnect to the server. When the reconnection is successful, the *didAutoconnectSucceed* callback is called. If the reconnection is not possible, the *didAutoconnectFailed* is called an the library will no longer be useful.
@@ -341,7 +341,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 ind | OYMIndoorRouting* | Initialized and logged in OYMIndoorRouting object
 bId | NSString* | Building ID whose routing needs to be started
-del | id<OYMIndorDelegate> | Indoor Routing delegate to handle the process
+del | id&lt;OYMIndorDelegate&gt; | Indoor Routing delegate to handle the process
 
 #### initRouting
 
