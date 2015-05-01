@@ -1,0 +1,13 @@
+
+// Instruction enumeration
+"routing_turnleft" = "Gira a l'esquerre";
+"routing_turnright" = "Gira a la dreta";
+"routing_downstairs" = "Baixa les escales fins al pis %i";
+"routing_upstairs" = "Puja les escales fins al pis %i";
+"routing_downelevator" = "Baixa amb l'ascensor al pis %i";
+"routing_upelevator" = "Puja amb l'ascensor al pis %i";
+"routing_arrival" = "Arribaràs a la teva destinació";
+"routing_straight" = "Continua tot recte";
+
+// Navigation
+"routing_now" = "Ara";
