@@ -15,7 +15,8 @@
 #import <indoor/OYMIndoor.h>
 #import <indoor/OYMIndoor+Protected.h>
 #import <indoor/OYMIndoorDelegate.h>
-#import <Indoor/OYMLogProtocol.h>
+#import <indoor/OYMLogProtocol.h>
+#import <indoor/OYMNotification.h>
 
 #import <indoor/OYMIndoorLocationLib.h>
 #import <indoor/OYMIndoorLocationCore.h>

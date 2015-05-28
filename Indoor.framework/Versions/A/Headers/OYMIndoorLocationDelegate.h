@@ -13,7 +13,12 @@
 @import CoreLocation;
 
 #import "OYMIndoorLocation.h"
+#import "OYMNotificationResult.h"
 
+
+/**
+ *  This delegate will provide feedback to the user regarding the indoor location library.
+ */
 @protocol OYMIndoorLocationDelegate <NSObject>
 
 @required
@@ -33,6 +38,12 @@
  * @param location User position
  */
 - (void) onPositionUpdate:(OYMIndoorLocation*)location;
+/**
+ *  This method is callen when a notification is triggered.
+ *
+ * @param notification Notification triggered
+ */
+- (void) onNotification:(OYMNotificationResult*)notification;
 
 
 @optional

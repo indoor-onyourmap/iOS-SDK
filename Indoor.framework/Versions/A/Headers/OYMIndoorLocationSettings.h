@@ -15,32 +15,32 @@
 
 
 #pragma mark Public constants
-/** String containing the IBeacon type */
+// String containing the IBeacon type */
 static NSString* const kOYMIndoorLocationSettingsType = @"INDOORLOCATIONSETTINGS";
 
-/** Key to retrieve the Accuracy threshold to change to GPS from the {@link Item} */
+// Key to retrieve the Accuracy threshold to change to GPS from the {@link Item} */
 static NSString* const kOYMIndoorLocationSettingsKeyAccuracy = @"gpsAccuracy";
-/** Key to retrieve the Filter alpha threshold from the {@link Item} */
+// Key to retrieve the Filter alpha threshold from the {@link Item} */
 static NSString* const kOYMIndoorLocationSettingsKeyFilterAlpha = @"filterAlpha";
-/** Key to retrieve the Maximum distance between iBeacons threshold from the {@link Item} */
+// Key to retrieve the Maximum distance between iBeacons threshold from the {@link Item} */
 static NSString* const kOYMIndoorLocationSettingsKeyMaxIbeaconDistance = @"maxIbeaconDistance";
-/** Key to retrieve the RSSI threshold from the {@link Item} */
+// Key to retrieve the RSSI threshold from the {@link Item} */
 static NSString* const kOYMIndoorLocationSettingsKeyRssi = @"rssi";
-/** Key to retrieve the Time threshold to change to GPS from the {@link Item} */
+// Key to retrieve the Time threshold to change to GPS from the {@link Item} */
 static NSString* const kOYMIndoorLocationSettingsKeyTime = @"gpsTime";
-/** Key to retrieve the Time threshold to change floors from the {@link Item} */
+// Key to retrieve the Time threshold to change floors from the {@link Item} */
 static NSString* const kOYMIndoorLocationSettingsKeyTimeChangeFloor = @"timeChangeFloor";
-/** Key to retrieve the time threshold to stop the BLE scan after not hearing any known iBeacon */
+// Key to retrieve the time threshold to stop the BLE scan after not hearing any known iBeacon */
 static NSString* const kOYMIndoorLocationSettingsKeyTimeLastKnown = @"timeLastKnown";
-/** Key to retrieve the time duration where a new unknown scan can be done */
+// Key to retrieve the time duration where a new unknown scan can be done */
 static NSString* const kOYMIndoorLocationSettingsKeyTimeUnknownDiscovery = @"timeUnknownDiscovery";
-/** Key to retrieve the time threshold where the unknown queries can be done to the server */
+// Key to retrieve the time threshold where the unknown queries can be done to the server */
 static NSString* const kOYMIndoorLocationSettingsKeyTimeUnknownQuery = @"timeUnknownQuery";
-/** Key to retrieve the time threshold to perform a new unknown scan after stopping the BLE scan */
+// Key to retrieve the time threshold to perform a new unknown scan after stopping the BLE scan */
 static NSString* const kOYMIndoorLocationSettingsKeyTimeUnknownRescan = @"timeUnknownRescan";
-/** Key to retrieve the time threshold to stop the known BLE scan */
+// Key to retrieve the time threshold to stop the known BLE scan */
 static NSString* const kOYMIndoorLocationSettingsKeyTimeStopScan = @"timeStopScan";
-/** Key to retrieve the proximity UUID used in the scan */
+// Key to retrieve the proximity UUID used in the scan */
 static NSString* const kOYMIndoorLocationSettingsKeyUsedProximityUuid = @"usedProximityUuid";
 
 static NSString* const kOYMIndoorLocationSettingsPropType = @"properties.type";

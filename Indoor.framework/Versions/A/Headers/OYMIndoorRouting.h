@@ -12,6 +12,7 @@
 #import "OYMIndoor+Protected.h"
 #import "OYMArea.h"
 #import "OYMEdge.h"
+#import "OYMNotification.h"
 #import "OYMIndoorRoutingDelegate.h"
 @class OYMRouting;
 //#import "OYMRouting.h"
@@ -20,10 +21,12 @@
 #pragma mark Public Constants
 #define kOYMIndoorRoutingTypeArea kOYMAreaType
 #define kOYMIndoorRoutingTypeEdge kOYMEdgeType
+#define kOYMIndoorRoutingTypeNotification kOYMNotificationType
 
 static NSString *const kOYMIndoorRoutingKeyGetAreas = @"OYMGetAreas";
 static NSString *const kOYMIndoorRoutingKeyGetEdges = @"OYMGetEdges";
 static NSString *const kOYMIndoorRoutingKeyGetEdgesRouting = @"OYMGetEdgesRouting";
+static NSString *const kOYMIndoorRoutingKeyGetNotifications = @"OYMGetNotifications";
 
 
 /**
@@ -37,7 +40,7 @@ static NSString *const kOYMIndoorRoutingKeyGetEdgesRouting = @"OYMGetEdgesRoutin
 /**
  *  Method to retrieve the area list.
  *
- * @param id Building or Floor ID whose areas are requested
+ * @param uuid Building or Floor ID whose areas are requested
  */
 - (void) getAreasForUuid:(NSString*)uuid;
 /**
@@ -46,6 +49,18 @@ static NSString *const kOYMIndoorRoutingKeyGetEdgesRouting = @"OYMGetEdgesRoutin
  * @param ids Building or Floor IDs list whose areas are requested
  */
 - (void) getAreasForArray:(NSArray*)ids;
+/**
+ *  Method to retrieve the notification list.
+ *
+ * @param uuid Building or Floor ID whose notifications are requested
+ */
+- (void) getNotificationsForUuid:(NSString*)uuid;
+/**
+ *  Method to retrieve the notification list.
+ *
+ * @param ids Building or Floor IDs list whose notifications are requested
+ */
+- (void) getNotificationsForArray:(NSArray*)ids;
 
 
 @end

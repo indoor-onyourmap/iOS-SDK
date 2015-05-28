@@ -20,6 +20,10 @@
 @class OYMRoutingResult;
 #import "OYMInstruction.h"
 
+
+/**
+ *  This class includes the resulting route.
+ */
 @interface OYMRoute : NSObject <OYMLogProtocol>
 
 /** List of OYMRoutePoint containing the route */

@@ -17,6 +17,7 @@
 #import "OYMIndoorLoc.h"
 #import "OYMIndoorLocationLib.h"
 #import "OYMIndoorLocationDelegate.h"
+#import "OYMIndoorLocationNotifications.h"
 
 
 #pragma mark Public constants
@@ -27,12 +28,17 @@ static long const kOYMIndoorLocationCoreDbUpdate = 15; // Minutes
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define MSEC_TO_SEC(v) v/1000
 
+
+/**
+ *  This class handles the indoor positioning service. Inner methods shall not
+ * be accessed to ensure the correct functionality.
+ */
 @interface OYMIndoorLocationCore : NSObject <OYMIndoorLocDelegate, CLLocationManagerDelegate> {
     @private
     NSString* url;
     NSString* username;
     NSString* password;
-    /** Refresh time in msec */
+    // Refresh time in msec
     long refresh;
     int type;
     id<OYMIndoorLocationDelegate> delegate;
@@ -61,6 +67,8 @@ static long const kOYMIndoorLocationCoreDbUpdate = 15; // Minutes
     CLBeaconRegion* unknownRegion;
     NSMutableDictionary* unknownIbeacons;
     
+    OYMIndoorLocationNotifications* notifications;
+    
     // Timers
     NSTimer* timerGetIbeacons;
     NSTimer* timerPos;
@@ -73,12 +81,13 @@ static long const kOYMIndoorLocationCoreDbUpdate = 15; // Minutes
     OYMIndoorLocationSettings* settings;
     
     // Flags
+    BOOL isRunning;
     BOOL isScanStarted;
     BOOL isUnknownScanStarted;
     BOOL isUnknownBeingRetrieved;
+    
+    dispatch_queue_t queue;
 }
-
-@property (readonly) BOOL isRunning;
 
 
 #pragma mark Constructors

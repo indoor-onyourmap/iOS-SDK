@@ -16,8 +16,12 @@
 #import "OYMIbeacon.h"
 
 
+/**
+ *  CLBeacon category to add proper iBeacon sorting.
+ */
 @interface OYMIbeacon (Beacon) 
 
+/** Core Location iBeacon */
 @property CLBeacon* beacon;
 
 #pragma mark Class methods

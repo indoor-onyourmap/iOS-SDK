@@ -21,6 +21,9 @@ static NSString *const kOYMRoutePointKeyFloornumber = @"floornumber";
 static NSString *const kOYMRoutePointKeyBuildingId = @"buildingId";
 
 
+/**
+ *  This class defines a point that shall be used for the routing.
+ */
 @interface OYMRoutePoint : NSObject <OYMLogProtocol>
 
 /** WGS84 Longitude */

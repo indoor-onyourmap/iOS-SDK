@@ -17,7 +17,7 @@
 /**
  *  Internal protocol. Should not be used.
  */
-@protocol OYMIndoorLocDelegate <OYMIndoorDelegate>
+@protocol OYMIndoorLocDelegate <OYMIndoorRoutingDelegate>
 
 @required
 - (void) didGetSettings:(OYMIndoorLocationSettings*)settings;

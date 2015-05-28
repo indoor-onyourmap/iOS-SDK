@@ -34,7 +34,9 @@ static int const kOYMIndoorLocationLibTypeAverage = 0;
 /** Closest iBeacon */
 static int const kOYMIndoorLocationLibTypeClosest = 1;
 
-
+/**
+ *  Class to handle the Indoor Location Library.
+ */
 @interface OYMIndoorLocationLib : NSObject {
     @private
     NSString *url;

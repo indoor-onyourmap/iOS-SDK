@@ -67,13 +67,13 @@ static NSString *const kOYMBuildingKeyType = @"type";
 /**
  *  This method adds a OYMFloor in the Building's Floor list.
  *
- * @param f The OYMFloor to be added
+ * @param floor The OYMFloor to be added
  */
 - (void)addFloor:(OYMFloor*)floor;
 /**
  *  This method removes a OYMFloor in the Building's Floor list.
  *
- * @param f The OYMFloor to be removed
+ * @param floor The OYMFloor to be removed
  */
 - (void)removeFloor:(OYMFloor*)floor;
 /**

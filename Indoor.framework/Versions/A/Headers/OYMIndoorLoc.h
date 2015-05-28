@@ -9,7 +9,7 @@
 #ifndef INDOOR_OYMINDOORLOC_H
 #define INDOOR_OYMINDOORLOC_H
 
-#import "OYMIndoor+Protected.h"
+#import "OYMIndoorRouting+Protected.h"
 #import "OYMIndoorLocationSettings.h"
 #import "OYMIndoorLocDelegate.h"
 
@@ -19,7 +19,7 @@ static NSString *const kOYMIndoorLocKeyGetSettings = @"OYMGetSettings";
 static NSString *const kOYMIndoorLocKeySearch = @"OYMIndoorLocSearch";
 
 
-@interface OYMIndoorLoc : OYMIndoor
+@interface OYMIndoorLoc : OYMIndoorRouting
 
 
 /**

@@ -18,14 +18,14 @@
 /**
  *  Method to retrieve the edge list.
  *
- * @param id Building or Floor ID whose edges are requested
+ * @param uuid Building or Floor ID whose edges are requested
  */
 - (void) getEdgesForUuid:(NSString*)uuid;
 /**
  *  Method to retrieve the edge list.
  *
- * @param id Building or Floor ID whose edges are requested
- * @param imp Implementation to do
+ * @param uuid Building or Floor ID whose edges are requested
+ * @param callback Callback block to do
  */
 - (void) getEdgesForUuid:(NSString*)uuid andCallback:(void (^)(NSArray*,BOOL))callback;
 /**

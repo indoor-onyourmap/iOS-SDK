@@ -13,6 +13,9 @@
 @import CoreLocation;
 
 
+/**
+ *  This category will add a method to retrieve a unique CLBeacon identifier to be used in the indoor location SDK.
+ */
 @interface CLBeacon (Identifier)
 
 

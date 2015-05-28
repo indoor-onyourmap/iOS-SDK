@@ -21,6 +21,9 @@ static int const kOYMIndoorLocationTypeIbeacon = 0;
 static int const kOYMIndoorLocationTypeGps = 1;
 
 
+/**
+ *  This class provides the user position with further useful information.
+ */
 @interface OYMIndoorLocation : NSObject 
 
 /** WGS84 Longitude */
@@ -35,13 +38,13 @@ static int const kOYMIndoorLocationTypeGps = 1;
 @property (readonly) NSArray* found;
 /** Floor number */
 @property (readonly) int floornumber;
-/** Positioning type: kOYMIndoorLocationTypeNo, kOYMIndoorLocationTypeIbeacon, kOYMIndoorLocationTypeGps, kOYMIndoorLocationTypeNetwork or kOYMIndoorLocationTypeFused */
+/** Positioning type: kOYMIndoorLocationTypeNo, kOYMIndoorLocationTypeIbeacon, kOYMIndoorLocationTypeGps */
 @property (readonly) int type;
 /** Building name */
 @property (readonly) NSString* bName;
 /** Building ID */
 @property (readonly) NSString* buildingId;
-/** Number of geofences */
+/** Number of geofences crossed */
 @property (readonly) int geofences;
 
 

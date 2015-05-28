@@ -25,8 +25,11 @@ static NSString *const kOYMAreaKeyFloor = @"floor";
 static NSString *const kOYMAreaKeyFloornumber = @"floornumber";
 /** Key to retrieve the control points from the OYMLinksItem */
 static NSString *const kOYMAreaKeyGeometry = @"geometry";
+/** Key to retrieve the tag list from the OYMLinksItem */
+static NSString *const kOYMAreaKeyTags = @"tagList";
 /** Key to retrieve the area type from the OYMLinksItem */
 static NSString *const kOYMAreaKeyType = @"type";
+
 
 /** String containing the Area type */
 static NSString *const kOYMAreaType = @"AREA";
@@ -50,12 +53,15 @@ static NSString *const kOYMAreaType = @"AREA";
 @property (readonly) NSNumber* floornumber;
 /** Area geometry */
 @property (readonly) NSString* geometry;
-/** String defining Floor type */
+/** String defining Area type */
 @property (readonly) NSString* type;
 /** WGS84 Longitude */
 @property (readonly) NSNumber* x;
 /** WGS84 Latitude */
 @property (readonly) NSNumber* y;
+/** Tag list */
+@property (readonly) NSArray* tags;
+
 
 
 #pragma mark Constructors

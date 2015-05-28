@@ -14,6 +14,9 @@
 #import "OYMBuilding.h"
 #import "OYMIbeacon.h"
 
+/**
+ *  This delegate will provide feedback to the user. It will inform whether the connection to the server succeeded and provide to the developer all the requested information.
+ */
 @protocol OYMIndoorDelegate <NSObject>
 
 @required

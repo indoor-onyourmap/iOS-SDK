@@ -19,6 +19,7 @@
 @optional
 - (void) didGetAreas:(NSArray*)areas succeeded:(BOOL)succeed;
 - (void) didGetEdges:(NSArray*)edges succeeded:(BOOL)succeed;
+- (void) didGetNotifications:(NSArray*)notifications succeeded:(BOOL)succeed;
 - (void) didRoutingSucceed:(BOOL) succeed;
 
 @end

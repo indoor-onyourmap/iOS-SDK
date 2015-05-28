@@ -186,7 +186,7 @@ static NSString *const kOYMIndoorKeyUpdateIbeaconStatus = @"OYMUpdateIbeaconStat
 /**
  *  Method to retrieve the iBeacon list.
  *
- * @param uuid Building or Floor ID array whose iBeacons are requested
+ * @param ids Building or Floor ID array whose iBeacons are requested
  */
 - (void) getIbeaconsForArray:(NSArray*) ids;
 
@@ -203,7 +203,7 @@ static NSString *const kOYMIndoorKeyUpdateIbeaconStatus = @"OYMUpdateIbeaconStat
  */
 - (void) deleteIbeacon:(OYMIbeacon*)iBeacon;
 /**
- *  Method to update the live data properties an iBeacon from the server.
+ *  Method to update the live data properties from an iBeacon from the server.
  *
  * @param iBeacon iBeacon to be updated
  * @param type Information to be updated
