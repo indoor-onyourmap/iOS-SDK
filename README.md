@@ -24,7 +24,7 @@ floor | NSNumber* | Floor number
 type | NSString* | String defining the floor type
 tileProvider | OYMTileProvider* | Tile provider for indoor tiles
 
-&gt; **Note:** This class can also offer the tiles using the Google Maps GMSURLTileLayer*. In order to be able to retrieve it from the OYMFloor object it is required to define the macro `INDOOR_HASGOOGLEMAP` before including the framework and include all the Google Maps for iOS frameworks [+info](https://developers.google.com/maps/documentation/ios/).
+> **Note:** This class can also offer the tiles using the Google Maps GMSURLTileLayer*. In order to be able to retrieve it from the OYMFloor object it is required to define the macro `INDOOR_HASGOOGLEMAP` before including the framework and include all the Google Maps for iOS frameworks [+info](https://developers.google.com/maps/documentation/ios/).
 
 ### OYMBuilding class
 This class includes all the information regarding the Building shapes stored in the server. As well, it includes the floors related with the building.
