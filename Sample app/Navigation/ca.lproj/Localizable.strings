@@ -1,0 +1,65 @@
+/* 
+  Localizable.strings
+  indoor
+
+  Created by onyourmap on 19/1/15.
+  Copyright (c) 2015 OnYourMap. All rights reserved.
+*/
+
+
+// Common Strings
+"settings" = "Configuració";
+"enable" = "Activar";
+"exit" = "Sortir";
+"add" = "Afegir";
+"ok" = "OK";
+"cancel" = "Cancel·lar";
+"login" = "Inicia la sessió";
+"logout" = "Tanca la sessió";
+"options" = "Opcions";
+"help" = "Ajuda";
+
+
+// SplashViewController
+"FSAccountHint" = "Compte";
+"FSPasswordHint" = "Contrasenya";
+"FSConnecting" = "Connectant...";
+"FSConnectError" = "No es pot connectar amb el servidor";
+"FSLibError" = "La llibraria indoor no es pot executar";
+"FSLocServicesError" = "Els serveis de localització no estan activats";
+"FSLocServicesErrorTitle" = "Aquesta aplicació necessita els serveis de localització";
+"FSLocServicesErrorMessage" = "Cal activar-los per seguir utilitzant aquesta aplicació";
+
+// Help
+"HTitle" = "Necessites credencials, ajuda o la guia d'usuari? Contacta\'ns a indoor@onyourmap.com";
+
+
+// Upper Bar
+"FUBDestination" = "Destinació";
+"FUBLevel" = "Planta";
+"FUBYouAre" = "Ets a";
+"FUBSaved" = "Punt";
+
+// Activity Map
+"AMTitle" = "Mapa";
+"AMDestination" = "Destinació";
+"AMGettingRoute" = "Calculant la ruta...";
+"AMCustomDest" = "Destinació personalitzada";
+
+// Activity Map Notifications
+"AMNTitle" = "Notificació";
+"AMNEnter" = "Estàs entrant a";
+"AMNStay" = "Ets a";
+"AMNLeave" = "Estàs marxant de";
+"AMNNearby" = "Ets a prop de";
+
+// Activity Map Dialog -- Not used in iOS
+
+// Activity Map Action Sheet
+"AMASPick" = "Destinacions";
+
+// Fragment Drawer
+"FDStop" = "Atura la navigació";
+
+// Instructions
+"FIInstructions" = "Instruccions";

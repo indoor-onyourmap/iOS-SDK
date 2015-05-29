@@ -1,0 +1,66 @@
+/* 
+  Localizable.strings
+  indoor
+
+  Created by onyourmap on 19/1/15.
+  Copyright (c) 2015 OnYourMap. All rights reserved.
+*/
+
+
+// Common Strings
+"settings" = "Réglages";
+"enable" = "Activer";
+"exit" = "Quitter";
+"add" = "Ajouter";
+"ok" = "OK";
+"cancel" = "Annuler";
+"login" = "S'identifier";
+"logout" = "Se déconnecter";
+"options" = "Options";
+"help" = "Aide";
+
+
+// SplashViewController
+"FSAccountHint" = "Compte";
+"FSPasswordHint" = "Mot de passe";
+"FSConnecting" = "Connexion en cours...";
+"FSConnectError" = "Impossible de se connecter au serveur";
+"FSLibError" = "La librairie indoor ne peux pas démarrer";
+"FSLocServicesError" = "Le service de localisation n\'est pas activé";
+"FSLocServicesErrorTitle" = "Le service de localisation doit être activé pour utiliser cette application";
+/**/"FSLocServicesErrorMessage" = "Veuillez activer ce service dans le menu Réglages -> Confidentialité de votre téléphone";
+
+// Help
+"HTitle" = "Besoin d\'un identifiant, d\'aide ou de guides techniques ? Contactez nous à l\'adresse indoor@onyourmap.com";
+
+
+// Upper Bar
+"FUBDestination" = "Destination";
+"FUBLevel" = "Étage";
+"FUBYouAre" = "Vous êtes à";
+"FUBSaved" = "Marker";
+
+// Activity Map
+"AMTitle" = "Carte";
+"AMDestination" = "Destination";
+"AMGettingRoute" = "Calcul de l'itinéraire en cours...";
+"AMCustomDest" = "Destination personnalisée";
+
+// Activity Map Notifications
+"AMNTitle" = "Notification";
+"AMNEnter" = "Vous entrez dans";
+"AMNStay" = "Vous êtes dans";
+"AMNLeave" = "Vous quittez";
+"AMNNearby" = "Vous passez à côté de";
+
+// Activity Map Dialog -- Not used in iOS
+
+// Activity Map Action Sheet
+"AMASPick" = "Destinations";
+
+// Fragment Drawer
+"FDStop" = "Stopper la navigation";
+
+// Instructions
+"FIInstructions" = "Instructions";
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>routing_in_meters</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>In %#@i_meters@</string>
+        <key>i_meters</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>i</string>
+            <key>one</key>
+            <string>1 meter</string>
+            <key>other</key>
+            <string>%i meters</string>
+        </dict>
+    </dict>
+</dict>
+</plist>

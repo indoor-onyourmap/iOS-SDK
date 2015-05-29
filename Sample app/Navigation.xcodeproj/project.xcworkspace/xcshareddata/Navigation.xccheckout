@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D09B598C-58F8-41E2-8C35-240931A94AA9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Navigation</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C864851AC8943BE8E9A9CDA6730B0644A25511C3</key>
+		<string>https://github.com/indoor-onyourmap/iOS-Sample-dev.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Navigation.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C864851AC8943BE8E9A9CDA6730B0644A25511C3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/indoor-onyourmap/iOS-Sample-dev.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C864851AC8943BE8E9A9CDA6730B0644A25511C3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C864851AC8943BE8E9A9CDA6730B0644A25511C3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Sample-dev</string>
+		</dict>
+	</array>
+</dict>
+</plist>

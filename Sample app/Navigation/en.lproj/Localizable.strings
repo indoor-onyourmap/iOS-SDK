@@ -1,0 +1,66 @@
+/* 
+  Localizable.strings
+  indoor
+
+  Created by onyourmap on 19/1/15.
+  Copyright (c) 2015 OnYourMap. All rights reserved.
+*/
+
+
+// Common Strings
+"settings" = "Settings";
+"enable" = "Enable";
+"exit" = "Exit";
+"add" = "Add";
+"ok" = "OK";
+"cancel" = "Cancel";
+"login" = "Log in";
+"logout" = "Log out";
+"options" = "Options";
+"help" = "Help";
+
+
+// SplashViewController
+"FSAccountHint" = "Account";
+"FSPasswordHint" = "Password";
+"FSConnecting" = "Connecting...";
+"FSConnectError" = "Cannot connect to server";
+"FSLibError" = "Indoor library cannot be started";
+"FSLocServicesError" = "Location services are not enabled";
+"FSLocServicesErrorTitle" = "Location services are required to use this app";
+"FSLocServicesErrorMessage" = "Please enable them from the settings app, under privacy";
+
+// Help
+"HTitle" = "Do you need credentials, help or user guide? Contact us at indoor@onyourmap.com";
+
+
+// Upper Bar
+"FUBDestination" = "Destination";
+"FUBLevel" = "Floor";
+"FUBYouAre" = "You are at";
+"FUBSaved" = "Marker";
+
+// Activity Map
+"AMTitle" = "Map";
+"AMDestination" = "Destination";
+"AMGettingRoute" = "Computing route...";
+"AMCustomDest" = "Custom Destination";
+
+// Activity Map Notifications
+"AMNTitle" = "Notification";
+"AMNEnter" = "Entering";
+"AMNStay" = "Staying at";
+"AMNLeave" = "Leaving";
+"AMNNearby" = "Nearby";
+
+// Activity Map Dialog -- Not used in iOS
+
+// Activity Map Action Sheet
+"AMASPick" = "Destinations";
+
+// Fragment Drawer
+"FDStop" = "Stop navigation";
+
+// Instructions
+"FIInstructions" = "Instructions";
+
