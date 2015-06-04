@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OYMInstruction Class Reference</title>
+	<title>OYMRouting Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -54,23 +54,17 @@
 
 	
 	
-	<optgroup label="Properties">
-		
-		<option value="//api/name/distance">distance</option>
-		
-		<option value="//api/name/instruction">instruction</option>
-		
-		<option value="//api/name/props">props</option>
-		
-	</optgroup>
-	
 
 	
 
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initInstructionWithDistance:type:props:">- initInstructionWithDistance:type:props:</option>
+		<option value="//api/name/computeRouteFrom:to:">- computeRouteFrom:to:</option>
+		
+		<option value="//api/name/initRouting">- initRouting</option>
+		
+		<option value="//api/name/initWithIndoor:andBuilding:andDelegate:">- initWithIndoor:andBuilding:andDelegate:</option>
 		
 	</optgroup>
 	
@@ -87,7 +81,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">OYMInstruction Class Reference</h1>
+					<h1 class="title">OYMRouting Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -96,7 +90,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>OYMInstruction.h<br />OYMInstruction.m</td>
+	<td>OYMRouting.h<br />OYMRouting.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -106,7 +100,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class defines an <a href="#//api/name/instruction">instruction</a> to be used in the routing</p>
+						<p>This class handles all the Routing algorithm and route creation.</p>
 					</div>
 					
 					
@@ -122,8 +116,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/distance" title="distance"></a>
-	<h3 class="method-title"><code><a href="#//api/name/distance">&nbsp;&nbsp;distance</a></code>
+	<a name="//api/name/initWithIndoor:andBuilding:andDelegate:" title="initWithIndoor:andBuilding:andDelegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithIndoor:andBuilding:andDelegate:">&ndash;&nbsp;initWithIndoor:andBuilding:andDelegate:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -133,135 +127,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Distance from the start point</p>
+				<p>Routing constructor.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property double distance</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMInstruction.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/instruction" title="instruction"></a>
-	<h3 class="method-title"><code><a href="#//api/name/instruction">&nbsp;&nbsp;instruction</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Instruction to apply at that <a href="#//api/name/distance">distance</a></p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property InstructionType instruction</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMInstruction.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/props" title="props"></a>
-	<h3 class="method-title"><code><a href="#//api/name/props">&nbsp;&nbsp;props</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Values retrieved for the <a href="#//api/name/instruction">instruction</a></p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary *props</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMInstruction.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/initInstructionWithDistance:type:props:" title="initInstructionWithDistance:type:props:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initInstructionWithDistance:type:props:">&ndash;&nbsp;initInstructionWithDistance:type:props:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Instruction constructor.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (id)initInstructionWithDistance:(double)<em>distance</em> type:(InstructionType)<em>instruction</em> props:(NSDictionary *)<em>props</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithIndoor:(OYMIndoorRouting *)<em>ind</em> andBuilding:(NSString *)<em>bId</em> andDelegate:(id&lt;OYMIndoorDelegate&gt;)<em>del</em></code></div>
 
 		    
 			
@@ -270,18 +141,18 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>distance</code></th>
-						<td><p>Distance from the start point</p></td>
+						<th scope="row" class="argument-name"><code>ind</code></th>
+						<td><p>Initialized and logged in IndoorRouting object</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>instruction</code></th>
-						<td><p>Instruction to apply at that <a href="#//api/name/distance">distance</a></p></td>
+						<th scope="row" class="argument-name"><code>bId</code></th>
+						<td><p>Building ID whose routing needs to be started</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>props</code></th>
-						<td><p>Hashmap including extra values to complete the <a href="#//api/name/instruction">instruction</a></p></td>
+						<th scope="row" class="argument-name"><code>del</code></th>
+						<td><p>Delegate to handle the process</p></td>
 					</tr>
 				
 				</table>
@@ -301,7 +172,111 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMInstruction.h</code></p>
+				<p><code class="declared-in-ref">OYMRouting.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initRouting" title="initRouting"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initRouting">&ndash;&nbsp;initRouting</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method will initialize the object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)initRouting</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRouting.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/computeRouteFrom:to:" title="computeRouteFrom:to:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/computeRouteFrom:to:">&ndash;&nbsp;computeRouteFrom:to:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method will compute a route from one point to another.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (OYMRoute *)computeRouteFrom:(OYMRoutePoint *)<em>start</em> to:(OYMRoutePoint *)<em>destination</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>start</code></th>
+						<td><p>Departure point</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>destination</code></th>
+						<td><p>Destination point</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Route between the two points, <tt>nil</tt> if the route cannot be computed</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRouting.h</code></p>
 			</div>
 			
 			
