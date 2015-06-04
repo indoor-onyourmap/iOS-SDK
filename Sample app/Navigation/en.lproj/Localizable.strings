@@ -58,6 +58,9 @@
 // Activity Map Action Sheet
 "AMASPick" = "Destinations";
 
+// Activity Map Alertview
+"AMANoRoute" = "Route to %@ cannot be computed";
+
 // Fragment Drawer
 "FDStop" = "Stop navigation";
 

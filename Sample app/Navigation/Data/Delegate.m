@@ -45,17 +45,18 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
             
             if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
                 [(SplashViewController*)vc onLocationServicesChecked:NO];
-            } else if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways) {
+            } else if (status != kCLAuthorizationStatusAuthorizedAlways) {
                 [locManager requestAlwaysAuthorization];
             } else {
                 [(SplashViewController*)vc onLocationServicesChecked:YES];
             }
-        }
-        else {
+        } else {
             if (status == kCLAuthorizationStatusNotDetermined) {
-                [(SplashViewController*)vc onLocationServicesChecked:NO];
-            } else {
+                [locManager startUpdatingLocation];
+            } else if (status != kCLAuthorizationStatusAuthorizedAlways) {
                 [(SplashViewController*)vc onLocationServicesChecked:YES];
+            } else {
+                [(SplashViewController*)vc onLocationServicesChecked:NO];
             }
         }
     }

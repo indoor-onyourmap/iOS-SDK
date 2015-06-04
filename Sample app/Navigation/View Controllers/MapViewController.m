@@ -382,6 +382,7 @@ static float const kOYMViewBarConstraint = 72;
 - (BOOL) startNavBackground {
     if (currentLocation.type == kOYMIndoorLocationTypeIbeacon) {
         OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:@(currentLocation.longitude) andY:@(currentLocation.latitude) andFloornumber:@(currentLocation.floornumber) andBuildingId:currentLocation.buildingId];
+        
         OYMRoute* r = [[GlobalState get].routing computeRouteFrom:rp to:destination];
         
         // onPostExecute
@@ -392,10 +393,17 @@ static float const kOYMViewBarConstraint = 72;
             [startNavAlert dismissWithClickedButtonIndex:0 animated:YES];
             startNavAlert = nil;
             [self drawRouteInFloor:lastFloornumber];
+        } else {
+            [startNavAlert dismissWithClickedButtonIndex:0 animated:YES];
+            startNavAlert = nil;
+            NSString* title = [NSString localizedStringWithFormat:NSLocalizedStringFromTableInBundle(@"AMANoRoute", nil, [NSBundle mainBundle], nil), startNavTitle, nil];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil];
+            [alert show];
+            [self stopNavigation];
         }
-        
         isStartNav = NO;
     }
+    
     return !isStartNav;
 }
 

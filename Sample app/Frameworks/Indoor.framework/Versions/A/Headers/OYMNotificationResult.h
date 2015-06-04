@@ -16,9 +16,14 @@
 #import "OYMNotificationWrapper.h"
 
 
+/**
+ *  This class includes all the required information to handle the triggered notifications.
+ */
 @interface OYMNotificationResult : NSObject
 
+/** Notification triggered */
 @property (readonly) OYMNotification* notification;
+/** POI related to the Notification */
 @property (readonly) OYMArea* place;
 
 - (instancetype) initWithNotificationWrapper:(OYMNotificationWrapper*)nw;
