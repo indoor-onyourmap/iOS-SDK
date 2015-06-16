@@ -67,5 +67,7 @@ typedef enum {
 - (void) clearProcess:(int)mask;
 - (void) trigger:(int)mask;
 
+- (BOOL) isInside:(OYMIndoorLocation*)loc;
+
 @end
 #endif
