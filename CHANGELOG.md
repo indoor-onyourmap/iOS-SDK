@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 1.2.2 (2015-06-16)
+#### Bugs fixed
+
+- Notification properties decoding
+- Correcting notifications triggering system
+
 ## 1.2.1 (2015-06-04)
 #### Bugs fixed
 - iOS7 devices might crash when the indoor location library was initialized
