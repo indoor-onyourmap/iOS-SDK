@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E2BB9FA1B297E170025F63A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BB9F91B297E170025F63A /* UIView+Toast.m */; };
+		4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */; };
+		4E2BBA001B2AC7D20025F63A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BB9FF1B2AC7D20025F63A /* Reachability.m */; };
 		4E9423791B18850E00798E3B /* Indoor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9423781B18850E00798E3B /* Indoor.framework */; };
 		4E94237E1B1887F700798E3B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E9423801B1887F700798E3B /* Localizable.strings */; };
 		4EBCB7841B186FBB00D7B257 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7831B186FBB00D7B257 /* main.m */; };
@@ -35,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E2BB9F91B297E170025F63A /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Utils/UIView+Toast.m"; sourceTree = "<group>"; };
+		4E2BB9FB1B297E5F0025F63A /* UIView+Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Utils/UIView+Toast.h"; sourceTree = "<group>"; };
+		4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4E2BB9FE1B2AC7D20025F63A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utils/Reachability.h; sourceTree = "<group>"; };
+		4E2BB9FF1B2AC7D20025F63A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utils/Reachability.m; sourceTree = "<group>"; };
 		4E9423781B18850E00798E3B /* Indoor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Indoor.framework; path = Frameworks/Indoor.framework; sourceTree = "<group>"; };
 		4E94237F1B1887F700798E3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E9423811B18881400798E3B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */,
 				4EBCB7E21B18731300D7B257 /* Links.framework in Frameworks */,
 				4E9423791B18850E00798E3B /* Indoor.framework in Frameworks */,
 			);
@@ -168,6 +177,10 @@
 				4EBCB7BF1B18727500D7B257 /* OYMIndoorLocation+CLLocation.m */,
 				4EBCB7C01B18727500D7B257 /* UIImage+Tint.h */,
 				4EBCB7C11B18727500D7B257 /* UIImage+Tint.m */,
+				4E2BB9FB1B297E5F0025F63A /* UIView+Toast.h */,
+				4E2BB9F91B297E170025F63A /* UIView+Toast.m */,
+				4E2BB9FE1B2AC7D20025F63A /* Reachability.h */,
+				4E2BB9FF1B2AC7D20025F63A /* Reachability.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -203,6 +216,7 @@
 		4EBCB7DD1B1872C900D7B257 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */,
 				4E9423781B18850E00798E3B /* Indoor.framework */,
 				4EBCB7DF1B18731300D7B257 /* Links.framework */,
 				4EBCB7E01B18731300D7B257 /* Routing.bundle */,
@@ -292,12 +306,14 @@
 				4EBCB7B81B18725C00D7B257 /* UpperBar.m in Sources */,
 				4EBCB7DC1B18729C00D7B257 /* SplashViewController.m in Sources */,
 				4EBCB7B41B18725C00D7B257 /* GradientView.m in Sources */,
+				4E2BB9FA1B297E170025F63A /* UIView+Toast.m in Sources */,
 				4EBCB7841B186FBB00D7B257 /* main.m in Sources */,
 				4EBCB7C41B18727500D7B257 /* OYMIndoorLocation+CLLocation.m in Sources */,
 				4EBCB7C21B18727500D7B257 /* Colors.m in Sources */,
 				4EBCB7B61B18725C00D7B257 /* PrimaryBarView.m in Sources */,
 				4EBCB7CB1B18728800D7B257 /* Delegate.m in Sources */,
 				4EBCB7DA1B18729C00D7B257 /* InstructionsViewController.m in Sources */,
+				4E2BBA001B2AC7D20025F63A /* Reachability.m in Sources */,
 				4EBCB7C31B18727500D7B257 /* OYMAnnotation.m in Sources */,
 				4EBCB7D81B18729C00D7B257 /* HelpViewController.m in Sources */,
 				4EBCB7B71B18725C00D7B257 /* RoundedButton.m in Sources */,

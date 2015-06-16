@@ -22,6 +22,7 @@
 #import "PrimaryBarView.h"
 #import "OYMAnnotation.h"
 #import "OYMIndoorLocation+CLLocation.h"
+#import "UIView+Toast.h"
 
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate> {
@@ -83,7 +84,7 @@
 @property(weak, nonatomic) IBOutlet MKMapView* mapView;
 
 
-- (void) enableRouting;
+- (void) enableRouting:(BOOL)succeed;
 
 - (IBAction)onLogout:(id)sender;
 

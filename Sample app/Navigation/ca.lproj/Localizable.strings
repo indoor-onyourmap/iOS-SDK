@@ -29,6 +29,8 @@
 "FSLocServicesError" = "Els serveis de localització no estan activats";
 "FSLocServicesErrorTitle" = "Aquesta aplicació necessita els serveis de localització";
 "FSLocServicesErrorMessage" = "Cal activar-los per seguir utilitzant aquesta aplicació";
+"FSConnectUsernameError" = "Compte incorrecte";
+"FSConnectPasswordError" = "Contrasenya incorrecta";
 
 // Help
 "HTitle" = "Necessites credencials, ajuda o la guia d'usuari? Contacta\'ns a indoor@onyourmap.com";
@@ -60,6 +62,11 @@
 
 // Activity Map Alertview
 "AMANoRoute" = "No es pot calcular la ruta cap a %@";
+
+// Activity Map Toast
+"AMTNoInternet" = "S'ha perdut la connexió a internet. Les functions de l'app es poden veure limitades";
+"AMTNoBuildings" = "No s'ha creat cap edifici per a aquest compte";
+"AMTNoEdges" = "No s'ha creat la xarxa de navegació per %@";
 
 // Fragment Drawer
 "FDStop" = "Atura la navigació";

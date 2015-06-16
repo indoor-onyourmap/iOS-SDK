@@ -28,7 +28,9 @@
 "FSLibError" = "La librairie indoor ne peux pas démarrer";
 "FSLocServicesError" = "Le service de localisation n\'est pas activé";
 "FSLocServicesErrorTitle" = "Le service de localisation doit être activé pour utiliser cette application";
-/**/"FSLocServicesErrorMessage" = "Veuillez activer ce service dans le menu Réglages -> Confidentialité de votre téléphone";
+"FSLocServicesErrorMessage" = "Veuillez activer ce service dans le menu Réglages -> Confidentialité de votre téléphone";
+"FSConnectUsernameError" = "Nom du compte incorrect";
+"FSConnectPasswordError" = "Mot de passe incorrect";
 
 // Help
 "HTitle" = "Besoin d\'un identifiant, d\'aide ou de guides techniques ? Contactez nous à l\'adresse indoor@onyourmap.com";
@@ -60,6 +62,11 @@
 
 // Activity Map Alertview
 "AMANoRoute" = "Pas d\'itinéraire possible jusqu\'à %@";
+
+// Activity Map Toast
+"AMTNoInternet" = "Connexion internet inexistante. L'application fonctionnera en mode limité";
+"AMTNoBuildings" = "Il n'y a pas encore de bâtiment";
+"AMTNoEdges" = "Aucun réseau de navigation pour %@";
 
 // Fragment Drawer
 "FDStop" = "Stopper la navigation";

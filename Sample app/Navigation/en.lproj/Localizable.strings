@@ -29,6 +29,8 @@
 "FSLocServicesError" = "Location services are not enabled";
 "FSLocServicesErrorTitle" = "Location services are required to use this app";
 "FSLocServicesErrorMessage" = "Please enable them from the settings app, under privacy";
+"FSConnectUsernameError" = "Invalid account";
+"FSConnectPasswordError" = "Invalid password";
 
 // Help
 "HTitle" = "Do you need credentials, help or user guide? Contact us at indoor@onyourmap.com";
@@ -60,6 +62,11 @@
 
 // Activity Map Alertview
 "AMANoRoute" = "Route to %@ cannot be computed";
+
+// Activity Map Toast
+"AMTNoInternet" = "No internet connection is available. App features might be limited";
+"AMTNoBuildings" = "No building has been created yet";
+"AMTNoEdges" = "Navigation network for %@ is not created";
 
 // Fragment Drawer
 "FDStop" = "Stop navigation";

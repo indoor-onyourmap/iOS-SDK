@@ -17,12 +17,14 @@ static NSString *const kOYMIndoorNavigationUserPrefix = @"user@indoor.";
 static NSString *const kOYMIndoorNavigationUserKey = @"OYM_PREFS_USER";
 static NSString *const kOYMIndoorNavigationPasswordKey = @"OYM_PREFS_PASSWORD";
 static NSString *const kOYMIndoorNavigationAutologinKey = @"OYM_PREFS_AUTOLOGIN";
+static NSString *const kOYMIndoorNavigationErrorUsername = @"unknown username";
+static NSString *const kOYMIndoorNavigationErrorPassword = @"invalid password";
 static NSString *const kOYMIndoorNavigationUrl = @"https://indoor.onyourmap.com:8443/links";
 
 static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 
 
-@synthesize gs, vc, locManager;
+@synthesize gs, vc, locManager, reachability;
 
 + (instancetype) get {
     static dispatch_once_t onceToken;
@@ -30,6 +32,9 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
         deg = [Delegate new];
         deg.locManager = [CLLocationManager new];
         deg.locManager.delegate = deg;
+        
+        // Initialize Reachability
+        deg.reachability = [OYMReachability reachabilityWithHostname:@"www.google.com"];
     });
     
     return deg;
@@ -63,6 +68,16 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
     
 }
 
+- (void) recheckLocationServices {
+    if (vc != nil && [vc isKindOfClass:[MapViewController class]]) {
+        CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+        if (status != kCLAuthorizationStatusAuthorizedAlways) {
+            [((MapViewController*)vc) onLogout:nil];
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"FSLocServicesErrorTitle", nil) message:NSLocalizedString(@"FSLocServicesErrorMessage", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
+        }
+    }
+}
+
 
 - (BOOL) areCredentialsAvailable {
     NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
@@ -83,6 +98,9 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 }
 
 -(void)start {
+    [deg.reachability startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:deg selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
+    
     gs = [GlobalState get];
     gs.indoorLib = [[OYMIndoorLocationLib alloc] initWithUrl:kOYMIndoorNavigationUrl andUser:user andPassword:password withDelegate:self];
     gs.links = [[OYMIndoorRouting alloc] initWithUrl:kOYMIndoorNavigationUrl andUser:user andPassword:password andDelegate:self];
@@ -97,6 +115,9 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 - (void)stop {
     [gs.indoorLib stopLocate];
     [gs.links disconnect];
+    
+    [deg.reachability stopNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:deg name:kReachabilityChangedNotification object:nil];
 }
 
 
@@ -119,7 +140,13 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
     [prefs synchronize];
     
     if (vc != nil && [vc isKindOfClass:[SplashViewController class]]) {
-        [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectError", nil)];
+        if ([msg isEqualToString:kOYMIndoorNavigationErrorUsername]) {
+            [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectUsernameError", nil)];
+        } else if ([msg isEqualToString:kOYMIndoorNavigationErrorPassword]) {
+            [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectPasswordError", nil)];
+        } else {
+            [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectError", nil)];
+        }
     }
 }
 
@@ -159,8 +186,8 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 }
 
 - (void)didRoutingSucceed:(BOOL)succeed {
-    if (succeed && vc != nil && [vc isKindOfClass:[MapViewController class]]) {
-        [(MapViewController*)vc enableRouting];
+    if (vc != nil && [vc isKindOfClass:[MapViewController class]]) {
+        [(MapViewController*)vc enableRouting:succeed];
     }
 }
 
@@ -190,6 +217,15 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (vc != nil && [vc isKindOfClass:[SplashViewController class]]) {
         [(SplashViewController*)vc onLocationServicesChecked:(status == kCLAuthorizationStatusAuthorizedAlways)];
+    }
+}
+
+
+#pragma mark Reachability
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    OYMReachability* r = [notification object];
+    if (![r isReachable] && vc != nil && [vc isKindOfClass:[MapViewController class]]) {
+        [vc.view makeToast:NSLocalizedString(@"AMTNoInternet", nil) duration:3.0 position:CSToastPositionBottom title:nil];
     }
 }
 

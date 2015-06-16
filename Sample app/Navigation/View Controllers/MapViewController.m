@@ -15,13 +15,7 @@
 static float const kOYMMapCircleStroke = 3;
 static float const kOYMMapRouteWidth = 6;
 static float const kOYMMapTiltNavigation = 30;
-static float const kOYMMapTimeFirstUpdate = 1000;
-static float const kOYMMapTimeMarker = 500;
-static float const kOYMMapTimeNavigation = 250;
-static float const kOYMMapZIndexTiles = 1;
-static float const kOYMMapZIndexRoute = 2;
-static float const kOYMMapZIndexCircle = 3;
-static float const kOYMMapZoomDefault = 19;
+static float const kOYMMapMetersDefault = 30;
 
 static float const kOYMRouteArrivalThreshold = 2;
 
@@ -52,7 +46,6 @@ static float const kOYMViewBarConstraint = 72;
     fubDestination.text = NSLocalizedString(@"FUBYouAre", nil);
     fubLevel.text = NSLocalizedString(@"FUBLevel", nil);
     [self prepareBottomBar];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -319,25 +312,33 @@ static float const kOYMViewBarConstraint = 72;
 
 
 #pragma mark Data handling
-- (void) enableRouting {
-    isNavigationReady = YES;
-    UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
-    [mapView addGestureRecognizer:lp];
+- (void) enableRouting:(BOOL)succeed {
+    if (succeed) {
+        isNavigationReady = YES;
+        UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
+        [mapView addGestureRecognizer:lp];
+    } else {
+        [self.view makeToast:[NSString localizedStringWithFormat:NSLocalizedString(@"AMTNoEdges", nil), building.name] duration:3.0 position:CSToastPositionBottom title:nil];
+    }
 }
 
 - (void)setBuildings:(NSArray *)buildings {
-    building = [buildings firstObject];
-    fubLocal.text = building.name;
-    
-    // Prepare routing
-    [GlobalState get].routing = [[OYMRouting alloc] initWithIndoor:[GlobalState get].links andBuilding:building.uuid andDelegate:[Delegate get]];
-    [[GlobalState get].routing initRouting];
-    
-    isBuildingReady = YES;
-    
-    [[GlobalState get].links getAreasForUuid:building.uuid];
-     
-    floors = [building getFloorsList];
+    if (buildings == nil || [buildings count] == 0) {
+        [self.view makeToast:NSLocalizedString(@"AMTNoBuildings", nil) duration:3.0 position:CSToastPositionBottom title:nil];
+    } else {
+        building = [buildings firstObject];
+        fubLocal.text = building.name;
+        
+        // Prepare routing
+        [GlobalState get].routing = [[OYMRouting alloc] initWithIndoor:[GlobalState get].links andBuilding:building.uuid andDelegate:[Delegate get]];
+        [[GlobalState get].routing initRouting];
+        
+        isBuildingReady = YES;
+        
+        [[GlobalState get].links getAreasForUuid:building.uuid];
+        
+        floors = [building getFloorsList];
+    }
 }
 
 - (void) setAreas:(NSArray *)ar {
@@ -457,7 +458,7 @@ static float const kOYMViewBarConstraint = 72;
     
     if (isFirstMapUpdate) {
         isFirstMapUpdate = NO;
-        [mapView setRegion:MKCoordinateRegionMakeWithDistance([loc getCoords], 30, 30) animated:YES];
+        [mapView setRegion:MKCoordinateRegionMakeWithDistance([loc getCoords], kOYMMapMetersDefault, kOYMMapMetersDefault) animated:YES];
     }
     
     // Handle FUB visibility
@@ -478,6 +479,11 @@ static float const kOYMViewBarConstraint = 72;
         OYMRouteProjectedPoint* projPoint = rr.projectedPoint;
         
         if (!rr.isRecomputeRequired) {
+            // Check wrong projection
+            if (projPoint == nil) {
+                return;
+            }
+            
             // Get next instruction to show
             instruction = [[GlobalState get].route getRouteInstructionForLocation:loc];
             
@@ -517,6 +523,9 @@ static float const kOYMViewBarConstraint = 72;
         isFirstMapUpdate = YES;
         [Delegate get].vc = self;
         // onMapLongClick -> Set in enableRouting
+        
+        // Check buildings
+        [[GlobalState get].links getBuildings];
     }
     
 }

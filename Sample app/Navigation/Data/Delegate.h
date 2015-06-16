@@ -17,6 +17,7 @@
 #import "GlobalState.h"
 #import "SplashViewController.h"
 #import "InstructionsViewController.h"
+#import "Reachability.h"
 
 
 @interface Delegate : NSObject <OYMIndoorRoutingDelegate, OYMIndoorLocationDelegate, CLLocationManagerDelegate> {
@@ -28,15 +29,20 @@
 @property GlobalState* gs;
 @property UIViewController* vc;
 @property (strong) CLLocationManager* locManager;
+@property OYMReachability* reachability;
 
 + (instancetype) get;
 
 - (void) checkLocationServices;
+- (void) recheckLocationServices;
 - (BOOL) areCredentialsAvailable;
 - (void) disableAutologin;
 - (void) start;
 - (void) startWithAccount:(NSString*)a andPassword:(NSString*)p;
 - (void) stop;
+
+// Reachability
+- (void)reachabilityDidChange:(NSNotification *)notification;
 
 @end
 #endif
