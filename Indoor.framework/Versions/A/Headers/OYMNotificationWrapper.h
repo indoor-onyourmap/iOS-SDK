@@ -42,7 +42,7 @@ typedef enum {
 @property (readonly) NSArray* points;
 @property (readonly) double radius;
 
-- (instancetype) initWithGeometry:(NSString*)geometry;
+- (instancetype) initWithGeometry:(NSString*)geometry andNotification:(OYMNotification*)noti;
 
 @end
 

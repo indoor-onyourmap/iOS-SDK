@@ -11,14 +11,20 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 #import <Links/links.h>
+
+#import "NSData+Hex.h"
+#import "ESSEddystone.h"
 
 
 # pragma mark Public constants
 /** String containing the IBeacon type */
 static NSString *const kOYMIbeaconType = @"IBEACON";
 
+/** String containing the Eddystone Service UUID */
+static NSString *const kOYMIbeaconEddystoneServiceUuid = @"FEAA";
 
 /** Key to retrieve the IBeacon major from the {@link Item} */
 static NSString *const kOYMIbeaconKeyMajor = @"major";
@@ -94,7 +100,12 @@ static int const kOYMIbeaconStatusNoBattery = 4;
  * @param item OYMLinksItem containing the IBeacon object
  */
 - (instancetype)initWithItem:(OYMLinksItem*)item;
-
+/**
+ *  Eddystone Beacon partial constructor. Should not be used.
+ *
+ * @param eddystone Eddystone Beacon
+ */
+- (instancetype) initWithEddystone:(ESSBeaconInfo *)eddystone __deprecated_msg("Partial constructor");
 
 #pragma mark Class methods
 /**

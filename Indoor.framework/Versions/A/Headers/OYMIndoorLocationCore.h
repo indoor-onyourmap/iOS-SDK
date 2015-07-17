@@ -19,6 +19,10 @@
 #import "OYMIndoorLocationDelegate.h"
 #import "OYMIndoorLocationNotifications.h"
 
+#import "ESSEddystone.h"
+#import "ESSBeaconScanner.h"
+#import "ESSBeaconInfo+Identifier.h"
+
 
 #pragma mark Public constants
 static long const kOYMIndoorLocationCoreDefaultRefresh = 1000; // msec
@@ -48,7 +52,7 @@ static long const kOYMIndoorLocationCoreDbUpdate = 15; // Minutes
     // Data
     NSDictionary* dbSnapshot;
     long dbPeriod;
-    NSMutableArray* emittingBeacons;
+    NSMutableDictionary* emittingBeacons;
     
     OYMIndoorLocation* applePos;
     OYMIndoorLocation* lastPos;

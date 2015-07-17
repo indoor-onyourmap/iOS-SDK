@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0 (2015-06-17)
+#### Added features
+- Adding Eddystone support
+
+#### Bugs fixed
+-Correcting how nearby notifications are triggered
+
 
 ## 1.2.2 (2015-06-16)
 #### Bugs fixed

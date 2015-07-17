@@ -23,15 +23,33 @@
 
 /** Core Location iBeacon */
 @property CLBeacon* beacon;
+/** RSSI */
+@property NSNumber* rssi;
+
+
+#pragma mark Constructors
+/**
+ *  Eddystone Beacon partial constructor. Should not be used.
+ *
+ * @param beac CLBeacon to be decoded
+ */
+- (instancetype) initWithCLBeacon:(CLBeacon*)beac __deprecated_msg("Partial constructor");
+
 
 #pragma mark Class methods
 /**
  *  This method returns the iBeacon(s) with the highest RSSI.
  *
- * @param ibeacons Array containing the CLBeacon to be sorted
+ * @param ibeacons Dictionary containing the CLBeacon to be sorted
  * @return The CLBeacon object(s) with the highest RSSI
  */
-+ (NSArray*) getMax:(NSArray*)ibeacons;
++ (NSArray*) getMax:(NSDictionary*)ibeaconsDict;
+
+#pragma mark Instance methods
+/**
+ *  This methuds returns the accuracy of the iBeacon.
+ */
+- (double) getAccuracy;
 
 
 @end
