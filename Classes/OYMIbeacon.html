@@ -56,8 +56,6 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/beacon">beacon</option>
-		
 		<option value="//api/name/building">building</option>
 		
 		<option value="//api/name/floor">floor</option>
@@ -90,8 +88,6 @@
 	
 	<optgroup label="Class Methods">
 		
-		<option value="//api/name/getMax:">+ getMax:</option>
-		
 		<option value="//api/name/sort:">+ sort:</option>
 		
 	</optgroup>
@@ -101,6 +97,8 @@
 	<optgroup label="Instance Methods">
 		
 		<option value="//api/name/getIdentifier">- getIdentifier</option>
+		
+		<option value="//api/name/initWithEddystone:">- initWithEddystone:</option>
 		
 		<option value="//api/name/initWithItem:">- initWithItem:</option>
 		
@@ -142,8 +140,6 @@
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>This class includes all the information regarding the iBeacon Items stored
 in Links.</p>
-
-<p>CLBeacon categor<a href="#//api/name/y">y</a> to add proper iBeacon sorting.</p>
 					</div>
 					
 					
@@ -155,7 +151,7 @@ in Links.</p>
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
@@ -580,7 +576,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>String defining the I<a href="#//api/name/beacon">beacon</a> type</p>
+				<p>String defining the Ibeacon type</p>
 			</div>
 			
 		    
@@ -745,6 +741,59 @@ in Links.</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/initWithEddystone:" title="initWithEddystone:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithEddystone:">&ndash;&nbsp;initWithEddystone:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Eddystone Beacon partial constructor. Should not be used.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithEddystone:(ESSBeaconInfo *)<em>eddystone</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>eddystone</code></th>
+						<td><p>Eddystone Beacon</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/sort:" title="sort:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/sort:">+&nbsp;sort:</a></code>
 </h3>
@@ -756,7 +805,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This methods sort an arra<a href="#//api/name/y">y</a> of OYMI<a href="#//api/name/beacon">beacon</a> according to its <a href="#//api/name/minor">minor</a> number.</p>
+				<p>This methods sort an arra<a href="#//api/name/y">y</a> of OYMIbeacon according to its <a href="#//api/name/minor">minor</a> number.</p>
 			</div>
 			
 		    
@@ -771,7 +820,7 @@ in Links.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>ibeacons</code></th>
-						<td><p>Arra<a href="#//api/name/y">y</a> of OYMI<a href="#//api/name/beacon">beacon</a></p></td>
+						<td><p>Arra<a href="#//api/name/y">y</a> of OYMIbeacon</p></td>
 					</tr>
 				
 				</table>
@@ -898,113 +947,6 @@ across the different platforms.</p>
 </div>
 						</div>
 						
-
-						<a title="Beacon Methods" name="task_Beacon Methods"></a>
-						<h2 class="task-title">Beacon Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/beacon" title="beacon"></a>
-	<h3 class="method-title"><code><a href="#//api/name/beacon">&nbsp;&nbsp;beacon</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Core Location iBeacon</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property CLBeacon *beacon</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon+Beacon.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getMax:" title="getMax:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getMax:">+&nbsp;getMax:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>This method returns the iBeacon(s) with the highest RSSI.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (NSArray *)getMax:(NSArray *)<em>ibeacons</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>ibeacons</code></th>
-						<td><p>Arra<a href="#//api/name/y">y</a> containing the CLBeacon to be sorted</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The CLBeacon object(s) with the highest RSSI</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon+Beacon.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
 					</div>
 					
 					
@@ -1015,7 +957,7 @@ across the different platforms.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-06-04</p>
+						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-07-20</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
