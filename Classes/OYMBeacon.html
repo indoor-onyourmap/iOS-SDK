@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OYMIbeacon Class Reference</title>
+	<title>OYMBeacon Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">OYM Indoor SDK </a>
+				<a href="../index.html">Goindoor SDK for iOS </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,15 +56,19 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/beacon">beacon</option>
+		
 		<option value="//api/name/building">building</option>
 		
 		<option value="//api/name/floor">floor</option>
 		
-		<option value="//api/name/floornumber">floornumber</option>
+		<option value="//api/name/floorNumber">floorNumber</option>
 		
 		<option value="//api/name/major">major</option>
 		
 		<option value="//api/name/minor">minor</option>
+		
+		<option value="//api/name/rssi">rssi</option>
 		
 		<option value="//api/name/scanDate">scanDate</option>
 		
@@ -76,7 +80,9 @@
 		
 		<option value="//api/name/uuid">uuid</option>
 		
-		<option value="//api/name/uuidIbeacon">uuidIbeacon</option>
+		<option value="//api/name/uuidBeacon">uuidBeacon</option>
+		
+		<option value="//api/name/warningCounter">warningCounter</option>
 		
 		<option value="//api/name/x">x</option>
 		
@@ -88,6 +94,8 @@
 	
 	<optgroup label="Class Methods">
 		
+		<option value="//api/name/getMax:">+ getMax:</option>
+		
 		<option value="//api/name/sort:">+ sort:</option>
 		
 	</optgroup>
@@ -96,7 +104,11 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/getAccuracy">- getAccuracy</option>
+		
 		<option value="//api/name/getIdentifier">- getIdentifier</option>
+		
+		<option value="//api/name/initWithCLBeacon:">- initWithCLBeacon:</option>
 		
 		<option value="//api/name/initWithEddystone:">- initWithEddystone:</option>
 		
@@ -119,7 +131,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">OYMIbeacon Class Reference</h1>
+					<h1 class="title">OYMBeacon Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -128,7 +140,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>OYMIbeacon.h<br />OYMIbeacon.m</td>
+	<td>OYMBeacon.h<br />OYMBeacon.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -138,8 +150,10 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class includes all the information regarding the iBeacon Items stored
+						<p>This class includes all the information regarding the Beacon Items stored
 in Links.</p>
+
+<p>CLBeacon categor<a href="#//api/name/y">y</a> to add proper iBeacon sorting.</p>
 					</div>
 					
 					
@@ -151,7 +165,7 @@ in Links.</p>
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
@@ -189,7 +203,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -230,7 +244,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -271,7 +285,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -289,7 +303,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>iBeacon major</p>
+				<p>Beacon major</p>
 			</div>
 			
 		    
@@ -312,7 +326,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -330,7 +344,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>iBeacon minor</p>
+				<p>Beacon minor</p>
 			</div>
 			
 		    
@@ -353,7 +367,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -394,15 +408,15 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/uuidIbeacon" title="uuidIbeacon"></a>
-	<h3 class="method-title"><code><a href="#//api/name/uuidIbeacon">&nbsp;&nbsp;uuidIbeacon</a></code>
+	<a name="//api/name/uuidBeacon" title="uuidBeacon"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uuidBeacon">&nbsp;&nbsp;uuidBeacon</a></code>
 </h3>
 
 	<div class="method-info">
@@ -412,12 +426,12 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>iBeacon proximit<a href="#//api/name/y">y</a> UUID</p>
+				<p>Beacon proximit<a href="#//api/name/y">y</a> UUID</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property NSString *uuidIbeacon</code></div>
+			<div class="method-subsection method-declaration"><code>@property NSString *uuidBeacon</code></div>
 
 		    
 			
@@ -435,7 +449,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -476,7 +490,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -517,15 +531,15 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/floornumber" title="floornumber"></a>
-	<h3 class="method-title"><code><a href="#//api/name/floornumber">&nbsp;&nbsp;floornumber</a></code>
+	<a name="//api/name/floorNumber" title="floorNumber"></a>
+	<h3 class="method-title"><code><a href="#//api/name/floorNumber">&nbsp;&nbsp;floorNumber</a></code>
 </h3>
 
 	<div class="method-info">
@@ -540,7 +554,7 @@ in Links.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property NSNumber *floornumber</code></div>
+			<div class="method-subsection method-declaration"><code>@property NSNumber *floorNumber</code></div>
 
 		    
 			
@@ -558,7 +572,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -576,7 +590,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>String defining the Ibeacon type</p>
+				<p>String defining the Beacon type</p>
 			</div>
 			
 		    
@@ -599,7 +613,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -640,7 +654,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -658,7 +672,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Variable defining the iBeacon status, if &lt;1 can be used</p>
+				<p>Variable defining the Beacon status, if &lt;1 can be used</p>
 			</div>
 			
 		    
@@ -681,7 +695,48 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warningCounter" title="warningCounter"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warningCounter">&nbsp;&nbsp;warningCounter</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Warning counter</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property int warningCounter</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -699,7 +754,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>IBeacon constructor.</p>
+				<p>Beacon constructor.</p>
 			</div>
 			
 		    
@@ -714,7 +769,7 @@ in Links.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>item</code></th>
-						<td><p>OYMLinksItem containing the IBeacon object</p></td>
+						<td><p>OYMLinksItem containing the Beacon object</p></td>
 					</tr>
 				
 				</table>
@@ -734,7 +789,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -787,7 +842,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -805,12 +860,12 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This methods sort an arra<a href="#//api/name/y">y</a> of OYMIbeacon according to its <a href="#//api/name/minor">minor</a> number.</p>
+				<p>This methods sort an arra<a href="#//api/name/y">y</a> of OYMBeacon according to its <a href="#//api/name/minor">minor</a> number.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (NSArray *)sort:(NSArray *)<em>ibeacons</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSArray *)sort:(NSArray *)<em>Beacons</em></code></div>
 
 		    
 			
@@ -819,8 +874,8 @@ in Links.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>ibeacons</code></th>
-						<td><p>Arra<a href="#//api/name/y">y</a> of OYMIbeacon</p></td>
+						<th scope="row" class="argument-name"><code>Beacons</code></th>
+						<td><p>Arra<a href="#//api/name/y">y</a> of OYMBeacon</p></td>
 					</tr>
 				
 				</table>
@@ -845,7 +900,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -863,7 +918,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method provides an identifier for the iBeacon that can be used
+				<p>This method provides an identifier for the Beacon that can be used
 across the different platforms.</p>
 			</div>
 			
@@ -877,7 +932,7 @@ across the different platforms.</p>
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A unique iBeacon identifier</p>
+				<p>A unique Beacon identifier</p>
 			</div>
 			
 
@@ -892,7 +947,7 @@ across the different platforms.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
 			</div>
 			
 			
@@ -910,7 +965,7 @@ across the different platforms.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method creates an OYMLinksItem object from an IBeacon object.</p>
+				<p>This method creates an OYMLinksItem object from an Beacon object.</p>
 			</div>
 			
 		    
@@ -938,7 +993,249 @@ across the different platforms.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIbeacon.h</code></p>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Beacon Methods" name="task_Beacon Methods"></a>
+						<h2 class="task-title">Beacon Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/beacon" title="beacon"></a>
+	<h3 class="method-title"><code><a href="#//api/name/beacon">&nbsp;&nbsp;beacon</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Core Location iBeacon</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property CLBeacon *beacon</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMBeacon+Beacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/rssi" title="rssi"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rssi">&nbsp;&nbsp;rssi</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>RSSI</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property NSNumber *rssi</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMBeacon+Beacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithCLBeacon:" title="initWithCLBeacon:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithCLBeacon:">&ndash;&nbsp;initWithCLBeacon:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>OYMBeacon partial constructor. Should not be used.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithCLBeacon:(CLBeacon *)<em>beac</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>beac</code></th>
+						<td><p>CLBeacon to be decoded</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMBeacon+Beacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMax:" title="getMax:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMax:">+&nbsp;getMax:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method returns the iBeacon(s) with the highest RSSI.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSArray *)getMax:(NSDictionary *)<em>ibeaconsDict</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>ibeacons</code></th>
+						<td><p>Dictionar<a href="#//api/name/y">y</a> containing the CLBeacon to be sorted</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The CLBeacon object(s) with the highest RSSI</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMBeacon+Beacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getAccuracy" title="getAccuracy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getAccuracy">&ndash;&nbsp;getAccuracy</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method returns the accurac<a href="#//api/name/y">y</a> of the iBeacon.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (double)getAccuracy</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMBeacon+Beacon.h</code></p>
 			</div>
 			
 			
@@ -957,7 +1254,7 @@ across the different platforms.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-07-20</p>
+						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

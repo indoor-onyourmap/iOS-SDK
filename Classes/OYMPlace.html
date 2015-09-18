@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OYMIndoorLocation Class Reference</title>
+	<title>OYMPlace Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">OYM Indoor SDK </a>
+				<a href="../index.html">Goindoor SDK for iOS </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,31 +56,39 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/accuracy">accuracy</option>
+		<option value="//api/name/building">building</option>
 		
-		<option value="//api/name/bName">bName</option>
+		<option value="//api/name/floor">floor</option>
 		
-		<option value="//api/name/buildingId">buildingId</option>
+		<option value="//api/name/floorNumber">floorNumber</option>
 		
-		<option value="//api/name/floornumber">floornumber</option>
+		<option value="//api/name/geometry">geometry</option>
 		
-		<option value="//api/name/found">found</option>
+		<option value="//api/name/name">name</option>
 		
-		<option value="//api/name/geofences">geofences</option>
+		<option value="//api/name/propertiesList">propertiesList</option>
 		
-		<option value="//api/name/latitude">latitude</option>
-		
-		<option value="//api/name/longitude">longitude</option>
+		<option value="//api/name/tags">tags</option>
 		
 		<option value="//api/name/type">type</option>
 		
-		<option value="//api/name/used">used</option>
+		<option value="//api/name/uuid">uuid</option>
+		
+		<option value="//api/name/x">x</option>
+		
+		<option value="//api/name/y">y</option>
 		
 	</optgroup>
 	
 
 	
 
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithItem:">- initWithItem:</option>
+		
+	</optgroup>
 	
 	
 </select>
@@ -95,7 +103,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">OYMIndoorLocation Class Reference</h1>
+					<h1 class="title">OYMPlace Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -104,7 +112,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>OYMIndoorLocation.h<br />OYMIndoorLocation.m</td>
+	<td>OYMPlace.h<br />OYMPlace.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -114,7 +122,8 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class provides the user position with further useful information.</p>
+						<p>This class includes all the information regarding the Place Items stored
+in Links.</p>
 					</div>
 					
 					
@@ -130,8 +139,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/longitude" title="longitude"></a>
-	<h3 class="method-title"><code><a href="#//api/name/longitude">&nbsp;&nbsp;longitude</a></code>
+	<a name="//api/name/uuid" title="uuid"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uuid">&nbsp;&nbsp;uuid</a></code>
 </h3>
 
 	<div class="method-info">
@@ -141,12 +150,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>WGS84 Longitude</p>
+				<p>Automaticall<a href="#//api/name/y">y</a> generated UUID</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) double longitude</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *uuid</code></div>
 
 		    
 			
@@ -164,15 +173,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/latitude" title="latitude"></a>
-	<h3 class="method-title"><code><a href="#//api/name/latitude">&nbsp;&nbsp;latitude</a></code>
+	<a name="//api/name/name" title="name"></a>
+	<h3 class="method-title"><code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
 </h3>
 
 	<div class="method-info">
@@ -182,12 +191,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>WGS84 Latitude</p>
+				<p>Place name</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) double latitude</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *name</code></div>
 
 		    
 			
@@ -205,15 +214,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/used" title="used"></a>
-	<h3 class="method-title"><code><a href="#//api/name/used">&nbsp;&nbsp;used</a></code>
+	<a name="//api/name/building" title="building"></a>
+	<h3 class="method-title"><code><a href="#//api/name/building">&nbsp;&nbsp;building</a></code>
 </h3>
 
 	<div class="method-info">
@@ -223,12 +232,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Number of iBeacons used</p>
+				<p>Building ID</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) int used</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *building</code></div>
 
 		    
 			
@@ -246,15 +255,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/accuracy" title="accuracy"></a>
-	<h3 class="method-title"><code><a href="#//api/name/accuracy">&nbsp;&nbsp;accuracy</a></code>
+	<a name="//api/name/floor" title="floor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/floor">&nbsp;&nbsp;floor</a></code>
 </h3>
 
 	<div class="method-info">
@@ -264,12 +273,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Position accuracy (meters)</p>
+				<p>Floor ID</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) double accuracy</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *floor</code></div>
 
 		    
 			
@@ -287,56 +296,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/found" title="found"></a>
-	<h3 class="method-title"><code><a href="#//api/name/found">&nbsp;&nbsp;found</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>List including the <a href="#//api/name/longitude">longitude</a>, <a href="#//api/name/latitude">latitude</a> and <a href="#//api/name/accuracy">accuracy</a> of each iBeacon in sight</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSArray *found</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/floornumber" title="floornumber"></a>
-	<h3 class="method-title"><code><a href="#//api/name/floornumber">&nbsp;&nbsp;floornumber</a></code>
+	<a name="//api/name/floorNumber" title="floorNumber"></a>
+	<h3 class="method-title"><code><a href="#//api/name/floorNumber">&nbsp;&nbsp;floorNumber</a></code>
 </h3>
 
 	<div class="method-info">
@@ -351,7 +319,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) int floornumber</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *floorNumber</code></div>
 
 		    
 			
@@ -369,7 +337,48 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/geometry" title="geometry"></a>
+	<h3 class="method-title"><code><a href="#//api/name/geometry">&nbsp;&nbsp;geometry</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Place geometr<a href="#//api/name/y">y</a></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *geometry</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
@@ -387,12 +396,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Positioning type: kOYMIndoorLocationTypeNo, kOYMIndoorLocationTypeIbeacon, kOYMIndoorLocationTypeGps</p>
+				<p>String defining Place type</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) int type</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *type</code></div>
 
 		    
 			
@@ -410,15 +419,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/bName" title="bName"></a>
-	<h3 class="method-title"><code><a href="#//api/name/bName">&nbsp;&nbsp;bName</a></code>
+	<a name="//api/name/x" title="x"></a>
+	<h3 class="method-title"><code><a href="#//api/name/x">&nbsp;&nbsp;x</a></code>
 </h3>
 
 	<div class="method-info">
@@ -428,12 +437,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Building name</p>
+				<p>WGS84 Longitude</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *bName</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *x</code></div>
 
 		    
 			
@@ -451,15 +460,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/buildingId" title="buildingId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/buildingId">&nbsp;&nbsp;buildingId</a></code>
+	<a name="//api/name/y" title="y"></a>
+	<h3 class="method-title"><code><a href="#//api/name/y">&nbsp;&nbsp;y</a></code>
 </h3>
 
 	<div class="method-info">
@@ -469,12 +478,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Building ID</p>
+				<p>WGS84 Latitude</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *buildingId</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *y</code></div>
 
 		    
 			
@@ -492,15 +501,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/geofences" title="geofences"></a>
-	<h3 class="method-title"><code><a href="#//api/name/geofences">&nbsp;&nbsp;geofences</a></code>
+	<a name="//api/name/tags" title="tags"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tags">&nbsp;&nbsp;tags</a></code>
 </h3>
 
 	<div class="method-info">
@@ -510,12 +519,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Number of geofences crossed</p>
+				<p>Tag list</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) int geofences</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSArray *tags</code></div>
 
 		    
 			
@@ -533,7 +542,101 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMIndoorLocation.h</code></p>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/propertiesList" title="propertiesList"></a>
+	<h3 class="method-title"><code><a href="#//api/name/propertiesList">&nbsp;&nbsp;propertiesList</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Properties</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSDictionary *propertiesList</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithItem:" title="initWithItem:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithItem:">&ndash;&nbsp;initWithItem:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>OYMPlace constructor.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithItem:(OYMLinksItem *)<em>item</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>item</code></th>
+						<td><p>OYMLinksItem containing the OYMPlace object</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMPlace.h</code></p>
 			</div>
 			
 			
@@ -552,7 +655,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-07-20</p>
+						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

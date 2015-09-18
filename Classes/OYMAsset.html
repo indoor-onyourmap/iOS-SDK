@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OYMArea Class Reference</title>
+	<title>OYMAsset Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">OYM Indoor SDK </a>
+				<a href="../index.html">Goindoor SDK for iOS </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,25 +56,15 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/building">building</option>
-		
-		<option value="//api/name/floor">floor</option>
-		
-		<option value="//api/name/floornumber">floornumber</option>
-		
-		<option value="//api/name/geometry">geometry</option>
+		<option value="//api/name/accuracy">accuracy</option>
 		
 		<option value="//api/name/name">name</option>
 		
-		<option value="//api/name/tags">tags</option>
+		<option value="//api/name/place">place</option>
 		
-		<option value="//api/name/type">type</option>
+		<option value="//api/name/properties">properties</option>
 		
-		<option value="//api/name/uuid">uuid</option>
-		
-		<option value="//api/name/x">x</option>
-		
-		<option value="//api/name/y">y</option>
+		<option value="//api/name/timestamp">timestamp</option>
 		
 	</optgroup>
 	
@@ -85,6 +75,10 @@
 	<optgroup label="Instance Methods">
 		
 		<option value="//api/name/initWithItem:">- initWithItem:</option>
+		
+		<option value="//api/name/toItem">- toItem</option>
+		
+		<option value="//api/name/updatePositionX:andY:andAccuracy:">- updatePositionX:andY:andAccuracy:</option>
 		
 	</optgroup>
 	
@@ -101,16 +95,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">OYMArea Class Reference</h1>
+					<h1 class="title">OYMAsset Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td>NSObject</td>
+	<td><a href="../Classes/OYMBeacon.html">OYMBeacon</a> : NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>OYMArea.h<br />OYMArea.m</td>
+	<td>OYMAsset.h<br />OYMAsset.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -120,8 +114,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class includes all the information regarding the Area Items stored
-in Links.</p>
+						<p>String containing the Asset type</p>
 					</div>
 					
 					
@@ -137,8 +130,8 @@ in Links.</p>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/uuid" title="uuid"></a>
-	<h3 class="method-title"><code><a href="#//api/name/uuid">&nbsp;&nbsp;uuid</a></code>
+	<a name="//api/name/accuracy" title="accuracy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/accuracy">&nbsp;&nbsp;accuracy</a></code>
 </h3>
 
 	<div class="method-info">
@@ -148,12 +141,12 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Automaticall<a href="#//api/name/y">y</a> generated UUID</p>
+				<p>The Asset accuracy in meters</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *uuid</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) int accuracy</code></div>
 
 		    
 			
@@ -171,7 +164,48 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/timestamp" title="timestamp"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timestamp">&nbsp;&nbsp;timestamp</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The Asset <a href="#//api/name/accuracy">accuracy</a> timestamp</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSDate *timestamp</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
 			</div>
 			
 			
@@ -189,12 +223,12 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Area name</p>
+				<p>The Asset name</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *name</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSString *name</code></div>
 
 		    
 			
@@ -212,15 +246,15 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/building" title="building"></a>
-	<h3 class="method-title"><code><a href="#//api/name/building">&nbsp;&nbsp;building</a></code>
+	<a name="//api/name/place" title="place"></a>
+	<h3 class="method-title"><code><a href="#//api/name/place">&nbsp;&nbsp;place</a></code>
 </h3>
 
 	<div class="method-info">
@@ -230,12 +264,12 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Building ID</p>
+				<p>The Asset place ID</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *building</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSString *place</code></div>
 
 		    
 			
@@ -253,15 +287,15 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/floor" title="floor"></a>
-	<h3 class="method-title"><code><a href="#//api/name/floor">&nbsp;&nbsp;floor</a></code>
+	<a name="//api/name/properties" title="properties"></a>
+	<h3 class="method-title"><code><a href="#//api/name/properties">&nbsp;&nbsp;properties</a></code>
 </h3>
 
 	<div class="method-info">
@@ -271,12 +305,12 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Floor ID</p>
+				<p>The Asset properties</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *floor</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSDictionary *properties</code></div>
 
 		    
 			
@@ -294,253 +328,7 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/floornumber" title="floornumber"></a>
-	<h3 class="method-title"><code><a href="#//api/name/floornumber">&nbsp;&nbsp;floornumber</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Floor number</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *floornumber</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/geometry" title="geometry"></a>
-	<h3 class="method-title"><code><a href="#//api/name/geometry">&nbsp;&nbsp;geometry</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Area geometr<a href="#//api/name/y">y</a></p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *geometry</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/type" title="type"></a>
-	<h3 class="method-title"><code><a href="#//api/name/type">&nbsp;&nbsp;type</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>String defining Area type</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *type</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/x" title="x"></a>
-	<h3 class="method-title"><code><a href="#//api/name/x">&nbsp;&nbsp;x</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>WGS84 Longitude</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *x</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/y" title="y"></a>
-	<h3 class="method-title"><code><a href="#//api/name/y">&nbsp;&nbsp;y</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>WGS84 Latitude</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *y</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/tags" title="tags"></a>
-	<h3 class="method-title"><code><a href="#//api/name/tags">&nbsp;&nbsp;tags</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Tag list</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSArray *tags</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
 			</div>
 			
 			
@@ -558,7 +346,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Area constructor.</p>
+				<p>OYMAsset constructor.</p>
 			</div>
 			
 		    
@@ -573,7 +361,7 @@ in Links.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>item</code></th>
-						<td><p>OYMLinksItem containing the Area object</p></td>
+						<td><p>{@link OYMLinksItem} containing the OYMAsset object</p></td>
 					</tr>
 				
 				</table>
@@ -593,7 +381,116 @@ in Links.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMArea.h</code></p>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/toItem" title="toItem"></a>
+	<h3 class="method-title"><code><a href="#//api/name/toItem">&ndash;&nbsp;toItem</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method creates an {@link OYMLinksItem} object from an OYMAsset object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (OYMLinksItem *)toItem</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The equivalent {@link OYMLinksItem} object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updatePositionX:andY:andAccuracy:" title="updatePositionX:andY:andAccuracy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updatePositionX:andY:andAccuracy:">&ndash;&nbsp;updatePositionX:andY:andAccuracy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method updates the location and <a href="#//api/name/accuracy">accuracy</a> of the asset internally.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updatePositionX:(NSNumber *)<em>_x</em> andY:(NSNumber *)<em>_y</em> andAccuracy:(int)<em>_accuracy</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>Longitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>Latitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accuracy</code></th>
+						<td><p>Accuracy in meters</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMAsset.h</code></p>
 			</div>
 			
 			
@@ -612,7 +509,7 @@ in Links.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-07-20</p>
+						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

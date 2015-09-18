@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>OYMUserProfile Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Goindoor SDK for iOS </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">OnYourMap</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/appName">appName</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithItem:workSpace:andSettings:">- initWithItem:workSpace:andSettings:</option>
+		
+		<option value="//api/name/initWithWorkSpace:andSettings:">- initWithWorkSpace:andSettings:</option>
+		
+		<option value="//api/name/item">- item</option>
+		
+		<option value="//api/name/setItem:">- setItem:</option>
+		
+		<option value="//api/name/updateLiveWithTime:x:Y:buildingId:andFloorId:">- updateLiveWithTime:x:Y:buildingId:andFloorId:</option>
+		
+		<option value="//api/name/updateLiveWithTime:x:andY:">- updateLiveWithTime:x:andY:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">OYMUserProfile Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>OYMUserProfile.h<br />OYMUserProfile.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class includes all the information regarding the user profile to log
+information in the server.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/appName" title="appName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/appName">&nbsp;&nbsp;appName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>String containing the application bundle identifier</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *appName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithWorkSpace:andSettings:" title="initWithWorkSpace:andSettings:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithWorkSpace:andSettings:">&ndash;&nbsp;initWithWorkSpace:andSettings:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>OYMUserProfile constructor.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithWorkSpace:(NSString *)<em>_workSpace</em> andSettings:(OYMSettings *)<em>_settings</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_workSpace</code></th>
+						<td><p>username prefix</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_settings</code></th>
+						<td><p><a href="../Classes/OYMSettings.html">OYMSettings</a> containing the OYMLinksItem properties value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>OYMUserProfile Object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithItem:workSpace:andSettings:" title="initWithItem:workSpace:andSettings:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithItem:workSpace:andSettings:">&ndash;&nbsp;initWithItem:workSpace:andSettings:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>OYMUserProfile constructor.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithItem:(OYMLinksItem *)<em>_item</em> workSpace:(NSString *)<em>_workSpace</em> andSettings:(OYMSettings *)<em>_settings</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_item</code></th>
+						<td><p>OYMLinksItem containg the UserProfile Object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_workSpace</code></th>
+						<td><p>username prefix</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_settings</code></th>
+						<td><p><a href="../Classes/OYMSettings.html">OYMSettings</a> containing the OYMLinksItem properties value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>OYMUserProfile Object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setItem:" title="setItem:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setItem:">&ndash;&nbsp;setItem:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Setter for the {@link Item}.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setItem:(OYMLinksItem *)<em>item</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>item</code></th>
+						<td><p>OYMLinksItem to be set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/item" title="item"></a>
+	<h3 class="method-title"><code><a href="#//api/name/item">&ndash;&nbsp;item</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Getter for the {@link Item}</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (OYMLinksItem *)item</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The OYMLinksItem Object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Protected Methods" name="task_Protected Methods"></a>
+						<h2 class="task-title">Protected Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/updateLiveWithTime:x:andY:" title="updateLiveWithTime:x:andY:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateLiveWithTime:x:andY:">&ndash;&nbsp;updateLiveWithTime:x:andY:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method update the live properties internally. It shall not be used.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateLiveWithTime:(NSDate *)<em>time</em> x:(double)<em>x</em> andY:(double)<em>y</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>time</code></th>
+						<td><p>NSDate object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>WGS84 Longitude to be logged</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>WGS84 Latitude to be logged</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateLiveWithTime:x:Y:buildingId:andFloorId:" title="updateLiveWithTime:x:Y:buildingId:andFloorId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateLiveWithTime:x:Y:buildingId:andFloorId:">&ndash;&nbsp;updateLiveWithTime:x:Y:buildingId:andFloorId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method update the live properties internally. It shall not be used.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateLiveWithTime:(NSDate *)<em>time</em> x:(double)<em>x</em> Y:(double)<em>y</em> buildingId:(NSString *)<em>buildingId</em> andFloorId:(NSString *)<em>floorId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>time</code></th>
+						<td><p>NSDate object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>WGS84 Longitude to be logged</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>WGS84 Latitude to be logged</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>buildingId</code></th>
+						<td><p>Building ID to be logged</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>floorId</code></th>
+						<td><p>Floor ID to be logged</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
