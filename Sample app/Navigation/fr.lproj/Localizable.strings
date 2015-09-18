@@ -70,7 +70,21 @@
 
 // Fragment Drawer
 "FDStop" = "Stopper la navigation";
+"FDAreas" = "Lieux";
+"FDNoAreas" = "Lieux indisponibles";
+"FDStoreTitle" = "Marker";
+"FDStore" = "Enregistrer";
+"FDStoreToast" = "Marker enregistré";
+"FDUpdate" = "Mettre à jour";
+"FDUpdateToast" = "Marker mis à jour";
+"FDRestore" = "Y aller";
+"FDDelete" = "Supprimer";
+"FDDeleteToast" = "Marker supprimé";
 
 // Instructions
 "FIInstructions" = "Instructions";
 
+// UserProfile
+"FUPNoSettings" = "Settings are not set";
+"FUPSaved" = "User Profile has been updated";
+"FUPNotSaved" = "User Profile cannot be updated";

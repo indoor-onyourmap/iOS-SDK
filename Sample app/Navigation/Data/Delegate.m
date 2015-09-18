@@ -43,29 +43,28 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 
 - (void) checkLocationServices {
     if (vc != nil && [vc isKindOfClass:[SplashViewController class]]) {
-        CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+        locationAuthStatus = [CLLocationManager authorizationStatus];
         if (![CLLocationManager locationServicesEnabled]) {
             [(SplashViewController*)vc promptEnableLocationServices];
         } else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
             
-            if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
+            if (locationAuthStatus == kCLAuthorizationStatusDenied || locationAuthStatus == kCLAuthorizationStatusRestricted) {
                 [(SplashViewController*)vc onLocationServicesChecked:NO];
-            } else if (status != kCLAuthorizationStatusAuthorizedAlways) {
+            } else if (locationAuthStatus != kCLAuthorizationStatusAuthorizedAlways) {
                 [locManager requestAlwaysAuthorization];
             } else {
                 [(SplashViewController*)vc onLocationServicesChecked:YES];
             }
         } else {
-            if (status == kCLAuthorizationStatusNotDetermined) {
+            if (locationAuthStatus == kCLAuthorizationStatusNotDetermined) {
                 [locManager startUpdatingLocation];
-            } else if (status != kCLAuthorizationStatusAuthorizedAlways) {
-                [(SplashViewController*)vc onLocationServicesChecked:YES];
-            } else {
+            } else if (locationAuthStatus == kCLAuthorizationStatusDenied || locationAuthStatus == kCLAuthorizationStatusRestricted) {
                 [(SplashViewController*)vc onLocationServicesChecked:NO];
+            } else {
+                [(SplashViewController*)vc onLocationServicesChecked:YES];
             }
         }
     }
-    
 }
 
 - (void) recheckLocationServices {
@@ -102,8 +101,37 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
     [[NSNotificationCenter defaultCenter] addObserver:deg selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
     
     gs = [GlobalState get];
-    gs.indoorLib = [[OYMIndoorLocationLib alloc] initWithUrl:kOYMIndoorNavigationUrl andUser:user andPassword:password withDelegate:self];
-    gs.links = [[OYMIndoorRouting alloc] initWithUrl:kOYMIndoorNavigationUrl andUser:user andPassword:password andDelegate:self];
+    gs.go = [OYMGoIndoor goIndoorWithBlock:^(id<GoIndoorBuilder> builder) {
+        [builder setAccount:user];
+        [builder setPassword:password];
+        [builder setConnectCallBack:^(BOOL succeed, NSString *message) {
+            if (succeed) {
+                // Store credentials
+                NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+                [prefs setBool:YES forKey:kOYMIndoorNavigationAutologinKey];
+                [prefs setObject:user forKey:kOYMIndoorNavigationUserKey];
+                [prefs setObject:password forKey:kOYMIndoorNavigationPasswordKey];
+                [prefs synchronize];
+                
+                [gs.go startLocate:self];
+            } else {
+                // Delete credentials
+                NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+                [prefs setBool:NO forKey:kOYMIndoorNavigationAutologinKey];
+                [prefs synchronize];
+                
+                if (vc != nil && [vc isKindOfClass:[SplashViewController class]]) {
+                    if ([message isEqualToString:kOYMIndoorNavigationErrorUsername]) {
+                        [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectUsernameError", nil)];
+                    } else if ([message isEqualToString:kOYMIndoorNavigationErrorPassword]) {
+                        [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectPasswordError", nil)];
+                    } else {
+                        [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectError", nil)];
+                    }
+                }
+            }
+        }];
+    }];
 }
 
 - (void)startWithAccount:(NSString *)a andPassword:(NSString *)p {
@@ -113,8 +141,8 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 }
 
 - (void)stop {
-    [gs.indoorLib stopLocate];
-    [gs.links disconnect];
+    [gs.go stopLocate];
+    [gs.go disconnect];
     
     [deg.reachability stopNotifier];
     [[NSNotificationCenter defaultCenter] removeObserver:deg name:kReachabilityChangedNotification object:nil];
@@ -122,48 +150,11 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 
 
 #pragma mark OYMIndoorDelegate
-- (void)didLoginSucceed {
-    // Store credentials
-    NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setBool:YES forKey:kOYMIndoorNavigationAutologinKey];
-    [prefs setObject:user forKey:kOYMIndoorNavigationUserKey];
-    [prefs setObject:password forKey:kOYMIndoorNavigationPasswordKey];
-    [prefs synchronize];
+- (void)loginSucceed {
     
-    [gs.indoorLib startLocate];
 }
 
-- (void)didLoginFailedWithError:(NSString *)msg {
-    // Delete credentials
-    NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setBool:NO forKey:kOYMIndoorNavigationAutologinKey];
-    [prefs synchronize];
-    
-    if (vc != nil && [vc isKindOfClass:[SplashViewController class]]) {
-        if ([msg isEqualToString:kOYMIndoorNavigationErrorUsername]) {
-            [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectUsernameError", nil)];
-        } else if ([msg isEqualToString:kOYMIndoorNavigationErrorPassword]) {
-            [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectPasswordError", nil)];
-        } else {
-            [(SplashViewController*)vc showError:NSLocalizedString(@"FSConnectError", nil)];
-        }
-    }
-}
-
-- (void)didGetBuildings:(NSArray *)buildings succeeded:(BOOL)succeed {
-    if (succeed && vc != nil && [vc isKindOfClass:[MapViewController class]]) {
-        [(MapViewController*)vc setBuildings:buildings];
-    }
-}
-
-- (void)didGetAreas:(NSArray *)areas succeeded:(BOOL)succeed {
-    if (succeed && vc != nil && [vc isKindOfClass:[MapViewController class]]) {
-        [(MapViewController*)vc setAreas:areas];
-    }
-}
-
-
-#pragma mark OYMIndoorLocationDelegate
+#pragma mark OYMLocationDelegate
 - (void)didStartSuccessfully {
     if (vc != nil && [vc isKindOfClass:[SplashViewController class]]) {
         [(SplashViewController*)vc ready];
@@ -177,7 +168,7 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
     }
 }
 
--(void)onPositionUpdate:(OYMIndoorLocation *)location {
+-(void)onLocation:(OYMLocationResult *)location {
     if (vc != nil && [vc isKindOfClass:[MapViewController class]]) {
         [(MapViewController*)vc onPositionUpdate:location];
     } else if (vc != nil && [vc isKindOfClass:[InstructionsViewController class]]) {
@@ -216,7 +207,10 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 #pragma mark CLLocationManagerDelegate
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (vc != nil && [vc isKindOfClass:[SplashViewController class]]) {
-        [(SplashViewController*)vc onLocationServicesChecked:(status == kCLAuthorizationStatusAuthorizedAlways)];
+        NSLog(@"locationManagerChange");
+        if (status != locationAuthStatus) {
+            [(SplashViewController*)vc onLocationServicesChecked:(status == kCLAuthorizationStatusAuthorizedAlways)];
+        }
     }
 }
 

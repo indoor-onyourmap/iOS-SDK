@@ -14,8 +14,8 @@
 IB_DESIGNABLE
 @interface OYMTransparentTextField : UITextField
 
-@property (nonatomic) IBInspectable UIColor* lineColor;
-
+@property (nonatomic) IBInspectable UIColor* lineHighlightedColor;
+@property (nonatomic) IBInspectable UIColor* lineNormalColor;
 
 
 @end

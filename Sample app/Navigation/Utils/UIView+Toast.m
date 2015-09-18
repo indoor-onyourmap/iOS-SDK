@@ -122,6 +122,7 @@ NSString * const CSToastPositionBottom          = @"bottom";
         toast.exclusiveTouch = YES;
     }
     
+    toast.tag = 101110;
     [self addSubview:toast];
     
     [UIView animateWithDuration:CSToastFadeDuration

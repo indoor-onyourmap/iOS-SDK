@@ -9,7 +9,6 @@
 #ifndef NAV_DELEGATE_H
 #define NAV_DELEGATE_H
 
-
 #import <Foundation/Foundation.h>
 @import UIKit;
 @import CoreLocation;
@@ -20,10 +19,11 @@
 #import "Reachability.h"
 
 
-@interface Delegate : NSObject <OYMIndoorRoutingDelegate, OYMIndoorLocationDelegate, CLLocationManagerDelegate> {
+@interface Delegate : NSObject <OYMLocationDelegate, CLLocationManagerDelegate> {
     @private
     NSString* user;
     NSString* password;
+    CLAuthorizationStatus locationAuthStatus;
 }
 
 @property GlobalState* gs;

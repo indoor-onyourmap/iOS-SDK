@@ -8,41 +8,73 @@
 
 #import "OYMTransparentTextField.h"
 
+@interface OYMTransparentTextField ()
+
+@property (nonatomic)  UIColor *lineColor;
+
+@end
+
 @implementation OYMTransparentTextField
 
-@synthesize lineColor;
+@synthesize lineHighlightedColor, lineNormalColor, lineColor;
 //@dynamic placeholder;
 
 
 - (void)drawRect:(CGRect)rect {
-    self.textColor = [UIColor whiteColor];
-    
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(ctx, [UIColor clearColor].CGColor);
     CGContextFillRect(ctx, rect);
-    CGContextSetFillColorWithColor(ctx, lineColor.CGColor);
+    CGContextSetFillColorWithColor(ctx, self.lineColor.CGColor);
     CGContextFillRect(ctx, CGRectMake(0, rect.size.height-2, rect.size.width, 2));
 }
-
-
-- (UIColor *)lineColor {
+//Line Color
+-(UIColor *)lineColor{
+    if (lineColor == nil) {
+        return self.lineNormalColor;
+    }
     return lineColor;
 }
 
-- (void)setLineColor:(UIColor *)lc {
+-(void)setLineColor:(UIColor *)lc {
     lineColor = lc;
     [self setNeedsDisplay];
 }
 
+//Line HeighLighted Color
+- (UIColor *)lineHighlightedColor {
+    if (lineHighlightedColor == nil) {
+        return Colors.accent;
+    }
+    return lineHighlightedColor;
+}
 
-//- (NSString *)placeholder {
-//    return self.placeholder;
-//}
-//
-//- (void)setPlaceholder:(NSString *)ph {
-////    [super setPlaceholder:ph];
-//    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:ph attributes:[NSDictionary dictionaryWithObjectsAndKeys:Colors.whiteHint, NSForegroundColorAttributeName, nil]];
-//}
+- (void)setLineHighlightedColor:(UIColor *)lhc{
+    lineHighlightedColor = lhc;
+}
 
+//Line Normal Color
+-(UIColor *)lineNormalColor {
+    if (lineNormalColor == nil) {
+        return [UIColor whiteColor];
+    }
+    return lineNormalColor;
+}
+
+-(void)setLineNormalColor:(UIColor *)lnc {
+    lineNormalColor = lnc;
+}
+
+//Responder Methods
+- (BOOL)becomeFirstResponder {
+    BOOL returnValue = [super becomeFirstResponder];
+    [self setLineColor:self.lineHighlightedColor];
+    return returnValue;
+}
+
+-(BOOL)resignFirstResponder {
+    BOOL returnValue = [super resignFirstResponder];
+    [self setLineColor:self.lineNormalColor];
+    return returnValue;
+}
 
 @end

@@ -70,6 +70,22 @@
 
 // Fragment Drawer
 "FDStop" = "Atura la navigació";
+"FDAreas" = "Llocs";
+"FDNoAreas" = "No hi ha llocs disponibles";
+"FDStoreTitle" = "Punt";
+"FDStore" = "Guardar";
+"FDStoreToast" = "Punt guardat";
+"FDUpdate" = "Actualitzar";
+"FDUpdateToast" = "Punt actualitzat";
+"FDRestore" = "Anar-hi";
+"FDDelete" = "Esborrar";
+"FDDeleteToast" = "Punt esborrat";
+"FDUserProfile" = "Perfil";
 
 // Instructions
 "FIInstructions" = "Instruccions";
+
+// UserProfile
+"FUPNoSettings" = "No s\'ha definit la configuració d\'usuaris";
+"FUPSaved" = "S\'ha actualitzat el perfil";
+"FUPNotSaved" = "No es pot actualitzar el perfil";

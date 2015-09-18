@@ -20,13 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeShown:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-    
+
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapView:)]];
     
+    self.navigationController.navigationBar.barTintColor = Colors.textPrimaryDark;
     self.navigationController.navigationBar.tintColor = Colors.primary;
+    
     self.navigationController.navigationBarHidden = YES;
     
     // Set texts
@@ -36,7 +35,6 @@
     
     accountField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"FSAccountHint", nil) attributes:[NSDictionary dictionaryWithObjectsAndKeys:[Colors whiteHint], NSForegroundColorAttributeName, nil]];
     passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"FSPasswordHint", nil) attributes:[NSDictionary dictionaryWithObjectsAndKeys:[Colors whiteHint], NSForegroundColorAttributeName, nil]];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -97,6 +95,7 @@
 }
 
 - (void) onLocationServicesChecked:(BOOL)succeed {
+    
     if (succeed) {
         if ([[Delegate get] areCredentialsAvailable]) {
             [self viewLoginHidden:YES];
@@ -136,7 +135,6 @@
 //    [self performSegueWithIdentifier:@"SegueHelp" sender:self];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HTitle", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil];
     [alert show];
-    
 }
 
 - (void) onTapView:(UITapGestureRecognizer*) sender {
@@ -148,43 +146,7 @@
         [self.view endEditing:YES];
     }
 }
-
-#pragma mark Keyboard
-// Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWillBeShown:(NSNotification*)aNotification {
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    self.view.frame = CGRectOffset(self.view.frame, 0, -kbSize.height);
-}
-
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-
-    self.view.frame = CGRectOffset(self.view.frame, 0, kbSize.height);
-}
-
-
 #pragma mark UITextFieldDelegate
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    if (textField == accountField) {
-        accountField.lineColor = [Colors accent];
-    } else if (textField == passwordField) {
-        passwordField.lineColor = [Colors accent];
-    }
-    return YES;
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    if (textField == accountField) {
-        accountField.lineColor = [UIColor whiteColor];
-    } else if (textField == passwordField) {
-        passwordField.lineColor = [UIColor whiteColor];
-    }
-    return YES;
-}
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     if (textField == accountField) {

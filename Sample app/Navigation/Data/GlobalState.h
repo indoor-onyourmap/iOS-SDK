@@ -11,13 +11,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import <indoor/indoor.h>
+#import <Goindoor/Goindoor.h>
 
 @interface GlobalState : NSObject
 
-@property OYMIndoorRouting* links;
-@property OYMIndoorLocationLib* indoorLib;
-@property OYMRouting* routing;
+@property OYMGoIndoor* go;
 @property OYMRoute* route;
 
 #pragma mark Class methods

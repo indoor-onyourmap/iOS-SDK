@@ -8,12 +8,10 @@
 
 #import <MapKit/MapKit.h>
 
-#import <indoor/OYMIndoorLocation.h>
+#import <Goindoor/OYMLocationCore.h>
 
 #import "UIImage+Tint.h"
 #import "Colors.h"
-
-
 
 @interface OYMAnnotation : NSObject <MKAnnotation> {
     @private

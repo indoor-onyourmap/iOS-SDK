@@ -24,8 +24,12 @@ static NSString* const kOYMInstrutionsCellId = @"kOYMInstrutionsCellId";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.barTintColor = Colors.primary;
+    self.navigationController.navigationBar.tintColor = Colors.textPrimaryDark;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:Colors.textPrimaryDark};
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    
     self.navigationItem.title = NSLocalizedString(@"FIInstructions", nil);
     self.tableView.separatorColor = [UIColor clearColor];
 }
@@ -36,21 +40,26 @@ static NSString* const kOYMInstrutionsCellId = @"kOYMInstrutionsCellId";
     mapViewController = [Delegate get].vc;
     [Delegate get].vc = self;
 }
-
+-(void)viewWillDisappear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
+    [Delegate get].vc = mapViewController;
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.barTintColor = Colors.textPrimaryDark;
+    self.navigationController.navigationBar.tintColor = Colors.primary;
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = YES;
-    [Delegate get].vc = mapViewController;
-    [super viewWillDisappear:animated];
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
-
-- (void)setLocation:(OYMIndoorLocation *)location {
+- (void)setLocation:(OYMLocationResult *)location {
     OYMRouteProjectedPoint* rpp = [[GlobalState get].route getProjectedPointForLocation:location];
     list = [NSMutableArray new];
     for (OYMInstruction* i in [GlobalState get].route.instructions) {
@@ -61,8 +70,8 @@ static NSString* const kOYMInstrutionsCellId = @"kOYMInstrutionsCellId";
     }
 }
 
-#pragma mark Pseudo OYMIndoorLocationDelegate
-- (void) onLocationUpdate:(OYMIndoorLocation*)loc {
+#pragma mark Pseudo OYMLocationDelegate
+- (void) onLocationUpdate:(OYMLocationResult*)loc {
     [self setLocation:loc];
     [self.tableView reloadData];
 }

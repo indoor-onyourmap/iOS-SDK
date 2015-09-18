@@ -27,13 +27,19 @@ static float const kOYMViewBarConstraint = 72;
 @synthesize mapView;
 @synthesize fub, fubConstraint, fubDestination, fubLocal, fubLevelBox, fubLevel, fubNumber;
 @synthesize fbb, fbbConstraint, fbbImage, fbbDistance, fbbInstruction;
-@synthesize toolbar;
-
 
 #pragma mark View
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    gs = [GlobalState get];
+    isNavigationReady = YES;
+
+    UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
+    [mapView addGestureRecognizer:lp];
+    
+    // Stats
+    logCount = 0;
     
     // Set theme
     [self setTheme];
@@ -42,10 +48,11 @@ static float const kOYMViewBarConstraint = 72;
     [self hideUpperBar];
     [self hideBottomBar];
     [self setMarkerImage];
-    [self prepareToolbar];
     fubDestination.text = NSLocalizedString(@"FUBYouAre", nil);
     fubLevel.text = NSLocalizedString(@"FUBLevel", nil);
     [self prepareBottomBar];
+    
+    [self populateDrawer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,38 +71,20 @@ static float const kOYMViewBarConstraint = 72;
     fubLevel.textColor = [Colors textPrimary];
     fubNumber.textColor = [Colors textPrimary];
     
-    toolbar.tintColor = [Colors primary];
-    
     [fubLevelBox setNeedsDisplay];
     [fub setNeedsDisplay];
-    
 }
 
-- (void) prepareToolbar {
-    toolbar.hidden = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toogleToolbar)];
-    tap.numberOfTapsRequired = 1;
-    tap.numberOfTouchesRequired = 3;
-    [self.view addGestureRecognizer:tap];
-}
-
-- (void) toogleToolbar {
-    if (toolbar.isHidden) {
-        toolbar.hidden = NO;
-    } else {
-        toolbar.hidden = YES;
-    }
-}
-
-- (void) changeToFloor:(int) floornumber {
+- (void) changeToFloor:(int) floorNumber {
     if (tileOverlay) {
         [mapView removeOverlay:tileOverlay];
     }
-    for (OYMFloor* f in floors) {
-        if ([f.floor intValue] == currentLocation.floornumber) {
+    
+    for (OYMFloor* f in building.getFloorsList) {
+        if ([f.floor intValue] == floorNumber) {
             tileOverlay = f.tileProvider;
             [mapView addOverlay:tileOverlay level:MKOverlayLevelAboveLabels];
-            currentFloor = @(floornumber);
+            currentFloor = @(floorNumber);
             break;
         }
     }
@@ -148,7 +137,6 @@ static float const kOYMViewBarConstraint = 72;
     fbbConstraint.constant = kOYMViewBarConstraint;
     fbb.hidden = NO;
     isFbbShown = YES;
-    toolbar.hidden = YES;
     [fbb setNeedsDisplay];
 }
 
@@ -156,6 +144,65 @@ static float const kOYMViewBarConstraint = 72;
     fbbConstraint.constant = 0;
     fbb.hidden = YES;
     isFbbShown = NO;
+}
+
+- (void) populateDrawer {
+    NSMutableArray *options = [NSMutableArray new];
+    
+    if (isNavigation) {
+        [options addMenuSectionTitle:NSLocalizedString(@"options", nil)];
+        [options addMenuItemTitle:[CustomSingleItem newCustomSingleItem:NSLocalizedString(@"FDStop", nil) withBlock:^(NSString *title) {
+            [self stopNavigation];
+        }]];
+    } else if (areas != nil && areas.count != 0){
+        [options addMenuSectionTitle:NSLocalizedString(@"FDAreas", nil)];
+        for (OYMPlace *p in areas) {
+            OYMPlace* area = p;
+            [options addMenuItemTitle:[CustomSingleItem newCustomSingleItem:p.name withBlock:^(NSString *title) {
+                OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:area.x andY:area.y andFloorNumber:area.floorNumber andBuildingId:area.building];
+                [self startNavInitForPoint:rp andTitle:area.name];
+            }]];
+        }
+    } else {
+        [options addMenuSectionTitle:NSLocalizedString(@"FDAreas", nil)];
+        [options addMenuItemTitle:[CustomSingleItem newCustomSingleItem:NSLocalizedString(@"FDNoAreas", nil) withBlock:nil]];
+   }
+    [options addObjectsFromArray:[self getBottomDrawer]];
+    [self reDrawLeftMenu:options];
+}
+
+- (NSArray *) getBottomDrawer {
+    itemUserProfile = [CustomSingleItem newCustomSingleItem:NSLocalizedString(@"FDUserProfile", nil) withBlock:^(NSString *title) {
+        //UserProfile
+        if (gs.go.getLogger != nil && gs.go.getSettings != nil) {
+            [self hideUpperBar];
+            [self hideBottomBar];
+            [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UserProfileViewController"] animated:YES];
+        } else {
+            [self.view makeToast:NSLocalizedString(@"FUPNoSettings", nil) duration:3.0 position:CSToastPositionBottom title:nil];
+        }
+    }];
+    
+    NSMutableArray *items = [NSMutableArray new];
+    
+//    if (!isNavigation) {
+//        [items addMenuSectionTitle:NSLocalizedString(@"FDStoreTitle", nil)];
+//        if (storeItem != nil) {
+//            [items addMenuItemTitle:storeItem];
+//        }
+//        if (restoreItem != nil) {
+//            [items addMenuItemTitle:restoreItem];
+//        }
+//        if (deleteItem != nil) {
+//            [items addMenuItemTitle:deleteItem];
+//        }
+//    }
+    [items addMenuSectionTitle:NSLocalizedString(@"settings", nil)];
+    [items addMenuItemTitle:itemUserProfile];
+    [items addMenuItemTitle:[CustomSingleItem newCustomSingleItem:NSLocalizedString(@"logout", nil) withBlock:^(NSString *title) {
+        [self onLogout:nil];
+    }]];
+    return items.copy;
 }
 
 - (void) drawAnimatedMarkerWithCoord:(CLLocationCoordinate2D)coord andAccuracy:(double)accuracy {
@@ -212,14 +259,14 @@ static float const kOYMViewBarConstraint = 72;
     }
 }
 
-- (void) drawRouteInFloor:(int) floornumber {
+- (void) drawRouteInFloor:(int) floorNumber {
     if (mapRoute) {
         [mapView removeOverlays:mapRoute];
     }
     NSMutableArray* mapRouteMut = [NSMutableArray new];
     NSMutableArray* mut = [NSMutableArray new];
-    for (OYMRoutePoint* rp in [GlobalState get].route.route) {
-        if ([rp.floornumber intValue] == floornumber) {
+    for (OYMRoutePoint* rp in gs.route.route) {
+        if ([rp.floorNumber intValue] == floorNumber) {
             [mut addObject:rp];
         } else if ([mut count] != 0) {
             CLLocationCoordinate2D c[[mut count]];
@@ -278,7 +325,7 @@ static float const kOYMViewBarConstraint = 72;
         if (gr.state == UIGestureRecognizerStateBegan) {
             CGPoint p = [gr locationInView:mapView];
             CLLocationCoordinate2D t = [mapView convertPoint:p toCoordinateFromView:mapView];
-            [self startNavInitForPoint:[[OYMRoutePoint alloc] initWithX:@(t.longitude) andY:@(t.latitude) andFloornumber:currentFloor andBuildingId:building.uuid] andTitle:NSLocalizedString(@"AMCustomDest", nil)];
+            [self startNavInitForPoint:[[OYMRoutePoint alloc] initWithX:@(t.longitude) andY:@(t.latitude) andFloorNumber:currentFloor andBuildingId:building.uuid] andTitle:NSLocalizedString(@"AMCustomDest", nil)];
         }
     }
 }
@@ -287,7 +334,7 @@ static float const kOYMViewBarConstraint = 72;
     if (isNavigationReady && !isNavigation && gr.state == UIGestureRecognizerStateBegan && [areas count] > 0) {
         if ([areas count] > 0) {
             UIActionSheet* as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"AMASPick", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:nil];
-            for (OYMArea* a in areas) {
+            for (OYMPlace* a in areas) {
                 [as addButtonWithTitle:a.name];
             }
             [as showInView:self.view];
@@ -310,49 +357,11 @@ static float const kOYMViewBarConstraint = 72;
     }
 }
 
-
-#pragma mark Data handling
-- (void) enableRouting:(BOOL)succeed {
-    if (succeed) {
-        isNavigationReady = YES;
-        UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
-        [mapView addGestureRecognizer:lp];
-    } else {
-        [self.view makeToast:[NSString localizedStringWithFormat:NSLocalizedString(@"AMTNoEdges", nil), building.name] duration:3.0 position:CSToastPositionBottom title:nil];
-    }
-}
-
-- (void)setBuildings:(NSArray *)buildings {
-    if (buildings == nil || [buildings count] == 0) {
-        [self.view makeToast:NSLocalizedString(@"AMTNoBuildings", nil) duration:3.0 position:CSToastPositionBottom title:nil];
-    } else {
-        building = [buildings firstObject];
-        fubLocal.text = building.name;
-        
-        // Prepare routing
-        [GlobalState get].routing = [[OYMRouting alloc] initWithIndoor:[GlobalState get].links andBuilding:building.uuid andDelegate:[Delegate get]];
-        [[GlobalState get].routing initRouting];
-        
-        isBuildingReady = YES;
-        
-        [[GlobalState get].links getAreasForUuid:building.uuid];
-        
-        floors = [building getFloorsList];
-    }
-}
-
-- (void) setAreas:(NSArray *)ar {
-    areas = ar;
-    UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onFubLongPress:)];
-    [fub addGestureRecognizer:lp];
-}
-
-
 #pragma mark IBActions
 - (void) onLogout:(id)sender {
     [[Delegate get] stop];
     [[Delegate get] disableAutologin];
-    [self performSegueWithIdentifier:@"SegueMapLogout" sender:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -380,20 +389,24 @@ static float const kOYMViewBarConstraint = 72;
 /**
  * @return If start Nav is finished
  */
+
 - (BOOL) startNavBackground {
-    if (currentLocation.type == kOYMIndoorLocationTypeIbeacon) {
-        OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:@(currentLocation.longitude) andY:@(currentLocation.latitude) andFloornumber:@(currentLocation.floornumber) andBuildingId:currentLocation.buildingId];
+    if (currentLocation.type == kOYMLocationTypeIbeacon) {
+        OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:@(currentLocation.longitude) andY:@(currentLocation.latitude) andFloorNumber:@(currentLocation.floorNumber) andBuildingId:currentLocation.building];
         
-        OYMRoute* r = [[GlobalState get].routing computeRouteFrom:rp to:destination];
+        OYMRoute* r = [gs.go computeRouteFrom:rp to:destination];
         
         // onPostExecute
         if (r) {
-            [GlobalState get].route = r;
+            gs.route = r;
+            [gs.go.getLogger logRoute:r];
             [self showUpperBar];
             isNavigation = YES;
             [startNavAlert dismissWithClickedButtonIndex:0 animated:YES];
             startNavAlert = nil;
-            [self drawRouteInFloor:lastFloornumber];
+            [self drawRouteInFloor:lastFloorNumber];
+            
+            [self populateDrawer];
         } else {
             [startNavAlert dismissWithClickedButtonIndex:0 animated:YES];
             startNavAlert = nil;
@@ -426,24 +439,45 @@ static float const kOYMViewBarConstraint = 72;
     
     destination = nil;
     startNavTitle = nil;
+    
+    [self populateDrawer];
 }
 
 
 #pragma mark Pseudo OYMIndoorDelegate
-- (void) onPositionUpdate:(OYMIndoorLocation*)loc {
+- (void) onPositionUpdate:(OYMLocationResult*)loc {
     currentLocation = loc;
     
     // Change floor
-    if (currentLocation.type == kOYMIndoorLocationTypeIbeacon && isMapUpdated && building) {
-        if ([currentFloor intValue] != loc.floornumber || tileOverlay == nil) {
-            [self changeToFloor:loc.floornumber];
+    if (currentLocation.type == kOYMLocationTypeIbeacon && isMapUpdated && building) {
+        if ([currentFloor intValue] != loc.floorNumber || tileOverlay == nil) {
+            [self changeToFloor:loc.floorNumber];
+        }
+        // Stored position
+        if (storedMarker != nil) {
+            if (loc.floorNumber == [storedPos.floorNumber intValue]) {
+                storedMarker.view.hidden = NO;
+            } else {
+                storedMarker.view.hidden = YES;
+            }
         }
     }
     
+    if (logCount == 5) {
+        [gs.go.getLogger logPosition:loc];
+        logCount = 0;
+    } else {
+        logCount++;
+    }
+    
+    
     // Get Building
-    if (loc.type == kOYMIndoorLocationTypeIbeacon && (building == nil || (building != nil && ![building.uuid isEqualToString:loc.buildingId] && isBuildingReady) )) {
-        [[GlobalState get].links getBuildingsWithArray:@[loc.buildingId]];
-        isBuildingReady = NO;
+    if (loc.type == kOYMLocationTypeIbeacon && (building == nil || (building != nil && ![building.uuid isEqualToString:loc.building] && isBuildingReady) )) {
+        building = [gs.go getBuilding:loc.building];
+        if (building != nil) {
+            isBuildingReady = YES;
+            [fubLocal setText:building.name];
+        }
     }
     
     // Route being created
@@ -462,8 +496,8 @@ static float const kOYMViewBarConstraint = 72;
     }
     
     // Handle FUB visibility
-    if (isBuildingReady && loc.type == kOYMIndoorLocationTypeIbeacon) {
-        [self showUpperBarWithFloor:@(loc.floornumber)];
+    if (isBuildingReady && loc.type == kOYMLocationTypeIbeacon) {
+        [self showUpperBarWithFloor:@(loc.floorNumber)];
     } else {
         [self hideUpperBar];
     }
@@ -475,7 +509,7 @@ static float const kOYMViewBarConstraint = 72;
         }
         
         // Get projected point
-        OYMRoutingResult* rr = [[GlobalState get].route getProjectionForLocation:loc];
+        OYMRoutingResult* rr = [gs.route getProjectionForLocation:loc];
         OYMRouteProjectedPoint* projPoint = rr.projectedPoint;
         
         if (!rr.isRecomputeRequired) {
@@ -485,7 +519,7 @@ static float const kOYMViewBarConstraint = 72;
             }
             
             // Get next instruction to show
-            instruction = [[GlobalState get].route getRouteInstructionForLocation:loc];
+            instruction = [gs.route getRouteInstructionForLocation:loc];
             
             // Update FBB
             [self updateBottomBar:projPoint];
@@ -499,9 +533,9 @@ static float const kOYMViewBarConstraint = 72;
                 [self drawRoutePositionWithPoint:projPoint andAccuracy:loc.accuracy];
                 
                 // Update route
-                if ((loc.type == kOYMIndoorLocationTypeIbeacon && (lastFloornumber != loc.floornumber)) || mapRoute == nil) {
-                    [self drawRouteInFloor:loc.floornumber];
-                    lastFloornumber = loc.floornumber;
+                if ((loc.type == kOYMLocationTypeIbeacon && (lastFloorNumber != loc.floorNumber)) || mapRoute == nil) {
+                    [self drawRouteInFloor:loc.floorNumber];
+                    lastFloorNumber = loc.floorNumber;
                 }
                 
             }
@@ -524,10 +558,15 @@ static float const kOYMViewBarConstraint = 72;
         [Delegate get].vc = self;
         // onMapLongClick -> Set in enableRouting
         
-        // Check buildings
-        [[GlobalState get].links getBuildings];
+        // Check if there are buildings
+        if (gs.go.getBuildings.count == 0) {
+            [self.view makeToast:NSLocalizedString(@"AMTNoBuildings", nil) duration:3.0 position:CSToastPositionBottom title:nil];
+        }
+        //Check Places
+        areas = gs.go.getPlaces;
+
+        [self populateDrawer];
     }
-    
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
@@ -585,8 +624,8 @@ static float const kOYMViewBarConstraint = 72;
 #pragma mark UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex > 0) {
-        OYMArea* area = [areas objectAtIndex:(buttonIndex-1)];
-        OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:area.x andY:area.y andFloornumber:area.floornumber andBuildingId:area.building];
+        OYMPlace* area = [areas objectAtIndex:(buttonIndex-1)];
+        OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:area.x andY:area.y andFloorNumber:area.floorNumber andBuildingId:area.building];
         [self startNavInitForPoint:rp andTitle:area.name];
     }
 }
@@ -602,7 +641,4 @@ static float const kOYMViewBarConstraint = 72;
  // Pass the selected object to the new view controller.
  }
  
-
 @end
-
-

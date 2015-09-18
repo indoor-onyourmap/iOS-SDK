@@ -22,7 +22,4 @@ static GlobalState* gs = nil;
     return gs;
 }
 
-
-
-
 @end

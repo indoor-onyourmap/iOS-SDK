@@ -13,7 +13,9 @@
 @import CoreLocation;
 @import MapKit;
 
-#import <indoor/indoor.h>
+#import <Goindoor/Goindoor.h>
+
+#import "MainViewController.h"
 
 #import "Delegate.h"
 #import "GlobalState.h"
@@ -21,11 +23,11 @@
 #import "UpperBar.h"
 #import "PrimaryBarView.h"
 #import "OYMAnnotation.h"
-#import "OYMIndoorLocation+CLLocation.h"
+#import "OYMLocationResult+CLLocation.h"
 #import "UIView+Toast.h"
 
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate> {
+@interface MapViewController : MainViewController <MKMapViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate> {
 @private
     // View
     UIImage* markerImage;
@@ -35,7 +37,7 @@
     OYMAnnotation* markerPos;
     MKCircle* circlePos;
     NSArray* mapRoute;
-    int lastFloornumber;
+    int lastFloorNumber;
     
     // Flags
     BOOL isMapStarted;
@@ -47,20 +49,37 @@
     BOOL isSpinnerAvailable;
     BOOL isBuildingReady;
     
+    // Stored position
+    OYMAnnotation *storedMarker;
+    OYMRoutePoint *storedPos;
+        
     // Data
     OYMBuilding* building;
-    NSArray* floors;
     NSNumber* currentFloor;
+    
+    // Demo
+    NSMutableArray *markers;
+    NSMutableArray *circles;
+    
+    // Stats
+    int logCount;
     
     // Navigation
     BOOL isNavigationReady;
-    OYMIndoorLocation* currentLocation;
+    OYMLocationResult* currentLocation;
     BOOL isStartNav;
     OYMRoutePoint* destination;
     NSString* startNavTitle;
     UIAlertView* startNavAlert;
     OYMInstruction* instruction;
     NSArray* areas;
+    
+    GlobalState *gs;
+    
+    CustomSingleItem *storeItem;
+    CustomSingleItem *restoreItem;
+    CustomSingleItem *deleteItem;
+    CustomSingleItem *itemUserProfile;
 }
 
 // View
@@ -78,7 +97,6 @@
 @property IBOutlet UILabel* fbbDistance;
 @property IBOutlet UILabel* fbbInstruction;
 
-@property IBOutlet UIToolbar* toolbar;
 
 // Map
 @property(weak, nonatomic) IBOutlet MKMapView* mapView;
@@ -88,9 +106,9 @@
 
 - (IBAction)onLogout:(id)sender;
 
-- (void) onPositionUpdate:(OYMIndoorLocation*)loc;
+- (void) onPositionUpdate:(OYMLocationResult*)loc;
 - (void) setBuildings:(NSArray*)buildings;
 - (void) setAreas:(NSArray*)areas;
-
+   
 @end
 #endif

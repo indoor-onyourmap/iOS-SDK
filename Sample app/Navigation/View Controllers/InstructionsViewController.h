@@ -19,9 +19,9 @@
 
 @property (readonly) UIViewController* mapViewController;
 
-#pragma mark Pseudo OYMIndoorLocationDelegate
-- (void) setLocation:(OYMIndoorLocation *)location;
-- (void) onLocationUpdate:(OYMIndoorLocation*)loc;
+#pragma mark Pseudo OYMLocationDelegate
+- (void) setLocation:(OYMLocationResult *)location;
+- (void) onLocationUpdate:(OYMLocationResult*)loc;
 
 
 @end
