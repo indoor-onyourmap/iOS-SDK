@@ -13,6 +13,7 @@
 #import "LinksProtocol.h"
 #import "Users.h"
 #import "Items.h"
+#import "Events.h"
 #import "Shapes.h"
 #import "Searches.h"
 
@@ -40,6 +41,7 @@
 /** User management */
 @property (nonatomic, retain) OYMLinksUsers * Users;
 @property (nonatomic, retain) OYMLinksItems * Items;
+@property (nonatomic, retain) OYMLinksEvents * Events;
 @property (nonatomic, retain) OYMLinksShapes * Shapes;
 @property (nonatomic, retain) OYMLinksSearches * Searches;
 
