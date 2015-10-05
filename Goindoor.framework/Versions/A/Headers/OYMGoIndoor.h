@@ -27,8 +27,12 @@ static const long kOYMGoIndoorDefaultLocationRefresh = 2000; //msec
  *  Annotation defining the possible algorithms to be used
  */
 typedef NS_ENUM(int, OYMGoIndoorLocationType) {
-    kOYMGoIndoorLocationTypeAverage = 0, /** Weighted average */
-    kOYMGoIndoorLocationTypeClosest = 1 /** Closest iBeacon */
+    /** Weighted average */
+    kOYMGoIndoorLocationTypeAverage = 0,
+    /** Closest iBeacon */
+    kOYMGoIndoorLocationTypeClosest = 1,
+    /** Weighted average with projection to the closest edge */
+    kOYMGoIndoorLocationTypeProject = 2
 };
 
 static const NSString* kOYMGoIndoorLocationKeyRefresh = @"OYMRefresh";

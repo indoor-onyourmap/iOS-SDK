@@ -102,13 +102,9 @@
 @property(weak, nonatomic) IBOutlet MKMapView* mapView;
 
 
-- (void) enableRouting:(BOOL)succeed;
-
-- (IBAction)onLogout:(id)sender;
+- (void)onLogout ;
 
 - (void) onPositionUpdate:(OYMLocationResult*)loc;
-- (void) setBuildings:(NSArray*)buildings;
-- (void) setAreas:(NSArray*)areas;
    
 @end
 #endif

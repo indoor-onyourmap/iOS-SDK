@@ -11,7 +11,15 @@
 #import "OYMTransparentTextField.h"
 #import "UserProfileCell.h"
 
-@interface UserProfileTextFieldCell : UserProfileCell
-@property(nonatomic,retain) IBOutlet OYMTransparentTextField *valTextField;
+typedef NS_ENUM(NSInteger, TextFieldInputType) {
+    TextFieldInputTypeNumber,
+    TextFieldInputTypeText
+};
+
+@interface UserProfileTextFieldCell : UserProfileCell <UITextFieldDelegate>
+
+@property (nonatomic, retain) IBOutlet OYMTransparentTextField *valTextField;
+@property (nonatomic, assign) TextFieldInputType inputType;
+
 @end
 

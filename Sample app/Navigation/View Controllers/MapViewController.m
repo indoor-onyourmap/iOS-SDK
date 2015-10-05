@@ -200,7 +200,7 @@ static float const kOYMViewBarConstraint = 72;
     [items addMenuSectionTitle:NSLocalizedString(@"settings", nil)];
     [items addMenuItemTitle:itemUserProfile];
     [items addMenuItemTitle:[CustomSingleItem newCustomSingleItem:NSLocalizedString(@"logout", nil) withBlock:^(NSString *title) {
-        [self onLogout:nil];
+        [self onLogout];
     }]];
     return items.copy;
 }
@@ -357,8 +357,7 @@ static float const kOYMViewBarConstraint = 72;
     }
 }
 
-#pragma mark IBActions
-- (void) onLogout:(id)sender {
+- (void) onLogout {
     [[Delegate get] stop];
     [[Delegate get] disableAutologin];
     [self.navigationController popViewControllerAnimated:YES];
@@ -396,8 +395,14 @@ static float const kOYMViewBarConstraint = 72;
         
         OYMRoute* r = [gs.go computeRouteFrom:rp to:destination];
         
+        BOOL flag = YES;
+        if (r != nil) {
+            OYMRoutingResult *rr = [r getProjectionForLocation:currentLocation];
+            flag = !rr.isRecomputeRequired;
+        }
+        
         // onPostExecute
-        if (r) {
+        if (r != nil && flag) {
             gs.route = r;
             [gs.go.getLogger logRoute:r];
             [self showUpperBar];
@@ -424,7 +429,12 @@ static float const kOYMViewBarConstraint = 72;
 - (void) stopNavigation {
     isNavigation = NO;
     MKMapCamera* cam = [MKMapCamera camera];
-    cam.centerCoordinate = mapView.camera.centerCoordinate;
+    
+    if (CLLocationCoordinate2DIsValid(mapView.camera.centerCoordinate)) {
+        cam.centerCoordinate = mapView.camera.centerCoordinate;
+    } else {
+        cam.centerCoordinate = CLLocationCoordinate2DMake(currentLocation.latitude, currentLocation.longitude);
+    }
     cam.pitch = 0;
     cam.heading = 0;
     [self animateCamera:cam animated:NO];
@@ -477,11 +487,18 @@ static float const kOYMViewBarConstraint = 72;
         if (building != nil) {
             isBuildingReady = YES;
             [fubLocal setText:building.name];
+            
+            //Check Places
+            areas = [gs.go getPlace:building.uuid];
+            
+            [self populateDrawer];
         }
     }
     
     // Route being created
     if (isStartNav && ![self startNavBackground]) {
+        [startNavAlert dismissWithClickedButtonIndex:0 animated:YES];
+        isStartNav = NO;
         return;
     }
     
@@ -549,24 +566,26 @@ static float const kOYMViewBarConstraint = 72;
     }
 }
 
-
-#pragma mark MKMapViewDelegate
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+- (void) checkForMapStarted {
     if (!isMapStarted) {
         isMapStarted = YES;
         isFirstMapUpdate = YES;
         [Delegate get].vc = self;
-        // onMapLongClick -> Set in enableRouting
         
-        // Check if there are buildings
         if (gs.go.getBuildings.count == 0) {
             [self.view makeToast:NSLocalizedString(@"AMTNoBuildings", nil) duration:3.0 position:CSToastPositionBottom title:nil];
         }
-        //Check Places
-        areas = gs.go.getPlaces;
-
-        [self populateDrawer];
     }
+}
+
+#pragma mark MKMapViewDelegate
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    [self checkForMapStarted];
+}
+
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
+    [self checkForMapStarted];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {

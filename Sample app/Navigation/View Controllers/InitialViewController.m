@@ -24,7 +24,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
+- (NSUInteger)supportedInterfaceOrientations
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#endif
+{
     return UIInterfaceOrientationMaskPortrait;
 }
 

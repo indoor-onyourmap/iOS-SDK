@@ -32,7 +32,6 @@
 		4EBCB7DA1B18729C00D7B257 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7D31B18729C00D7B257 /* InstructionsViewController.m */; };
 		4EBCB7DB1B18729C00D7B257 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7D51B18729C00D7B257 /* MapViewController.m */; };
 		4EBCB7DC1B18729C00D7B257 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7D71B18729C00D7B257 /* SplashViewController.m */; };
-		4EBCB7E21B18731300D7B257 /* Links.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBCB7DF1B18731300D7B257 /* Links.framework */; };
 		4EBCB7E31B18731300D7B257 /* Routing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EBCB7E01B18731300D7B257 /* Routing.bundle */; };
 		FC0AB0391B8CAA54000E9280 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0AB0381B8CAA54000E9280 /* UserProfileViewController.m */; };
 		FC0B8FFC1B87314600314223 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0B8FFB1B87314600314223 /* MainViewController.m */; };
@@ -58,7 +57,8 @@
 		FC1BAF2F1B8DF3500090F606 /* UserProfileRadioButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1BAF2E1B8DF3500090F606 /* UserProfileRadioButtonCell.m */; };
 		FC1BAF321B8DF3660090F606 /* UserProfileTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1BAF311B8DF3660090F606 /* UserProfileTextFieldCell.m */; };
 		FC1BAF351B8DF3770090F606 /* UserProfileSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1BAF341B8DF3770090F606 /* UserProfileSwitchCell.m */; };
-		FCB3F47E1BAC696A007F0D29 /* Goindoor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB3F47D1BAC696A007F0D29 /* Goindoor.framework */; };
+		FC2176BE1BC26469006EA1AD /* Goindoor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2176BD1BC26469006EA1AD /* Goindoor.framework */; settings = {ASSET_TAGS = (); }; };
+		FC2176C01BC264FF006EA1AD /* Links.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2176BF1BC264FF006EA1AD /* Links.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +110,6 @@
 		4EBCB7D51B18729C00D7B257 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "View Controllers/MapViewController.m"; sourceTree = "<group>"; };
 		4EBCB7D61B18729C00D7B257 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = "View Controllers/SplashViewController.h"; sourceTree = "<group>"; };
 		4EBCB7D71B18729C00D7B257 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = "View Controllers/SplashViewController.m"; sourceTree = "<group>"; };
-		4EBCB7DF1B18731300D7B257 /* Links.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Links.framework; path = Frameworks/Links.framework; sourceTree = "<group>"; };
 		4EBCB7E01B18731300D7B257 /* Routing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Routing.bundle; path = Frameworks/Routing.bundle; sourceTree = "<group>"; };
 		FC0AB0371B8CAA54000E9280 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		FC0AB0381B8CAA54000E9280 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
@@ -160,7 +159,8 @@
 		FC1BAF311B8DF3660090F606 /* UserProfileTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileTextFieldCell.m; sourceTree = "<group>"; };
 		FC1BAF331B8DF3770090F606 /* UserProfileSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileSwitchCell.h; sourceTree = "<group>"; };
 		FC1BAF341B8DF3770090F606 /* UserProfileSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileSwitchCell.m; sourceTree = "<group>"; };
-		FCB3F47D1BAC696A007F0D29 /* Goindoor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Goindoor.framework; path = Frameworks/Goindoor.framework; sourceTree = "<group>"; };
+		FC2176BD1BC26469006EA1AD /* Goindoor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Goindoor.framework; path = Frameworks/Goindoor.framework; sourceTree = "<group>"; };
+		FC2176BF1BC264FF006EA1AD /* Links.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Links.framework; path = Frameworks/Links.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */,
-				FCB3F47E1BAC696A007F0D29 /* Goindoor.framework in Frameworks */,
-				4EBCB7E21B18731300D7B257 /* Links.framework in Frameworks */,
+				FC2176C01BC264FF006EA1AD /* Links.framework in Frameworks */,
+				FC2176BE1BC26469006EA1AD /* Goindoor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,10 +305,10 @@
 		4EBCB7DD1B1872C900D7B257 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FCB3F47D1BAC696A007F0D29 /* Goindoor.framework */,
+				FC2176BF1BC264FF006EA1AD /* Links.framework */,
+				FC2176BD1BC26469006EA1AD /* Goindoor.framework */,
 				FC13D1E71B904D650041FFF4 /* IQKeyBoardManager */,
 				4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */,
-				4EBCB7DF1B18731300D7B257 /* Links.framework */,
 				4EBCB7E01B18731300D7B257 /* Routing.bundle */,
 			);
 			name = Frameworks;
@@ -435,7 +435,7 @@
 		4EBCB7761B186FBB00D7B257 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = OnYourMap;
 				TargetAttributes = {
 					4EBCB77D1B186FBB00D7B257 = {
@@ -584,6 +584,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -604,6 +605,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "-Wno-objc-designated-initializers";
 			};
 			name = Debug;
 		};
@@ -642,6 +644,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = "-Wno-objc-designated-initializers";
 			};
 			name = Release;
 		};
@@ -652,11 +655,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEPLOYMENT_POSTPROCESSING = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"/Users/brijendratiwari/Desktop/WorkData/iBeaconOymSdks/iOS-SDK-dev/IndoorAggregate",
 					"$(PROJECT_DIR)",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -666,6 +670,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oym.indoor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -679,11 +684,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"/Users/brijendratiwari/Desktop/WorkData/iBeaconOymSdks/iOS-SDK-dev/IndoorAggregate",
 					"$(PROJECT_DIR)",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -693,6 +699,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oym.indoor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = NO;

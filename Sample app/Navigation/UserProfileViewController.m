@@ -50,6 +50,8 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
     self.navigationController.navigationBar.barTintColor = Colors.textPrimaryDark;
     self.navigationController.navigationBar.tintColor = Colors.primary;
     self.navigationController.navigationBarHidden = YES;
@@ -135,6 +137,8 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
         case STRING: {
             UserProfileTextFieldCell *textFieldCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierTextFieldCell];
             textFieldCell.valTextField.text = value.value;
+            textFieldCell.valTextField.keyboardType = UIKeyboardTypeDefault;
+            textFieldCell.inputType = TextFieldInputTypeText;
             valueViewCell = textFieldCell;
             break;
         }
@@ -142,6 +146,7 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
             UserProfileTextFieldCell *textFieldCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierTextFieldCell];
             textFieldCell.valTextField.text = [value.value stringValue];
             textFieldCell.valTextField.keyboardType = UIKeyboardTypeNumberPad;
+            textFieldCell.inputType = TextFieldInputTypeNumber;
             valueViewCell = textFieldCell;
             break;
         }

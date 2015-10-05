@@ -313,6 +313,7 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     leftMenuContainerView = [[OYMLeftMenuContainerView alloc] initWithFrame:CGRectMake(kOYMLeftMenuTouchAreaWidth - CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) onViewController:self];
+    self.view.layer.masksToBounds = YES;
     [self.view addSubview:leftMenuContainerView];
 }
 

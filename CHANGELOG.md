@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.2 (2015-10-05)
+#### Added features
+- Enabling bitcode
+
+#### Bugs fixed
+- Correcting floor change delay
+- Introducing LOCATION_TYPE_PROJECT
+- Correcting notification filtering for number values
+
 
 ## 2.0.0 (2015-09-18)
 #### Added features

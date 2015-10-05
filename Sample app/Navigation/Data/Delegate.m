@@ -71,7 +71,7 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
     if (vc != nil && [vc isKindOfClass:[MapViewController class]]) {
         CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
         if (status != kCLAuthorizationStatusAuthorizedAlways) {
-            [((MapViewController*)vc) onLogout:nil];
+            [((MapViewController*)vc) onLogout];
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"FSLocServicesErrorTitle", nil) message:NSLocalizedString(@"FSLocServicesErrorMessage", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
         }
     }
@@ -173,12 +173,6 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
         [(MapViewController*)vc onPositionUpdate:location];
     } else if (vc != nil && [vc isKindOfClass:[InstructionsViewController class]]) {
         [(InstructionsViewController*)vc onLocationUpdate:location];
-    }
-}
-
-- (void)didRoutingSucceed:(BOOL)succeed {
-    if (vc != nil && [vc isKindOfClass:[MapViewController class]]) {
-        [(MapViewController*)vc enableRouting:succeed];
     }
 }
 

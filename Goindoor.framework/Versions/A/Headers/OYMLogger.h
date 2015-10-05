@@ -43,7 +43,7 @@ static NSString *const kOYMLoggerUpdateLiveUserProfile = @"OYMLoggerUpdateLiveUs
  * @param x WGS84 Longitude to be logged
  * @param y WGS84 Latitude to be logged
 */
-- (void) logPositionX:(double)x andY:(double)y; __deprecated_msg("Use logPosition:(OYMLocationResult *)} instead.");
+- (void) logPositionX:(double)x andY:(double)y __deprecated_msg("Use logPosition:(OYMLocationResult *)} instead.");
 /**
  *  This method logs the Route to the server.
  *
