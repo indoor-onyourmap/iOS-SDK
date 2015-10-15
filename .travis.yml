@@ -1,0 +1,15 @@
+language: objective-c
+osx_image: xcode7
+xcode_project: Navigation.xcodeproj
+xcode_scheme: Navigation
+before_install:
+- cd Sample\ app
+script:
+- xcodebuild -project Navigation.xcodeproj -target Navigation -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+notifications:
+  email:
+    recipients:
+      - EMAIL_JCO
+env:
+  global:
+    secure: m53jabt8UOttZAQjh3duSoJIlZpkwo/3sYZX9qQ0UjiCLCOoJw8kunaQ4NN1QC9LKRkjWZPbFBvhbrpp7w1XDDkvhG6AJALFo11NT2mIp63Rri8o1zvc5LzpiTZI6x6XeETU5oljsBS3QD+uJpihpsnJGTdaM2LcxCGOSKESkSOoqn8RM3UCEEkAwv90aJy5/fvcEwrNS7vD/Ms4yxh7AW6hMiRi+Jwb7OBhYlyJfcBKm9gBTtJBuhjbwiA3Jtrr7MbXCAyPG69ywRzpBfyNu8n3yTRuyHK2CCGzTZJB8CbASWPlk7cgihxDBOonotAhA68VaKS34TYfokXzAfGmhgpCm3ZxJac8Ga4V8RimFfGbofAoazpfOM6zB71mXbOakPVoMzxFJDt5f8ylTqKCWTAE2EmB5E0DmlAtki4N3s1RmnWVi09JHY/rJJxyfO5BAWVxssyNGSQQ2kC24IoUoKSinK1qO+KQm5HR7nYt6LhIkTaC292nTOoS2qghf91ly3oMBSfuHlZJWf2a2P+8LxiXowOZg6lIGcGUeeuCgx245PP4azaJCyyajqOuWB7zcEbiVdPa2/u0bSCmOC7LYaNDbLr9j/P+wzqQdZGgU450Bu7ydZeVxFkG835QK0ow7koZlEKhkJ5/pBFAEfYqdAyHhgmn2YCQBwy9HCaGng8=
