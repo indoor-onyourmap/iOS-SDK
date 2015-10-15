@@ -8,9 +8,15 @@
 
 #import "UserProfileTextFieldCell.h"
 
+@interface UserProfileTextFieldCell ()
+{
+    UIDatePicker *datePicker ;
+}
+@end
+
 @implementation UserProfileTextFieldCell
 
-@synthesize valTextField, inputType;
+@synthesize valTextField;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -29,6 +35,31 @@
     [self.valTextField resignFirstResponder];
 }
 
+- (void)setInputType:(TextFieldInputType)inputType {
+    _inputType = inputType;
+    if (_inputType == TextFieldInputTypeDate) {
+        [self configureDatepicker];
+    }
+}
+- (void) configureDatepicker {
+    datePicker = [[UIDatePicker alloc] init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self action:@selector(dateSelect) forControlEvents:UIControlEventValueChanged];
+    self.valTextField.inputView = datePicker;
+    
+    NSString *dateStr = [self.valTextField.text stringByAppendingString:@"T00:00:00.000Z"];
+    NSDate *date = [DateSerializer unserializeDate:dateStr];
+    [datePicker setDate:date];
+}
+
+- (void) dateSelect {
+    NSDate *chosen = [datePicker date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *selectedDate = [dateFormatter stringFromDate:chosen];
+    valTextField.text = selectedDate;
+}
+
 #pragma mark - TextField Delegate Methods
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -38,14 +69,14 @@
         return YES;
     }
     
-    if (inputType == TextFieldInputTypeNumber) {
+    if (_inputType == TextFieldInputTypeNumber) {
         if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound)
         {
             return YES;
         } else if ([string isEqualToString:@"."] && [[textField.text componentsSeparatedByString:@"."] count] < 2) {
             return YES;
         }
-    } else if (inputType == TextFieldInputTypeText) {
+    } else if (_inputType == TextFieldInputTypeText) {
         int MAXLENGTH = 255;
         
         NSUInteger oldLength = [textField.text length];
@@ -59,7 +90,14 @@
         if ( newLength <= MAXLENGTH || returnKey) {
             return YES;
         }
+    } else if (_inputType == TextFieldInputTypeDate) {
+        NSString *dateStr = [NSString stringWithFormat:@"%@T00:00:00.000Z",[valTextField.text stringByReplacingCharactersInRange:range withString:string]];
+        NSDate *date = [DateSerializer unserializeDate:dateStr];
+        if (date) {
+            return YES;
+        }
     }
+    
     return NO;
 }
 @end

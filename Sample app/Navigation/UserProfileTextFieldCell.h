@@ -10,10 +10,12 @@
 
 #import "OYMTransparentTextField.h"
 #import "UserProfileCell.h"
+#import <Links/DateSerializer.h>
 
 typedef NS_ENUM(NSInteger, TextFieldInputType) {
     TextFieldInputTypeNumber,
-    TextFieldInputTypeText
+    TextFieldInputTypeText,
+    TextFieldInputTypeDate
 };
 
 @interface UserProfileTextFieldCell : UserProfileCell <UITextFieldDelegate>

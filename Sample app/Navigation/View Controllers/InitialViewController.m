@@ -24,6 +24,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+//For Xcode Version < 7
+
+#ifndef __IPHONE_9_0
+#define __IPHONE_9_0 90000
+#endif
+
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
 - (NSUInteger)supportedInterfaceOrientations
 #else

@@ -26,7 +26,7 @@ static NSString * const kOYMSliderMenuItemCallBackBlockKey = @"SliderMenuCallBac
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f)
 
-@interface OYMLeftMenuContainerView : UIView <UITableViewDataSource, UITableViewDelegate>
+@interface OYMLeftMenuContainerView : UIView <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 {
     UIView *leftMenuView;
     UITableView *menuTableView;
@@ -34,6 +34,7 @@ static NSString * const kOYMSliderMenuItemCallBackBlockKey = @"SliderMenuCallBac
     BOOL isMenuShow;
     UIViewController *onViewController;
     dispatch_source_t timer;
+    
 }
 
 - (void) hideSliderView;
@@ -78,12 +79,92 @@ static NSString * const kOYMSliderMenuItemCallBackBlockKey = @"SliderMenuCallBac
         [leftMenuView addSubview:menuTableView];
         
         self.backgroundColor = [UIColor clearColor];
+
+        [self setupGestures];
     }
     return self;
 }
-- (void)setMenuOptions:(NSArray *)array {
-    menuOptions = array;
-    [menuTableView reloadData];
+#pragma mark -
+#pragma mark Swipe Gesture Setup/Actions
+
+#pragma mark - setup
+
+- (void) setupGestures {
+    //PanGesture for Sliding LeftMenu
+    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(movePanel:)];
+    [panRecognizer setMinimumNumberOfTouches:1];
+    [panRecognizer setMaximumNumberOfTouches:1];
+    [panRecognizer setDelegate:self];
+    [self addGestureRecognizer:panRecognizer];
+    
+    //TapGesture for Hiding LeftMenu
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPanel:)];
+    [tapGesture setCancelsTouchesInView:NO];
+    [self addGestureRecognizer:tapGesture];
+   
+}
+
+- (void) tapPanel:(id)sender {
+    CGPoint location = [(UITapGestureRecognizer*)sender locationInView:self];
+    //Tap Outside of Leftmenu
+    if (location.x > kOYMLeftMenuWidth) {
+        [self hideSliderView];
+    }
+}
+
+- (void) movePanel:(id)sender {
+    [[[(UITapGestureRecognizer*)sender view] layer] removeAllAnimations];
+    
+    CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self];
+    CGPoint gestureVelocity = [(UIPanGestureRecognizer*)sender velocityInView:self];
+    
+    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan) {
+        if (!isMenuShow) {
+            [self setOriginX:0 forView:self];
+            isMenuShow = YES;
+        }
+    }
+    
+    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        if (isMenuShow) {
+            if (CGRectGetMaxX(leftMenuView.frame) > kOYMLeftMenuWidth/2) {
+                [self showSliderView];
+            } else {
+                [self hideSliderView];
+            }
+        }
+        if (gestureVelocity.x > 1000) {
+            [self showSliderView];
+        } else if (gestureVelocity.x < -1000) {
+            [self hideSliderView];
+        }
+    }
+    
+    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateChanged) {
+        
+        CGFloat x = leftMenuView.center.x + translatedPoint.x;
+        CGFloat startCenterPoint = -CGRectGetWidth(leftMenuView.frame)/2;
+        CGFloat endCenterPoint = CGRectGetWidth(leftMenuView.frame)/2;
+        if (x < startCenterPoint) {
+            x = startCenterPoint;
+        } else if (x > endCenterPoint) {
+            x = endCenterPoint;
+        }
+        leftMenuView.center = CGPointMake(x, leftMenuView.center.y);
+        [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0,0) inView:self];
+        [self setNeedsDisplay];
+        
+    }
+}
+
+#pragma mark UIGestureRecognizerDelegate methods
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if([touch.view class] == menuTableView.class){
+        return NO;
+    }
+    return YES;
 }
 
 #pragma mark - Leff Menu View Methods
@@ -96,7 +177,7 @@ static NSString * const kOYMSliderMenuItemCallBackBlockKey = @"SliderMenuCallBac
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
-    CGFloat xMask = CGRectGetMaxX(leftMenuView.frame);
+    CGFloat xMask = CGRectGetMinX(self.frame) + CGRectGetMaxX(leftMenuView.frame);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetFillColorWithColor(context, [UIColor colorWithWhite:0.0 alpha:(xMask/kOYMLeftMenuWidth) * kOYMLeftMenuContainerViewBackgroundMaxAlpha].CGColor);
@@ -113,11 +194,11 @@ static NSString * const kOYMSliderMenuItemCallBackBlockKey = @"SliderMenuCallBac
         if (minX == 0) {
             [self cancelTimer];
         } else {
-            float diff = minX;
-            if (diff <= -8.0f) {
-                [self setOriginX:minX + 8.0f forView:leftMenuView];
+            float newMinX = minX + 8.0;
+            if (newMinX <= 0) {
+                [self setOriginX:newMinX forView:leftMenuView];
             } else {
-                [self setOriginX:minX + diff forView:leftMenuView];
+                [self setOriginX:0 forView:leftMenuView];
             }
         }
     });
@@ -136,11 +217,11 @@ static NSString * const kOYMSliderMenuItemCallBackBlockKey = @"SliderMenuCallBac
             [self cancelTimer];
             [self setOriginX:(-CGRectGetWidth(self.frame) +kOYMLeftMenuTouchAreaWidth) forView:self];
         } else {
-            float diff = minX + kOYMLeftMenuWidth;
-            if (diff >= 8.0f) {
-                [self setOriginX:minX - 8.0f forView:leftMenuView];
+            float newMinX = minX - 8.0f;
+            if (newMinX >= -kOYMLeftMenuWidth) {
+                [self setOriginX:newMinX forView:leftMenuView];
             } else {
-                [self setOriginX:minX - diff forView:leftMenuView];
+                [self setOriginX:-kOYMLeftMenuWidth forView:leftMenuView];
             }
         }
     });
@@ -166,60 +247,9 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
     }
 }
 
-#pragma mark - UITouches Methods
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesBegan:touches withEvent:event];
-    
-    if (!isMenuShow) {
-        [self setOriginX:0 forView:self];
-    }
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view];
-    if (location.x >= 0 && location.x<=kOYMLeftMenuTouchAreaWidth) {
-        isMenuShow = YES;
-    } else {
-        if ([touch.view isEqual:self]) {
-            [self hideSliderView];
-        }
-    }
-}
-
-- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesMoved:touches withEvent:event];
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view];
-    if (isMenuShow) {
-        if (location.x < kOYMLeftMenuWidth) {
-            [self setOriginX:(-kOYMLeftMenuWidth + location.x) forView:leftMenuView];
-        }
-    }
-}
-
-- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesEnded:touches withEvent:event];
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view];
-    if (isMenuShow) {
-        if (location.x >= kOYMLeftMenuWidth/2) {
-            [self showSliderView];
-        } else {
-            [self hideSliderView];
-        }
-    }
-}
-
-- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view];
-    if (isMenuShow) {
-        if (location.x >= kOYMLeftMenuWidth/2) {
-            [self showSliderView];
-        } else {
-            [self hideSliderView];
-        }
-    }
+- (void) setMenuOptions:(NSArray *)array {
+    menuOptions = array;
+    [menuTableView reloadData];
 }
 
 #pragma mark - TableView Delegate and DataSource Methods

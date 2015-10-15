@@ -9,16 +9,12 @@
 #ifndef INDOOR_OYMFLOOR_H
 #define INDOOR_OYMFLOOR_H
 
-// Uncomment this code to enable the library to provide GMSURLTileProvider
-//#define INDOOR_HASGOOGLEMAP
 
 #import <Foundation/Foundation.h>
-//#import <GoogleMaps/GoogleMaps.h>
 
 #import <Links/links.h>
 
 #import "OYMTileOverlay.h"
-//@class OYMTileOverlay;
 
 /** String containing the Floor type */
 static NSString *const kOYMFloorType = @"FLOOR";
@@ -48,10 +44,7 @@ static NSString *const kOYMFloorKeyType = @"type";
 @property (readonly) NSString *type;
 /** Tile provider for Goindoor tiles */
 @property (readonly) OYMTileOverlay *tileProvider;
-#ifdef INDOOR_HASGOOGLEMAP
-/** Google tile provider for Goindoor tiles */
-@property (readonly) GMSURLTileLayer *tileProviderGoogle;
-#endif
+
 
 # pragma mark Constructors
 /**

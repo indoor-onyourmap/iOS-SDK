@@ -24,6 +24,9 @@
 "FSAccountHint" = "Compte";
 "FSPasswordHint" = "Contrasenya";
 "FSConnecting" = "Connectant...";
+"FSAccountPasswordError" = "Escriu el compte i contrasenya";
+"FSAccountError" = "Escriu el compte";
+"FSPasswordError" = "Escriu la contrasenya";
 "FSConnectError" = "No es pot connectar amb el servidor";
 "FSLibError" = "La llibraria indoor no es pot executar";
 "FSLocServicesError" = "Els serveis de localització no estan activats";
@@ -86,6 +89,10 @@
 "FIInstructions" = "Instruccions";
 
 // UserProfile
+"FUPSaveButton" = "Guardar";
+"FUPUser" = "Usuari";
+"FUPNavigation" = "Navegació";
 "FUPNoSettings" = "No s\'ha definit la configuració d\'usuaris";
 "FUPSaved" = "S\'ha actualitzat el perfil";
 "FUPNotSaved" = "No es pot actualitzar el perfil";
+"FUPNoSettingsText" = "No s\'ha definit la configuració d\'usuaris al backoffice";
