@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.3 (2015-10-15)
+#### Bugs fixed
+- Google Maps support is now done through OYMFloor(GoogleMaps) category
+- Removing dSYM warnings
+- Correcting notification filtering for empty strings
+
+
 ## 2.0.2 (2015-10-05)
 #### Added features
 - Enabling bitcode
