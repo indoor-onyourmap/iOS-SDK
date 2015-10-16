@@ -68,6 +68,7 @@
 
 // Activity Map Toast
 "AMTNoInternet" = "S'ha perdut la connexió a internet. Les functions de l'app es poden veure limitades";
+"AMTNoBt" = "S\'ha desactivat el Bluetooth. La posició indoor no serà disponible";
 "AMTNoBuildings" = "No s'ha creat cap edifici per a aquest compte";
 "AMTNoEdges" = "No s'ha creat la xarxa de navegació per %@";
 

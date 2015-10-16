@@ -35,6 +35,8 @@ static float const kOYMViewBarConstraint = 72;
     gs = [GlobalState get];
     isNavigationReady = YES;
 
+    centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    
     UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
     [mapView addGestureRecognizer:lp];
     
@@ -629,6 +631,16 @@ static float const kOYMViewBarConstraint = 72;
     isMapUpdated = YES;
 }
 
+#pragma mark - CBCentralManagerDelegate Method 
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    if (central.state == CBCentralManagerStatePoweredOff) {
+        [self.view makeToast:NSLocalizedString(@"AMTNoBt", nil) duration:5.0 position:CSToastPositionCenter title:nil];
+    }
+//    else if(central.state == CBCentralManagerStatePoweredOn) {
+//        
+//    }
+}
 
 #pragma mark UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {

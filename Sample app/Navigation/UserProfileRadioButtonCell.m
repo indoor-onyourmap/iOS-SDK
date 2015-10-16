@@ -47,10 +47,10 @@
             [self.contentView addSubview:newRadioTitleLbl];
             
             //Radio Button
-            [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:lastBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:newRadioBtn attribute:NSLayoutAttributeTop multiplier:1.0 constant:-6]];
+            [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:lastBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:newRadioBtn attribute:NSLayoutAttributeTop multiplier:1.0 constant:-10]];
             [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:lastBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:newRadioBtn attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
             //Label
-            [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:newRadioBtn attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:newRadioTitleLbl attribute:NSLayoutAttributeLeading multiplier:1.0 constant:-13]];
+            [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:newRadioBtn attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:newRadioTitleLbl attribute:NSLayoutAttributeLeading multiplier:1.0 constant:-9]];
             [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:newRadioBtn attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:newRadioTitleLbl attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
             [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:newRadioTitleLbl attribute:NSLayoutAttributeTrailingMargin relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-2]];
             

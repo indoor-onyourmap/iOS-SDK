@@ -141,6 +141,8 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
     
     if (!isDataAvailable) {
         table.hidden = YES;
+        
+        emptyTestLbl.numberOfLines = 0;
         emptyImgView.hidden = NO;
         emptyTestLbl.hidden = NO;
         

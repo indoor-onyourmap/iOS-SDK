@@ -68,6 +68,7 @@
 
 // Activity Map Toast
 "AMTNoInternet" = "No internet connection is available. App features might be limited";
+"AMTNoBt" = "Bluetooth has been disabled. Indoor location will not be available";
 "AMTNoBuildings" = "No building has been created yet";
 "AMTNoEdges" = "Navigation network for %@ is not created";
 

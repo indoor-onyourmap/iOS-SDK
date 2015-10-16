@@ -68,6 +68,7 @@
 
 // Activity Map Toast
 "AMTNoInternet" = "Connexion internet inexistante. L'application fonctionnera en mode limité";
+"AMTNoBt" = "Bluetooth désactivé, la localisation indoor ne sera plus disponible";
 "AMTNoBuildings" = "Il n'y a pas encore de bâtiment";
 "AMTNoEdges" = "Aucun réseau de navigation pour %@";
 
