@@ -5,7 +5,7 @@ xcode_scheme: Navigation
 before_install:
 - cd Sample\ app
 script:
-- xcodebuild -project Navigation.xcodeproj -target Navigation -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- xcodebuild -project Navigation.xcodeproj -target Navigation -sdk iphoneos ONLY_ACTIVE_ARCH=NO
 notifications:
   email:
     recipients:
