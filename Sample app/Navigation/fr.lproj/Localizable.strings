@@ -24,6 +24,9 @@
 "FSAccountHint" = "Compte";
 "FSPasswordHint" = "Mot de passe";
 "FSConnecting" = "Connexion en cours...";
+"FSAccountPasswordError" = "Entrez le compte et passe nom du";
+"FSAccountError" = "Entrez le nom du compte";
+"FSPasswordError" = "Entrez le mot de passe";
 "FSConnectError" = "Impossible de se connecter au serveur";
 "FSLibError" = "La librairie indoor ne peux pas démarrer";
 "FSLocServicesError" = "Le service de localisation n\'est pas activé";
@@ -65,6 +68,7 @@
 
 // Activity Map Toast
 "AMTNoInternet" = "Connexion internet inexistante. L'application fonctionnera en mode limité";
+"AMTNoBt" = "Bluetooth désactivé, la localisation indoor ne sera plus disponible";
 "AMTNoBuildings" = "Il n'y a pas encore de bâtiment";
 "AMTNoEdges" = "Aucun réseau de navigation pour %@";
 
@@ -80,11 +84,16 @@
 "FDRestore" = "Y aller";
 "FDDelete" = "Supprimer";
 "FDDeleteToast" = "Marker supprimé";
+"FDUserProfile" = "Profile";
 
 // Instructions
 "FIInstructions" = "Instructions";
 
 // UserProfile
-"FUPNoSettings" = "Settings are not set";
-"FUPSaved" = "User Profile has been updated";
-"FUPNotSaved" = "User Profile cannot be updated";
+"FUPSaveButton" = "Sauvegarder";
+"FUPUser" = "Utilisateur";
+"FUPNavigation" = "Navigation";
+"FUPNoSettings" = "Pas de paramètres";
+"FUPSaved" = "Votre profil a été mis à jour";
+"FUPNotSaved" = "Your profile cannot be updated";
+"FUPNoSettingsText" = "Pas encore de paramètres définis dans le backoffice";

@@ -22,6 +22,9 @@
 {
     GlobalState *gs;
     IBOutlet UITableView *table;
+    
+    IBOutlet UIImageView *emptyImgView;
+    IBOutlet UILabel *emptyTestLbl;
 }
 
 @end

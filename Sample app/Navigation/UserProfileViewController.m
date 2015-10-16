@@ -21,6 +21,7 @@ static float const kOYMHeightSwitchCell = 40.0f;
 static NSString * const kOYMKeySection = @"TableViewSection";
 static NSString * const kOYMKeyRows = @"TableViewRoes";
 
+
 @interface UserProfileViewController ()
 {
     NSMutableArray *arrayOfCellsArray;
@@ -58,22 +59,28 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
 }
 
-- (IBAction) fabClick:(id)sender {
+- (void) submitClick {
     [self.view endEditing:YES];
     @try {
-        NSMutableDictionary *updated = [NSMutableDictionary new];
-        NSArray *usersArr = [[arrayOfCellsArray objectAtIndex:0] objectForKey:kOYMKeyRows];
-        for (UserProfileCell *userProfileCell in usersArr) {
-            [updated setObject:[self getValue:userProfileCell andSettingsMap:gs.go.getSettings.users] forKey:userProfileCell.titleLabel.text];
+        for (NSDictionary *dic in arrayOfCellsArray) {
+            UserProfileCell *userHeaderCell = (UserProfileCell *)[dic objectForKey:kOYMKeySection];
+            NSString *sectionTitle = userHeaderCell.titleLabel.text;
+            
+            NSMutableDictionary *updated = [NSMutableDictionary new];
+            NSArray *rowsArr = [dic objectForKey:kOYMKeyRows];
+            
+            if ([sectionTitle isEqualToString:NSLocalizedString(@"FUPUser", nil)]) {
+                for (UserProfileCell *userProfileCell in rowsArr) {
+                    [updated setObject:[self getValue:userProfileCell andSettingsMap:gs.go.getSettings.users] forKey:userProfileCell.titleLabel.text];
+                }
+                [gs.go.getLogger putStatsProp:updated.copy];
+            } else if ([sectionTitle isEqualToString:NSLocalizedString(@"FUPNavigation", nil)]) {
+                for (UserProfileCell *userProfileCell in rowsArr) {
+                    [updated setObject:[self getValue:userProfileCell andSettingsMap:gs.go.getSettings.edges] forKey:userProfileCell.titleLabel.text];
+                }
+                [gs.go.getLogger putNavProp:updated.copy];
+            }
         }
-        [gs.go.getLogger putStatsProp:updated.copy];
-        
-        updated = [NSMutableDictionary new];
-        NSArray *navigationArr = [[arrayOfCellsArray objectAtIndex:1] objectForKey:kOYMKeyRows];
-        for (UserProfileCell *userProfileCell in navigationArr) {
-            [updated setObject:[self getValue:userProfileCell andSettingsMap:gs.go.getSettings.edges] forKey:userProfileCell.titleLabel.text];
-        }
-        [gs.go.getLogger putNavProp:updated.copy];
         [self.view makeToast:NSLocalizedString(@"FUPSaved", nil) duration:3.0 position:CSToastPositionBottom title:nil];
     }
     @catch (NSException *exception) {
@@ -87,41 +94,65 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
     }
     gs = [GlobalState get];
     
+    BOOL isDataAvailable = NO;
+   
     //User
-    NSMutableDictionary *userSectionDic = [[NSMutableDictionary alloc] init];
-    
-    UserProfileCell *userHeaderCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierHeaderCell];
-    userHeaderCell.titleLabel.text = @"User";
-    [userSectionDic setObject:userHeaderCell forKey:kOYMKeySection];
-    
-    NSMutableArray *userRowsArray = [[NSMutableArray alloc] init];
-    for (NSString *key in gs.go.getSettings.users) {
-        OYMUserValue *value = [gs.go.getLogger getStatsProp:key];
-        if (value == nil) {
-            continue;
+    NSDictionary *usersDic = gs.go.getSettings.users;
+    if (usersDic.count > 0) {
+        isDataAvailable = YES;
+        
+        NSMutableDictionary *userSectionDic = [[NSMutableDictionary alloc] init];
+        UserProfileCell *userHeaderCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierHeaderCell];
+        userHeaderCell.titleLabel.text = NSLocalizedString(@"FUPUser", nil);
+        [userSectionDic setObject:userHeaderCell forKey:kOYMKeySection];
+        NSMutableArray *userRowsArray = [[NSMutableArray alloc] init];
+        for (NSString *key in usersDic) {
+            OYMUserValue *value = [gs.go.getLogger getStatsProp:key];
+            if (value == nil) {
+                continue;
+            }
+            [userRowsArray addObject:[self processValue:key value:value]];
         }
-        [userRowsArray addObject:[self processValue:key value:value]];
+        [userSectionDic setObject:userRowsArray forKey:kOYMKeyRows];
+        [arrayOfCellsArray addObject:userSectionDic];
     }
-    [userSectionDic setObject:userRowsArray forKey:kOYMKeyRows];
     
-    [arrayOfCellsArray addObject:userSectionDic];
 
     //Navigation
-    NSMutableDictionary *navigationSectionDic = [[NSMutableDictionary alloc] init];
-    UserProfileCell *navigationHeaderCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierHeaderCell];
-    navigationHeaderCell.titleLabel.text = @"Navigation";
-    [navigationSectionDic setObject:navigationHeaderCell forKey:kOYMKeySection];
-    NSMutableArray *navigationRowsArray = [[NSMutableArray alloc] init];
-    for (NSString *key in gs.go.getSettings.edges) {
-        OYMUserValue *value = [gs.go.getLogger getNavProp:key];
-        if (value == nil) {
-            continue;
+    NSDictionary *edgesDic = gs.go.getSettings.edges;
+    if (edgesDic.count > 0) {
+        isDataAvailable = YES;
+        
+        NSMutableDictionary *navigationSectionDic = [[NSMutableDictionary alloc] init];
+        UserProfileCell *navigationHeaderCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierHeaderCell];
+        navigationHeaderCell.titleLabel.text = NSLocalizedString(@"FUPNavigation", nil);
+        [navigationSectionDic setObject:navigationHeaderCell forKey:kOYMKeySection];
+        NSMutableArray *navigationRowsArray = [[NSMutableArray alloc] init];
+        for (NSString *key in edgesDic) {
+            OYMUserValue *value = [gs.go.getLogger getNavProp:key];
+            if (value == nil) {
+                continue;
+            }
+            [navigationRowsArray addObject:[self processValue:key value:value]];
         }
-        [navigationRowsArray addObject:[self processValue:key value:value]];
+        [navigationSectionDic setObject:navigationRowsArray forKey:kOYMKeyRows];
+        [arrayOfCellsArray addObject:navigationSectionDic];
     }
-    [navigationSectionDic setObject:navigationRowsArray forKey:kOYMKeyRows];
     
-    [arrayOfCellsArray addObject:navigationSectionDic];
+    if (!isDataAvailable) {
+        table.hidden = YES;
+        
+        emptyTestLbl.numberOfLines = 0;
+        emptyImgView.hidden = NO;
+        emptyTestLbl.hidden = NO;
+        
+        emptyImgView.alpha = 0.25f;
+        emptyTestLbl.textColor = [UIColor darkGrayColor];
+        [emptyTestLbl setText:NSLocalizedString(@"FUPNoSettingsText", nil)];
+    } else {
+        UIBarButtonItem *submitRightNavBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"FUPSaveButton", nil) style:UIBarButtonItemStylePlain target:self action:@selector(submitClick)];
+        self.navigationItem.rightBarButtonItem = submitRightNavBtn;
+    }
 }
 
 - (UserProfileCell *)processValue:(NSString *)key value:(OYMUserValue *)value {
@@ -133,7 +164,14 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
             valueViewCell = switchCell;
             break;
         }
-        case DATE:
+        case DATE: {
+            NSString *dateStr = [[value.value componentsSeparatedByString:@"T"] objectAtIndex:0];
+            UserProfileTextFieldCell *textFieldCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierTextFieldCell];
+            textFieldCell.valTextField.text = dateStr;
+            textFieldCell.inputType = TextFieldInputTypeDate;
+            valueViewCell = textFieldCell;
+            break;
+        }
         case STRING: {
             UserProfileTextFieldCell *textFieldCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierTextFieldCell];
             textFieldCell.valTextField.text = value.value;
@@ -183,9 +221,11 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
         case BOOLEAN:
             res = [[OYMUserValue alloc] initWithValue:[NSNumber numberWithBool:[(UserProfileSwitchCell *)valueCell valSwitch].isOn]  settingFormat:BOOLEAN];
             break;
-        case DATE:
-            res = [[OYMUserValue alloc] initWithValue:[(UserProfileTextFieldCell *)valueCell valTextField].text  settingFormat:DATE];
+        case DATE: {
+            NSString *dateStr = [[(UserProfileTextFieldCell *)valueCell valTextField].text stringByAppendingString:@"T00:00:00.000Z"];
+            res = [[OYMUserValue alloc] initWithValue:dateStr  settingFormat:DATE];
             break;
+        }
         case NUMBER: {
             res = [[OYMUserValue alloc] initWithValue:[NSNumber numberWithDouble:[[(UserProfileTextFieldCell *)valueCell valTextField].text doubleValue]]  settingFormat:NUMBER];
             break;

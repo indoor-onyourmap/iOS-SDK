@@ -24,6 +24,9 @@
 "FSAccountHint" = "Account";
 "FSPasswordHint" = "Password";
 "FSConnecting" = "Connecting...";
+"FSAccountPasswordError" = "Enter account and password";
+"FSAccountError" = "Enter account";
+"FSPasswordError" = "Enter password";
 "FSConnectError" = "Cannot connect to server";
 "FSLibError" = "Indoor library cannot be started";
 "FSLocServicesError" = "Location services are not enabled";
@@ -65,6 +68,7 @@
 
 // Activity Map Toast
 "AMTNoInternet" = "No internet connection is available. App features might be limited";
+"AMTNoBt" = "Bluetooth has been disabled. Indoor location will not be available";
 "AMTNoBuildings" = "No building has been created yet";
 "AMTNoEdges" = "Navigation network for %@ is not created";
 
@@ -80,13 +84,17 @@
 "FDRestore" = "Navigate";
 "FDDelete" = "Delete";
 "FDDeleteToast" = "Marker deleted";
-"FDUserProfile" = "User Profile";
+"FDUserProfile" = "Profile";
 
 
 // Instructions
 "FIInstructions" = "Instructions";
 
 // UserProfile
+"FUPSaveButton" = "Save";
+"FUPUser" = "User";
+"FUPNavigation" = "Navigation";
 "FUPNoSettings" = "Settings are not set";
-"FUPSaved" = "User Profile has been updated";
-"FUPNotSaved" = "User Profile cannot be updated";
+"FUPSaved" = "Your profile has been updated";
+"FUPNotSaved" = "Your Profile cannot be updated";
+"FUPNoSettingsText" = "No settings defined in the backoffice yet";

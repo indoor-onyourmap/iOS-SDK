@@ -27,10 +27,12 @@
 #import "UIView+Toast.h"
 
 
-@interface MapViewController : MainViewController <MKMapViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate> {
+@interface MapViewController : MainViewController <MKMapViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate, CBCentralManagerDelegate> {
 @private
     // View
     UIImage* markerImage;
+    
+    CBCentralManager *centralManager;
     
     // Map
     OYMTileOverlay* tileOverlay;

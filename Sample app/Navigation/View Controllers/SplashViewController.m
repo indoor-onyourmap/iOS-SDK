@@ -53,6 +53,10 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+//For Xcode Version < 7
+#ifndef __IPHONE_9_0
+#define __IPHONE_9_0 90000
+#endif
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
 - (NSUInteger)supportedInterfaceOrientations
@@ -128,10 +132,20 @@
     if (passwordField.isFirstResponder) {
         [passwordField resignFirstResponder];
     }
-    [self showText:NSLocalizedString(@"FSConnecting", nil)];
-    [self viewLoginHidden:YES];
     [self viewLoginProcessHidden:NO];
-    [[Delegate get] startWithAccount:accountField.text andPassword:passwordField.text];
+
+    //check for blank filled
+    if (accountField.text.length == 0 && passwordField.text.length == 0) {
+        [self showError:NSLocalizedString(@"FSAccountPasswordError", nil)];
+    } else if (accountField.text.length == 0) {
+        [self showError:NSLocalizedString(@"FSAccountError", nil)];
+    } else if (passwordField.text.length == 0) {
+        [self showError:NSLocalizedString(@"FSPasswordError", nil)];
+    } else {
+        [self showText:NSLocalizedString(@"FSConnecting", nil)];
+        [self viewLoginHidden:YES];
+        [[Delegate get] startWithAccount:accountField.text andPassword:passwordField.text];
+    }
 }
 
 - (void) onHelp:(id)sender {

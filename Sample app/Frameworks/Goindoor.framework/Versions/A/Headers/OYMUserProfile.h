@@ -65,7 +65,9 @@ static NSString* const kOYMUserProfileEventIdPrefix = @"EVENT-";
     NSString *workspace;
     OYMSettings *settings;
     NSMutableDictionary *smProps;
-    NSMutableDictionary *navProps;
+    NSMutableDictionary *navProps;    
+    NSMutableDictionary *smPropsOrphan;
+    NSMutableDictionary *navPropsOrphan;
 }
 
 /** String containing the application bundle identifier */
