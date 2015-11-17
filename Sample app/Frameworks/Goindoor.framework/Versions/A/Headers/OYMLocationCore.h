@@ -46,7 +46,6 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
     NSString* password;
     // Refresh time in msec
     long refresh;
-    int type;
     id<OYMLocationDelegate> delegate;
     __strong CLLocationManager* locationManager;
     
@@ -99,6 +98,7 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
     dispatch_queue_t queue;
 }
 
+@property (nonatomic, assign) int type;
 
 #pragma mark Constructors
 - (instancetype) initWithUrl:(NSString*)webUrl andUser:(NSString*)user andPassword:(NSString*)pwd andRefresh:(long)ref andType:(int)newType andGoIndoor:(OYMGoIndoor *)go withDelegate:(id<OYMLocationDelegate>)deleg;

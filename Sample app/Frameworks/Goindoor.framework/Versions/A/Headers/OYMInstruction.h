@@ -17,6 +17,8 @@ typedef enum {
     UPSTAIRS,
     DOWNELEVATOR,
     UPELEVATOR,
+    DOWNESCALATOR,
+    UPESCALATOR,
     ARRIVAL,
     STRAIGHT
 }InstructionType;

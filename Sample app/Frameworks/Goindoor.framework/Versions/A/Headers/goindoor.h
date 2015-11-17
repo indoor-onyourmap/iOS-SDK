@@ -51,3 +51,5 @@
 #import <Goindoor/OYMProjectionOnSegment.h>
 #import <Goindoor/OYMRouting.h>
 #import <Goindoor/OYMInstructionAdapter.h>
+#import <Goindoor/OYMPlaceGeometry.h>
+#import <Goindoor/OYMPoint.h>

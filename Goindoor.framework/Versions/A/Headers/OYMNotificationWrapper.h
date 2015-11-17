@@ -15,7 +15,10 @@
 #import "OYMNotification.h"
 #import "OYMPlace.h"
 #import "OYMLocationResult.h"
+#import "OYMPlaceGeometry.h"
+#import "OYMPoint.h"
 
+@class OYMPlaceGeometry;
 
 static int const kOYMNotificationWrapperMaskShift = 4;
 static int const kOYMNotificationWrapperMaskProcess = 0b00001111;
@@ -24,27 +27,6 @@ static int const kOYMNotificationWrapperMaskN = 0b1000;  // Nearby
 static int const kOYMNotificationWrapperMaskO = 0b0100;  // Out
 static int const kOYMNotificationWrapperMaskI = 0b0010;  // In
 static int const kOYMNotificationWrapperMaskE = 0b0001;  // Enter
-
-#pragma mark OYMPlaceGeometryType Enumeration
-typedef enum {
-    MARKER,
-    BOX,
-    CIRCLE,
-    POLYGON,
-    UNSUPPORTED
-} OYMPlaceGeometryType;
-
-
-#pragma mark - OYMPlaceGeometry Class
-@interface OYMPlaceGeometry : NSObject
-
-@property (readonly) OYMPlaceGeometryType type;
-@property (readonly) NSArray* points;
-@property (readonly) double radius;
-
-- (instancetype) initWithGeometry:(NSString*)geometry andNotification:(OYMNotification*)noti;
-
-@end
 
 
 @interface OYMNotificationWrapper : NSObject
@@ -67,8 +49,8 @@ typedef enum {
 - (void) clearProcess:(int)mask;
 - (void) trigger:(int)mask;
 
-- (BOOL) isInside:(OYMLocationResult*)loc;
 - (void) reset;
+- (BOOL) isInside:(OYMLocationResult*)loc;
 
 @end
 #endif

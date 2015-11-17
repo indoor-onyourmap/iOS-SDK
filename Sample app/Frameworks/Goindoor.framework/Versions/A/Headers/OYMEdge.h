@@ -48,6 +48,10 @@ static NSString *const kOYMEdgeDirectionTF = @"tofrom";
 static NSString *const kOYMEdgeDirectionFT = @"fromto";
 static NSString *const kOYMEdgeDirectionBoth = @"both";
 
+static NSString *const kOYMEdgeTypeStairs = @"stairs-connecting";
+static NSString *const kOYMEdgeTypeEscalator = @"escalator-connecting";
+static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
+
 /**
  *  This class includes all the information regarding the Edge Items stored
  * in Links.

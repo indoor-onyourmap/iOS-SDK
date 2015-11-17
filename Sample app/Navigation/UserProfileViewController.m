@@ -19,7 +19,7 @@ static float const kOYMHeightTextFieldCell = 40.0f;
 static float const kOYMHeightSwitchCell = 40.0f;
 
 static NSString * const kOYMKeySection = @"TableViewSection";
-static NSString * const kOYMKeyRows = @"TableViewRoes";
+static NSString * const kOYMKeyRows = @"TableViewRows";
 
 
 @interface UserProfileViewController ()
@@ -183,7 +183,7 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
         case NUMBER: {
             UserProfileTextFieldCell *textFieldCell = [table dequeueReusableCellWithIdentifier:kOYMIdentifierTextFieldCell];
             textFieldCell.valTextField.text = [value.value stringValue];
-            textFieldCell.valTextField.keyboardType = UIKeyboardTypeNumberPad;
+            textFieldCell.valTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
             textFieldCell.inputType = TextFieldInputTypeNumber;
             valueViewCell = textFieldCell;
             break;
@@ -202,7 +202,7 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
                 }
                 radioLbl.text = [vals objectAtIndex:i];
             }
-            kOYMHeightRadioButtonCell = (31 * radioButtonCell.radioButtons.count) + 6;
+            kOYMHeightRadioButtonCell = 35 * radioButtonCell.radioButtons.count;
             valueViewCell = radioButtonCell;
             break;
         }
@@ -210,6 +210,10 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
             break;
     }
     valueViewCell.titleLabel.text = key;
+    
+    [valueViewCell.titleLabel sizeToFit];
+    [valueViewCell.titleLabel setNeedsDisplay];
+    
     return valueViewCell;
 }
 
@@ -227,7 +231,10 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
             break;
         }
         case NUMBER: {
-            res = [[OYMUserValue alloc] initWithValue:[NSNumber numberWithDouble:[[(UserProfileTextFieldCell *)valueCell valTextField].text doubleValue]]  settingFormat:NUMBER];
+            NSString *textStr = [(UserProfileTextFieldCell *)valueCell valTextField].text;
+            if (textStr.length != 0) {
+                res = [[OYMUserValue alloc] initWithValue:[NSNumber numberWithDouble:[ textStr doubleValue]]  settingFormat:NUMBER];
+            }
             break;
         }
         case FIXED: {
@@ -269,15 +276,29 @@ static NSString * const kOYMKeyRows = @"TableViewRoes";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[[arrayOfCellsArray objectAtIndex:indexPath.section] objectForKey:kOYMKeyRows] objectAtIndex:indexPath.row];
+    UserProfileCell *cell = [[[arrayOfCellsArray objectAtIndex:indexPath.section] objectForKey:kOYMKeyRows] objectAtIndex:indexPath.row];
+    
+    CGFloat cellHeight = 0;
     if ([cell isKindOfClass:[UserProfileRadioButtonCell class]]) {
-        return kOYMHeightRadioButtonCell;
+        cellHeight = kOYMHeightRadioButtonCell;
     } else if ([cell isKindOfClass:[UserProfileTextFieldCell class]]) {
-        return kOYMHeightTextFieldCell;
+        cellHeight = kOYMHeightTextFieldCell;
     } else if ([cell isKindOfClass:[UserProfileSwitchCell class]]) {
-        return kOYMHeightSwitchCell;
+        cellHeight = kOYMHeightSwitchCell;
+    } else {
+        cellHeight = [@(cell.bounds.size.height) floatValue];
     }
-    return [@(cell.bounds.size.height) floatValue];
+    CGFloat titleLabelHeight = CGRectGetMaxY(cell.titleLabel.frame);
+    
+    CGSize textSize = [cell.titleLabel.text
+                       sizeWithAttributes:@{NSFontAttributeName:cell.titleLabel.font}];
+    titleLabelHeight = textSize.height * (textSize.width/160 + 1);
+    
+    if (titleLabelHeight > cellHeight) {
+        cellHeight = titleLabelHeight + 15;
+    }
+    
+    return cellHeight + 5;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
