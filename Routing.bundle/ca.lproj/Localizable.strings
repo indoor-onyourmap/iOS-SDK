@@ -6,6 +6,8 @@
 "routing_upstairs" = "Puja les escales fins al pis %i";
 "routing_downelevator" = "Baixa amb l'ascensor al pis %i";
 "routing_upelevator" = "Puja amb l'ascensor al pis %i";
+"routing_downescalator" = "Baixa amb les escales mecàniques al pis %i";
+"routing_upescalator" = "Puja amb les escales mecàniques al pis %i";
 "routing_arrival" = "Arribaràs a la teva destinació";
 "routing_straight" = "Continua tot recte";
 

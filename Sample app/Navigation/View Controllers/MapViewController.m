@@ -55,6 +55,11 @@ static float const kOYMViewBarConstraint = 72;
     [self prepareBottomBar];
     
     [self populateDrawer];
+    
+    // Read Options From UserDefaults
+    NSString *options = [[NSUserDefaults standardUserDefaults] objectForKey:NSLocalizedString(@"FPOLocationAlgKey", nil)];
+    [gs.go setLocationType:options.intValue];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -201,6 +206,11 @@ static float const kOYMViewBarConstraint = 72;
 //    }
     [items addMenuSectionTitle:NSLocalizedString(@"settings", nil)];
     [items addMenuItemTitle:itemUserProfile];
+    [items addMenuItemTitle:[CustomSingleItem newCustomSingleItem:NSLocalizedString(@"FDOptions", nil) withBlock:^(NSString *title) {
+        [self hideUpperBar];
+        [self hideBottomBar];
+        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"OptionsViewController"] animated:YES];
+    }]];
     [items addMenuItemTitle:[CustomSingleItem newCustomSingleItem:NSLocalizedString(@"logout", nil) withBlock:^(NSString *title) {
         [self onLogout];
     }]];

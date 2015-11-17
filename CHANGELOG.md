@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.4 (2015-11-17)
+#### Added features
+- Location algorithm can be changed after GoIndoor initialization
+
+#### Bugs fixes
+- Correcting support for stairs, lifts and escalators
+
+
 ## 2.0.3 (2015-10-15)
 #### Bugs fixed
 - Google Maps support is now done through OYMFloor(GoogleMaps) category

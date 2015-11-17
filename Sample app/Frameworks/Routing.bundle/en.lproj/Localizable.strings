@@ -6,6 +6,8 @@
 "routing_upstairs" = "Go upstairs to the %i floor";
 "routing_downelevator" = "Take the lift down to %i floor";
 "routing_upelevator" = "Take the lift up to %i floor";
+"routing_downescalator" = "Take the escalator down to %i floor";
+"routing_upescalator" = "Take the escalator up to %i floor";
 "routing_arrival" = "You will reach your destination";
 "routing_straight" = "Go straight ahead";
 

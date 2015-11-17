@@ -61,6 +61,11 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
 
 }
 
+/**
+*  Creates a OYMGoIndoor Object with the arguments supplied to this GoIndoorBuilder.
+*
+* @return A OYMGoIndoor object
+*/
 + (OYMGoIndoor *) goIndoorWithBlock:(void(^)(id<GoIndoorBuilder> builder))block ;
 
 /**
@@ -240,6 +245,12 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  * @return The user profile
  */
 - (OYMUserProfile *) getUserProfile ;
+/**
+ *  Sets the positioning type. It overrides the value given in the builder.
+ *
+ * @param type Location type to be applied
+ */
+- (void) setLocationType:(OYMGoIndoorLocationType)type;
 
 @end
 

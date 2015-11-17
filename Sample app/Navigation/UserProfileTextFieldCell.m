@@ -61,6 +61,15 @@
 }
 
 #pragma mark - TextField Delegate Methods
+- (BOOL)checkForSpecialChar:(NSString *) string
+{
+    static NSRegularExpression *regex = nil;
+    if (regex == nil)
+        regex = [[NSRegularExpression alloc] initWithPattern:@"[\\-\\+]?[0-9]+" options:0 error:NULL];
+    NSRange fullRange = {0, [string length]};
+    NSRange range = [regex rangeOfFirstMatchInString:string options:0 range:fullRange];
+    return NSEqualRanges(fullRange, range);
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     // allow backspace
@@ -70,10 +79,16 @@
     }
     
     if (_inputType == TextFieldInputTypeNumber) {
-        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound)
-        {
+        NSString *str = [textField.text stringByAppendingString:string];
+        if (str.length == 1) {
+            char firstChar = [str characterAtIndex:0];
+            if (firstChar == '+' || firstChar == '-') {
+                return YES;
+            }
+        }
+        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound) {
             return YES;
-        } else if ([string isEqualToString:@"."] && [[textField.text componentsSeparatedByString:@"."] count] < 2) {
+        } else if ([string isEqualToString:@"."] && [self checkForSpecialChar:textField.text]) {
             return YES;
         }
     } else if (_inputType == TextFieldInputTypeText) {

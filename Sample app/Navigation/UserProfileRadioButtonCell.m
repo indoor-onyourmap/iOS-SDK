@@ -59,7 +59,7 @@
             lastRadioTitleLabel = newRadioTitleLbl;
         }
         [radioButtonsArray addObject:lastBtn];
-        [radionTitleLabelsArray addObject:lastRadioTitleLabel];
+        [radionTitleLabelsArray addObject:lastRadioTitleLabel];        
     }
     //Copy
     radioButtons = [radioButtonsArray copy];

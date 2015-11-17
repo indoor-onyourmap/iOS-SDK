@@ -32,7 +32,6 @@
 		4EBCB7DA1B18729C00D7B257 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7D31B18729C00D7B257 /* InstructionsViewController.m */; };
 		4EBCB7DB1B18729C00D7B257 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7D51B18729C00D7B257 /* MapViewController.m */; };
 		4EBCB7DC1B18729C00D7B257 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7D71B18729C00D7B257 /* SplashViewController.m */; };
-		4EBCB7E31B18731300D7B257 /* Routing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EBCB7E01B18731300D7B257 /* Routing.bundle */; };
 		FC0AB0391B8CAA54000E9280 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0AB0381B8CAA54000E9280 /* UserProfileViewController.m */; };
 		FC0B8FFC1B87314600314223 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0B8FFB1B87314600314223 /* MainViewController.m */; };
 		FC13D20C1B904D650041FFF4 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = FC13D1EA1B904D650041FFF4 /* IQNSArray+Sort.m */; };
@@ -55,9 +54,11 @@
 		FC1BAF321B8DF3660090F606 /* UserProfileTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1BAF311B8DF3660090F606 /* UserProfileTextFieldCell.m */; };
 		FC1BAF351B8DF3770090F606 /* UserProfileSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1BAF341B8DF3770090F606 /* UserProfileSwitchCell.m */; };
 		FC1C5E301BC7D87B0004BCDA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1C5E2F1BC7D87B0004BCDA /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		FC1FB16C1BCE91EE0020517A /* ic_account_circle_black.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1FB16A1BCE91EE0020517A /* ic_account_circle_black.png */; settings = {ASSET_TAGS = (); }; };
-		FC1FB16D1BCE91EE0020517A /* ic_account_circle_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1FB16B1BCE91EE0020517A /* ic_account_circle_black@2x.png */; settings = {ASSET_TAGS = (); }; };
-		FC9710431BCD41180020B9B9 /* Goindoor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9710411BCD355D0020B9B9 /* Goindoor.framework */; };
+		FC1FB16C1BCE91EE0020517A /* ic_account_circle_black.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1FB16A1BCE91EE0020517A /* ic_account_circle_black.png */; };
+		FC1FB16D1BCE91EE0020517A /* ic_account_circle_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1FB16B1BCE91EE0020517A /* ic_account_circle_black@2x.png */; };
+		FC6EAE1C1BFB27A0001D3E9D /* Goindoor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6EAE1B1BFB27A0001D3E9D /* Goindoor.framework */; };
+		FC6EAE221BFB3D65001D3E9D /* Routing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC6EAE211BFB3D65001D3E9D /* Routing.bundle */; };
+		FCB502381BE379FA00696FFF /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB502371BE379FA00696FFF /* OptionsViewController.m */; };
 		FCDB3AE01BCD2DF50020B256 /* Links.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB3ADF1BCD2DF50020B256 /* Links.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -110,7 +111,6 @@
 		4EBCB7D51B18729C00D7B257 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "View Controllers/MapViewController.m"; sourceTree = "<group>"; };
 		4EBCB7D61B18729C00D7B257 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = "View Controllers/SplashViewController.h"; sourceTree = "<group>"; };
 		4EBCB7D71B18729C00D7B257 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = "View Controllers/SplashViewController.m"; sourceTree = "<group>"; };
-		4EBCB7E01B18731300D7B257 /* Routing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Routing.bundle; path = Frameworks/Routing.bundle; sourceTree = "<group>"; };
 		FC0AB0371B8CAA54000E9280 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		FC0AB0381B8CAA54000E9280 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		FC0B8FFA1B87314600314223 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -158,7 +158,10 @@
 		FC1C5E2F1BC7D87B0004BCDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FC1FB16A1BCE91EE0020517A /* ic_account_circle_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle_black.png; sourceTree = "<group>"; };
 		FC1FB16B1BCE91EE0020517A /* ic_account_circle_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_account_circle_black@2x.png"; sourceTree = "<group>"; };
-		FC9710411BCD355D0020B9B9 /* Goindoor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Goindoor.framework; path = Frameworks/Goindoor.framework; sourceTree = "<group>"; };
+		FC6EAE1B1BFB27A0001D3E9D /* Goindoor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Goindoor.framework; path = Frameworks/Goindoor.framework; sourceTree = "<group>"; };
+		FC6EAE211BFB3D65001D3E9D /* Routing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Routing.bundle; path = Frameworks/Routing.bundle; sourceTree = "<group>"; };
+		FCB502361BE379FA00696FFF /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
+		FCB502371BE379FA00696FFF /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
 		FCDB3ADF1BCD2DF50020B256 /* Links.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Links.framework; path = Frameworks/Links.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,10 +170,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9710431BCD41180020B9B9 /* Goindoor.framework in Frameworks */,
 				FCDB3AE01BCD2DF50020B256 /* Links.framework in Frameworks */,
 				FC1C5E301BC7D87B0004BCDA /* QuartzCore.framework in Frameworks */,
 				4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */,
+				FC6EAE1C1BFB27A0001D3E9D /* Goindoor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +299,8 @@
 				FC0B8FFB1B87314600314223 /* MainViewController.m */,
 				FC0AB0371B8CAA54000E9280 /* UserProfileViewController.h */,
 				FC0AB0381B8CAA54000E9280 /* UserProfileViewController.m */,
+				FCB502361BE379FA00696FFF /* OptionsViewController.h */,
+				FCB502371BE379FA00696FFF /* OptionsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -303,12 +308,12 @@
 		4EBCB7DD1B1872C900D7B257 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC9710411BCD355D0020B9B9 /* Goindoor.framework */,
+				FC6EAE211BFB3D65001D3E9D /* Routing.bundle */,
+				FC6EAE1B1BFB27A0001D3E9D /* Goindoor.framework */,
 				FCDB3ADF1BCD2DF50020B256 /* Links.framework */,
 				FC1C5E2F1BC7D87B0004BCDA /* QuartzCore.framework */,
 				FC13D1E71B904D650041FFF4 /* IQKeyBoardManager */,
 				4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */,
-				4EBCB7E01B18731300D7B257 /* Routing.bundle */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -439,7 +444,7 @@
 				TargetAttributes = {
 					4EBCB77D1B186FBB00D7B257 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = P428BUHYJR;
+						DevelopmentTeam = 8D7558698W;
 					};
 				};
 			};
@@ -472,9 +477,9 @@
 				4E94237E1B1887F700798E3B /* Localizable.strings in Resources */,
 				4EBCB7A81B1870BF00D7B257 /* Images.xcassets in Resources */,
 				4EBCB78D1B186FBB00D7B257 /* Main.storyboard in Resources */,
-				4EBCB7E31B18731300D7B257 /* Routing.bundle in Resources */,
 				FC13D2191B904D650041FFF4 /* IQKeyboardManager.bundle in Resources */,
 				4EBCB7921B186FBB00D7B257 /* LaunchScreen.xib in Resources */,
+				FC6EAE221BFB3D65001D3E9D /* Routing.bundle in Resources */,
 				FC1FB16C1BCE91EE0020517A /* ic_account_circle_black.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +496,7 @@
 				4EBCB7D91B18729C00D7B257 /* InitialViewController.m in Sources */,
 				FC13D2131B904D650041FFF4 /* IQSegmentedNextPrevious.m in Sources */,
 				4EBCB7B51B18725C00D7B257 /* OYMTransparentTextField.m in Sources */,
+				FCB502381BE379FA00696FFF /* OptionsViewController.m in Sources */,
 				4EBCB7CC1B18728800D7B257 /* GlobalState.m in Sources */,
 				FC13D2101B904D650041FFF4 /* IQUIWindow+Hierarchy.m in Sources */,
 				4EBCB7871B186FBB00D7B257 /* AppDelegate.m in Sources */,

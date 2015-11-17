@@ -85,7 +85,7 @@
 "FDDelete" = "Delete";
 "FDDeleteToast" = "Marker deleted";
 "FDUserProfile" = "Profile";
-
+"FDOptions" = "Options";
 
 // Instructions
 "FIInstructions" = "Instructions";
@@ -98,3 +98,9 @@
 "FUPSaved" = "Your profile has been updated";
 "FUPNotSaved" = "Your Profile cannot be updated";
 "FUPNoSettingsText" = "No settings defined in the backoffice yet";
+
+// Fragment Preferences Options
+"FPOLocationSection" = "Location Settings";
+"FPOLocationAlgKey" = "FPOLocationAlgKey";
+"FPOLocationAlgTitle" = "Location Algorithm";
+"FPOLocationAlgSummary" = "Using %@ algorithm";
