@@ -40,7 +40,7 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
  * be accessed to ensure the correct functionality.
  */
 @interface OYMLocationCore : NSObject <CLLocationManagerDelegate> {
-    @private
+@private
     NSString* url;
     NSString* username;
     NSString* password;
@@ -64,6 +64,7 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
     long lastPosTime;
     long timeFloorChanged;
     NSNumber *lastFloor;
+    NSString *lastFloorId;
     long timeLastKnownIbeacon;
     
     NSDictionary *buildingDict;

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.5 (2015-12-14)
+#### Bugs fixes
+- Correcting how floor ID is computed in OYMLocationResult
+
+
 ## 2.0.4 (2015-11-17)
 #### Added features
 - Location algorithm can be changed after GoIndoor initialization
