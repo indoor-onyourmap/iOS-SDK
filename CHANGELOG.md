@@ -1,7 +1,13 @@
 # Changelog
 
+## 2.0.6 (2016-01-14)
+#### Bugs fixed
+- Correcting bug that might prevent to get places
+- Removing log statements
+
+
 ## 2.0.5 (2015-12-14)
-#### Bugs fixes
+#### Bugs fixed
 - Correcting how floor ID is computed in OYMLocationResult
 
 
