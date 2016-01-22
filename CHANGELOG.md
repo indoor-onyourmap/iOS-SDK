@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.7 (2016-01-22)
+#### Bugs fixed
+- Improving switching floors experience
+
+
 ## 2.0.6 (2016-01-14)
 #### Bugs fixed
 - Correcting bug that might prevent to get places
@@ -15,7 +20,7 @@
 #### Added features
 - Location algorithm can be changed after GoIndoor initialization
 
-#### Bugs fixes
+#### Bugs fixed
 - Correcting support for stairs, lifts and escalators
 
 
