@@ -15,7 +15,7 @@
 #import "OYMNotificationWrapper.h"
 
 #pragma mark OYMPlaceGeometryType Enumeration
-@class OYMPoint;
+@class OYMPoint, OYMNotificationWrapper;
 
 typedef enum {
     MARKER,
@@ -32,7 +32,7 @@ typedef enum {
 @property (readonly) NSArray* points;
 @property (readonly) double radius;
 
-- (instancetype) initWithGeometry:(NSString*)geometry andNotification:(OYMNotification*)noti;
+- (instancetype)initWithNotificationWrapper:(OYMNotificationWrapper *)nw;
 - (instancetype) initWithPlace:(OYMPlace*)_place;
 
 - (BOOL) isInside:(OYMPoint*)p;

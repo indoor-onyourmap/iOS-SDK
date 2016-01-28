@@ -37,7 +37,7 @@ static NSString *const kOYMSettingsKeyNotifications = @"notifications";
 /**
  *  This class defines a value stored for user settings.
  */
-@interface OYMSettings : NSObject
+@interface OYMSettings : NSObject <OYMJsonProtocol>
 
 #pragma mark Properties
 @property (readonly) NSDictionary *users;

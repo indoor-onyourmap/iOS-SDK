@@ -18,9 +18,10 @@
 #import "OYMUserProfile.h"
 #import "OYMDataLinks.h"
 #import "OYMAsset.h"
+#import "OYMProxiBeacon.h"
 
 static const int STATUS_UPDATED                 = 0b000000000000;
-static const int STATUS_UPDATE_ALL              = 0b000111111111;
+static const int STATUS_UPDATE_ALL              = 0b001111111111;
 static const int STATUS_UPDATE_BEACONS          = 0b000000000001;
 static const int STATUS_UPDATE_BUILDINGS        = 0b000000000010;
 static const int STATUS_UPDATE_ASSETS           = 0b000000000100;
@@ -30,6 +31,7 @@ static const int STATUS_UPDATE_SETTINGS         = 0b000000100000;
 static const int STATUS_UPDATE_EDGES            = 0b000001000000;
 static const int STATUS_UPDATE_INDOOR_SETTINGS  = 0b000010000000;
 static const int STATUS_UPDATE_USER_PROFILE     = 0b000100000000;
+static const int STATUS_UPDATE_PROXIBEACON      = 0b001000000000;
 
 @class OYMGoIndoor;
 
@@ -107,6 +109,14 @@ static const int STATUS_UPDATE_USER_PROFILE     = 0b000100000000;
 - (void) setUserProfile:(OYMUserProfile *)_userProfile ;
 
 - (void) updateUserProfile:(OYMUserProfile *)up ;
+
+// ProxiBeacon
+
+- (NS_ARRAY_OF(OYMProxiBeacon*)*)getProxiBeacons;
+
+- (OYMProxiBeacon*) getProxiBeacon:(NSString *)identifier;
+
+- (void) setProxiBeacons:(NS_ARRAY_OF(OYMProxiBeacon*)*)_beacons;
 
 @end
 

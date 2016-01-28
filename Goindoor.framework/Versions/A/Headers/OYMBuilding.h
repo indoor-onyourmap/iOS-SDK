@@ -14,6 +14,9 @@
 #import <Links/Links.h>
 
 #import "OYMFloor.h"
+#import "OYMJsonProtocol.h"
+#import "OYMGeometry.h"
+#import "OYMBox.h"
 
 # pragma mark Public constants
 /** String containing the Building type */
@@ -23,16 +26,18 @@ static NSString *const kOYMBuildingType = @"BUILDING";
 static NSString *const kOYMBuildingKeyName = @"name";
 /** Key to retrieve the item type from the OYMLinksShape */
 static NSString *const kOYMBuildingKeyType = @"type";
-
+/** Key to retrieve the item id from the OYMLinksShape */
+static NSString *const kOYMBuildingKeyId = @"id";
+static NSString *const kOYMBuildingKeyBbox = @"bbox";
 
 /**
  *  This class includes all the information regarding the Building Shapes
  * stored in Links. As well, it includes the floors related with the building.
  */
-@interface OYMBuilding : NSObject {
-    @private
+@interface OYMBuilding : NSObject <OYMJsonProtocol>{
+    //@private
     /** Map containing the user permissions */
-    NSDictionary* acl;
+    //NSDictionary* acl;
 }
 
 #pragma mark Properties
@@ -41,12 +46,11 @@ static NSString *const kOYMBuildingKeyType = @"type";
 /** Building name */
 @property (readonly) NSString *name;
 /** Building {@link Geometry} */
-@property (readonly) Geometry *geometry;
+@property (readonly) OYMGeometry *geometry;
 /** String defining Building type */
-@property (readonly) NSString *type;
+@property (readonly) NSString *type DEPRECATED_ATTRIBUTE;
 /** Array including the OYMFloor available in the building */
 @property (readonly) NSMutableDictionary *floors;
-
 
 # pragma mark Constructors
 /**
@@ -63,7 +67,7 @@ static NSString *const kOYMBuildingKeyType = @"type";
  *
  * @return The equivalent OYMLinksShape object
  */
-- (OYMLinksShape*)toShape;
+//- (OYMLinksShape*)toShape;
 /**
  *  This method adds a OYMFloor in the Building's Floor list.
  *

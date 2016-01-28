@@ -12,16 +12,19 @@
 #import <Foundation/Foundation.h>
 
 #import "OYMBeacon.h"
+#import "OYMUtils.h"
 
 /** String containing the Asset type */
 static NSString* const kOYMAssetType = @"ASSET";
 
-@interface OYMAsset : OYMBeacon
+@interface OYMAsset : OYMBeacon <OYMJsonProtocol>
 
 /** The Asset accuracy in meters */
 @property (nonatomic, assign) int accuracy;
 /** The Asset accuracy timestamp */
-@property (nonatomic) NSDate *timestamp;
+@property (nonatomic) NSDate *timestamp DEPRECATED_MSG_ATTRIBUTE("Use {@link accuracyTime} instead.");
+/** The Asset accuracy timestamp */
+@property (nonatomic) NSString *accuracyTime;
 /** The Asset name */
 @property (nonatomic) NSString *name;
 /** The Asset place ID */
@@ -46,15 +49,22 @@ static NSString* const kOYMAssetType = @"ASSET";
 
 -(OYMLinksItem *)toItem;
 
-/**
+/*
  *  This method updates the location and accuracy of the asset internally.
  *
  * @param x Longitude
  * @param y Latitude
  * @param accuracy Accuracy in meters
  */
-- (void) updatePositionX:(NSNumber *)_x andY:(NSNumber *)_y andAccuracy:(int)_accuracy;
-
+- (void) updatePositionX:(NSNumber *)_x andY:(NSNumber *)_y andAccuracy:(int)_accuracy DEPRECATED_MSG_ATTRIBUTE("Use updateLatitude:andLongitude:andAccuracy: method instead.");
+/**
+ *  This method updates the location and accuracy of the asset internally.
+ *
+ * @param _latitude Latitude
+ * @param _longitude Longitude
+ * @param accuracy Accuracy in meters
+ */
+- (void) updateLatitude:(NSNumber *)_latitude andLongitude:(NSNumber *)_longitude andAccuracy:(int)_accuracy;
 @end
 
 #endif

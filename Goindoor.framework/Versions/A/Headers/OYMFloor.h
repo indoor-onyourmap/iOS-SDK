@@ -15,6 +15,7 @@
 #import <Links/links.h>
 
 #import "OYMTileOverlay.h"
+#import "OYMJsonProtocol.h"
 
 /** String containing the Floor type */
 static NSString *const kOYMFloorType = @"FLOOR";
@@ -25,13 +26,14 @@ static NSString *const kOYMFloorKeyBuilding = @"building";
 static NSString *const kOYMFloorKeyFloor = @"floornumber";
 /** Key to retrieve the floor type from the OYMLinksItem */
 static NSString *const kOYMFloorKeyType = @"type";
+static NSString *const kOYMFloorKeyId = @"id";
+
 
 /**
  *  This class includes all the information regarding the Floor Items stored
- * in Links. As well, it includes the GMSURLTileLayer to be used to
- * overlap the Goindoor maps in the Google Map.
+ * in Links. 
  */
-@interface OYMFloor : NSObject
+@interface OYMFloor : NSObject <OYMJsonProtocol>
 
 #pragma mark Properties
 /** Automatically generated UUID */
@@ -41,7 +43,7 @@ static NSString *const kOYMFloorKeyType = @"type";
 /** Floor number */
 @property (readonly) NSNumber *floor;
 /** String defining Floor type */
-@property (readonly) NSString *type;
+@property (readonly) NSString *type DEPRECATED_ATTRIBUTE;
 /** Tile provider for Goindoor tiles */
 @property (readonly) OYMTileOverlay *tileProvider;
 

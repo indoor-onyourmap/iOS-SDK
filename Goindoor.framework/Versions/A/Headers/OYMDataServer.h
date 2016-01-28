@@ -37,6 +37,7 @@
 - (void) getEdges ;
 - (void) getIndoorLocationSettings ;
 - (void) getUserProfile ;
+- (void) getProxiBeacons ;
 
 - (void) updateUserProfile:(OYMUserProfile *)up ;
 

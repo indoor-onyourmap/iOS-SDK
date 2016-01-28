@@ -18,6 +18,7 @@
 #import "NSData+Hex.h"
 #import "ESSEddystone.h"
 
+#import "OYMJsonProtocol.h"
 
 # pragma mark Public constants
 /** String containing the Beacon type */
@@ -44,10 +45,16 @@ static NSString *const kOYMBeaconEddystoneHeader2 = @"16AAFE";
 /** String containing the Eddystone-UID Frame Type */
 static NSString *const kOYMBeaconEddystoneFrameUID = @"00";
 
+/** Key to retrieve the Beacon uuid from the {@link Item} */
+static NSString *const kOYMBeaconKeyId = @"id";
 /** Key to retrieve the Beacon major from the {@link Item} */
 static NSString *const kOYMBeaconKeyMajor = @"major";
 /** Key to retrieve the Beacon minor from the {@link Item} */
 static NSString *const kOYMBeaconKeyMinor = @"minor";
+/** Key to retrieve the Beacon longitude from the {@link Item} */
+static NSString *const kOYMBeaconKeyLongitude = @"longitude";
+/** Key to retrieve the Beacon latitude from the {@link Item} */
+static NSString *const kOYMBeaconKeyLatitude = @"latitude";
 /** Key to retrieve the Beacon transmission power from the {@link Item} */
 static NSString *const kOYMBeaconKeyTx = @"tx";
 /** Key to retrieve the Beacon proximity UUID from the {@link Item} */
@@ -63,21 +70,27 @@ static NSString *const kOYMBeaconKeyType = @"type";
 /** Key to retrieve the Beacon status from the {@link Item} */
 static NSString *const kOYMBeaconKeyStatus = @"status";
 /** Key to retrieve the Beacon warning counter from the {@link Item} */
-static NSString *const kOYMBeaconKeyWarningCounter = @"warningCounter";
+//static NSString *const kOYMBeaconKeyWarningCounter = @"warningCounter";
+/** Key to retrieve the Beacon ScanDate from the {@link Item} */
+//static NSString *const kOYMBeaconKeyScanDate = @"scandate";
 
 /**
  *  This class includes all the information regarding the Beacon Items stored
  * in Links.
  */
-@interface OYMBeacon : NSObject
+@interface OYMBeacon : NSObject <OYMJsonProtocol>
 
 #pragma mark Properties
-/** OYMLinksItem ID */
+/** Automatically generated UUID */
 @property NSString *uuid;
 /** WGS84 Longitude */
-@property NSNumber *x;
+@property(nonatomic) NSNumber *x DEPRECATED_MSG_ATTRIBUTE("Use {@link longitude} instead.");
 /** WGS84 Latitude */
-@property NSNumber *y;
+@property (nonatomic) NSNumber *y  DEPRECATED_MSG_ATTRIBUTE("Use {@link latitude} instead.");
+/** WGS84 Longitude */
+@property NSNumber *longitude;
+/** WGS84 Latitude */
+@property NSNumber *latitude;
 /** Beacon major */
 @property NSNumber *major;
 /** Beacon minor */
@@ -93,7 +106,7 @@ static NSString *const kOYMBeaconKeyWarningCounter = @"warningCounter";
 /** Floor number */
 @property NSNumber *floorNumber;
 /** String defining the Beacon type */
-@property NSString *type;
+@property NSString *type DEPRECATED_ATTRIBUTE;
 /** Scan Date */
 @property NSString *scanDate;
 /** Variable defining the Beacon status, if &lt;1 can be used */

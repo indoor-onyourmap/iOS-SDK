@@ -34,26 +34,6 @@ static NSString *const kOYMDataLinksPropName = @"properties.name";
 /** Key to retrieve the device ID from properties */
 static NSString* const kOYMDataLinksPropDeviceId = @"properties.deviceId";
 
-/** String containing the IBeacon type */
-#define kOYMDataLinksTypeIbeacon kOYMBeaconType
-/** String containing the Building type */
-#define kOYMDataLinksTypeBuilding kOYMBuildingType
-/** String containing the Floor type */
-#define kOYMDataLinksTypeFloor kOYMFloorType
-/** String containing the Asset type */
-#define kOYMDataLinksTypeAsset kOYMAssetType
-/** String containing the Place type */
-#define kOYMDataLinksTypePlace kOYMPlaceType
-/** String containing the Edge type */
-#define kOYMDataLinksTypeEdge kOYMEdgeType
-/** String containing the Notification type */
-#define kOYMDataLinksTypeNotification kOYMNotificationType
-/** String containing the Settings type */
-#define kOYMDataLinksTypeSettings kOYMSettingsType
-/** String containing the IndoorLocationSettings type */
-#define kOYMDataLinksTypeIndoorLocationSettings kOYMLocationSettingsType
-/** String containing the IndoorLocationSettings type */
-#define kOYMDataLinksTypeUserProfile kOYMUserProfileType
 
 static NSString *const kOYMDataLinksKeyConnect = @"OYMConnect";
 
@@ -77,6 +57,7 @@ static NSString *const kOYMDataLinksKeyUpdateIbeacon = @"OYMUpdateIbeacon";
 static NSString *const kOYMDataLinksKeyUpdateIbeaconPosition = @"OYMUpdateIbeaconPosition";
 static NSString *const kOYMDataLinksKeyUpdateIbeaconStatus = @"OYMUpdateIbeaconStatus";
 static NSString *const kOYMDataLinksKeyGetEdgesRouting = @"OYMGetEdgesRouting";
+static NSString *const kOYMDataLinksKeyGetProxiBeacons = @"OYMGetProxiBeacons";
 
 static NSString *const kOYMDataLinksKeySearch = @"OYMIndoorSearch";
 static NSString *const kOYMDataLinksKeySearchBlock = @"“OYMIndoorSearchBlock”";

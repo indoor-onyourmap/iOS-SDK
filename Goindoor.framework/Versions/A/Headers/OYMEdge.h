@@ -14,6 +14,7 @@
 #import <Links/links.h>
 
 #import "OYMSettings.h"
+#import "OYMJsonProtocol.h"
 
 #pragma mark Public constants
 /** Key to retrieve the building id from the OYMLinksItem */
@@ -56,7 +57,7 @@ static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
  *  This class includes all the information regarding the Edge Items stored
  * in Links.
  */
-@interface OYMEdge : NSObject
+@interface OYMEdge : NSObject <OYMJsonProtocol>
 
 /** Automatically generated UUID */
 @property (readonly) NSString* uuid;

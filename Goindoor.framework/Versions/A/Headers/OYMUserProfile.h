@@ -33,6 +33,10 @@ static NSString* const kOYMUserProfileKeyBuilding = @"building";
 /** Key to retrieve the Floor ID from the {@link Item} */
 static NSString* const kOYMUserProfileKeyFloor = @"floor";
 
+static NSString* const kOYMUserProfileKeyItem = @"item";
+static NSString* const kOYMUserProfileKeyWorkspace = @"workspace";
+static NSString* const kOYMUserProfileKeySettings = @"settings";
+
 /** Key to retrieve the device ID from properties */
 static NSString* const kOYMUserProfileJsonRoutesCount = @"routesCount";
 /** Key to retrieve the device ID from properties */
@@ -58,7 +62,7 @@ static NSString* const kOYMUserProfileEventIdPrefix = @"EVENT-";
  *  This class includes all the information regarding the user profile to log
  * information in the server.
  */
-@interface OYMUserProfile : NSObject
+@interface OYMUserProfile : NSObject <OYMJsonProtocol>
 {
     @private
     NSString *deviceId;

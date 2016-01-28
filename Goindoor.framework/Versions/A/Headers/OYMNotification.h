@@ -13,6 +13,7 @@
 
 #import <Links/Links.h>
 
+#import "OYMJsonProtocol.h"
 
 #pragma mark Enumerations
 /** Enumeration containing all the Notification Actions */
@@ -52,7 +53,7 @@ static NSString *const kOYMNotificationKeyTargets = @"targets";
 /**
  *  This class describes a notification object. A notification is an event that trigger when a specific action happens about a POI.
  */
-@interface OYMNotification : NSObject
+@interface OYMNotification : NSObject <OYMJsonProtocol>
 
 #pragma mark Properties
 /** Notification unique identifier */
@@ -76,7 +77,7 @@ static NSString *const kOYMNotificationKeyTargets = @"targets";
 /** Number of seconds when this notification can be repeated again */
 @property (readonly) int repeat;
 /** String defining Notification type */
-@property (readonly) NSString* type;
+@property (readonly) NSString* type DEPRECATED_ATTRIBUTE;
  /** Keys/values that defines the notification target */
 @property (readonly) NSDictionary* targets;
 

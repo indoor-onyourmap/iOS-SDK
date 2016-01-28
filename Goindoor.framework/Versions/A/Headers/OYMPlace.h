@@ -13,6 +13,7 @@
 
 #import <Links/links.h>
 
+#import "OYMJsonProtocol.h"
 
 #pragma mark Public constants
 /** Key to retrieve the name from the OYMLinksItem */
@@ -31,17 +32,22 @@ static NSString *const kOYMPlaceKeyProperties = @"propertiesList";
 static NSString *const kOYMPlaceKeyTags = @"tagList";
 /** Key to retrieve the Place type from the OYMLinksItem */
 static NSString *const kOYMPlaceKeyType = @"type";
+static NSString *const kOYMPlaceKeyId = @"id";
 
+static NSString *const kOYMPlaceKeyLongitude = @"x";
+static NSString *const kOYMPlaceKeyLatitude = @"y";
 
 /** String containing the Place type */
 static NSString *const kOYMPlaceType = @"AREA";
 
+/** String containing the proxibeacon tag */
+static NSString *const kOYMPlaceIdProxi = @"proxibeacons";
 
 /**
  *  This class includes all the information regarding the Place Items stored
  * in Links.
  */
-@interface OYMPlace : NSObject
+@interface OYMPlace : NSObject <OYMJsonProtocol>
 
 /** Automatically generated UUID */
 @property (readonly) NSString* uuid;
@@ -58,9 +64,13 @@ static NSString *const kOYMPlaceType = @"AREA";
 /** String defining Place type */
 @property (readonly) NSString* type;
 /** WGS84 Longitude */
-@property (readonly) NSNumber* x;
+@property (nonatomic) NSNumber* x DEPRECATED_MSG_ATTRIBUTE("Use {@link #longitude)} instead.");
 /** WGS84 Latitude */
-@property (readonly) NSNumber* y;
+@property (nonatomic) NSNumber* y DEPRECATED_MSG_ATTRIBUTE("Use {@link #latitude)} instead.");
+/** WGS84 Longitude */
+@property (nonatomic) NSNumber* longitude;
+/** WGS84 Latitude */
+@property (nonatomic) NSNumber* latitude;
 /** Tag list */
 @property (readonly) NSArray* tags;
 /** Properties */
