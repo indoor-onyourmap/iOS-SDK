@@ -34,7 +34,7 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
         deg.locManager.delegate = deg;
         
         // Initialize Reachability
-        deg.reachability = [OYMReachability reachabilityWithHostname:@"www.google.com"];
+        deg.reachability = [OYMReachability oymReachabilityWithHostName:@"www.google.com"];
     });
     
     return deg;
@@ -97,8 +97,8 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 }
 
 -(void)start {
-    [deg.reachability startNotifier];
-    [[NSNotificationCenter defaultCenter] addObserver:deg selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
+    [deg.reachability startOYMReachabilityNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:deg selector:@selector(reachabilityDidChange:) name:kOYMReachabilityChangedNotification object:nil];
     
     gs = [GlobalState get];
     gs.go = [OYMGoIndoor goIndoorWithBlock:^(id<GoIndoorBuilder> builder) {
@@ -135,7 +135,8 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 }
 
 - (void)startWithAccount:(NSString *)a andPassword:(NSString *)p {
-    user = [kOYMIndoorNavigationUserPrefix stringByAppendingString:a];
+//    user = [kOYMIndoorNavigationUserPrefix stringByAppendingString:a];
+    user = a;
     password = p;
     [self start];
 }
@@ -144,8 +145,8 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
     [gs.go stopLocate];
     [gs.go disconnect];
     
-    [deg.reachability stopNotifier];
-    [[NSNotificationCenter defaultCenter] removeObserver:deg name:kReachabilityChangedNotification object:nil];
+    [deg.reachability stopOYMReachabilityNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:deg name:kOYMReachabilityChangedNotification object:nil];
 }
 
 
@@ -212,7 +213,7 @@ static NSString *const kOYMIndoorNavigationNotificationKeyMessage = @"msg";
 #pragma mark Reachability
 - (void)reachabilityDidChange:(NSNotification *)notification {
     OYMReachability* r = [notification object];
-    if (![r isReachable] && vc != nil && [vc isKindOfClass:[MapViewController class]]) {
+    if ([r currentOYMReachabilityStatus] == kOYMNetworkStatusNotReachable && vc != nil && [vc isKindOfClass:[MapViewController class]]) {
         [vc.view makeToast:NSLocalizedString(@"AMTNoInternet", nil) duration:3.0 position:CSToastPositionBottom title:nil];
     }
 }

@@ -13,7 +13,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-#import <Links/links.h>
+#import "OYMConstant.h"
 
 #import "NSData+Hex.h"
 #import "ESSEddystone.h"
@@ -45,38 +45,37 @@ static NSString *const kOYMBeaconEddystoneHeader2 = @"16AAFE";
 /** String containing the Eddystone-UID Frame Type */
 static NSString *const kOYMBeaconEddystoneFrameUID = @"00";
 
-/** Key to retrieve the Beacon uuid from the {@link Item} */
+/** Key to retrieve the Beacon uuid */
 static NSString *const kOYMBeaconKeyId = @"id";
-/** Key to retrieve the Beacon major from the {@link Item} */
+/** Key to retrieve the Beacon major */
 static NSString *const kOYMBeaconKeyMajor = @"major";
-/** Key to retrieve the Beacon minor from the {@link Item} */
+/** Key to retrieve the Beacon minor */
 static NSString *const kOYMBeaconKeyMinor = @"minor";
-/** Key to retrieve the Beacon longitude from the {@link Item} */
+/** Key to retrieve the Beacon longitude */
 static NSString *const kOYMBeaconKeyLongitude = @"longitude";
-/** Key to retrieve the Beacon latitude from the {@link Item} */
+/** Key to retrieve the Beacon latitude */
 static NSString *const kOYMBeaconKeyLatitude = @"latitude";
-/** Key to retrieve the Beacon transmission power from the {@link Item} */
+/** Key to retrieve the Beacon transmission power */
 static NSString *const kOYMBeaconKeyTx = @"tx";
-/** Key to retrieve the Beacon proximity UUID from the {@link Item} */
-static NSString *const kOYMBeaconKeyUuid = @"proximityUUID";
-/** Key to retrieve the Beacon {@link Building} ID from the {@link Item} */
+/** Key to retrieve the Beacon proximity UUID */
+static NSString *const kOYMBeaconKeyUuid = @"uuid";
+/** Key to retrieve the Beacon Building ID */
 static NSString *const kOYMBeaconKeyBuilding = @"building";
-/** Key to retrieve the Beacon {@link Floor} ID from the {@link Item} */
+/** Key to retrieve the Beacon Floor ID */
 static NSString *const kOYMBeaconKeyFloor = @"floor";
-/** Key to retrieve the Beacon {@link Floor} number from the {@link Item} */
-static NSString *const kOYMBeaconKeyFloorNumber = @"floornumber";
-/** Key to retrieve the Beacon type from the {@link Item} */
+/** Key to retrieve the Beacon Floor number */
+static NSString *const kOYMBeaconKeyFloorNumber = @"floorNumber";
+/** Key to retrieve the Beacon type */
 static NSString *const kOYMBeaconKeyType = @"type";
-/** Key to retrieve the Beacon status from the {@link Item} */
+/** Key to retrieve the Beacon status */
 static NSString *const kOYMBeaconKeyStatus = @"status";
-/** Key to retrieve the Beacon warning counter from the {@link Item} */
-//static NSString *const kOYMBeaconKeyWarningCounter = @"warningCounter";
-/** Key to retrieve the Beacon ScanDate from the {@link Item} */
-//static NSString *const kOYMBeaconKeyScanDate = @"scandate";
+/** Key to retrieve the Beacon warning counter */
+static NSString *const kOYMBeaconKeyWarningCounter = @"warningCounter";
+/** Key to retrieve the Beacon ScanDate */
+static NSString *const kOYMBeaconKeyScanDate = @"scanDate";
 
 /**
- *  This class includes all the information regarding the Beacon Items stored
- * in Links.
+ *  This class includes all the information regarding the Beacon Items stored.
  */
 @interface OYMBeacon : NSObject <OYMJsonProtocol>
 
@@ -84,9 +83,9 @@ static NSString *const kOYMBeaconKeyStatus = @"status";
 /** Automatically generated UUID */
 @property NSString *uuid;
 /** WGS84 Longitude */
-@property(nonatomic) NSNumber *x DEPRECATED_MSG_ATTRIBUTE("Use {@link longitude} instead.");
+@property (nonatomic) NSNumber *x DEPRECATED_MSG_ATTRIBUTE("Use longitude instead.");
 /** WGS84 Latitude */
-@property (nonatomic) NSNumber *y  DEPRECATED_MSG_ATTRIBUTE("Use {@link latitude} instead.");
+@property (nonatomic) NSNumber *y  DEPRECATED_MSG_ATTRIBUTE("Use latitude instead.");
 /** WGS84 Longitude */
 @property NSNumber *longitude;
 /** WGS84 Latitude */
@@ -115,12 +114,7 @@ static NSString *const kOYMBeaconKeyStatus = @"status";
 @property int warningCounter;
 
 #pragma mark Constructors
-/**
- *  Beacon constructor.
- *
- * @param item OYMLinksItem containing the Beacon object
- */
-- (instancetype)initWithItem:(OYMLinksItem*)item;
+
 /**
  *  Eddystone Beacon partial constructor. Should not be used.
  *
@@ -146,12 +140,6 @@ static NSString *const kOYMBeaconKeyStatus = @"status";
  * @return A unique Beacon identifier
  */
 - (NSString*)getIdentifier;
-/**
- *  This method creates an OYMLinksItem object from an Beacon object.
- *
- * @return The equivalent OYMLinksItem object
- */
-- (OYMLinksItem*)toItem;
 
 @end
 #endif

@@ -48,7 +48,7 @@
     self.valTextField.inputView = datePicker;
     
     NSString *dateStr = [self.valTextField.text stringByAppendingString:@"T00:00:00.000Z"];
-    NSDate *date = [DateSerializer unserializeDate:dateStr];
+    NSDate *date = [OYMUtils getDateFromIso8601UTCString:dateStr];
     [datePicker setDate:date];
 }
 
@@ -107,7 +107,7 @@
         }
     } else if (_inputType == TextFieldInputTypeDate) {
         NSString *dateStr = [NSString stringWithFormat:@"%@T00:00:00.000Z",[valTextField.text stringByReplacingCharactersInRange:range withString:string]];
-        NSDate *date = [DateSerializer unserializeDate:dateStr];
+        NSDate *date = [OYMUtils getDateFromIso8601UTCString:dateStr];
         if (date) {
             return YES;
         }

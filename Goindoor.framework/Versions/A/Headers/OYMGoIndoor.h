@@ -25,7 +25,9 @@
 @protocol GoIndoorBuilder;
 
 /** Variable defining the default location update rate in msec */
-static const long kOYMGoIndoorDefaultLocationRefresh = 2000; //msec
+static long const kOYMGoIndoorDefaultLocationRefresh = 2000; //msec
+static long const kOYMGoIndoorDefaultUpdateTime = 60 * 15; //15 mins
+static NSString* const kOYMGoIndoorDefaultWsUrl = @"https://indoor.onyourmap.com/ws/v2";
 
 /**
  *  Annotation defining the possible algorithms to be used
@@ -37,6 +39,17 @@ typedef NS_ENUM(int, OYMGoIndoorLocationType) {
     kOYMGoIndoorLocationTypeClosest = 1,
     /** Weighted average with projection to the closest edge */
     kOYMGoIndoorLocationTypeProject = 2
+};
+/**
+ *  Annotation defining the database update policy
+ */
+typedef NS_ENUM(int, OYMGoIndoorUpdate) {
+    /** Weighted average */
+    kOYMGoIndoorUpdateNo = 0,
+    /** Closest iBeacon */
+    kOYMGoIndoorUpdateWifi = 1,
+    /** Weighted average with projection to the closest edge */
+    kOYMGoIndoorUpdateMobile = 1 << 1
 };
 
 static const NSString* kOYMGoIndoorLocationKeyRefresh = @"OYMRefresh";
@@ -57,6 +70,8 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
     void (^connectCallback)(BOOL succeed, NSString *message);
     OYMGoIndoorLocationType locationType;
     long locationUpdate;
+    OYMGoIndoorUpdate updatePolicy;
+    long updateTime;
     
     NSString *workspace;
     OYMDataHandler *dataHandler;
@@ -148,7 +163,7 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  *
  * @return Returns The asset list
  */
-- (NS_ARRAY_OF(OYMBuilding*) *) getAssets ;
+- (NS_ARRAY_OF(OYMAsset*) *) getAssets ;
 /**
  *  Getter for the asset list.
  *
@@ -270,6 +285,18 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  */
 - (void) setMinDistanceUpdate:(double)dist;
 
+/**
+ *  Sets the update policy. It overrides the value given in the builder.
+ *
+ * @param policy Update policy to be applied
+ */
+- (void) setUpdatePolicy:(OYMGoIndoorUpdate)policy;
+
+/**
+ *  Triggers an immediate update to the database. It assumes that the update policy is fulfilled.
+ */
+- (void) triggerUpdate;
+
 @end
 
 
@@ -298,16 +325,23 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  */
 - (void) setConnectCallBack:(void(^)(BOOL succeed, NSString *message))_connectCallback ;
 /**
- *  Sets the positioning type. Default is {@link #LOCATION_TYPE_AVERAGE}.
+ *  Sets the positioning type. Default is #kOYMGoIndoorLocationTypeAverage.
  */
 - (void) setLocationType:(OYMGoIndoorLocationType)_type ;
 /**
- *  Sets the update rate in msec. Default is {@link #DEFAULT_LOCATION_REFRESH}.
+ *  Sets the update rate in msec. Default is #kOYMGoIndoorDefaultLocationRefresh.
  */
 - (void) setLocationUpdate:(long)_refresh ;
-
 /**
- *  Creates a {@link OYMGoIndoor} with the arguments supplied to this builder. It will
+ *  Sets the update policy. Default is #(kOYMGoIndoorUpdateWifi | kOYMGoIndoorUpdateMobile).
+ */
+- (void) setUpdatePolicy:(OYMGoIndoorUpdate)policy;
+/**
+ *  Sets the database update rate in msec. Default is #kOYMGoIndoorDefaultUpdateTime.
+ */
+- (void) setDatabaseUpdate:(long)refresh;
+/**
+ *  Creates a OYMGoIndoor with the arguments supplied to this builder. It will
  * attempt to connect to the database and the outcome will be shown in the provided
  * connect callback
  *

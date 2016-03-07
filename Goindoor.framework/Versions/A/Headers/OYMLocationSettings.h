@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Links/links.h>
+#import "OYMConstant.h"
 
 #import "OYMJsonProtocol.h"
 
@@ -19,19 +19,19 @@
 // String containing the IBeacon type */
 static NSString* const kOYMLocationSettingsType = @"INDOORLOCATIONSETTINGS";
 
-// Key to retrieve the Accuracy threshold to change to GPS from the {@link Item} */
+// Key to retrieve the Accuracy threshold to change to GPS */
 static NSString* const kOYMLocationSettingsKeyAccuracy = @"gpsAccuracy";
-// Key to retrieve the Filter alpha threshold from the {@link Item} */
+// Key to retrieve the Filter alpha threshold */
 static NSString* const kOYMLocationSettingsKeyFilterAlpha = @"filterAlpha";
-// Key to retrieve the Filter distance threshold from the {@link Item} */
+// Key to retrieve the Filter distance threshold */
 static NSString* const kOYMLocationSettingsKeyFilterDistance = @"filterDistance";
-// Key to retrieve the Maximum distance between iBeacons threshold from the {@link Item} */
+// Key to retrieve the Maximum distance between iBeacons threshold */
 static NSString* const kOYMLocationSettingsKeyMaxIbeaconDistance = @"maxIbeaconDistance";
-// Key to retrieve the RSSI threshold from the {@link Item} */
+// Key to retrieve the RSSI threshold */
 static NSString* const kOYMLocationSettingsKeyRssi = @"rssi";
-// Key to retrieve the Time threshold to change to GPS from the {@link Item} */
+// Key to retrieve the Time threshold to change to GPS */
 static NSString* const kOYMLocationSettingsKeyTime = @"gpsTime";
-// Key to retrieve the Time threshold to change floors from the {@link Item} */
+// Key to retrieve the Time threshold to change floors */
 static NSString* const kOYMLocationSettingsKeyTimeChangeFloor = @"timeChangeFloor";
 // Key to retrieve the time threshold to stop the BLE scan after not hearing any known iBeacon */
 static NSString* const kOYMLocationSettingsKeyTimeLastKnown = @"timeLastKnown";
@@ -48,7 +48,7 @@ static NSString* const kOYMLocationSettingsKeyTimeStopScan = @"timeStopScan";
 static NSString* const kOYMLocationSettingsKeyTimeProxibeaconChange = @"timeProxiChange";
 /** Key to retrieve whether the ProxiBeacons are enabled */
 static NSString* const kOYMLocationSettingsKeyFlagProxibeaconEnabled = @"proxiEnabled";
-/** Key to retrieve the Accuracy threshold to change to ProxiBeacon from the {@link Item} */
+/** Key to retrieve the Accuracy threshold to change to ProxiBeacon */
 static NSString* const kOYMLocationSettingsKeyProxiAccuracy = @"proxiAccuracy";
 
 
@@ -68,7 +68,7 @@ static NSString* const kOYMLocationSettingsPropType = @"properties.type";
 @property (readonly) double gpsAccuracy;
 @property (readonly) long gpsTime;
 @property (readonly) double filterAlpha;
-@property /*(readonly)*/ double filterDistance;
+@property (readwrite) double filterDistance;
 @property (readonly) double maxIbeaconDistance;
 @property (readonly) int rssi;
 @property (readonly) long timeChangeFloor;
@@ -90,14 +90,6 @@ static NSString* const kOYMLocationSettingsPropType = @"properties.type";
  * @return Return the OYMLocationSettings Object
  */
 - (instancetype) init;
-/**
- *  OYMLocationSettings constructor.
- *
- * @param item {@link OYMLinksItem} containing the Settings object
- * @return Return the OYMLocationSettings Object
- */
-- (instancetype) initWithItem:(OYMLinksItem*) item;
-
 
 @end
 #endif

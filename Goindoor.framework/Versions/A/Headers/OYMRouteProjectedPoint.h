@@ -46,7 +46,7 @@ static NSString *const kOYMRouteProjectedPointKeyBearing = @"bearingAngle";
  * @param _distanceShape Distance between the user position and the shape
  * @param _bearingAngle Bearing, counted clockwise from north
  */
-- (instancetype) initWithX:(NSNumber*)_x andY:(NSNumber*)_y andFloorNumber:(NSNumber*)_floorNumber andBuildingId:(NSString*)_building andDistanceFromStart:(NSNumber*)_distanceStart andDistanceToShape:(NSNumber*)_distanceShape andBearing:(NSNumber*)_bearingAngle DEPRECATED_MSG_ATTRIBUTE("Use {@link #initWithLatitude:andLongitude: andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:} instead.");
+- (instancetype) initWithX:(NSNumber*)_x andY:(NSNumber*)_y andFloorNumber:(NSNumber*)_floorNumber andBuildingId:(NSString*)_building andDistanceFromStart:(NSNumber*)_distanceStart andDistanceToShape:(NSNumber*)_distanceShape andBearing:(NSNumber*)_bearingAngle DEPRECATED_MSG_ATTRIBUTE("Use #initWithLatitude:andLongitude: andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:} instead.");
 /**
  *  RouteProjectedPoint constructor.
  *

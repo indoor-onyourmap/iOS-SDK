@@ -14,8 +14,14 @@
 #import "OYMPlace.h"
 #import "OYMNotificationWrapper.h"
 
+#import "OYMBox.h"
+#import "OYMGeometryPoint.h"
+#import "OYMCircle.h"
+#import "OYMPolygon.h"
+#import "OYMPolyline.h"
+
 #pragma mark OYMPlaceGeometryType Enumeration
-@class OYMPoint;
+@class OYMPoint, OYMNotificationWrapper;
 
 typedef enum {
     MARKER,
@@ -32,7 +38,7 @@ typedef enum {
 @property (readonly) NSArray* points;
 @property (readonly) double radius;
 
-- (instancetype) initWithGeometry:(NSString*)geometry andNotification:(OYMNotification*)noti;
+- (instancetype)initWithNotificationWrapper:(OYMNotificationWrapper *)nw;
 - (instancetype) initWithPlace:(OYMPlace*)_place;
 
 - (BOOL) isInside:(OYMPoint*)p;

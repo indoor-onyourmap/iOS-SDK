@@ -15,17 +15,11 @@
 /** String containing the Asset type */
 static NSString * const kOYMProxiBeaconType = @"PROXIBEACON";
 
-/** Key to retrieve the Asset place from the {@link Item} */
-static NSString * const KEY_PLACE = @"place";
+/** Key to retrieve the Asset place */
+static NSString *const kOYMProxiBeaconKeyPlace = @"place";
 
-@interface OYMProxiBeacon : OYMBeacon
+@interface OYMProxiBeacon : OYMBeacon <OYMJsonProtocol>
 @property(nonatomic) NSString *place;
-/**
- *  OYMProxiBeacon constructor.
- *
- * @param item {@link Item} containing the OYMProxiBeacon object
- */
-- (instancetype)initWithItem:(OYMLinksItem *)item;
 
 @end
 

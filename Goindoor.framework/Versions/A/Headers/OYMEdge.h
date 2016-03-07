@@ -11,35 +11,36 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Links/links.h>
-
-#import "OYMSettings.h"
 #import "OYMJsonProtocol.h"
+#import "OYMSettings.h"
+#import "OYMGeometry.h"
 
 #pragma mark Public constants
-/** Key to retrieve the building id from the OYMLinksItem */
+/** Key to retrieve the Edge id */
+static NSString *const kOYMEdgeKeyId = @"id";
+/** Key to retrieve the building id */
 static NSString *const kOYMEdgeKeyBuilding = @"building";
-/** Key to retrieve the start floor ID from the OYMLinksItem */
+/** Key to retrieve the start floor ID */
 static NSString *const kOYMEdgeKeyStartFloor = @"startFloor";
-/** Key to retrieve the end floor ID from the OYMLinksItem */
+/** Key to retrieve the end floor ID */
 static NSString *const kOYMEdgeKeyEndFloor = @"endFloor";
-/** Key to retrieve the start floor number from the OYMLinksItem */
+/** Key to retrieve the start floor number */
 static NSString *const kOYMEdgeKeyStartFloornumber = @"startFloorNumber";
-/** Key to retrieve the end floor number from the OYMLinksItem */
+/** Key to retrieve the end floor number */
 static NSString *const kOYMEdgeKeyEndFloornumber = @"endFloorNumber";
-/** Key to retrieve the control points from the OYMLinksItem */
+/** Key to retrieve the control points */
 static NSString *const kOYMEdgeKeyGeometry = @"geometry";
-/** Key to retrieve the edge type from the OYMLinksItem */
+/** Key to retrieve the edge type */
 static NSString *const kOYMEdgeKeyType = @"edgeType";
-/** Key to retrieve the edge start node ID from the OYMLinksItem */
+/** Key to retrieve the edge start node ID */
 static NSString *const kOYMEdgeKeyStartNode = @"startNode";
-/** Key to retrieve the edge end node ID from the OYMLinksItem */
+/** Key to retrieve the edge end node ID */
 static NSString *const kOYMEdgeKeyEndNode = @"endNode";
-/** Key to retrieve the edge distance from the OYMLinksItem */
+/** Key to retrieve the edge distance */
 static NSString *const kOYMEdgeKeyDistance = @"distance";
-/** Key to retrieve the edge propertiesList from the OYMLinksItem */
-static NSString *const kOYMEdgeKeyPropertyList = @"propertyList";
-/** Key to retrieve the edge direction from the OYMLinksItem */
+/** Key to retrieve the edge properties */
+static NSString *const kOYMEdgeKeyPropertyList = @"properties";
+/** Key to retrieve the edge direction */
 static NSString *const kOYMEdgeKeyDirection = @"direction";
 
 /** String containing the Place type */
@@ -54,8 +55,7 @@ static NSString *const kOYMEdgeTypeEscalator = @"escalator-connecting";
 static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
 
 /**
- *  This class includes all the information regarding the Edge Items stored
- * in Links.
+ *  This class includes all the information regarding the Edge Items stored.
  */
 @interface OYMEdge : NSObject <OYMJsonProtocol>
 
@@ -72,7 +72,7 @@ static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
 /** End Floor number */
 @property (readonly) NSNumber* endFloornumber;
 /** Place geometry */
-@property (readonly) NSString* geometry;
+@property (readonly) OYMGeometry* geometry;
 /** ID of the start node */
 @property (readonly) NSString* startNode;
 /** ID of the end node */
@@ -82,17 +82,9 @@ static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
 /** String defining Floor type */
 @property (readonly) NSString* type;
 /** Properties list */
-@property (readonly) NSDictionary* propertiesList;
+@property (readonly) NS_DICTIONARY_OF(NSString *, OYMUserValue *)* properties;
 /** Edge direction */
 @property (readonly) NSString* direction;
-
-#pragma mark Constructors
-/**
- *  Edge constructor.
- *
- * @param item OYMLinksItem containing the Edge object
- */
-- (instancetype) initWithItem:(OYMLinksItem*)item andSettings:(OYMSettings *)settings;
 
 @end
 #endif

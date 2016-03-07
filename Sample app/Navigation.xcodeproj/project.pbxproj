@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4E2BB9FA1B297E170025F63A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BB9F91B297E170025F63A /* UIView+Toast.m */; };
 		4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */; };
-		4E2BBA001B2AC7D20025F63A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BB9FF1B2AC7D20025F63A /* Reachability.m */; };
 		4E94237E1B1887F700798E3B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E9423801B1887F700798E3B /* Localizable.strings */; };
 		4EBCB7841B186FBB00D7B257 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7831B186FBB00D7B257 /* main.m */; };
 		4EBCB7871B186FBB00D7B257 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7861B186FBB00D7B257 /* AppDelegate.m */; };
@@ -56,18 +55,15 @@
 		FC1C5E301BC7D87B0004BCDA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1C5E2F1BC7D87B0004BCDA /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FC1FB16C1BCE91EE0020517A /* ic_account_circle_black.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1FB16A1BCE91EE0020517A /* ic_account_circle_black.png */; };
 		FC1FB16D1BCE91EE0020517A /* ic_account_circle_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC1FB16B1BCE91EE0020517A /* ic_account_circle_black@2x.png */; };
-		FC6EAE1C1BFB27A0001D3E9D /* Goindoor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6EAE1B1BFB27A0001D3E9D /* Goindoor.framework */; };
 		FC6EAE221BFB3D65001D3E9D /* Routing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC6EAE211BFB3D65001D3E9D /* Routing.bundle */; };
 		FCB502381BE379FA00696FFF /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB502371BE379FA00696FFF /* OptionsViewController.m */; };
-		FCDB3AE01BCD2DF50020B256 /* Links.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB3ADF1BCD2DF50020B256 /* Links.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		FCD84F4F1C89C9B6004F19C6 /* Goindoor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD84F4E1C89C9B6004F19C6 /* Goindoor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4E2BB9F91B297E170025F63A /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Utils/UIView+Toast.m"; sourceTree = "<group>"; };
 		4E2BB9FB1B297E5F0025F63A /* UIView+Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Utils/UIView+Toast.h"; sourceTree = "<group>"; };
 		4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4E2BB9FE1B2AC7D20025F63A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utils/Reachability.h; sourceTree = "<group>"; };
-		4E2BB9FF1B2AC7D20025F63A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utils/Reachability.m; sourceTree = "<group>"; };
 		4E94237F1B1887F700798E3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E9423811B18881400798E3B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E9423821B18882E00798E3B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -158,11 +154,10 @@
 		FC1C5E2F1BC7D87B0004BCDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FC1FB16A1BCE91EE0020517A /* ic_account_circle_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle_black.png; sourceTree = "<group>"; };
 		FC1FB16B1BCE91EE0020517A /* ic_account_circle_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_account_circle_black@2x.png"; sourceTree = "<group>"; };
-		FC6EAE1B1BFB27A0001D3E9D /* Goindoor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Goindoor.framework; path = Frameworks/Goindoor.framework; sourceTree = "<group>"; };
 		FC6EAE211BFB3D65001D3E9D /* Routing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Routing.bundle; path = Frameworks/Routing.bundle; sourceTree = "<group>"; };
 		FCB502361BE379FA00696FFF /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		FCB502371BE379FA00696FFF /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
-		FCDB3ADF1BCD2DF50020B256 /* Links.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Links.framework; path = Frameworks/Links.framework; sourceTree = "<group>"; };
+		FCD84F4E1C89C9B6004F19C6 /* Goindoor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Goindoor.framework; path = Frameworks/Goindoor.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,10 +165,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCDB3AE01BCD2DF50020B256 /* Links.framework in Frameworks */,
 				FC1C5E301BC7D87B0004BCDA /* QuartzCore.framework in Frameworks */,
+				FCD84F4F1C89C9B6004F19C6 /* Goindoor.framework in Frameworks */,
 				4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */,
-				FC6EAE1C1BFB27A0001D3E9D /* Goindoor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +259,6 @@
 				4EBCB7C11B18727500D7B257 /* UIImage+Tint.m */,
 				4E2BB9FB1B297E5F0025F63A /* UIView+Toast.h */,
 				4E2BB9F91B297E170025F63A /* UIView+Toast.m */,
-				4E2BB9FE1B2AC7D20025F63A /* Reachability.h */,
-				4E2BB9FF1B2AC7D20025F63A /* Reachability.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -308,9 +300,8 @@
 		4EBCB7DD1B1872C900D7B257 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCD84F4E1C89C9B6004F19C6 /* Goindoor.framework */,
 				FC6EAE211BFB3D65001D3E9D /* Routing.bundle */,
-				FC6EAE1B1BFB27A0001D3E9D /* Goindoor.framework */,
-				FCDB3ADF1BCD2DF50020B256 /* Links.framework */,
 				FC1C5E2F1BC7D87B0004BCDA /* QuartzCore.framework */,
 				FC13D1E71B904D650041FFF4 /* IQKeyBoardManager */,
 				4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */,
@@ -518,7 +509,6 @@
 				4EBCB7B61B18725C00D7B257 /* PrimaryBarView.m in Sources */,
 				4EBCB7CB1B18728800D7B257 /* Delegate.m in Sources */,
 				4EBCB7DA1B18729C00D7B257 /* InstructionsViewController.m in Sources */,
-				4E2BBA001B2AC7D20025F63A /* Reachability.m in Sources */,
 				4EBCB7C31B18727500D7B257 /* OYMAnnotation.m in Sources */,
 				FC1BAF2C1B8DF32D0090F606 /* UserProfileCell.m in Sources */,
 				FC1BAF2F1B8DF3500090F606 /* UserProfileRadioButtonCell.m in Sources */,
@@ -605,7 +595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -645,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

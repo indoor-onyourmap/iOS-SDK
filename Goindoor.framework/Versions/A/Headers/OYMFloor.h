@@ -12,7 +12,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Links/links.h>
+#import "OYMConstant.h"
 
 #import "OYMTileOverlay.h"
 #import "OYMJsonProtocol.h"
@@ -20,18 +20,19 @@
 /** String containing the Floor type */
 static NSString *const kOYMFloorType = @"FLOOR";
 
-/** Key to retrieve the building id from the OYMLinksItem */
+/** Key to retrieve the building id */
 static NSString *const kOYMFloorKeyBuilding = @"building";
-/** Key to retrieve the floor number from the OYMLinksItem */
-static NSString *const kOYMFloorKeyFloor = @"floornumber";
-/** Key to retrieve the floor type from the OYMLinksItem */
+/** Key to retrieve the floor number */
+static NSString *const kOYMFloorKeyFloor = @"floorNumber";
+/** Key to retrieve the floor type */
 static NSString *const kOYMFloorKeyType = @"type";
 static NSString *const kOYMFloorKeyId = @"id";
 
 
 /**
- *  This class includes all the information regarding the Floor Items stored
- * in Links. 
+ *  This class includes all the information regarding the Floor Items stored.
+ * As well, it includes the UrlTileProvider to be used to
+ * overlap the indoor maps in the Map
  */
 @interface OYMFloor : NSObject <OYMJsonProtocol>
 
@@ -46,16 +47,6 @@ static NSString *const kOYMFloorKeyId = @"id";
 @property (readonly) NSString *type DEPRECATED_ATTRIBUTE;
 /** Tile provider for Goindoor tiles */
 @property (readonly) OYMTileOverlay *tileProvider;
-
-
-# pragma mark Constructors
-/**
- *  Floor constructor.
- *
- * @param item OYMLinksItem containing the Floor object
- */
-- (instancetype)initWithItem:(OYMLinksItem*)item;
-
 
 @end
 #endif

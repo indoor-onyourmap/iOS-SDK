@@ -12,50 +12,35 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import <Links/links.h>
-
 #import "OYMSettings.h"
 
 #pragma mark Public constants
 /** String containing the UserProfile type */
 static NSString* const kOYMUserProfileType = @"USERPROFILE";
 
-/** Key to retrieve the iOS Device ID from the {@link Item} */
-static NSString* const kOYMUserProfileKeyDeviceId = @"deviceId";
-/** Key to retrieve the type from the {@link Item} */
-static NSString* const kOYMUserProfileKeyType = @"type";
-/** Key to retrieve the App package name from the {@link Item} */
-static NSString* const kOYMUserProfileKeyAppName = @"appName";
-/** Key to retrieve the Routes from the {@link Item} */
-static NSString* const kOYMUserProfileKeyRoutes = @"routes";
-/** Key to retrieve the Building ID from the {@link Item} */
-static NSString* const kOYMUserProfileKeyBuilding = @"building";
-/** Key to retrieve the Floor ID from the {@link Item} */
-static NSString* const kOYMUserProfileKeyFloor = @"floor";
-
-static NSString* const kOYMUserProfileKeyItem = @"item";
-static NSString* const kOYMUserProfileKeyWorkspace = @"workspace";
+static NSString* const kOYMUserProfileKeyUUID = @"id";
+static NSString* const kOYMUserProfileKeyLatitude = @"latitude";
+static NSString* const kOYMUserProfileKeyLongitude = @"longitude";
+static NSString* const kOYMUserProfileKeyProperties = @"properties";
 static NSString* const kOYMUserProfileKeySettings = @"settings";
+
+/** Key to retrieve the iOS Device ID */
+static NSString* const kOYMUserProfileKeyDevice = @"device";
+/** Key to retrieve the type */
+static NSString* const kOYMUserProfileKeyType = @"type";
+/** Key to retrieve the App package name */
+static NSString* const kOYMUserProfileKeyAppName = @"appName";
+/** Key to retrieve the Routes */
+static NSString* const kOYMUserProfileKeyRoutes = @"routes";
+/** Key to retrieve the Building ID */
+static NSString* const kOYMUserProfileKeyBuilding = @"building";
+/** Key to retrieve the Floor ID */
+static NSString* const kOYMUserProfileKeyFloor = @"floor";
 
 /** Key to retrieve the device ID from properties */
 static NSString* const kOYMUserProfileJsonRoutesCount = @"routesCount";
 /** Key to retrieve the device ID from properties */
 static NSString* const kOYMUserProfileJsonRoutesArray = @"routesArray";
-
-/** Key to retrieve the type from properties */
-static NSString* const kOYMUserProfilePropType = @"properties.type";
-/** Key to retrieve the device ID from properties */
-static NSString* const kOYMUserProfilePropDeviceId = @"properties.deviceId";
-/** Key to retrieve the routes from properties */
-static NSString* const kOYMUserProfilePropRoutes = @"properties.routes";
-/** Key to retrieve the app name from properties */
-static NSString* const kOYMUserProfilePropAppName = @"properties.appName";
-
-/** Event prefix ID */
-static NSString* const kOYMUserProfileEventIdPrefix = @"EVENT-";
-
-/** Exception message when the iOS Device ID has not been set */
-//static NSString* const kOYMUserProfileExceptionNoDeviceId = @"device ID has not been set";
 
 
 /**
@@ -64,51 +49,34 @@ static NSString* const kOYMUserProfileEventIdPrefix = @"EVENT-";
  */
 @interface OYMUserProfile : NSObject <OYMJsonProtocol>
 {
+    @package
+    NSString *uuid;
+    NSString *routes;
     @private
-    NSString *deviceId;
-    NSString *workspace;
+    NSString *device;
+    double latitude;
+    double longitude;
+    NSString *building;
+    NSString *floor;
+    NS_MUTABLE_DICTIONARY_OF(NSString*, NSString*) *properties;
+ 
     OYMSettings *settings;
-    NSMutableDictionary *smProps;
-    NSMutableDictionary *navProps;    
-    NSMutableDictionary *smPropsOrphan;
-    NSMutableDictionary *navPropsOrphan;
+    NS_MUTABLE_DICTIONARY_OF(NSString *, OYMUserValue*) *smProps;
+    NS_MUTABLE_DICTIONARY_OF(NSString *, OYMUserValue*) *navProps;
+    NS_MUTABLE_DICTIONARY_OF(NSString *, NSString*) *smPropsOrphan;
+    NS_MUTABLE_DICTIONARY_OF(NSString *, NSString*) *navPropsOrphan;
 }
 
 /** String containing the application bundle identifier */
 @property (readonly) NSString *appName;
-@property (readonly) OYMLinksItem *item;
 
 # pragma mark Constructors
-/**
- *  OYMUserProfile constructor.
- *
- * @param _workSpace username prefix
- * @param _settings OYMSettings containing the OYMLinksItem properties value
- * @return OYMUserProfile Object
- */
-- (instancetype) initWithWorkSpace:(NSString *)_workSpace andSettings:(OYMSettings *)_settings;
-/**
- *  OYMUserProfile constructor.
- *
- * @param _item OYMLinksItem containg the UserProfile Object
- * @param _workSpace username prefix
- * @param _settings OYMSettings containing the OYMLinksItem properties value
- * @return OYMUserProfile Object
- */
-- (instancetype) initWithItem:(OYMLinksItem *)_item workSpace:(NSString *)_workSpace andSettings:(OYMSettings *)_settings;
 
-/**
- *  Setter for the {@link Item}.
- *
- * @param item OYMLinksItem to be set
- */
-- (void) setItem:(OYMLinksItem *)item ;
-/**
- *  Getter for the {@link Item}
- *
- * @return The OYMLinksItem Object
- */
-- (OYMLinksItem *) item ;
+- (instancetype) initWithAppName:(NSString *)_appName andDevice:(NSString *)_device;
+
+- (void) setSettings:(OYMSettings *)_settings;
+
+- (void) addSettings: (OYMSettings *)_settings;
 
 @end
 
@@ -116,21 +84,21 @@ static NSString* const kOYMUserProfileEventIdPrefix = @"EVENT-";
 /**
  *  This method update the live properties internally. It shall not be used.
  *
- * @param time  NSDate object
- * @param x WGS84 Longitude to be logged
- * @param y WGS84 Latitude to be logged
+ * @param _latitude WGS84 Latitude to be logged
+ * @param _longitude WGS84 Longitude to be logged
+ * @param _time NSString following ISO-8601 standard: yyyy-MM-dd'T'HH:mm'Z'
  */
-- (void) updateLiveWithTime:(NSDate *)time x:(double)x andY:(double)y;
+- (void) updateLive:(double)_latitude andLongitude:(double)_longitude andTime:(NSString*)_time ;
 /**
  *  This method update the live properties internally. It shall not be used.
  *
- * @param time  NSDate object
- * @param x WGS84 Longitude to be logged
- * @param y WGS84 Latitude to be logged
- * @param buildingId Building ID to be logged
- * @param floorId Floor ID to be logged
+ * @param _latitude WGS84 Latitude to be logged
+ * @param _longitude WGS84 Longitude to be logged
+ * @param _time String following ISO-8601 standard: yyyy-MM-dd'T'HH:mm'Z'
+ * @param _building Building ID to be logged
+ * @param _floor Floor ID to be logged
  */
-- (void) updateLiveWithTime:(NSDate *)time x:(double)x Y:(double)y buildingId:(NSString *)buildingId andFloorId:(NSString *)floorId;
+- (void) updateLive:(double)_latitude andLongitude:(double)_longitude andTime:(NSString*)_time andBuilding:(NSString *)_building andFloor:(NSString *)_floor;
 
 //Stats
 

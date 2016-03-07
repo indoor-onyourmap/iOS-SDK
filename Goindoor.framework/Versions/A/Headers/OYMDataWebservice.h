@@ -15,11 +15,45 @@
 
 #import "OYMDataHandler.h"
 #import "OYMWebservice.h"
+#import "OYMDataServer.h"
+
+@class OYMDataHandler;
+
+@protocol DataWebserviceBuilder;
 
 @interface OYMDataWebservice : NSObject <OYMDataServer>
 
-- (instancetype __NONNULL) initWithUser:(NSString *__NONNULL)_user andPassword:(NSString *__NONNULL)_password ;
++ (OYMDataWebservice *) dataWebserviceWithBlock:(void(^)(id<DataWebserviceBuilder> builder))block;
 
 @end
+
+@protocol DataWebserviceBuilder <NSObject>
+/**
+ *  Sets the datahandler.
+ */
+- (void )setDataHandler:(OYMDataHandler *)dh;
+/**
+ *  Sets the Goindoor backend URL.
+ */
+- (void) setUrl:(NSString *)_url;
+/**
+ *  Sets the account.
+ */
+- (void) setAccount:(NSString *)_account;
+/**
+ *  Sets the password.
+ */
+- (void) setPassword:(NSString *)_password;
+/**
+ *  Creates a OYMDataWebservice with the arguments supplied to this builder. It will
+ * attempt to connect to the database and the outcome will be shown in the provided
+ * connect callback
+ *
+ * @return A OYMDataWebservice object
+ */
+- (OYMDataWebservice *) build;
+
+@end
+
 
 #endif

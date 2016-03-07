@@ -10,8 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Links/links.h>
-
+#import "OYMConstant.h"
 #import "OYMSettings.h"
 #import "OYMValues.h"
 
@@ -25,13 +24,13 @@ typedef enum  {
 /** String containing the IBeacon type */
 static NSString *const kOYMSettingsType = @"SETTINGS";
 
-/** Key to retrieve the user settings from the {@link Item} */
+/** Key to retrieve the user settings */
 static NSString *const kOYMSettingsKeyUsers = @"users";
-/** Key to retrieve the edge settings from the {@link Item} */
+/** Key to retrieve the edge settings */
 static NSString *const kOYMSettingsKeyEdges = @"edges";
-/** Key to retrieve the place settings from the {@link Item} */
+/** Key to retrieve the place settings */
 static NSString *const kOYMSettingsKeyPlaces = @"places";
-/** Key to retrieve the notification settings from the {@link Item} */
+/** Key to retrieve the notification settings */
 static NSString *const kOYMSettingsKeyNotifications = @"notifications";
 
 /**
@@ -40,13 +39,10 @@ static NSString *const kOYMSettingsKeyNotifications = @"notifications";
 @interface OYMSettings : NSObject <OYMJsonProtocol>
 
 #pragma mark Properties
-@property (readonly) NSDictionary *users;
-@property (readonly) NSDictionary *edges;
-@property (readonly) NSDictionary *places;
-@property (readonly) NSDictionary *notifications;
-
-#pragma mark Instance methods
--(instancetype)initWithItem:(OYMLinksItem *)item;
+@property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *users;
+@property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *edges;
+@property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *places;
+@property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *notifications;
 
 @end
 

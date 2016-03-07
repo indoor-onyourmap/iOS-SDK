@@ -11,26 +11,31 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Links/links.h>
+#import "OYMGeometry.h"
+#import "OYMBox.h"
+#import "OYMGeometryPoint.h"
+#import "OYMCircle.h"
+#import "OYMPolyline.h"
+#import "OYMPolygon.h"
 
 #import "OYMJsonProtocol.h"
 
 #pragma mark Public constants
-/** Key to retrieve the name from the OYMLinksItem */
+/** Key to retrieve the name  */
 static NSString *const kOYMPlaceKeyName = @"name";
-/** Key to retrieve the building id from the OYMLinksItem */
+/** Key to retrieve the building id  */
 static NSString *const kOYMPlaceKeyBuilding = @"building";
-/** Key to retrieve the floor ID from the OYMLinksItem */
+/** Key to retrieve the floor ID  */
 static NSString *const kOYMPlaceKeyFloor = @"floor";
-/** Key to retrieve the floor number from the OYMLinksItem */
-static NSString *const kOYMPlaceKeyFloornumber = @"floornumber";
-/** Key to retrieve the control points from the OYMLinksItem */
+/** Key to retrieve the floor number  */
+static NSString *const kOYMPlaceKeyFloornumber = @"floorNumber";
+/** Key to retrieve the control points  */
 static NSString *const kOYMPlaceKeyGeometry = @"geometry";
-/** Key to retrieve the properties from the {@link Item} */
-static NSString *const kOYMPlaceKeyProperties = @"propertiesList";
-/** Key to retrieve the tag list from the OYMLinksItem */
-static NSString *const kOYMPlaceKeyTags = @"tagList";
-/** Key to retrieve the Place type from the OYMLinksItem */
+/** Key to retrieve the properties */
+static NSString *const kOYMPlaceKeyProperties = @"properties";
+/** Key to retrieve the tag list  */
+static NSString *const kOYMPlaceKeyTags = @"tags";
+/** Key to retrieve the Place type  */
 static NSString *const kOYMPlaceKeyType = @"type";
 static NSString *const kOYMPlaceKeyId = @"id";
 
@@ -44,8 +49,7 @@ static NSString *const kOYMPlaceType = @"AREA";
 static NSString *const kOYMPlaceIdProxi = @"proxibeacons";
 
 /**
- *  This class includes all the information regarding the Place Items stored
- * in Links.
+ *  This class includes all the information regarding the Place Items stored.
  */
 @interface OYMPlace : NSObject <OYMJsonProtocol>
 
@@ -60,13 +64,9 @@ static NSString *const kOYMPlaceIdProxi = @"proxibeacons";
 /** Floor number */
 @property (readonly) NSNumber* floorNumber;
 /** Place geometry */
-@property (readonly) NSString* geometry;
+@property (nonatomic) OYMGeometry* geometry;
 /** String defining Place type */
 @property (readonly) NSString* type;
-/** WGS84 Longitude */
-@property (nonatomic) NSNumber* x DEPRECATED_MSG_ATTRIBUTE("Use {@link #longitude)} instead.");
-/** WGS84 Latitude */
-@property (nonatomic) NSNumber* y DEPRECATED_MSG_ATTRIBUTE("Use {@link #latitude)} instead.");
 /** WGS84 Longitude */
 @property (nonatomic) NSNumber* longitude;
 /** WGS84 Latitude */
@@ -74,17 +74,10 @@ static NSString *const kOYMPlaceIdProxi = @"proxibeacons";
 /** Tag list */
 @property (readonly) NSArray* tags;
 /** Properties */
-@property (readonly) NSDictionary* propertiesList;
+@property (readonly) NSDictionary* propertiesList DEPRECATED_MSG_ATTRIBUTE("Use #properties instead.");
+/** Properties */
+@property (readonly) NSDictionary* properties;
 
-#pragma mark Constructors
-/**
- *  OYMPlace constructor.
- *
- * @param item OYMLinksItem containing the OYMPlace object
- */
-- (instancetype) initWithItem:(OYMLinksItem*)item;
-
-- (instancetype) initWithUUID:(NSString *)_uuid andName:(NSString *)_name andBuilding:(NSString *)_building andFloor:(NSString *)_floor andFloorNumber:(NSNumber *)_floorNumber andGeometry:(NSString *)_geometry andType:(NSString *)_type andX:(NSNumber *)_x andY:(NSNumber *)_y andTags:(NSArray *)_tags andPropertiesList:(NSDictionary *)_propertiesList ;
 
 @end
 #endif

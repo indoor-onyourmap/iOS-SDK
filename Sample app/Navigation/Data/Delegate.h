@@ -16,7 +16,6 @@
 #import "GlobalState.h"
 #import "SplashViewController.h"
 #import "InstructionsViewController.h"
-#import "Reachability.h"
 
 
 @interface Delegate : NSObject <OYMLocationDelegate, CLLocationManagerDelegate> {

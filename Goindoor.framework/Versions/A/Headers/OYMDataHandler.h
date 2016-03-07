@@ -10,15 +10,22 @@
 #define INDOOR_OYMDATAHANDLER_H
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+#import "OYMReachability.h"
 
 #import "OYMGoIndoor.h"
 #import "OYMDataServer.h"
 #import "OYMSettings.h"
 #import "OYMLocationSettings.h"
 #import "OYMUserProfile.h"
-#import "OYMDataLinks.h"
 #import "OYMAsset.h"
 #import "OYMProxiBeacon.h"
+#import "OYMDataWebservice.h"
+#import "OYMNotification.h"
+#import "OYMPlace.h"
+#import "OYMEdge.h"
+#import "OYMBuilding.h"
 
 static const int STATUS_UPDATED                 = 0b000000000000;
 static const int STATUS_UPDATE_ALL              = 0b001111111111;
@@ -39,7 +46,11 @@ static const int STATUS_UPDATE_PROXIBEACON      = 0b001000000000;
 
 - (instancetype) init:(OYMGoIndoor *)_go;
 
+- (id<OYMDataServer>) getDataServer;
+
 - (void) disconnect;
+
+- (void) triggerUpdate;
 
 - (OYMGoIndoor *) getGo ;
 
@@ -47,76 +58,76 @@ static const int STATUS_UPDATE_PROXIBEACON      = 0b001000000000;
 
 // Beacon
 
-- (NSArray *) getBeacons ;
+- (NS_ARRAY_OF(OYMBeacon*)*) getBeacons ;
 
 - (OYMBeacon *) getBeacon:(NSString *)identifier ;
 
-- (NSArray *) getBeacons:(NSArray *)identifiers ;
+- (NS_ARRAY_OF(OYMBeacon*)*) getBeacons:(NS_ARRAY_OF(NSString*)*)identifiers ;
 
-- (void) setBeacons:(NSArray *)_beacons ;
+- (void) setBeacons:(NS_ARRAY_OF(OYMBeacon*)*)_beacons andEtag:(NSString *)_etag ;
 
 // Buildings
 
-- (NSArray *) getBuildings ;
+- (NS_ARRAY_OF(OYMBuilding*)*) getBuildings ;
 
 - (OYMBuilding *) getBuilding:(NSString *)identifier ;
 
-- (NSArray *) getBuildings:(NSArray *)identifiers ;
+- (NS_ARRAY_OF(OYMBuilding*)*) getBuildings:(NS_ARRAY_OF(NSString*)*)identifiers ;
 
-- (void) setBuildings:(NSArray *)_buildings ;
+- (void) setBuildings:(NS_ARRAY_OF(OYMBuilding*)*)_buildings andEtag:(NSString *)_etag ;
 
 // Assets
 
-- (NSArray *) getAssets ;
+- (NS_ARRAY_OF(OYMAsset*)*) getAssets ;
 
 - (OYMAsset *) getAsset:(NSString *)identifier ;
 
-- (void) setAssets:(NSArray *)_assets ;
+- (void) setAssets:(NS_ARRAY_OF(OYMAsset*)*)_assets andEtag:(NSString *)_etag ;
 
 // Places
-- (NSArray *) getPlaces ;
+- (NS_ARRAY_OF(OYMPlace*)*) getPlaces ;
 
-- (void) setPlaces:(NSArray *)_places ;
+- (void) setPlaces:(NS_ARRAY_OF(OYMPlace*)*)_places andEtag:(NSString *)_etag ;
 
 // Notifications
 
-- (NSArray *) getNotifications ;
+- (NS_ARRAY_OF(OYMNotification*)*) getNotifications ;
 
-- (void) setNotifications:(NSArray *)_notifications ;
+- (void) setNotifications:(NS_ARRAY_OF(OYMNotification*)*)_notifications andEtag:(NSString *)_etag ;
 
 // Settings
 
 - (OYMSettings *) getSettings ;
 
-- (void) setSettings:(OYMSettings *)_settings ;
+- (void) setSettings:(OYMSettings *)_settings andEtag:(NSString *)_etag ;
 
 // Edges
 
-- (NSArray *) getEdges ;
+- (NS_ARRAY_OF(OYMEdge*)*) getEdges ;
 
-- (void) setEdges:(NSArray *)_edges ;
+- (void) setEdges:(NS_ARRAY_OF(OYMEdge*)*)_edges andEtag:(NSString *)_etag ;
 
 // IndoorSettings
 
 - (OYMLocationSettings *) getIndoorLocationSettings ;
 
-- (void) setIndoorLocationSettings:(OYMLocationSettings *)_settings ;
+- (void) setIndoorLocationSettings:(OYMLocationSettings *)_settings andEtag:(NSString *)_etag ;
 
 // UserProfile
 
 - (OYMUserProfile *) getUserProfile ;
 
-- (void) setUserProfile:(OYMUserProfile *)_userProfile ;
+- (void) setUserProfile:(OYMUserProfile *)_userProfile andEtag:(NSString *)_etag  ;
 
 - (void) updateUserProfile:(OYMUserProfile *)up ;
 
 // ProxiBeacon
 
-- (NS_ARRAY_OF(OYMProxiBeacon*)*)getProxiBeacons;
+- (NS_ARRAY_OF(OYMProxiBeacon*)*) getProxiBeacons;
 
 - (OYMProxiBeacon*) getProxiBeacon:(NSString *)identifier;
 
-- (void) setProxiBeacons:(NS_ARRAY_OF(OYMProxiBeacon*)*)_beacons;
+- (void) setProxiBeacons:(NS_ARRAY_OF(OYMProxiBeacon*)*)_beacons andEtag:(NSString *)_etag ;
 
 @end
 

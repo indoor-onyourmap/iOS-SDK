@@ -12,6 +12,8 @@
 #import <Foundation/Foundation.h>
 @import CoreLocation;
 
+#import "OYMConstant.h"
+
 #import "OYMJsonProtocol.h"
 
 #pragma mark Public constants
@@ -33,11 +35,11 @@ static NSString *const kOYMRoutePointKeyBuildingId = @"buildingId";
 /** Floor number */
 @property (readonly) NSNumber* floorNumber;
 /** WGS84 Latitude */
-@property (readonly) NSNumber* x DEPRECATED_MSG_ATTRIBUTE("Use {@link #longitude} instead.");
+@property (readonly) NSNumber* x DEPRECATED_MSG_ATTRIBUTE("Use #longitude instead.");
 /** Floor number */
-@property (readonly) NSNumber* y DEPRECATED_MSG_ATTRIBUTE("Use {@link #latitude} instead.");
+@property (readonly) NSNumber* y DEPRECATED_MSG_ATTRIBUTE("Use #latitude instead.");
 /** ID of the building */
-@property (readonly) NSString* buildingId DEPRECATED_MSG_ATTRIBUTE("Use {@link #building} instead.");
+@property (readonly) NSString* buildingId DEPRECATED_MSG_ATTRIBUTE("Use #building instead.");
 /** ID of the building */
 @property (readonly) NSString* building;
 
@@ -50,7 +52,7 @@ static NSString *const kOYMRoutePointKeyBuildingId = @"buildingId";
  * @param _floorNumber Floor number
  * @param _building Building ID
  */
-- (instancetype) initWithX:(NSNumber*)_x andY:(NSNumber*)_y andFloorNumber:(NSNumber*)_floorNumber andBuildingId:(NSString*)_building DEPRECATED_MSG_ATTRIBUTE("Use {@link #initWithLatitude:andLongitude:andBuilding:andFloorNumber:} instead.");
+- (instancetype) initWithX:(NSNumber*)_x andY:(NSNumber*)_y andFloorNumber:(NSNumber*)_floorNumber andBuildingId:(NSString*)_building DEPRECATED_MSG_ATTRIBUTE("Use  #initWithLatitude:andLongitude:andBuilding:andFloorNumber:} instead.");
 /**
  *  Point constructor.
  *

@@ -59,9 +59,9 @@ static int const kOYMLocationTypeGps = 1;
  * @param _found List including Longitude, Latitude and Accuracy of each Beacon in the range
  * @param _floor Floor ID
  * @param _floorNumber Floor number
- * @param _type Position type: {@link #kOYMLocationTypeNo}, {@link #kOYMLocationTypeIbeacon},
- *  or {@link #kOYMLocationTypeGps}
- * @param _buildingName Building name if {@link #kOYMLocationTypeIbeacon}, nil
+ * @param _type Position type: #kOYMLocationTypeNo, #kOYMLocationTypeIbeacon,
+ *  or #kOYMLocationTypeGps
+ * @param _buildingName Building name if #kOYMLocationTypeIbeacon, nil
  *  otherwise
  * @param _building Building ID
  * @param geofences Number of geofences added

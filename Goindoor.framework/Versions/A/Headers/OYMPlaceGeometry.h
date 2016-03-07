@@ -14,6 +14,12 @@
 #import "OYMPlace.h"
 #import "OYMNotificationWrapper.h"
 
+#import "OYMBox.h"
+#import "OYMGeometryPoint.h"
+#import "OYMCircle.h"
+#import "OYMPolygon.h"
+#import "OYMPolyline.h"
+
 #pragma mark OYMPlaceGeometryType Enumeration
 @class OYMPoint, OYMNotificationWrapper;
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Goindoor/OYMReachability.h>
 #import <Goindoor/OYMConstant.h>
 
 #import <Goindoor/OYMBuilding.h>
@@ -24,9 +25,9 @@
 #import <Goindoor/OYMLogger.h>
 #import <Goindoor/OYMAsset.h>
 #import <Goindoor/OYMDataServer.h>
-#import <Goindoor/OYMDataLinks.h>
 #import <Goindoor/OYMDataHandler.h>
 #import <Goindoor/OYMGoindoor.h>
+
 #import <Goindoor/OYMWebservice.h>
 #import <Goindoor/OYMDataWebservice.h>
 #import <Goindoor/OYMUtils.h>
@@ -37,6 +38,7 @@
 #import <Goindoor/OYMGeometryPoint.h>
 #import <Goindoor/OYMCircle.h>
 #import <Goindoor/OYMPolygon.h>
+#import <Goindoor/OYMPolyline.h>
 
 #import <Goindoor/OYMLocationCore.h>
 #import <Goindoor/OYMLocationDelegate.h>

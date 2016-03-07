@@ -20,6 +20,7 @@ static NSString * const TYPE_BOX = @"box";
 static NSString * const TYPE_CIRCLE = @"circle";
 static NSString * const TYPE_POINT = @"point";
 static NSString * const TYPE_POLYGON = @"polygon";
+static NSString * const TYPE_POLYLINE = @"polyline";
 
 //OYMLatLng
 @interface OYMLatLng : NSObject
