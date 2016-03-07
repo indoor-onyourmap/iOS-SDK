@@ -166,7 +166,7 @@ static float const kOYMViewBarConstraint = 72;
         for (OYMPlace *p in areas) {
             OYMPlace* area = p;
             [options addMenuItemTitle:[CustomSingleItem newCustomSingleItem:p.name withBlock:^(NSString *title) {
-                OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:area.x andY:area.y andFloorNumber:area.floorNumber andBuildingId:area.building];
+                OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:area.longitude andY:area.latitude andFloorNumber:area.floorNumber andBuildingId:area.building];
                 [self startNavInitForPoint:rp andTitle:area.name];
             }]];
         }
@@ -666,7 +666,7 @@ static float const kOYMViewBarConstraint = 72;
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex > 0) {
         OYMPlace* area = [areas objectAtIndex:(buttonIndex-1)];
-        OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:area.x andY:area.y andFloorNumber:area.floorNumber andBuildingId:area.building];
+        OYMRoutePoint* rp = [[OYMRoutePoint alloc] initWithX:area.longitude andY:area.latitude andFloorNumber:area.floorNumber andBuildingId:area.building];
         [self startNavInitForPoint:rp andTitle:area.name];
     }
 }

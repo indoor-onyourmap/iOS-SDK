@@ -11,8 +11,8 @@
 
 #import "OYMUserValue.h"
 
-#import <Links/Links.h>
-/**
+#import "OYMUtils.h"
+/*
  *  This class defines a value stored for notification targets.
  */
 @interface OYMNotificationTargets : OYMUserValue

@@ -51,6 +51,7 @@ static int const kOYMNotificationWrapperMaskE = 0b0001;  // Enter
 
 - (void) reset;
 - (BOOL) isInside:(OYMLocationResult*)loc;
+- (BOOL) isConsidered:(OYMLocationResult*)loc;
 
 @end
 #endif

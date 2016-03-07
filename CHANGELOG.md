@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.1.0 (2016-03-07)
+#### Added features
+- Adding offline mode
+- Introducing proxibeacons
+- Removing Links framework
+
+#### Bugs fixed
+- Correcting how location update is provided
+
+#### :warning: Deprecated methods
+- x and y variables have been deprecated in favor of longitude and latitude
+- Introducing new Geometry class
+
+
 ## 2.0.7 (2016-01-22)
 #### Bugs fixed
 - Improving switching floors experience

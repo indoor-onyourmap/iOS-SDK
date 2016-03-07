@@ -10,6 +10,7 @@
 #define INDOOR_OYMGOINDOOR_H
 
 #import <Foundation/Foundation.h>
+#import "OYMConstant.h"
 
 #import "OYMSettings.h"
 #import "OYMUserProfile.h"
@@ -17,11 +18,16 @@
 #import "OYMLogger.h"
 #import "OYMRouting.h"
 #import "OYMLocationCore.h"
+#import "OYMAsset.h"
+#import "OYMNotification.h"
+#import "OYMProxiBeacon.h"
 
 @protocol GoIndoorBuilder;
 
 /** Variable defining the default location update rate in msec */
-static const long kOYMGoIndoorDefaultLocationRefresh = 2000; //msec
+static long const kOYMGoIndoorDefaultLocationRefresh = 2000; //msec
+static long const kOYMGoIndoorDefaultUpdateTime = 60 * 15; //15 mins
+static NSString* const kOYMGoIndoorDefaultWsUrl = @"https://indoor.onyourmap.com/ws/v2";
 
 /**
  *  Annotation defining the possible algorithms to be used
@@ -33,6 +39,17 @@ typedef NS_ENUM(int, OYMGoIndoorLocationType) {
     kOYMGoIndoorLocationTypeClosest = 1,
     /** Weighted average with projection to the closest edge */
     kOYMGoIndoorLocationTypeProject = 2
+};
+/**
+ *  Annotation defining the database update policy
+ */
+typedef NS_ENUM(int, OYMGoIndoorUpdate) {
+    /** Weighted average */
+    kOYMGoIndoorUpdateNo = 0,
+    /** Closest iBeacon */
+    kOYMGoIndoorUpdateWifi = 1,
+    /** Weighted average with projection to the closest edge */
+    kOYMGoIndoorUpdateMobile = 1 << 1
 };
 
 static const NSString* kOYMGoIndoorLocationKeyRefresh = @"OYMRefresh";
@@ -53,6 +70,8 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
     void (^connectCallback)(BOOL succeed, NSString *message);
     OYMGoIndoorLocationType locationType;
     long locationUpdate;
+    OYMGoIndoorUpdate updatePolicy;
+    long updateTime;
     
     NSString *workspace;
     OYMDataHandler *dataHandler;
@@ -102,28 +121,28 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  *
  * @return Returns The beacons list
  */
-- (NSArray *) getBeacons ;
+- (NS_ARRAY_OF(OYMBeacon*) *) getBeacons ;
 /**
  *  Getter for the beacon list.
  *
  * @param identifier Building or floor ID whose beacons need to be retrieved
  * @return Returns The beacons list
  */
-- (NSArray *) getBeacon:(NSString *)identifier ;
+- (NS_ARRAY_OF(OYMBeacon*) *) getBeacon:(NSString *)identifier ;
 /**
  *  Getter for the beacon list.
  *
  * @param identifiers Building or floor IDs whose beacons need to be retrieved
  * @return Returns The beacons list
  */
-- (NSArray *) getBeacons:(NSArray *)identifiers ;
+- (NS_ARRAY_OF(OYMBeacon*) *) getBeacons:(NSArray *)identifiers ;
 
 /**
  *  Getter for the building list.
  *
  * @return Returns The buildings list
  */
-- (NSArray *) getBuildings ;
+- (NS_ARRAY_OF(OYMBuilding*) *) getBuildings ;
 /**
  *  Getter for the building list.
  *
@@ -137,49 +156,49 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  * @param identifiers Building IDs to be retrieved
  * @return Returns The buildings list
  */
-- (NSArray *) getBuildings:(NSArray *)identifiers ;
+- (NS_ARRAY_OF(OYMBuilding*) *) getBuildings:(NSArray *)identifiers ;
 
 /**
  *  Getter for the asset list.
  *
  * @return Returns The asset list
  */
-- (NSArray *) getAssets ;
+- (NS_ARRAY_OF(OYMAsset*) *) getAssets ;
 /**
  *  Getter for the asset list.
  *
  * @param identifiers Building or floor ID whose assets need to be retrieved
  * @return Returns The assets list
  */
-- (NSArray *) getAsset:(NSString *)identifier ;
+- (NS_ARRAY_OF(OYMAsset*) *) getAsset:(NSString *)identifier ;
 /**
  *  Getter for the asset list.
  *
  * @param identifiers Building or floor IDs whose assets need to be retrieved
  * @return Returns The assets list
  */
-- (NSArray *) getAssets:(NSArray *)identifiers ;
+- (NS_ARRAY_OF(OYMAsset*) *) getAssets:(NSArray *)identifiers ;
 
 /**
  *  Getter for the places list.
  *
  * @return Returns The places list
  */
-- (NSArray *) getPlaces ;
+- (NS_ARRAY_OF(OYMPlace*) *) getPlaces ;
 /**
  *  Getter for the places list.
  *
  * @param identifiers Building or floor ID whose places need to be retrieved
  * @return Returns The places list
  */
-- (NSArray *) getPlace:(NSString *)identifier ;
+- (NS_ARRAY_OF(OYMPlace*) *) getPlace:(NSString *)identifier ;
 /**
  *  Getter for the building list.
  *
  * @param identifiers  Building or floor IDs whose places need to be retrieved
  * @return Returns The places list
  */
-- (NSArray *) getPlaces:(NSArray *)identifiers ;
+- (NS_ARRAY_OF(OYMPlace*) *) getPlaces:(NSArray *)identifiers ;
 /**
  *  Getter for places inside a defined place.
  *
@@ -189,7 +208,7 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  * @param filter Map of POI properties that should match in the search, it can be nil
  * @return The place list satisfying the criteria, sorted by distance
  */
-- (NSArray *) getPlacesWithLocationResult:(OYMLocationResult *)loc andRadius:(int)radius andTags:(NSArray *)tags andFilter:(NSDictionary *)filter ;
+- (NS_ARRAY_OF(OYMPlace*) *) getPlacesWithLocationResult:(OYMLocationResult *)loc andRadius:(int)radius andTags:(NSArray *)tags andFilter:(NSDictionary *)filter ;
 /**
  *  Getter for the place list.
  *
@@ -198,7 +217,7 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  * @param filter Map of POI properties that should match in the search, it can be nil
  * @return The place list satisfying the criteria
  */
-- (NSArray *) getPlacesWithId:(NSString *)_ID andTags:(NSArray *)tags andFilter:(NSDictionary *)filter ;
+- (NS_ARRAY_OF(OYMPlace*) *) getPlacesWithId:(NSString *)_ID andTags:(NSArray *)tags andFilter:(NSDictionary *)filter ;
 /**
  *  Getter for the place list.
  *
@@ -211,27 +230,27 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  * @param filter Map of POI properties that should match in the search, it can be nil
  * @return The place list satisfying the criteria, sorted by distance
  */
-- (NSArray *) getPlacesWithLatitude:(double)latitude andLongitude:(double)longitude andRadius:(int)radius andFloorNumber:(int)floorNumber andBuilding:(NSString *)building andTags:(NSArray *)tags andFilter:(NSDictionary *)filter ;
+- (NS_ARRAY_OF(OYMPlace*) *) getPlacesWithLatitude:(double)latitude andLongitude:(double)longitude andRadius:(int)radius andFloorNumber:(int)floorNumber andBuilding:(NSString *)building andTags:(NSArray *)tags andFilter:(NSDictionary *)filter ;
 /**
  *  Getter for the notification list.
  *
  * @return Returns The notifications list
  */
-- (NSArray *) getNotifications ;
+- (NS_ARRAY_OF(OYMNotification*) *) getNotifications ;
 /**
  *  Getter for the notification list.
  *
  * @param identifier Building or floor ID whose notifications need to be retrieved
  * @return Returns The notifications list
 */
-- (NSArray *) getNotification:(NSString *)identifier ;
+- (NS_ARRAY_OF(OYMNotification*) *) getNotification:(NSString *)identifier ;
 /**
  *  Getter for the notification list.
  *
  * @param identifiers Building or floor IDs whose notifications need to be retrieved
  * @return Returns The notifications list
 */
-- (NSArray *) getNotifications:(NSArray *)identifiers ;
+- (NS_ARRAY_OF(OYMNotification*) *) getNotifications:(NSArray *)identifiers ;
 
 /**
  *  Getter for the settings.
@@ -246,11 +265,37 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  */
 - (OYMUserProfile *) getUserProfile ;
 /**
+ *  Getter for the proxiBeacon list.
+ *
+ * @return The proxiBeacon list
+ */
+- (NS_ARRAY_OF(OYMProxiBeacon*)*) getProxiBeacons;
+
+/**
  *  Sets the positioning type. It overrides the value given in the builder.
  *
  * @param type Location type to be applied
  */
 - (void) setLocationType:(OYMGoIndoorLocationType)type;
+
+/**
+ *  Sets the minimum distance that should change the location result to be updated.
+ *
+ * @param dist Distance threshold
+ */
+- (void) setMinDistanceUpdate:(double)dist;
+
+/**
+ *  Sets the update policy. It overrides the value given in the builder.
+ *
+ * @param policy Update policy to be applied
+ */
+- (void) setUpdatePolicy:(OYMGoIndoorUpdate)policy;
+
+/**
+ *  Triggers an immediate update to the database. It assumes that the update policy is fulfilled.
+ */
+- (void) triggerUpdate;
 
 @end
 
@@ -280,16 +325,23 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  */
 - (void) setConnectCallBack:(void(^)(BOOL succeed, NSString *message))_connectCallback ;
 /**
- *  Sets the positioning type. Default is {@link #LOCATION_TYPE_AVERAGE}.
+ *  Sets the positioning type. Default is #kOYMGoIndoorLocationTypeAverage.
  */
 - (void) setLocationType:(OYMGoIndoorLocationType)_type ;
 /**
- *  Sets the update rate in msec. Default is {@link #DEFAULT_LOCATION_REFRESH}.
+ *  Sets the update rate in msec. Default is #kOYMGoIndoorDefaultLocationRefresh.
  */
 - (void) setLocationUpdate:(long)_refresh ;
-
 /**
- *  Creates a {@link OYMGoIndoor} with the arguments supplied to this builder. It will
+ *  Sets the update policy. Default is #(kOYMGoIndoorUpdateWifi | kOYMGoIndoorUpdateMobile).
+ */
+- (void) setUpdatePolicy:(OYMGoIndoorUpdate)policy;
+/**
+ *  Sets the database update rate in msec. Default is #kOYMGoIndoorDefaultUpdateTime.
+ */
+- (void) setDatabaseUpdate:(long)refresh;
+/**
+ *  Creates a OYMGoIndoor with the arguments supplied to this builder. It will
  * attempt to connect to the database and the outcome will be shown in the provided
  * connect callback
  *

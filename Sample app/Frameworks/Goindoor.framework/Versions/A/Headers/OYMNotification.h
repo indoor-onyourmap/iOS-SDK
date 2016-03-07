@@ -11,8 +11,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Links/Links.h>
+#import "OYMConstant.h"
 
+#import "OYMJsonProtocol.h"
 
 #pragma mark Enumerations
 /** Enumeration containing all the Notification Actions */
@@ -26,33 +27,36 @@ typedef enum {
 # pragma mark Public constants
 /** String containing the Notification type */
 static NSString *const kOYMNotificationType = @"NOTIFICATION";
-/** Key to retrieve the action from the {@link Item} */
+
+/** Key to retrieve the uuid */
+static NSString *const kOYMNotificationKeyUUID = @"id";
+/** Key to retrieve the action */
 static NSString *const kOYMNotificationKeyAction = @"action";
-/** Key to retrieve the building ID from the {@link Item} */
+/** Key to retrieve the building ID */
 static NSString *const kOYMNotificationKeyBuilding = @"building";
-/** Key to retrieve the delay from the {@link Item} */
+/** Key to retrieve the delay */
 static NSString *const kOYMNotificationKeyDelay = @"delay";
-/** Key to retrieve the floor ID from the {@link Item} */
+/** Key to retrieve the floor ID */
 static NSString *const kOYMNotificationKeyFloor = @"floor";
-/** Key to retrieve the floor number from the {@link Item} */
-static NSString *const kOYMNotificationKeyFloornumber = @"floornumber";
-/** Key to retrieve the Place id from the {@link Item} */
-static NSString *const kOYMNotificationKeyPlace = @"placeId";
-/** Key to retrieve the properties dictionary from the {@link Item} */
-static NSString *const kOYMNotificationKeyProperties = @"propertiesList";
-/** Key to retrieve the range from the {@link Item} */
+/** Key to retrieve the floor number */
+static NSString *const kOYMNotificationKeyFloornumber = @"floorNumber";
+/** Key to retrieve the Place id */
+static NSString *const kOYMNotificationKeyPlace = @"place";
+/** Key to retrieve the properties dictionary */
+static NSString *const kOYMNotificationKeyProperties = @"properties";
+/** Key to retrieve the range */
 static NSString *const kOYMNotificationKeyRange = @"range";
-/** Key ro retrieve the repeat value from the {@link Item} */
+/** Key ro retrieve the repeat value */
 static NSString *const kOYMNotificationKeyRepeat = @"repeat";
-/** Key to retrieve the floor type from the {@link Item} */
+/** Key to retrieve the floor type */
 static NSString *const kOYMNotificationKeyType = @"type";
-/** Key to retrieve the targets from the {@link Item} */
+/** Key to retrieve the targets */
 static NSString *const kOYMNotificationKeyTargets = @"targets";
 
 /**
  *  This class describes a notification object. A notification is an event that trigger when a specific action happens about a POI.
  */
-@interface OYMNotification : NSObject
+@interface OYMNotification : NSObject <OYMJsonProtocol>
 
 #pragma mark Properties
 /** Notification unique identifier */
@@ -76,18 +80,9 @@ static NSString *const kOYMNotificationKeyTargets = @"targets";
 /** Number of seconds when this notification can be repeated again */
 @property (readonly) int repeat;
 /** String defining Notification type */
-@property (readonly) NSString* type;
+@property (readonly) NSString* type DEPRECATED_ATTRIBUTE;
  /** Keys/values that defines the notification target */
 @property (readonly) NSDictionary* targets;
-
-# pragma mark Constructors
-/**
- *  Notification constructor.
- *
- * @param item OYMLinksItem containing the OYMNotification object
- */
-- (instancetype)initWithItem:(OYMLinksItem*)item;
-
 
 @end
 #endif

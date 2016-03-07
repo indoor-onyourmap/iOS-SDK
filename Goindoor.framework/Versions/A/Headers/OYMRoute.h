@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Links/links.h>
+#import "OYMUtils.h"
 
 #import "OYMJsonProtocol.h"
 #import "OYMRouteProjectedPoint.h"
@@ -65,7 +65,7 @@
  */
 - (OYMRouteProjectedPoint*) getProjectedPointForLocation:(OYMLocationResult*)loc;
 /**
- *  This method returns a {@link RoutingResult} object to be used.
+ *  This method returns a RoutingResult object to be used.
  *
  * @param loc Current user position
  * @return An object including all the relevant information

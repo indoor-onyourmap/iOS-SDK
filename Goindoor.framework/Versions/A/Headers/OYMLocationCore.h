@@ -66,6 +66,7 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
     NSNumber *lastFloor;
     NSString *lastFloorId;
     long timeLastKnownIbeacon;
+    long timeLastProxiBeacon;
     
     NSDictionary *buildingDict;
     int geofenceCount;

@@ -22,21 +22,22 @@
  */
 - (NSString *) getToken ;
 
-- (void) retrieveData:(int)statusFlags ;
+//- (void) retrieveData:(int)statusFlags ;
 
 /**
  *  Triggers beacon list to be updated from the server, and will update the DataHandler
  * setBeacons and attempts to clear the flag.
  */
-- (void) getBeacons ;
-- (void) getBuildings ;
-- (void) getAssets ;
-- (void) getPlaces ;
-- (void) getNotifications ;
-- (void) getSettings ;
-- (void) getEdges ;
-- (void) getIndoorLocationSettings ;
-- (void) getUserProfile ;
+- (void) getBeacons:(NSString *)etag ;
+- (void) getBuildings:(NSString *)etag ;
+- (void) getAssets:(NSString *)etag ;
+- (void) getPlaces:(NSString *)etag ;
+- (void) getNotifications:(NSString *)etag ;
+- (void) getSettings:(NSString *)etag ;
+- (void) getEdges:(NSString *)etag ;
+- (void) getIndoorLocationSettings:(NSString *)etag ;
+- (void) getUserProfile:(NSString *)etag ;
+- (void) getProxiBeacons:(NSString *)etag ;
 
 - (void) updateUserProfile:(OYMUserProfile *)up ;
 
