@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.1 (2016-03-10)
+#### Bugs fixed
+- Correcting a bug that might not update to the most updated data when starting the SDK
+
+
 ## 2.1.0 (2016-03-07)
 #### Added features
 - Adding offline mode
