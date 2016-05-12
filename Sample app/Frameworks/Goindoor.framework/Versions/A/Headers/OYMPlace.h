@@ -71,6 +71,10 @@ static NSString *const kOYMPlaceIdProxi = @"proxibeacons";
 @property (nonatomic) NSNumber* longitude;
 /** WGS84 Latitude */
 @property (nonatomic) NSNumber* latitude;
+/** WGS84 Longitude */
+@property (nonatomic) NSNumber* x DEPRECATED_MSG_ATTRIBUTE("Use longitude instead.");
+/** WGS84 Latitude */
+@property (nonatomic) NSNumber* y DEPRECATED_MSG_ATTRIBUTE("Use latitude instead.");
 /** Tag list */
 @property (readonly) NSArray* tags;
 /** Properties */
