@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.2.0 (2016-05-12)
+#### Added features
+- Introducing Offline tiles
+
+#### Bugs fixed
+- Correcting position log
+- Correcting a bug that might not decode some edge properly under some circumstances
+- Improving data sync
+- Adding WebService UTF-8 support
+
+
 ## 2.1.1 (2016-03-10)
 #### Bugs fixed
 - Correcting a bug that might not update to the most updated data when starting the SDK
