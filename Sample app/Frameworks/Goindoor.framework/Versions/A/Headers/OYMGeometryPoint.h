@@ -11,10 +11,19 @@
 
 #import "OYMGeometry.h"
 
+/**
+ *  A point geometry, defined by its center.
+ */
 @interface OYMGeometryPoint : OYMGeometry
 
+/** WGS84 point position */
 @property (nonatomic) NS_ARRAY_OF(OYMLatLng*) *coordinates;
 
+/**
+ *  Default constructor.
+ *
+ * @param _coordinate WGS84 point position
+ */
 - (instancetype) initWithCoords:(NS_ARRAY_OF(OYMLatLng*)*)_coordinate;
 
 @end

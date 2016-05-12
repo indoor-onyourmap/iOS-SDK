@@ -44,11 +44,11 @@ typedef NS_ENUM(int, OYMGoIndoorLocationType) {
  *  Annotation defining the database update policy
  */
 typedef NS_ENUM(int, OYMGoIndoorUpdate) {
-    /** Weighted average */
+    /** Updates are disabled */
     kOYMGoIndoorUpdateNo = 0,
-    /** Closest iBeacon */
+    /** Update only over Wifi */
     kOYMGoIndoorUpdateWifi = 1,
-    /** Weighted average with projection to the closest edge */
+    /** Update only over Mobile data connection */
     kOYMGoIndoorUpdateMobile = 1 << 1
 };
 
@@ -62,6 +62,7 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
     @package
     BOOL isReady;
     BOOL isLocationRunning;
+    BOOL isDebug;
     
     NSString *url;
     NSString *profile;
@@ -297,6 +298,8 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  */
 - (void) triggerUpdate;
 
+- (void) log:(NSString *)message;
+
 @end
 
 
@@ -332,6 +335,10 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  *  Sets the update rate in msec. Default is #kOYMGoIndoorDefaultLocationRefresh.
  */
 - (void) setLocationUpdate:(long)_refresh ;
+/**
+ *  Sets the debug mode. Default is false.
+ */
+- (void) setDebug:(BOOL)_debug;
 /**
  *  Sets the update policy. Default is #(kOYMGoIndoorUpdateWifi | kOYMGoIndoorUpdateMobile).
  */

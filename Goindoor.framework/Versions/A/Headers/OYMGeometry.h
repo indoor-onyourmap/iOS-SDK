@@ -22,11 +22,21 @@ static NSString * const TYPE_POINT = @"point";
 static NSString * const TYPE_POLYGON = @"polygon";
 static NSString * const TYPE_POLYLINE = @"polyline";
 
-//OYMLatLng
+/**
+ *  This class encapsulates a WGS84 Latitude and Longitude in one object.
+ */
 @interface OYMLatLng : NSObject
 
+/** WGS84 Longitude */
 @property (nonatomic) double longitude;
+/** WGS84 Latitude */
 @property (nonatomic) double latitude;
+/**
+ *  Default constructor.
+ *
+ * @param lat WGS84 Latitude
+ * @param lon WGS84 Longitude
+ */
 - (instancetype) initWithLatitude:(double)lat andLongitude:(double)lon;
 /**
  *  Getter for the CLLocationCoordinate2D object.
@@ -37,7 +47,9 @@ static NSString * const TYPE_POLYLINE = @"polyline";
 
 @end
 
-//OYMGeometry
+/**
+ *  This abstract class includes all the geometry information.
+ */
 @interface OYMGeometry : NSObject<OYMJsonProtocol>
 @property (nonatomic) NSString *type;
 
