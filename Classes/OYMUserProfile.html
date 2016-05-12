@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">Goindoor SDK for iOS </a>
+				<a href="../index.html">OYM GoIndoor SDK </a>
 			</h1>
 
 			<p id="developer-home">
@@ -66,17 +66,9 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithItem:workSpace:andSettings:">- initWithItem:workSpace:andSettings:</option>
+		<option value="//api/name/updateLive:andLongitude:andTime:">- updateLive:andLongitude:andTime:</option>
 		
-		<option value="//api/name/initWithWorkSpace:andSettings:">- initWithWorkSpace:andSettings:</option>
-		
-		<option value="//api/name/item">- item</option>
-		
-		<option value="//api/name/setItem:">- setItem:</option>
-		
-		<option value="//api/name/updateLiveWithTime:x:Y:buildingId:andFloorId:">- updateLiveWithTime:x:Y:buildingId:andFloorId:</option>
-		
-		<option value="//api/name/updateLiveWithTime:x:andY:">- updateLiveWithTime:x:andY:</option>
+		<option value="//api/name/updateLive:andLongitude:andTime:andBuilding:andFloor:">- updateLive:andLongitude:andTime:andBuilding:andFloor:</option>
 		
 	</optgroup>
 	
@@ -100,6 +92,9 @@
 						<tr>
 	<th>Inherits from</th>
 	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>OYMJsonProtocol</td>
 </tr><tr>
 	<th>Declared in</th>
 	<td>OYMUserProfile.h<br />OYMUserProfile.m</td>
@@ -169,236 +164,6 @@ information in the server.</p>
 			
 		</div>
 	</div>
-</div><div class="section-method">
-	<a name="//api/name/initWithWorkSpace:andSettings:" title="initWithWorkSpace:andSettings:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithWorkSpace:andSettings:">&ndash;&nbsp;initWithWorkSpace:andSettings:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>OYMUserProfile constructor.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithWorkSpace:(NSString *)<em>_workSpace</em> andSettings:(OYMSettings *)<em>_settings</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>_workSpace</code></th>
-						<td><p>username prefix</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>_settings</code></th>
-						<td><p><a href="../Classes/OYMSettings.html">OYMSettings</a> containing the OYMLinksItem properties value</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>OYMUserProfile Object</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/initWithItem:workSpace:andSettings:" title="initWithItem:workSpace:andSettings:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithItem:workSpace:andSettings:">&ndash;&nbsp;initWithItem:workSpace:andSettings:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>OYMUserProfile constructor.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithItem:(OYMLinksItem *)<em>_item</em> workSpace:(NSString *)<em>_workSpace</em> andSettings:(OYMSettings *)<em>_settings</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>_item</code></th>
-						<td><p>OYMLinksItem containg the UserProfile Object</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>_workSpace</code></th>
-						<td><p>username prefix</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>_settings</code></th>
-						<td><p><a href="../Classes/OYMSettings.html">OYMSettings</a> containing the OYMLinksItem properties value</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>OYMUserProfile Object</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setItem:" title="setItem:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setItem:">&ndash;&nbsp;setItem:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Setter for the {@link Item}.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setItem:(OYMLinksItem *)<em>item</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>item</code></th>
-						<td><p>OYMLinksItem to be set</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/item" title="item"></a>
-	<h3 class="method-title"><code><a href="#//api/name/item">&ndash;&nbsp;item</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Getter for the {@link Item}</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (OYMLinksItem *)item</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The OYMLinksItem Object</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMUserProfile.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
 </div>
 						</div>
 						
@@ -408,8 +173,8 @@ information in the server.</p>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/updateLiveWithTime:x:andY:" title="updateLiveWithTime:x:andY:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/updateLiveWithTime:x:andY:">&ndash;&nbsp;updateLiveWithTime:x:andY:</a></code>
+	<a name="//api/name/updateLive:andLongitude:andTime:" title="updateLive:andLongitude:andTime:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateLive:andLongitude:andTime:">&ndash;&nbsp;updateLive:andLongitude:andTime:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -424,7 +189,7 @@ information in the server.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateLiveWithTime:(NSDate *)<em>time</em> x:(double)<em>x</em> andY:(double)<em>y</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateLive:(double)<em>_latitude</em> andLongitude:(double)<em>_longitude</em> andTime:(NSString *)<em>_time</em></code></div>
 
 		    
 			
@@ -433,18 +198,18 @@ information in the server.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>time</code></th>
-						<td><p>NSDate object</p></td>
+						<th scope="row" class="argument-name"><code>_latitude</code></th>
+						<td><p>WGS84 Latitude to be logged</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>x</code></th>
+						<th scope="row" class="argument-name"><code>_longitude</code></th>
 						<td><p>WGS84 Longitude to be logged</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>y</code></th>
-						<td><p>WGS84 Latitude to be logged</p></td>
+						<th scope="row" class="argument-name"><code>_time</code></th>
+						<td><p>NSString following ISO-8601 standard: yyyy-MM-dd&rsquo;T'HH:mm'Z'</p></td>
 					</tr>
 				
 				</table>
@@ -471,8 +236,8 @@ information in the server.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/updateLiveWithTime:x:Y:buildingId:andFloorId:" title="updateLiveWithTime:x:Y:buildingId:andFloorId:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/updateLiveWithTime:x:Y:buildingId:andFloorId:">&ndash;&nbsp;updateLiveWithTime:x:Y:buildingId:andFloorId:</a></code>
+	<a name="//api/name/updateLive:andLongitude:andTime:andBuilding:andFloor:" title="updateLive:andLongitude:andTime:andBuilding:andFloor:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateLive:andLongitude:andTime:andBuilding:andFloor:">&ndash;&nbsp;updateLive:andLongitude:andTime:andBuilding:andFloor:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -487,7 +252,7 @@ information in the server.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateLiveWithTime:(NSDate *)<em>time</em> x:(double)<em>x</em> Y:(double)<em>y</em> buildingId:(NSString *)<em>buildingId</em> andFloorId:(NSString *)<em>floorId</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateLive:(double)<em>_latitude</em> andLongitude:(double)<em>_longitude</em> andTime:(NSString *)<em>_time</em> andBuilding:(NSString *)<em>_building</em> andFloor:(NSString *)<em>_floor</em></code></div>
 
 		    
 			
@@ -496,27 +261,27 @@ information in the server.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>time</code></th>
-						<td><p>NSDate object</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>x</code></th>
-						<td><p>WGS84 Longitude to be logged</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>y</code></th>
+						<th scope="row" class="argument-name"><code>_latitude</code></th>
 						<td><p>WGS84 Latitude to be logged</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>buildingId</code></th>
+						<th scope="row" class="argument-name"><code>_longitude</code></th>
+						<td><p>WGS84 Longitude to be logged</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_time</code></th>
+						<td><p>String following ISO-8601 standard: yyyy-MM-dd&rsquo;T'HH:mm'Z'</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_building</code></th>
 						<td><p>Building ID to be logged</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>floorId</code></th>
+						<th scope="row" class="argument-name"><code>_floor</code></th>
 						<td><p>Floor ID to be logged</p></td>
 					</tr>
 				
@@ -556,7 +321,7 @@ information in the server.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">Goindoor SDK for iOS </a>
+				<a href="../index.html">OYM GoIndoor SDK </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,9 +56,17 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/)">)</option>
+		
+		<option value="//api/name/building">building</option>
+		
 		<option value="//api/name/buildingId">buildingId</option>
 		
 		<option value="//api/name/floorNumber">floorNumber</option>
+		
+		<option value="//api/name/latitude">latitude</option>
+		
+		<option value="//api/name/longitude">longitude</option>
 		
 		<option value="//api/name/x">x</option>
 		
@@ -73,6 +81,8 @@
 	<optgroup label="Instance Methods">
 		
 		<option value="//api/name/getCLLocationCoordinate2D">- getCLLocationCoordinate2D</option>
+		
+		<option value="//api/name/initWithLatitude:andLongitude:andBuilding:andFloorNumber:">- initWithLatitude:andLongitude:andBuilding:andFloorNumber:</option>
 		
 		<option value="//api/name/initWithX:andY:andFloorNumber:andBuildingId:">- initWithX:andY:andFloorNumber:andBuildingId:</option>
 		
@@ -125,12 +135,12 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/x" title="x"></a>
-	<h3 class="method-title"><code><a href="#//api/name/x">&nbsp;&nbsp;x</a></code>
+	<a name="//api/name/longitude" title="longitude"></a>
+	<h3 class="method-title"><code><a href="#//api/name/longitude">&nbsp;&nbsp;longitude</a></code>
 </h3>
 
 	<div class="method-info">
@@ -145,7 +155,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *x</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *longitude</code></div>
 
 		    
 			
@@ -170,8 +180,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/y" title="y"></a>
-	<h3 class="method-title"><code><a href="#//api/name/y">&nbsp;&nbsp;y</a></code>
+	<a name="//api/name/latitude" title="latitude"></a>
+	<h3 class="method-title"><code><a href="#//api/name/latitude">&nbsp;&nbsp;latitude</a></code>
 </h3>
 
 	<div class="method-info">
@@ -186,7 +196,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *y</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *latitude</code></div>
 
 		    
 			
@@ -252,8 +262,49 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/buildingId" title="buildingId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/buildingId">&nbsp;&nbsp;buildingId</a></code>
+	<a name="//api/name/)" title=")"></a>
+	<h3 class="method-title"><code><a href="#//api/name/)">&nbsp;&nbsp;)</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>WGS84 Latitude</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSNumber *DEPRECATED_MSG_ATTRIBUTE ( &quot;Use #longitude instead.&quot; )</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRoutePoint.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/building" title="building"></a>
+	<h3 class="method-title"><code><a href="#//api/name/building">&nbsp;&nbsp;building</a></code>
 </h3>
 
 	<div class="method-info">
@@ -268,7 +319,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *buildingId</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *building</code></div>
 
 		    
 			
@@ -309,7 +360,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithX:(NSNumber *)<em>newX</em> andY:(NSNumber *)<em>newY</em> andFloorNumber:(NSNumber *)<em>fn</em> andBuildingId:(NSString *)<em>bId</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithX:(NSNumber *)<em>_x</em> andY:(NSNumber *)<em>_y</em> andFloorNumber:(NSNumber *)<em>_floorNumber</em> andBuildingId:(NSString *)<em>_building</em></code></div>
 
 		    
 			
@@ -318,23 +369,91 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>newX</code></th>
-						<td><p>WGS84 longitude</p></td>
+						<th scope="row" class="argument-name"><code>_x</code></th>
+						<td><p>WGS84 <a href="#//api/name/longitude">longitude</a></p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>newY</code></th>
-						<td><p>WGS84 latitude</p></td>
+						<th scope="row" class="argument-name"><code>_y</code></th>
+						<td><p>WGS84 <a href="#//api/name/latitude">latitude</a></p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>fn</code></th>
+						<th scope="row" class="argument-name"><code>_floorNumber</code></th>
 						<td><p>Floor number</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>bId</code></th>
+						<th scope="row" class="argument-name"><code>_building</code></th>
 						<td><p>Building ID</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRoutePoint.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithLatitude:andLongitude:andBuilding:andFloorNumber:" title="initWithLatitude:andLongitude:andBuilding:andFloorNumber:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithLatitude:andLongitude:andBuilding:andFloorNumber:">&ndash;&nbsp;initWithLatitude:andLongitude:andBuilding:andFloorNumber:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Point constructor.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithLatitude:(NSNumber *)<em>_latitude</em> andLongitude:(NSNumber *)<em>_longitude</em> andBuilding:(NSString *)<em>_building</em> andFloorNumber:(NSNumber *)<em>_floorNumber</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_latitude</code></th>
+						<td><p>WGS84 Latitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_longitude</code></th>
+						<td><p>WGS84 Longitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_building</code></th>
+						<td><p>Building ID</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_floorNumber</code></th>
+						<td><p>Floor number</p></td>
 					</tr>
 				
 				</table>
@@ -409,6 +528,137 @@
 </div>
 						</div>
 						
+
+						<a title="Extension Methods" name="task_Extension Methods"></a>
+						<h2 class="task-title">Extension Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/x" title="x"></a>
+	<h3 class="method-title"><code><a href="#//api/name/x">&nbsp;&nbsp;x</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>WGS84 Longitude</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readwrite) NSNumber *x</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRoutePoint.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/y" title="y"></a>
+	<h3 class="method-title"><code><a href="#//api/name/y">&nbsp;&nbsp;y</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>WGS84 Latitude</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readwrite) NSNumber *y</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRoutePoint.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/buildingId" title="buildingId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/buildingId">&nbsp;&nbsp;buildingId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ID of the <a href="#//api/name/building">building</a></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readwrite) NSString *buildingId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRoutePoint.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -419,7 +669,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

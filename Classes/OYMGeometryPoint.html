@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>CLBeacon(Identifier) Category Reference</title>
+	<title>OYMGeometryPoint Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -54,13 +54,19 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/coordinates">coordinates</option>
+		
+	</optgroup>
+	
 
 	
 
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/getIdentifier">- getIdentifier</option>
+		<option value="//api/name/initWithCoords:">- initWithCoords:</option>
 		
 	</optgroup>
 	
@@ -77,13 +83,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">CLBeacon(Identifier) Category Reference</h1>
+					<h1 class="title">OYMGeometryPoint Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/OYMGeometry.html">OYMGeometry</a> : NSObject</td>
+</tr><tr>
 	<th>Declared in</th>
-	<td>CLBeacon+Identifier.h<br />CLBeacon+Identifier.m</td>
+	<td>OYMGeometryPoint.h<br />OYMGeometryPoint.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -93,7 +102,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This category will add a method to retrieve a unique CLBeacon identifier to be used in the Goindoor location SDK.</p>
+						<p>A point geometry, defined by its center.</p>
 					</div>
 					
 					
@@ -109,8 +118,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/getIdentifier" title="getIdentifier"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getIdentifier">&ndash;&nbsp;getIdentifier</a></code>
+	<a name="//api/name/coordinates" title="coordinates"></a>
+	<h3 class="method-title"><code><a href="#//api/name/coordinates">&nbsp;&nbsp;coordinates</a></code>
 </h3>
 
 	<div class="method-info">
@@ -120,22 +129,16 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method provides an identifier for the iBeacon that can be used
-across the different platforms.</p>
+				<p>WGS84 point position</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSString *)getIdentifier</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NS_ARRAY_OF ( OYMLatLng **coordinates</code></div>
 
 		    
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A unique iBeacon identifier</p>
-			</div>
 			
 
 			
@@ -149,7 +152,60 @@ across the different platforms.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">CLBeacon+Identifier.h</code></p>
+				<p><code class="declared-in-ref">OYMGeometryPoint.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithCoords:" title="initWithCoords:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithCoords:">&ndash;&nbsp;initWithCoords:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Default constructor.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithCoords:(NS_ARRAY_OF ( OYMLatLng *) *)<em>_coordinate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_coordinate</code></th>
+						<td><p>WGS84 point position</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGeometryPoint.h</code></p>
 			</div>
 			
 			

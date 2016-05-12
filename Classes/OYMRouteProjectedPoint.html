@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">Goindoor SDK for iOS </a>
+				<a href="../index.html">OYM GoIndoor SDK </a>
 			</h1>
 
 			<p id="developer-home">
@@ -69,6 +69,8 @@
 
 	
 	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithLatitude:andLongitude:andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:">- initWithLatitude:andLongitude:andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:</option>
 		
 		<option value="//api/name/initWithX:andY:andFloorNumber:andBuildingId:andDistanceFromStart:andDistanceToShape:andBearing:">- initWithX:andY:andFloorNumber:andBuildingId:andDistanceFromStart:andDistanceToShape:andBearing:</option>
 		
@@ -261,7 +263,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithX:(NSNumber *)<em>newX</em> andY:(NSNumber *)<em>newY</em> andFloorNumber:(NSNumber *)<em>fn</em> andBuildingId:(NSString *)<em>bId</em> andDistanceFromStart:(NSNumber *)<em>dfs</em> andDistanceToShape:(NSNumber *)<em>dts</em> andBearing:(NSNumber *)<em>b</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithX:(NSNumber *)<em>_x</em> andY:(NSNumber *)<em>_y</em> andFloorNumber:(NSNumber *)<em>_floorNumber</em> andBuildingId:(NSString *)<em>_building</em> andDistanceFromStart:(NSNumber *)<em>_distanceStart</em> andDistanceToShape:(NSNumber *)<em>_distanceShape</em> andBearing:(NSNumber *)<em>_bearingAngle</em></code></div>
 
 		    
 			
@@ -270,37 +272,120 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>newX</code></th>
+						<th scope="row" class="argument-name"><code>_x</code></th>
 						<td><p>WGS84 Longitude</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>newY</code></th>
+						<th scope="row" class="argument-name"><code>_y</code></th>
 						<td><p>WGS84 Latitude</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>fn</code></th>
+						<th scope="row" class="argument-name"><code>_floorNumber</code></th>
 						<td><p>Floor number</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>bId</code></th>
+						<th scope="row" class="argument-name"><code>_building</code></th>
 						<td><p>Building ID</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>dfs</code></th>
+						<th scope="row" class="argument-name"><code>_distanceStart</code></th>
 						<td><p>Distance in meters from the starting point</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>dts</code></th>
+						<th scope="row" class="argument-name"><code>_distanceShape</code></th>
 						<td><p>Distance between the user position and the shape</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>b</code></th>
+						<th scope="row" class="argument-name"><code>_bearingAngle</code></th>
+						<td><p>Bearing, counted clockwise from north</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMRouteProjectedPoint.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithLatitude:andLongitude:andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:" title="initWithLatitude:andLongitude:andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithLatitude:andLongitude:andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:">&ndash;&nbsp;initWithLatitude:andLongitude:andBuilding:andFloorNumber:andDistanceFromStart:andDistanceToShape:andBearing:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>RouteProjectedPoint constructor.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithLatitude:(NSNumber *)<em>_latitude</em> andLongitude:(NSNumber *)<em>_longitude</em> andBuilding:(NSString *)<em>_building</em> andFloorNumber:(NSNumber *)<em>_floorNumber</em> andDistanceFromStart:(NSNumber *)<em>_distanceStart</em> andDistanceToShape:(NSNumber *)<em>_distanceShape</em> andBearing:(NSNumber *)<em>_bearingAngle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_latitude</code></th>
+						<td><p>WGS84 Latitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_longitude</code></th>
+						<td><p>WGS84 Longitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_building</code></th>
+						<td><p>Building ID</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_floorNumber</code></th>
+						<td><p>Floor number</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_distanceStart</code></th>
+						<td><p>Distance in meters from the starting point</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_distanceShape</code></th>
+						<td><p>Distance between the user position and the shape</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>_bearingAngle</code></th>
 						<td><p>Bearing, counted clockwise from north</p></td>
 					</tr>
 				
@@ -340,7 +425,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

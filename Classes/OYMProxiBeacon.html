@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>CLBeacon(Identifier) Category Reference</title>
+	<title>OYMProxiBeacon Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -60,7 +60,7 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/getIdentifier">- getIdentifier</option>
+		<option value="//api/name/init">- init</option>
 		
 	</optgroup>
 	
@@ -77,13 +77,19 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">CLBeacon(Identifier) Category Reference</h1>
+					<h1 class="title">OYMProxiBeacon Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/OYMBeacon.html">OYMBeacon</a> : NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>OYMJsonProtocol</td>
+</tr><tr>
 	<th>Declared in</th>
-	<td>CLBeacon+Identifier.h<br />CLBeacon+Identifier.m</td>
+	<td>OYMProxiBeacon.h<br />OYMProxiBeacon.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -93,7 +99,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This category will add a method to retrieve a unique CLBeacon identifier to be used in the Goindoor location SDK.</p>
+						<p>Key to retrieve the Asset place</p>
 					</div>
 					
 					
@@ -109,8 +115,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/getIdentifier" title="getIdentifier"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getIdentifier">&ndash;&nbsp;getIdentifier</a></code>
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
 </h3>
 
 	<div class="method-info">
@@ -120,22 +126,16 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method provides an identifier for the iBeacon that can be used
-across the different platforms.</p>
+				<p>Empty JSON Constructor</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSString *)getIdentifier</code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)init</code></div>
 
 		    
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A unique iBeacon identifier</p>
-			</div>
 			
 
 			
@@ -149,7 +149,7 @@ across the different platforms.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">CLBeacon+Identifier.h</code></p>
+				<p><code class="declared-in-ref">OYMProxiBeacon.m</code></p>
 			</div>
 			
 			

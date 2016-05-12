@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>BeaconStatus Constants Reference</title>
+	<title>OYMGoIndoorUpdate Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">BeaconStatus Constants Reference</h1>
+					<h1 class="title">OYMGoIndoorUpdate Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>OYMBeacon.h</td>
+	<td>OYMGoIndoor.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,11 +75,11 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">BeaconStatus</h3>
+                    <h3 class="subsubtitle method-title">OYMGoIndoorUpdate</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>String containing the Beacon type</p>
+                        <p>Annotation defining the database update policy</p>
 					</div>
 					
 					
@@ -87,19 +87,13 @@
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(int, BeaconStatus ) {<br>
+                        <code>typedef NS_ENUM(int, OYMGoIndoorUpdate ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">kOYMBeaconStatusOk</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">kOYMGoIndoorUpdateNo</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">kOYMBeaconStatusLowBattery</a> = -1,<br>
+                            &nbsp;&nbsp; <a href="">kOYMGoIndoorUpdateWifi</a> = 1,<br>
                             
-                            &nbsp;&nbsp; <a href="">kOYMBeaconStatusLost</a> = 1,<br>
-                            
-                            &nbsp;&nbsp; <a href="">kOYMBeaconStatusNeedsMaintenance</a> = 2,<br>
-                            
-                            &nbsp;&nbsp; <a href="">kOYMBeaconStatusOutOfOrder</a> = 3,<br>
-                            
-                            &nbsp;&nbsp; <a href="">kOYMBeaconStatusNoBattery</a> = 4,<br>
+                            &nbsp;&nbsp; <a href="">kOYMGoIndoorUpdateMobile</a> = 1 &lt; &lt; 1,<br>
                             
                             };</code>
                     
@@ -109,11 +103,11 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="kOYMBeaconStatusOk"></a><code>kOYMBeaconStatusOk</code></dt>
+                            <dt><a name="" title="kOYMGoIndoorUpdateNo"></a><code>kOYMGoIndoorUpdateNo</code></dt>
 <dd>
 
 
-<p>String containing the Beacon type</p>
+<p>Updates are disabled</p>
 
 
 
@@ -121,16 +115,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">OYMBeacon.h</code>.
+		Declared In <code class="declared-in-ref">OYMGoIndoor.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="kOYMBeaconStatusLowBattery"></a><code>kOYMBeaconStatusLowBattery</code></dt>
+                            <dt><a name="" title="kOYMGoIndoorUpdateWifi"></a><code>kOYMGoIndoorUpdateWifi</code></dt>
 <dd>
 
 
-<p>Beacon is working</p>
+<p>Update only over Wifi</p>
 
 
 
@@ -138,16 +132,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">OYMBeacon.h</code>.
+		Declared In <code class="declared-in-ref">OYMGoIndoor.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="kOYMBeaconStatusLost"></a><code>kOYMBeaconStatusLost</code></dt>
+                            <dt><a name="" title="kOYMGoIndoorUpdateMobile"></a><code>kOYMGoIndoorUpdateMobile</code></dt>
 <dd>
 
 
-<p>Beacon battery is low</p>
+<p>Update only over Mobile data connection</p>
 
 
 
@@ -155,58 +149,7 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">OYMBeacon.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="kOYMBeaconStatusNeedsMaintenance"></a><code>kOYMBeaconStatusNeedsMaintenance</code></dt>
-<dd>
-
-
-<p>Beacon is lost</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">OYMBeacon.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="kOYMBeaconStatusOutOfOrder"></a><code>kOYMBeaconStatusOutOfOrder</code></dt>
-<dd>
-
-
-<p>Beacon needs maintenance</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">OYMBeacon.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="kOYMBeaconStatusNoBattery"></a><code>kOYMBeaconStatusNoBattery</code></dt>
-<dd>
-
-
-<p>Beacon is out of order</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">OYMBeacon.h</code>.
+		Declared In <code class="declared-in-ref">OYMGoIndoor.h</code>.
 	</p>
 	
 </dd>
@@ -223,7 +166,7 @@
                     
                     <div class="method-subsection declared-in-section">
                         <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">OYMBeacon.h</code></p>
+                        <p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
                     </div>
                     
                     

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">Goindoor SDK for iOS </a>
+				<a href="../index.html">OYM GoIndoor SDK </a>
 			</h1>
 
 			<p id="developer-home">
@@ -66,6 +66,10 @@
 		
 		<option value="//api/name/setConnectCallBack:">- setConnectCallBack:</option>
 		
+		<option value="//api/name/setDatabaseUpdate:">- setDatabaseUpdate:</option>
+		
+		<option value="//api/name/setDebug:">- setDebug:</option>
+		
 		<option value="//api/name/setLocationType:">- setLocationType:</option>
 		
 		<option value="//api/name/setLocationUpdate:">- setLocationUpdate:</option>
@@ -73,6 +77,8 @@
 		<option value="//api/name/setPassword:">- setPassword:</option>
 		
 		<option value="//api/name/setURL:">- setURL:</option>
+		
+		<option value="//api/name/setUpdatePolicy:">- setUpdatePolicy:</option>
 		
 		<option value="//api/name/setUser:">- setUser:</option>
 		
@@ -137,7 +143,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets the indoor backend URL.</p>
+				<p>Sets the Goindoor backend URL.</p>
 			</div>
 			
 		    
@@ -342,7 +348,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets the positioning type. Default is {@link #LOCATION_TYPE_AVERAGE}.</p>
+				<p>Sets the positioning type. Default is #kOYMGoIndoorLocationTypeAverage.</p>
 			</div>
 			
 		    
@@ -383,12 +389,135 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets the update rate in msec. Default is {@link #DEFAULT_LOCATION_REFRESH}.</p>
+				<p>Sets the update rate in msec. Default is #kOYMGoIndoorDefaultLocationRefresh.</p>
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>- (void)setLocationUpdate:(long)<em>_refresh</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setDebug:" title="setDebug:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setDebug:">&ndash;&nbsp;setDebug:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the debug mode. Default is false.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setDebug:(BOOL)<em>_debug</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUpdatePolicy:" title="setUpdatePolicy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUpdatePolicy:">&ndash;&nbsp;setUpdatePolicy:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the update policy. Default is #(kOYMGoIndoorUpdateWifi | kOYMGoIndoorUpdateMobile).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setUpdatePolicy:(OYMGoIndoorUpdate)<em>policy</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setDatabaseUpdate:" title="setDatabaseUpdate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setDatabaseUpdate:">&ndash;&nbsp;setDatabaseUpdate:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the database update rate in msec. Default is #kOYMGoIndoorDefaultUpdateTime.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setDatabaseUpdate:(long)<em>refresh</em></code></div>
 
 		    
 			
@@ -424,7 +553,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a {@link OYMGoIndoor} with the arguments supplied to this builder. It will
+				<p>Creates a <a href="../Classes/OYMGoIndoor.html">OYMGoIndoor</a> with the arguments supplied to this builder. It will
 attempt to connect to the database and the outcome will be shown in the provided
 connect callback</p>
 			</div>
@@ -473,7 +602,7 @@ connect callback</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

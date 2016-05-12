@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OYMNotificationResult Class Reference</title>
+	<title>OYMLatLng Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -56,9 +56,9 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/notification">notification</option>
+		<option value="//api/name/latitude">latitude</option>
 		
-		<option value="//api/name/place">place</option>
+		<option value="//api/name/longitude">longitude</option>
 		
 	</optgroup>
 	
@@ -68,9 +68,9 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithNotification:andPlace:">- initWithNotification:andPlace:</option>
+		<option value="//api/name/getCLLocationCoordinate2D">- getCLLocationCoordinate2D</option>
 		
-		<option value="//api/name/initWithNotificationWrapper:">- initWithNotificationWrapper:</option>
+		<option value="//api/name/initWithLatitude:andLongitude:">- initWithLatitude:andLongitude:</option>
 		
 	</optgroup>
 	
@@ -87,7 +87,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">OYMNotificationResult Class Reference</h1>
+					<h1 class="title">OYMLatLng Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -96,7 +96,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>OYMNotificationResult.h<br />OYMNotificationResult.m</td>
+	<td>OYMGeometry.h<br />OYMGeometry.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -106,7 +106,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class includes all the required information to handle the triggered notifications.</p>
+						<p>This class encapsulates a WGS84 Latitude and Longitude in one object.</p>
 					</div>
 					
 					
@@ -122,8 +122,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/notification" title="notification"></a>
-	<h3 class="method-title"><code><a href="#//api/name/notification">&nbsp;&nbsp;notification</a></code>
+	<a name="//api/name/longitude" title="longitude"></a>
+	<h3 class="method-title"><code><a href="#//api/name/longitude">&nbsp;&nbsp;longitude</a></code>
 </h3>
 
 	<div class="method-info">
@@ -133,12 +133,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notification triggered</p>
+				<p>WGS84 Longitude</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) OYMNotification *notification</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) double longitude</code></div>
 
 		    
 			
@@ -156,15 +156,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMNotificationResult.h</code></p>
+				<p><code class="declared-in-ref">OYMGeometry.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/place" title="place"></a>
-	<h3 class="method-title"><code><a href="#//api/name/place">&nbsp;&nbsp;place</a></code>
+	<a name="//api/name/latitude" title="latitude"></a>
+	<h3 class="method-title"><code><a href="#//api/name/latitude">&nbsp;&nbsp;latitude</a></code>
 </h3>
 
 	<div class="method-info">
@@ -174,12 +174,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>POI related to the Notification</p>
+				<p>WGS84 Latitude</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) OYMPlace *place</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) double latitude</code></div>
 
 		    
 			
@@ -197,15 +197,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMNotificationResult.h</code></p>
+				<p><code class="declared-in-ref">OYMGeometry.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithNotificationWrapper:" title="initWithNotificationWrapper:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithNotificationWrapper:">&ndash;&nbsp;initWithNotificationWrapper:</a></code>
+	<a name="//api/name/initWithLatitude:andLongitude:" title="initWithLatitude:andLongitude:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithLatitude:andLongitude:">&ndash;&nbsp;initWithLatitude:andLongitude:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -215,12 +215,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method gets the OYMNotificationResult object.</p>
+				<p>Default constructor.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithNotificationWrapper:(OYMNotificationWrapper *)<em>nw</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithLatitude:(double)<em>lat</em> andLongitude:(double)<em>lon</em></code></div>
 
 		    
 			
@@ -229,19 +229,19 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>nw</code></th>
-						<td><p>OYMNotificationWrapper where the Notification should be extracted</p></td>
+						<th scope="row" class="argument-name"><code>lat</code></th>
+						<td><p>WGS84 Latitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>lon</code></th>
+						<td><p>WGS84 Longitude</p></td>
 					</tr>
 				
 				</table>
 			</div>
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The OYMNotificationResult object</p>
-			</div>
 			
 
 			
@@ -255,15 +255,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMNotificationResult.h</code></p>
+				<p><code class="declared-in-ref">OYMGeometry.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithNotification:andPlace:" title="initWithNotification:andPlace:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithNotification:andPlace:">&ndash;&nbsp;initWithNotification:andPlace:</a></code>
+	<a name="//api/name/getCLLocationCoordinate2D" title="getCLLocationCoordinate2D"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCLLocationCoordinate2D">&ndash;&nbsp;getCLLocationCoordinate2D</a></code>
 </h3>
 
 	<div class="method-info">
@@ -273,37 +273,20 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method gets the OYMNotificationResult object.</p>
+				<p>Getter for the CLLocationCoordinate2D object.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithNotification:(OYMNotification *)<em>notification</em> andPlace:(OYMPlace *)<em>place</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (CLLocationCoordinate2D)getCLLocationCoordinate2D</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>notification</code></th>
-						<td><p><a href="../Classes/OYMNotification.html">OYMNotification</a> Object</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>place</code></th>
-						<td><p><a href="../Classes/OYMPlace.html">OYMPlace</a> Object</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The OYMNotificationResult object</p>
+				<p>The corresponding CLLocationCoordinate2D object</p>
 			</div>
 			
 
@@ -318,7 +301,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMNotificationResult.h</code></p>
+				<p><code class="declared-in-ref">OYMGeometry.h</code></p>
 			</div>
 			
 			

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">Goindoor SDK for iOS </a>
+				<a href="../index.html">OYM GoIndoor SDK </a>
 			</h1>
 
 			<p id="developer-home">
@@ -43,8 +43,6 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
 
 	
 	
@@ -55,6 +53,12 @@
 	
 	
 
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/goIndoorWithBlock:">+ goIndoorWithBlock:</option>
+		
+	</optgroup>
 	
 
 	
@@ -102,15 +106,25 @@
 		
 		<option value="//api/name/getPlacesWithLocationResult:andRadius:andTags:andFilter:">- getPlacesWithLocationResult:andRadius:andTags:andFilter:</option>
 		
+		<option value="//api/name/getProxiBeacons">- getProxiBeacons</option>
+		
 		<option value="//api/name/getSettings">- getSettings</option>
 		
 		<option value="//api/name/getUserProfile">- getUserProfile</option>
 		
-		<option value="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andConnectCallBack:">- initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andConnectCallBack:</option>
+		<option value="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:">- initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:</option>
+		
+		<option value="//api/name/setLocationType:">- setLocationType:</option>
+		
+		<option value="//api/name/setMinDistanceUpdate:">- setMinDistanceUpdate:</option>
+		
+		<option value="//api/name/setUpdatePolicy:">- setUpdatePolicy:</option>
 		
 		<option value="//api/name/startLocate:">- startLocate:</option>
 		
 		<option value="//api/name/stopLocate">- stopLocate</option>
+		
+		<option value="//api/name/triggerUpdate">- triggerUpdate</option>
 		
 	</optgroup>
 	
@@ -142,14 +156,6 @@
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Closest iBeacon</p>
-					</div>
-					
-					
 
 					
 					
@@ -162,6 +168,52 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/goIndoorWithBlock:" title="goIndoorWithBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/goIndoorWithBlock:">+&nbsp;goIndoorWithBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a OYMGoIndoor Object with the arguments supplied to this <a href="../Protocols/GoIndoorBuilder.html">GoIndoorBuilder</a>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (OYMGoIndoor *)goIndoorWithBlock:(void ( ^ ) ( id&lt;GoIndoorBuilder&gt; builder ))<em>block</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A OYMGoIndoor object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/disconnect" title="disconnect"></a>
 	<h3 class="method-title"><code><a href="#//api/name/disconnect">&ndash;&nbsp;disconnect</a></code>
 </h3>
@@ -214,7 +266,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Method to start the indoor location with the default rate.</p>
+				<p>Method to start the Goindoor location with the default rate.</p>
 			</div>
 			
 		    
@@ -267,7 +319,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Method to stop the indoor location</p>
+				<p>Method to stop the Goindoor location</p>
 			</div>
 			
 		    
@@ -422,7 +474,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getBeacons</code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMBeacon *) *)getBeacons</code></div>
 
 		    
 			
@@ -468,7 +520,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getBeacon:(NSString *)<em>identifier</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMBeacon *) *)getBeacon:(NSString *)<em>identifier</em></code></div>
 
 		    
 			
@@ -526,7 +578,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getBeacons:(NSArray *)<em>identifiers</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMBeacon *) *)getBeacons:(NSArray *)<em>identifiers</em></code></div>
 
 		    
 			
@@ -584,7 +636,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getBuildings</code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMBuilding *) *)getBuildings</code></div>
 
 		    
 			
@@ -688,7 +740,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getBuildings:(NSArray *)<em>identifiers</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMBuilding *) *)getBuildings:(NSArray *)<em>identifiers</em></code></div>
 
 		    
 			
@@ -746,7 +798,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getAssets</code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMAsset *) *)getAssets</code></div>
 
 		    
 			
@@ -792,7 +844,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getAsset:(NSString *)<em>identifier</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMAsset *) *)getAsset:(NSString *)<em>identifier</em></code></div>
 
 		    
 			
@@ -850,7 +902,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getAssets:(NSArray *)<em>identifiers</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMAsset *) *)getAssets:(NSArray *)<em>identifiers</em></code></div>
 
 		    
 			
@@ -908,7 +960,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getPlaces</code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMPlace *) *)getPlaces</code></div>
 
 		    
 			
@@ -954,7 +1006,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getPlace:(NSString *)<em>identifier</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMPlace *) *)getPlace:(NSString *)<em>identifier</em></code></div>
 
 		    
 			
@@ -1012,7 +1064,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getPlaces:(NSArray *)<em>identifiers</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMPlace *) *)getPlaces:(NSArray *)<em>identifiers</em></code></div>
 
 		    
 			
@@ -1065,12 +1117,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Getter for places inside a defined area.</p>
+				<p>Getter for places inside a defined place.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getPlacesWithLocationResult:(OYMLocationResult *)<em>loc</em> andRadius:(int)<em>radius</em> andTags:(NSArray *)<em>tags</em> andFilter:(NSDictionary *)<em>filter</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMPlace *) *)getPlacesWithLocationResult:(OYMLocationResult *)<em>loc</em> andRadius:(int)<em>radius</em> andTags:(NSArray *)<em>tags</em> andFilter:(NSDictionary *)<em>filter</em></code></div>
 
 		    
 			
@@ -1143,7 +1195,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getPlacesWithId:(NSString *)<em>_ID</em> andTags:(NSArray *)<em>tags</em> andFilter:(NSDictionary *)<em>filter</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMPlace *) *)getPlacesWithId:(NSString *)<em>_ID</em> andTags:(NSArray *)<em>tags</em> andFilter:(NSDictionary *)<em>filter</em></code></div>
 
 		    
 			
@@ -1211,7 +1263,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getPlacesWithLatitude:(double)<em>latitude</em> andLongitude:(double)<em>longitude</em> andRadius:(int)<em>radius</em> andFloorNumber:(int)<em>floorNumber</em> andBuilding:(NSString *)<em>building</em> andTags:(NSArray *)<em>tags</em> andFilter:(NSDictionary *)<em>filter</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMPlace *) *)getPlacesWithLatitude:(double)<em>latitude</em> andLongitude:(double)<em>longitude</em> andRadius:(int)<em>radius</em> andFloorNumber:(int)<em>floorNumber</em> andBuilding:(NSString *)<em>building</em> andTags:(NSArray *)<em>tags</em> andFilter:(NSDictionary *)<em>filter</em></code></div>
 
 		    
 			
@@ -1226,7 +1278,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>longitude</code></th>
-						<td><p>WGS84 longitude whose areas needs to be retrieved</p></td>
+						<td><p>WGS84 longitude whose places needs to be retrieved</p></td>
 					</tr>
 				
 					<tr>
@@ -1299,7 +1351,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getNotifications</code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMNotification *) *)getNotifications</code></div>
 
 		    
 			
@@ -1345,7 +1397,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getNotification:(NSString *)<em>identifier</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMNotification *) *)getNotification:(NSString *)<em>identifier</em></code></div>
 
 		    
 			
@@ -1403,7 +1455,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getNotifications:(NSArray *)<em>identifiers</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMNotification *) *)getNotifications:(NSArray *)<em>identifiers</em></code></div>
 
 		    
 			
@@ -1536,6 +1588,252 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/getProxiBeacons" title="getProxiBeacons"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getProxiBeacons">&ndash;&nbsp;getProxiBeacons</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Getter for the proxiBeacon list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMProxiBeacon *) *)getProxiBeacons</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The proxiBeacon list</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setLocationType:" title="setLocationType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setLocationType:">&ndash;&nbsp;setLocationType:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the positioning type. It overrides the value given in the builder.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setLocationType:(OYMGoIndoorLocationType)<em>type</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>Location type to be applied</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setMinDistanceUpdate:" title="setMinDistanceUpdate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setMinDistanceUpdate:">&ndash;&nbsp;setMinDistanceUpdate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the minimum distance that should change the location result to be updated.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setMinDistanceUpdate:(double)<em>dist</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dist</code></th>
+						<td><p>Distance threshold</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUpdatePolicy:" title="setUpdatePolicy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUpdatePolicy:">&ndash;&nbsp;setUpdatePolicy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the update policy. It overrides the value given in the builder.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setUpdatePolicy:(OYMGoIndoorUpdate)<em>policy</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>policy</code></th>
+						<td><p>Update policy to be applied</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/triggerUpdate" title="triggerUpdate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/triggerUpdate">&ndash;&nbsp;triggerUpdate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Triggers an immediate update to the database. It assumes that the update policy is fulfilled.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)triggerUpdate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1545,8 +1843,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andConnectCallBack:" title="initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andConnectCallBack:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andConnectCallBack:">&ndash;&nbsp;initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andConnectCallBack:</a></code>
+	<a name="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:" title="initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:">&ndash;&nbsp;initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1561,7 +1859,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithUrl:(NSString *)<em>_url</em> andUser:(NSString *)<em>_user</em> andAccount:(NSString *)<em>acc</em> andPassword:(NSString *)<em>pwd</em> andLocationType:(OYMGoIndoorLocationType)<em>_locationType</em> andLocationUpdate:(long)<em>_refresh</em> andConnectCallBack:(void ( ^ ) ( BOOL succeed , NSString *message ))<em>_connectCallBack</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithUrl:(NSString *)<em>_url</em> andUser:(NSString *)<em>_user</em> andAccount:(NSString *)<em>acc</em> andPassword:(NSString *)<em>pwd</em> andLocationType:(OYMGoIndoorLocationType)<em>_locationType</em> andLocationUpdate:(long)<em>_refresh</em> andDebug:(BOOL)<em>_debug</em> andUpdatePolicy:(OYMGoIndoorUpdate)<em>_policy</em> andUpdateTime:(long)<em>_updateTime</em> andConnectCallBack:(void ( ^ ) ( BOOL succeed , NSString *message ))<em>_connectCallBack</em></code></div>
 
 		    
 			
@@ -1570,13 +1868,33 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>password</code></th>
-						<td><p>Password</p></td>
+						<th scope="row" class="argument-name"><code>user</code></th>
+						<td><p>User profile</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>account</code></th>
 						<td><p>User account</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>password</code></th>
+						<td><p>Password</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>policy</code></th>
+						<td><p>Database update policy</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>updateTime</code></th>
+						<td><p>Database update time</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>Location type</p></td>
 					</tr>
 				
 					<tr>
@@ -1587,16 +1905,6 @@
 					<tr>
 						<th scope="row" class="argument-name"><code>url</code></th>
 						<td><p>URL to the server</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>type</code></th>
-						<td><p>Location type</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>user</code></th>
-						<td><p>User profile</p></td>
 					</tr>
 				
 				</table>
@@ -1635,7 +1943,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

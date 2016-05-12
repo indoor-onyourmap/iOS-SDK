@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">Goindoor SDK for iOS </a>
+				<a href="../index.html">OYM GoIndoor SDK </a>
 			</h1>
 
 			<p id="developer-home">
@@ -78,11 +78,7 @@
 		
 		<option value="//api/name/getFloorsList">- getFloorsList</option>
 		
-		<option value="//api/name/initWithShape:">- initWithShape:</option>
-		
 		<option value="//api/name/removeFloor:">- removeFloor:</option>
-		
-		<option value="//api/name/toShape">- toShape</option>
 		
 	</optgroup>
 	
@@ -107,6 +103,9 @@
 	<th>Inherits from</th>
 	<td>NSObject</td>
 </tr><tr>
+	<th>Conforms to</th>
+	<td>OYMJsonProtocol</td>
+</tr><tr>
 	<th>Declared in</th>
 	<td>OYMBuilding.h<br />OYMBuilding.m</td>
 </tr>
@@ -118,8 +117,8 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class includes all the information regarding the Building Shapes
-stored in Links. As well, it includes the <a href="#//api/name/floors">floors</a> related with the building.</p>
+						<p>This class includes all the information regarding the Building stored.
+As well, it includes the <a href="#//api/name/floors">floors</a> related with the building.</p>
 					</div>
 					
 					
@@ -228,12 +227,12 @@ stored in Links. As well, it includes the <a href="#//api/name/floors">floors</a
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Building {@link Geometry}</p>
+				<p>Building Geometry</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) Geometry *geometry</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) OYMGeometry *geometry</code></div>
 
 		    
 			
@@ -315,110 +314,11 @@ stored in Links. As well, it includes the <a href="#//api/name/floors">floors</a
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSMutableDictionary *floors</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NS_MUTABLE_DICTIONARY_OF ( NSString *OYMFloor **floors</code></div>
 
 		    
 			
 
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBuilding.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/initWithShape:" title="initWithShape:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithShape:">&ndash;&nbsp;initWithShape:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Building constructor.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithShape:(OYMLinksShape *)<em>shape</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>shape</code></th>
-						<td><p>OYMLinksShape containing the Building object</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBuilding.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/toShape" title="toShape"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toShape">&ndash;&nbsp;toShape</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>This method creates a OYMLinksShape object from a Building object.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (OYMLinksShape *)toShape</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The equivalent OYMLinksShape object</p>
-			</div>
 			
 
 			
@@ -561,7 +461,7 @@ stored in Links. As well, it includes the <a href="#//api/name/floors">floors</a
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)getFloorsList</code></div>
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMFloor *) *)getFloorsList</code></div>
 
 		    
 			
@@ -569,7 +469,7 @@ stored in Links. As well, it includes the <a href="#//api/name/floors">floors</a
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An <tt>ArrayList&lt;Floor&gt;</tt> ordered per floor number (smaller first)</p>
+				<p>An Array of <a href="../Classes/OYMFloor.html">OYMFloor</a>, ordered by floor number (smaller first)</p>
 			</div>
 			
 
@@ -603,7 +503,7 @@ stored in Links. As well, it includes the <a href="#//api/name/floors">floors</a
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

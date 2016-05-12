@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">Goindoor SDK for iOS </a>
+				<a href="../index.html">OYM GoIndoor SDK </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,6 +56,8 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/)">)</option>
+		
 		<option value="//api/name/beacon">beacon</option>
 		
 		<option value="//api/name/building">building</option>
@@ -63,6 +65,10 @@
 		<option value="//api/name/floor">floor</option>
 		
 		<option value="//api/name/floorNumber">floorNumber</option>
+		
+		<option value="//api/name/latitude">latitude</option>
+		
+		<option value="//api/name/longitude">longitude</option>
 		
 		<option value="//api/name/major">major</option>
 		
@@ -83,10 +89,6 @@
 		<option value="//api/name/uuidBeacon">uuidBeacon</option>
 		
 		<option value="//api/name/warningCounter">warningCounter</option>
-		
-		<option value="//api/name/x">x</option>
-		
-		<option value="//api/name/y">y</option>
 		
 	</optgroup>
 	
@@ -112,10 +114,6 @@
 		
 		<option value="//api/name/initWithEddystone:">- initWithEddystone:</option>
 		
-		<option value="//api/name/initWithItem:">- initWithItem:</option>
-		
-		<option value="//api/name/toItem">- toItem</option>
-		
 	</optgroup>
 	
 	
@@ -139,6 +137,9 @@
 	<th>Inherits from</th>
 	<td>NSObject</td>
 </tr><tr>
+	<th>Conforms to</th>
+	<td>OYMJsonProtocol</td>
+</tr><tr>
 	<th>Declared in</th>
 	<td>OYMBeacon.h<br />OYMBeacon.m</td>
 </tr>
@@ -150,10 +151,9 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class includes all the information regarding the Beacon Items stored
-in Links.</p>
+						<p>This class includes all the information regarding the Beacon Items stored.</p>
 
-<p>CLBeacon categor<a href="#//api/name/y">y</a> to add proper iBeacon sorting.</p>
+<p>CLBeacon category to add proper iBeacon sorting.</p>
 					</div>
 					
 					
@@ -180,7 +180,7 @@ in Links.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>OYMLinksItem ID</p>
+				<p>Automaticall<a href="#//api/name/y">y</a> generated UUID</p>
 			</div>
 			
 		    
@@ -210,8 +210,8 @@ in Links.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/x" title="x"></a>
-	<h3 class="method-title"><code><a href="#//api/name/x">&nbsp;&nbsp;x</a></code>
+	<a name="//api/name/)" title=")"></a>
+	<h3 class="method-title"><code><a href="#//api/name/)">&nbsp;&nbsp;)</a></code>
 </h3>
 
 	<div class="method-info">
@@ -226,7 +226,7 @@ in Links.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property NSNumber *x</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSNumber *DEPRECATED_MSG_ATTRIBUTE ( &quot;Use longitude instead.&quot; )</code></div>
 
 		    
 			
@@ -251,8 +251,49 @@ in Links.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/y" title="y"></a>
-	<h3 class="method-title"><code><a href="#//api/name/y">&nbsp;&nbsp;y</a></code>
+	<a name="//api/name/longitude" title="longitude"></a>
+	<h3 class="method-title"><code><a href="#//api/name/longitude">&nbsp;&nbsp;longitude</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>WGS84 Longitude</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property NSNumber *longitude</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/latitude" title="latitude"></a>
+	<h3 class="method-title"><code><a href="#//api/name/latitude">&nbsp;&nbsp;latitude</a></code>
 </h3>
 
 	<div class="method-info">
@@ -267,7 +308,7 @@ in Links.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property NSNumber *y</code></div>
+			<div class="method-subsection method-declaration"><code>@property NSNumber *latitude</code></div>
 
 		    
 			
@@ -743,59 +784,6 @@ in Links.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithItem:" title="initWithItem:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithItem:">&ndash;&nbsp;initWithItem:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Beacon constructor.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithItem:(OYMLinksItem *)<em>item</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>item</code></th>
-						<td><p>OYMLinksItem containing the Beacon object</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/initWithEddystone:" title="initWithEddystone:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/initWithEddystone:">&ndash;&nbsp;initWithEddystone:</a></code>
 </h3>
@@ -933,52 +921,6 @@ across the different platforms.</p>
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
 				<p>A unique Beacon identifier</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBeacon.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/toItem" title="toItem"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toItem">&ndash;&nbsp;toItem</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>This method creates an OYMLinksItem object from an Beacon object.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (OYMLinksItem *)toItem</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The equivalent OYMLinksItem object</p>
 			</div>
 			
 
@@ -1169,7 +1111,7 @@ across the different platforms.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>ibeacons</code></th>
-						<td><p>Dictionar<a href="#//api/name/y">y</a> containing the CLBeacon to be sorted</p></td>
+						<td><p>Dictionary containing the CLBeacon to be sorted</p></td>
 					</tr>
 				
 				</table>
@@ -1212,7 +1154,7 @@ across the different platforms.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method returns the accurac<a href="#//api/name/y">y</a> of the iBeacon.</p>
+				<p>This method returns the accuracy of the iBeacon.</p>
 			</div>
 			
 		    
@@ -1254,7 +1196,7 @@ across the different platforms.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 OnYourMap. All rights reserved. Updated: 2015-09-18</p>
+						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
