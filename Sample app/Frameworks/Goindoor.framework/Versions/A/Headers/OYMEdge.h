@@ -82,7 +82,7 @@ static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
 /** String defining Floor type */
 @property (readonly) NSString* type;
 /** Properties list */
-@property (readonly) NS_DICTIONARY_OF(NSString *, OYMUserValue *)* properties;
+@property (readonly) NS_DICTIONARY_OF(NSString *, NSString *)* properties;
 /** Edge direction */
 @property (readonly) NSString* direction;
 

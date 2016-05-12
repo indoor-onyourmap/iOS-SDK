@@ -119,6 +119,8 @@ static const int STATUS_UPDATE_PROXIBEACON      = 0b001000000000;
 
 - (void) setUserProfile:(OYMUserProfile *)_userProfile andEtag:(NSString *)_etag  ;
 
+- (void) setUserProfile:(OYMUserProfile *)_userProfile andEtag:(NSString *)_etag updating:(BOOL)_updating;
+
 - (void) updateUserProfile:(OYMUserProfile *)up ;
 
 // ProxiBeacon

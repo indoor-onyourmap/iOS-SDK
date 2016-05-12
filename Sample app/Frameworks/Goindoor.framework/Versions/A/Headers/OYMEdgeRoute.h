@@ -32,7 +32,7 @@ static double const WALKINGSPEED = 3.0;
 @property int startFloorNumber;
 @property (nonatomic,strong) NSString* endFloorId;
 @property int endFloorNumber;
-@property (nonatomic,strong) NSDictionary* properties;
+@property (nonatomic,strong) NS_DICTIONARY_OF(NSString *, NSString *)* properties;
 @property double position;
 @property int costFT;
 @property int costTF;
@@ -44,8 +44,8 @@ static double const WALKINGSPEED = 3.0;
 @property (nonatomic,strong) NSString* direction;
 
 -(id)initEdgeRouteWithEdge:(OYMEdge*)_edge;
--(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance andProperties:(NSDictionary*)_properties andDirection:(NSString *)_direction;
--(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance properties:(NSDictionary*)_properties andDirection:(NSString *)_direction andPosition:(float)_position;
+-(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance andProperties:(NS_DICTIONARY_OF(NSString *, NSString *)*)_properties andDirection:(NSString *)_direction;
+-(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance properties:(NS_DICTIONARY_OF(NSString *, NSString *)*)_properties andDirection:(NSString *)_direction andPosition:(float)_position;
 
 -(void)copy:(OYMEdgeRoute*)edge;
 -(NSComparisonResult)compare:(OYMEdgeRoute*)other;
