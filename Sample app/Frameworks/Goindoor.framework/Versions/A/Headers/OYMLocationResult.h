@@ -10,6 +10,8 @@
 #define INDOOR_OYMINDOORLOCATIONRESULT_H
 
 #import <Foundation/Foundation.h>
+#import "OYMConstant.h"
+#import "OYMJsonProtocol.h"
 @import CoreLocation;
 
 /** No position is available */
@@ -19,11 +21,10 @@ static int const kOYMLocationTypeIbeacon = 0;
 /** Position obtained using CoreLocation */
 static int const kOYMLocationTypeGps = 1;
 
-
 /**
  *  This class provides the user position with further useful information.
  */
-@interface OYMLocationResult : NSObject 
+@interface OYMLocationResult : NSObject <OYMJsonProtocol>
 
 /** WGS84 Longitude */
 @property (readonly) double longitude;
