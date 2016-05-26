@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.1 (2016-05-26)
+#### Bugs fixed
+- Fixing issue that might prevent the SDK to be updated without wifi connection
+- Improving SDK performance
+
+
 ## 2.2.0 (2016-05-12)
 #### Added features
 - Introducing Offline tiles

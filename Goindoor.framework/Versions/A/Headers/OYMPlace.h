@@ -39,8 +39,8 @@ static NSString *const kOYMPlaceKeyTags = @"tags";
 static NSString *const kOYMPlaceKeyType = @"type";
 static NSString *const kOYMPlaceKeyId = @"id";
 
-static NSString *const kOYMPlaceKeyLongitude = @"x";
-static NSString *const kOYMPlaceKeyLatitude = @"y";
+static NSString *const kOYMPlaceKeyLongitude = @"longitude";
+static NSString *const kOYMPlaceKeyLatitude = @"latitude";
 
 /** String containing the Place type */
 static NSString *const kOYMPlaceType = @"AREA";

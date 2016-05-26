@@ -16,10 +16,15 @@
 #import "OYMNotificationWrapper.h"
 
 
+/** Key to retrieve the notification  */
+static NSString *const kOYMNotificationResultNotification = @"notification";
+/** Key to retrieve the place  */
+static NSString *const kOYMNotificationResultPlace = @"place";
+
 /**
  *  This class includes all the required information to handle the triggered notifications.
  */
-@interface OYMNotificationResult : NSObject
+@interface OYMNotificationResult : NSObject <OYMJsonProtocol>
 
 /** Notification triggered */
 @property (readonly) OYMNotification* notification;
