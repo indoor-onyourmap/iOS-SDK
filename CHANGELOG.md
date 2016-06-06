@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.2 (2016-06-06)
+#### Bugs fixed
+- Fixing issue that might prevent in some cases the SDK to be updated without connection
+- Correcting how indoor location computation is triggered when GPS signal is unreliable
+
+
 ## 2.2.1 (2016-05-26)
 #### Bugs fixed
 - Fixing issue that might prevent the SDK to be updated without wifi connection
