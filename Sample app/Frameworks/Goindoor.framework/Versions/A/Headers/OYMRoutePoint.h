@@ -17,10 +17,10 @@
 #import "OYMJsonProtocol.h"
 
 #pragma mark Public constants
-static NSString *const kOYMRoutePointKeyX = @"x";
-static NSString *const kOYMRoutePointKeyY = @"y";
-static NSString *const kOYMRoutePointKeyFloornumber = @"floornumber";
-static NSString *const kOYMRoutePointKeyBuildingId = @"buildingId";
+static NSString *const kOYMRoutePointKeyLongitude = @"longitude";
+static NSString *const kOYMRoutePointKeyLatitude = @"latitude";
+static NSString *const kOYMRoutePointKeyFloorNumber = @"floorNumber";
+static NSString *const kOYMRoutePointKeyBuilding = @"building";
 
 
 /**

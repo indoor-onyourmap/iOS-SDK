@@ -71,7 +71,12 @@
  * @return An object including all the relevant information
  */
 - (OYMRoutingResult*) getProjectionForLocation:(OYMLocationResult*)loc;
-
+/**
+ *  This metod returns a loggable representation of the route.
+ *
+ * @return JSON containing the required info to recreate the route 
+ */
+- (NSString*) logString;
 
 @end
 #endif

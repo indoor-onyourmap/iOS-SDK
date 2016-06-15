@@ -76,10 +76,10 @@ typedef NS_ENUM(NSUInteger, HttpMethods){
 
 - (void)requestWithUrl:(NSString* __NONNULL)_url andEtag:(NSString* __NULLABLE)_etag onSuccess:(onSuccessCallback)_successCallBack onFailure:(onFailureCallback)_failureCallBack;
 
-- (void)requestWithHttpMethod:(HttpMethods)_method andUrl:(NSString *__NONNULL)_url andHeader:( NS_DICTIONARY_OF(NSString *,NSString*) *__NULLABLE)_header andJsonBody:(NSString* __NULLABLE)_jsonBody onSuccess:(onSuccessCallback)_successCallBack onFailure:(onFailureCallback)_failureCallBack;
+/*- (void)requestWithHttpMethod:(HttpMethods)_method andUrl:(NSString *__NONNULL)_url andHeader:( NS_DICTIONARY_OF(NSString *,NSString*) *__NULLABLE)_header andJsonBody:(NSString* __NULLABLE)_jsonBody onSuccess:(onSuccessCallback)_successCallBack onFailure:(onFailureCallback)_failureCallBack;
 
 - (void)requestWithHttpMethod:(HttpMethods)_method andUrl:(NSString *__NONNULL)_url andHeader:( NS_DICTIONARY_OF(NSString *,NSString*) *__NULLABLE)_header andJsonBody:(NSString* __NULLABLE)_jsonBody andEtag:(NSString* __NULLABLE)_etag onSuccess:(onSuccessCallback)_successCallBack onFailure:(onFailureCallback)_failureCallBack;
-
+*/
 @end
 
 #endif

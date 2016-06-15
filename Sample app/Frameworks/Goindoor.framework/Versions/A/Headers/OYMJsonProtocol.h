@@ -18,6 +18,9 @@
 - (NSString*)toJson;
 - (instancetype) initWithJson:(NSString*)json;
 
+@optional
+- (NSDictionary*) toDictionary;
+
 @end
 
 #endif

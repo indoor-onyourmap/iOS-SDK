@@ -9,6 +9,8 @@
 #ifndef indoor_OYMInstruction_h
 #define indoor_OYMInstruction_h
 
+#import "OYMJsonProtocol.h"
+
 /** Enumeration containing all the instructions */
 typedef enum {
     TURNLEFT,
@@ -31,7 +33,7 @@ static NSString *const KEY_FLOORNUMBER = @"floornumber";
 /**
  *  This class defines an instruction to be used in the routing
  */
-@interface OYMInstruction : NSObject
+@interface OYMInstruction : NSObject <OYMJsonProtocol>
 
 /** Distance from the start point */
 @property double distance;
