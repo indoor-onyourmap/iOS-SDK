@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.3 (2016-06-15)
+#### Bugs fixed
+- Improving SDK performance
+
+
 ## 2.2.2 (2016-06-06)
 #### Bugs fixed
 - Fixing issue that might prevent in some cases the SDK to be updated without connection
