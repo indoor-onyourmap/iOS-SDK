@@ -103,7 +103,7 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
 @property (nonatomic, assign) int type;
 
 #pragma mark Constructors
-- (instancetype) initWithUrl:(NSString*)webUrl andUser:(NSString*)user andPassword:(NSString*)pwd andRefresh:(long)ref andType:(int)newType andGoIndoor:(OYMGoIndoor *)go withDelegate:(id<OYMLocationDelegate>)deleg;
+- (instancetype) initWithUrl:(NSString*)webUrl andUser:(NSString*)user andPassword:(NSString*)pwd andRefresh:(long)ref andType:(int)newType andGoIndoor:(OYMGoIndoor *)go andCBOptions:(nullable NSDictionary<NSString *, id> *)options withDelegate:(id<OYMLocationDelegate>)deleg;
 
 #pragma mark Instance methods
 - (BOOL) startWithIndorLocationSettings:(OYMLocationSettings*)se ;

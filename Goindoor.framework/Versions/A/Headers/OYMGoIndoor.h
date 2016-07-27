@@ -73,6 +73,7 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
     long locationUpdate;
     OYMGoIndoorUpdate updatePolicy;
     long updateTime;
+    NSDictionary<NSString *, id> *cbOptions;
     
     NSString *workspace;
     OYMDataHandler *dataHandler;
@@ -347,6 +348,10 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  *  Sets the database update rate in msec. Default is #kOYMGoIndoorDefaultUpdateTime.
  */
 - (void) setDatabaseUpdate:(long)refresh;
+/**
+ *  Sets the CoreBluetooth Central Manager Options.
+ */
+- (void) setCBCentralManagerOptions:(NSDictionary<NSString *, id> *)options;
 /**
  *  Creates a OYMGoIndoor with the arguments supplied to this builder. It will
  * attempt to connect to the database and the outcome will be shown in the provided

@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.2.4 (2016-07-27)
+#### Added features
+- Projection is done in edges that fulfill the properties
+- Adding possibility to set CBCentralManager options
+- Adding centralManagerDidChangeState in OYMLocationProtocol
+
+#### Bugs fixed
+- Correcting beacon maintenance in multiple floors
+
+
 ## 2.2.3 (2016-06-15)
 #### Bugs fixed
 - Improving SDK performance

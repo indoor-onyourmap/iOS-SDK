@@ -57,6 +57,12 @@
  *  This method is called when the Location Services are disabled.
  */
 - (void) locationServicesAreDisabled;
+/**
+ *  This method is called when the Core Blueooth Central Manager state has changed.
+ *
+ * @param state The new Core Blueooth Central Manager state
+ */
+- (void) centralManagerDidChangeState:(enum CBCentralManagerState)state;
 
 @end
 #endif
