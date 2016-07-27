@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #import <Foundation/Foundation.h>
+#import "OYMLocationDelegate.h"
 
 @class ESSBeaconScanner;
 
@@ -36,6 +37,8 @@
 @property(nonatomic, weak) id<ESSBeaconScannerDelegate> delegate;
 
 @property(nonatomic, assign) NSTimeInterval onLostTimeout;
+
+- (instancetype)initWithOptions:(nullable NSDictionary<NSString *, id> *)options andDelegate:(nullable id<OYMLocationDelegate>)deleg;
 
 - (void)startScanning;
 - (void)stopScanning;

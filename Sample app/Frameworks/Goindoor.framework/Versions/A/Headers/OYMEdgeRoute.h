@@ -49,7 +49,7 @@ static double const WALKINGSPEED = 3.0;
 
 -(void)copy:(OYMEdgeRoute*)edge;
 -(NSComparisonResult)compare:(OYMEdgeRoute*)other;
-+(OYMEdgeRoute*)projectPoint:(OYMRoutePoint*)point to:(NSArray*)edges;
++(OYMEdgeRoute*)projectPoint:(OYMRoutePoint*)point to:(NSArray*)edges withProfile:(OYMUserProfile*)profile;
 -(void)debug;
 -(int)getCost:(bool) isDirection andUserProfile:(OYMUserProfile *) profile;
 -(void)computeDistance;
