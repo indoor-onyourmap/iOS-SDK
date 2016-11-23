@@ -11,7 +11,7 @@
 
 
 #import <Foundation/Foundation.h>
-@import CoreLocation;
+#import <CoreLocation/CoreLocation.h>
 
 #import "OYMBeacon.h"
 

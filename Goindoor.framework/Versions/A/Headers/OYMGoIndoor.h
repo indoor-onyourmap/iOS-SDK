@@ -27,7 +27,7 @@
 /** Variable defining the default location update rate in msec */
 static long const kOYMGoIndoorDefaultLocationRefresh = 2000; //msec
 static long const kOYMGoIndoorDefaultUpdateTime = 60 * 15; //15 mins
-static NSString* const kOYMGoIndoorDefaultWsUrl = @"https://indoor.onyourmap.com/ws/v2";
+static NSString* const kOYMGoIndoorDefaultWsUrl = @"https://www.goindoor.co/";
 
 /**
  *  Annotation defining the possible algorithms to be used
@@ -64,7 +64,7 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
     BOOL isLocationRunning;
     BOOL isDebug;
     
-    NSString *url;
+    //NSString *url;
     NSString *profile;
     NSString *account;
     NSString *password;
@@ -81,6 +81,8 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
     OYMLocationCore *core;
 
 }
+
++ (NSString*)url;
 
 /**
 *  Creates a OYMGoIndoor Object with the arguments supplied to this GoIndoorBuilder.
@@ -187,6 +189,12 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  * @return Returns The places list
  */
 - (NS_ARRAY_OF(OYMPlace*) *) getPlaces ;
+/**
+ *  Getter for a place.
+ *
+ * @return The place if it exists, it can be nil
+ */
+- (OYMPlace*) getPlaceWithIdentifier:(NSString*)identifier;
 /**
  *  Getter for the places list.
  *

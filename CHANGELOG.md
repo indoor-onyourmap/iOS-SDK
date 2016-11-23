@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.0 (2016-11-23)
+#### Added features
+- Using the new www.goindoor.co servers
+
+#### Bugs fixed
+- Improving instruction creation
+
+
 ## 2.2.4 (2016-07-27)
 #### Added features
 - Projection is done in edges that fulfill the properties

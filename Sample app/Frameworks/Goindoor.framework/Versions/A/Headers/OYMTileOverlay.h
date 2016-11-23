@@ -11,14 +11,17 @@
 
 #import <MapKit/MapKit.h>
 
+
 @interface OYMTileOverlay : MKTileOverlay {
 @private
     NSString* floorId;
+    NSString *baseUrl;
 }
 
 
 #pragma mark Constructors
 - (instancetype) initWithFloorId:(NSString*)fId;
+- (instancetype) initWithFloorId:(NSString *)fId andBaseUrl:(NSString*)url;
 
 
 @end

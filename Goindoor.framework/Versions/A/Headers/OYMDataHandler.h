@@ -85,6 +85,8 @@ static const int STATUS_UPDATE_PROXIBEACON      = 0b001000000000;
 - (void) setAssets:(NS_ARRAY_OF(OYMAsset*)*)_assets andEtag:(NSString *)_etag ;
 
 // Places
+- (OYMPlace*) getPlace:(NSString*)identifier;
+
 - (NS_ARRAY_OF(OYMPlace*)*) getPlaces ;
 
 - (void) setPlaces:(NS_ARRAY_OF(OYMPlace*)*)_places andEtag:(NSString *)_etag ;

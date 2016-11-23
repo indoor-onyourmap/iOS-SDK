@@ -15,6 +15,7 @@
 #import <Foundation/Foundation.h>
 #import "OYMLocationDelegate.h"
 
+NS_ASSUME_NONNULL_BEGIN
 @class ESSBeaconScanner;
 
 // Delegates to the ESSBeaconScanner should implement this protocol.
@@ -44,3 +45,4 @@
 - (void)stopScanning;
 
 @end
+NS_ASSUME_NONNULL_END

@@ -10,7 +10,8 @@
 #define INDOOR_OYMINDOORLOCATIONDELEGATE_H
 
 #import <Foundation/Foundation.h>
-@import CoreLocation;
+#import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 #import "OYMLocationResult.h"
 #import "OYMNotificationResult.h"
@@ -62,7 +63,7 @@
  *
  * @param state The new Core Blueooth Central Manager state
  */
-- (void) centralManagerDidChangeState:(enum CBCentralManagerState)state;
+- (void) centralManagerDidChangeState:(CBCentralManagerState)state;
 
 @end
 #endif
