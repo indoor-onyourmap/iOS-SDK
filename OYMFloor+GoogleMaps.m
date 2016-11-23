@@ -22,17 +22,17 @@ static NSBundle* tilesBundle;
 - (GMSURLTileLayer*) tileProviderGoogle {
     GMSURLTileLayer *tiles = [GMSURLTileLayer tileLayerWithURLConstructor:^NSURL *(NSUInteger x, NSUInteger y, NSUInteger zoom) {
         int y2 = (int) (pow(2, zoom)-y-1);
-        
+
         NSBundle *bundle = [OYMFloor getBundle];
         if (bundle != nil && [bundle pathsForResourcesOfType:nil inDirectory:self.uuid].count > 0) {
             return [bundle URLForResource:[NSString stringWithFormat:@"%ld",(long)y2] withExtension:@"png" subdirectory:[NSString stringWithFormat:@"%@/%ld/%ld", self.uuid, (long)zoom, (long)x]];
         } else {
-            NSString *str = [NSString stringWithFormat:@"https://indoor.onyourmap.com/indoor/getTiles.php?l=%@&x=%ld&y=%ld&z=%ld", self.uuid, (long)x, (long)y2, (long)zoom];
+            NSString *str = [NSString stringWithFormat:@"https://www.goindoor.co/ws/v2/sql/tiles/%@/%ld/%ld/%ld", self.uuid, (long)zoom, (long)x, (long)y2];
             return [NSURL URLWithString:str];
         }
     }];
     objc_setAssociatedObject(self, OYMFloorTileProviderGooglePropertyKey, tiles, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
+
     return tiles;
 }
 
@@ -45,7 +45,7 @@ static NSBundle* tilesBundle;
     dispatch_once(&onceToken, ^{
         tilesBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kOYMTileOverlayBundleName ofType:@"bundle"]];
     });
-    
+
     return tilesBundle;
 }
 

@@ -10,7 +10,7 @@
 #define INDOOR_OYMNOTIFICATIONWRAPPER_H
 
 #import <Foundation/Foundation.h>
-@import CoreLocation;
+#import <CoreLocation/CoreLocation.h>
 
 #import "OYMNotification.h"
 #import "OYMPlace.h"

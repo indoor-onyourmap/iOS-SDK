@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 #import "OYMConstant.h"
 #import "OYMJsonProtocol.h"
-@import CoreLocation;
+#import <CoreLocation/CoreLocation.h>
 
 /** No position is available */
 static int const kOYMLocationTypeNo = -1;

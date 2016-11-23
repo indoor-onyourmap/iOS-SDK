@@ -33,6 +33,7 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define MSEC_TO_SEC(v) v/1000
 
+NS_ASSUME_NONNULL_BEGIN
 @class OYMLocationNotifications, OYMDataHandler, OYMGoIndoor, OYMLocationMaintenance, OYMLocationAssets;
 
 /**
@@ -111,4 +112,5 @@ static long const kOYMLocationCoreDbUpdate = 15; // Minutes
 - (void) stop;
 
 @end
+NS_ASSUME_NONNULL_END
 #endif

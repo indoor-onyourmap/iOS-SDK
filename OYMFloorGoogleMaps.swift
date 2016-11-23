@@ -22,7 +22,7 @@ private let tilesBundle: NSBundle? =  {
    This extension will provided an initialized GMSURLTileLayer to be used in Google Maps.
  */
 extension OYMFloor {
-    
+
     /**
       Computed property that will return a GMSURLTileLayer for the current floor.
      */
@@ -31,15 +31,15 @@ extension OYMFloor {
             return GMSURLTileLayer { (x, y, zoom) -> NSURL! in
                 let power = UInt(pow(Double(2), Double(zoom)))
                 let y2 = power-y-1
-                
+
                 if let bundle = tilesBundle where bundle.pathsForResourcesOfType(nil, inDirectory: self.uuid).count > 0 {
                     return bundle.URLForResource(String(y2), withExtension: "png", subdirectory: String(format: "%@/%ld/%ld", self.uuid, zoom, x))
                 } else {
-                    let url = String(format: "https://indoor.onyourmap.com/indoor/getTiles.php?l=%@&x=%d&y=%d&z=%d", self.uuid, x, y2, zoom)
+                    let url = String(format: "https://www.goindoor.co/ws/v2/sql/tiles/%@/%ld/%ld/%ld", self.uuid, zoom, x, y2)
                     return NSURL(string: url)
                 }
             }
         }
     }
-    
+
 }

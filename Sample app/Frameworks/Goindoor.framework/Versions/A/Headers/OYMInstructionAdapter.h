@@ -18,8 +18,26 @@
 
 @interface OYMInstructionAdapter : NSObject
 
+/**
+ *  This method provides a human readable string for each instruction available.
+ *
+ * @param inst Instruction to be processed
+ * @return The instruction string according to the object
+ */
 + (NSString*) getStringForInstruction:(OYMInstruction*) inst;
+/**
+ *  This method provides a human readable string for a specified distance.
+ *
+ * @param dist Instruction distance
+ * @return The distance string according to the object
+ */
 + (NSString*) getDistanceString:(int) dist;
+/**
+ *  This method provides a default image for each instruction.
+ *
+ * @param inst Instruction to be processed
+ * @return The image to be used
+ */
 + (UIImage*) getImageForInstruction:(OYMInstruction*) inst;
 
 

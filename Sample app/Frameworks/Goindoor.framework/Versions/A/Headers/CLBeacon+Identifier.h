@@ -10,7 +10,7 @@
 #define INDOOR_CLBEACON_IDENTIFIER_H
 
 #import <Foundation/Foundation.h>
-@import CoreLocation;
+#import <CoreLocation/CoreLocation.h>
 
 
 /**

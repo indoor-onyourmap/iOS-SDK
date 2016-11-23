@@ -10,7 +10,7 @@
 #define INDOOR_OYMROUTEPOINT_H
 
 #import <Foundation/Foundation.h>
-@import CoreLocation;
+#import <CoreLocation/CoreLocation.h>
 
 #import "OYMConstant.h"
 
