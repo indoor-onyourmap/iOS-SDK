@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.3.1 (2017-03-24)
+#### Bugs fixed
+- Correcting issue that might lead to consider the start edge as both direction under some circumstances
+
+
 ## 2.3.0 (2016-11-23)
 #### Added features
 - Using the new www.goindoor.co servers
