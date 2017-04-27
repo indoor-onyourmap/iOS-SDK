@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.3.2 (2017-04-27)
+#### Added features
+- Adding CocoaPods support
+
+
 ## 2.3.1 (2017-03-24)
 #### Bugs fixed
 - Correcting issue that might lead to consider the start edge as both direction under some circumstances
