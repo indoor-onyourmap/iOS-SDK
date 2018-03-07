@@ -10,7 +10,14 @@
 "routing_upescalator" = "Prenez l'escalateur et montez à l'étage %i";
 "routing_arrival" = "Vous arrivez à destination";
 "routing_straight" = "Continuez tout droit";
+"routing_changebuilding" = "Changez de bâtiment";
+"routing_enterbuilding" = "Entrez dans le bâtiment";
+"routing_leavebuilding" = "Sortez du bâtiment";
+
+"routing_andthen" = "puis";
+"routing_and" = "et";
 
 // Navigation
 "routing_now" = "Maintenant";
+"routing_soon" = "Bientôt";
 

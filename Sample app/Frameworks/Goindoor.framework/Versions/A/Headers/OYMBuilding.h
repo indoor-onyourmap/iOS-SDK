@@ -31,6 +31,7 @@ static NSString *const kOYMBuildingKeyType = @"type";
 /** Key to retrieve the item id  */
 static NSString *const kOYMBuildingKeyId = @"id";
 static NSString *const kOYMBuildingKeyGeometry = @"geometry";
+static NSString *const kOYMBuildingKeyOutdoor = @"Outdoor";
 
 /**
  *  This class includes all the information regarding the Building stored.

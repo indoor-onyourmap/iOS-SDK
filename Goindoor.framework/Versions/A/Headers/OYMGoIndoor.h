@@ -21,11 +21,14 @@
 #import "OYMAsset.h"
 #import "OYMNotification.h"
 #import "OYMProxiBeacon.h"
+#import "OYMIndicator.h"
+#import "OYMCombination.h"
+
 
 @protocol GoIndoorBuilder;
 
 /** Variable defining the default location update rate in msec */
-static long const kOYMGoIndoorDefaultLocationRefresh = 2000; //msec
+static long const kOYMGoIndoorDefaultLocationRefresh = 1000; //msec
 static long const kOYMGoIndoorDefaultUpdateTime = 60 * 15; //15 mins
 static NSString* const kOYMGoIndoorDefaultWsUrl = @"https://www.goindoor.co/";
 
@@ -222,7 +225,7 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
 /**
  *  Getter for the place list.
  *
- * @param _ID Building or floor ID whose places need to be retrieved
+ * @param _ID Building or floor ID whose places need to be retrieved, it can be nil 
  * @param tags List of POI tags that should match in the search, it can be nil
  * @param filter Map of POI properties that should match in the search, it can be nil
  * @return The place list satisfying the criteria
@@ -280,6 +283,18 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
  * @return The proxiBeacon list
  */
 - (NS_ARRAY_OF(OYMProxiBeacon*)*) getProxiBeacons;
+/**
+ *  Getter for an indicator
+ *
+ * @return The indicator if it exists, it can be nil
+ */
+- (OYMIndicator*) getIndicator:(NSString*)identifier;
+/**
+ *  Getter for the combinations list.
+ *
+ * @return The combination list
+ */
+- (NS_ARRAY_OF(OYMCombination*)*) getCombinations;
 
 /**
  *  Sets the positioning type. It overrides the value given in the builder.

@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.4.0 (2018-03-06)
+#### Added features
+- Introducing indicators
+- Introducing combinations
+- Introducing multi-building routing
+#### Bugs fixed
+- Improving closest POI logic
+- Improving instruction creation, end route and wrong direction detection
+- Improving beacon handling
+- Fixing string typos
+
+
 ## 2.3.2 (2017-04-27)
 #### Added features
 - Adding CocoaPods support

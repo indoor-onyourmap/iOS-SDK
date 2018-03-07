@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode7
+osx_image: xcode9.2
 xcode_project: Navigation.xcodeproj
 xcode_scheme: Navigation
 before_install:
@@ -10,4 +10,3 @@ notifications:
   email:
     recipients:
       secure: "yeRdXpOU6LvXztL3a/VjINl2CviAuPPtNdlSTJ85/QDizgD84NKFhIHgrk4UYVqai13X+DlEs0zDuV4lmQsOAXm2OONtF8chBLqAFN+BlRxVphMlgAMgVj+ekaXHfnb/PsfPu5tbtvOuSMcRtMArW6E5BdKk0yGgokevEOSvoYyLhYcXAhTGTyFTlOdWD7NBPsMqLFUiQzW5wzq8XflyRWJp36+T98vqZO3eiwRLogqmzp4O3DSHRJbD8eou58v5PYEEct0+SNWViKekojkxXY1RBHhywMotMrxPujK4qy0tyjnT+4nqoEKqIS4Bh2C51YYgadQNjzA0UCGLKvn1KHmyVGsT/RpdrLgQ5xOIqZeTjgDMfBXxYBOPW0NplfRsDe8lG02hwNN40Pd8yYuILJ45XjUv0xDrFzVY0VmTtLgigBUldS/rr1juwx37K/t1B9Y5XAOTE2ew1jCdESUkNgPsKeNE9DS1aA9R7JYyUJnod/tXQxHshUUkRS/kL/s4vlAPPFQoP1D9Rso++LwBYvRyxTYZm03rHwbeWy8peN3oN+CLbEGDnD4EYjvHiwQAzTaOawPbWz52xifau/Tdr3Ss/jPln4Odo6McRbfCQ6rL5H+ARv/apiNOvhdZo5giGYRDc3Q8yzbpMnmdEUUVXTJfCPCOx7wG1GNn8q3R0jM="
-      

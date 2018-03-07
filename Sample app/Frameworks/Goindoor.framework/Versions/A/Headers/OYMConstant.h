@@ -39,6 +39,7 @@
 
 #define ReturnEmptyStringIfNil(str) (str == (id)[NSNull null] || str.length == 0 ) ? @"" : str
 #define ReturnNumberZeroIfNil(number) (number == (id)[NSNull null] || number == nil ) ? @0 : number
+#define ReturnNSNullIfNilOtherwiseJson(obj) obj? obj.toJson: [NSNull null]
 
 #define JsonObjectToJsonString(jo) ([NSJSONSerialization isValidJSONObject:jo])?[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:jo options:0 error:nil] encoding:NSUTF8StringEncoding]:(([jo isKindOfClass:[NSString class]])?(NSString*)jo:@"")
 #define JsonStringToJsonObject(jsonStr) (jsonStr == nil)?nil:[NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil]

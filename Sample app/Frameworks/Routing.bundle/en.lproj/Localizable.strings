@@ -2,14 +2,21 @@
 // Instruction enumeration
 "routing_turnleft" = "Turn left";
 "routing_turnright" = "Turn right";
-"routing_downstairs" = "Go downstairs to the %i floor";
-"routing_upstairs" = "Go upstairs to the %i floor";
-"routing_downelevator" = "Take the lift down to %i floor";
-"routing_upelevator" = "Take the lift up to %i floor";
-"routing_downescalator" = "Take the escalator down to %i floor";
-"routing_upescalator" = "Take the escalator up to %i floor";
+"routing_downstairs" = "Go downstairs to floor %i";
+"routing_upstairs" = "Go upstairs to floor %i";
+"routing_downelevator" = "Take the lift down to floor %i";
+"routing_upelevator" = "Take the lift up to floor %i";
+"routing_downescalator" = "Take the escalator down to floor %i";
+"routing_upescalator" = "Take the escalator up to floor %i";
 "routing_arrival" = "You will reach your destination";
 "routing_straight" = "Go straight ahead";
+"routing_changebuilding" = "Change building";
+"routing_enterbuilding" = "Enter building";
+"routing_leavebuilding" = "Leave building";
+
+"routing_andthen" = "and then";
+"routing_and" = "and";
 
 // Navigation
 "routing_now" = "Now";
+"routing_soon" = "Soon";

@@ -14,6 +14,7 @@
 #import "OYMJsonProtocol.h"
 #import "OYMSettings.h"
 #import "OYMGeometry.h"
+#import "OYMIndicator.h"
 
 #pragma mark Public constants
 /** Key to retrieve the Edge id */
@@ -50,9 +51,12 @@ static NSString *const kOYMEdgeDirectionTF = @"tofrom";
 static NSString *const kOYMEdgeDirectionFT = @"fromto";
 static NSString *const kOYMEdgeDirectionBoth = @"both";
 
+static NSString *const kOYMEdgeTypeSimple = @"simple";
 static NSString *const kOYMEdgeTypeStairs = @"stairs-connecting";
 static NSString *const kOYMEdgeTypeEscalator = @"escalator-connecting";
 static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
+
+
 
 /**
  *  This class includes all the information regarding the Edge Items stored.
@@ -85,6 +89,12 @@ static NSString *const kOYMEdgeTypeLift = @"lift-connecting";
 @property (readonly) NS_DICTIONARY_OF(NSString *, NSString *)* properties;
 /** Edge direction */
 @property (readonly) NSString* direction;
+
+@property (readonly) OYMIndicator* fromToSign;
+@property (readonly) OYMIndicator* fromToHint;
+@property (readonly) OYMIndicator* toFromSign;
+@property (readonly) OYMIndicator* toFromHint;
+@property (readonly) NSArray<NSString*>* combinations;
 
 @end
 #endif

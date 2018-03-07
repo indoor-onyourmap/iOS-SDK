@@ -42,10 +42,15 @@ static double const WALKINGSPEED = 3.0;
 @property bool orientation;
 @property (nonatomic,strong) NSString* type;
 @property (nonatomic,strong) NSString* direction;
+@property NSString *fts; // fromToSign
+@property NSString *fth;
+@property NSString *tfs;
+@property NSString *tfh;
+@property NS_ARRAY_OF(NSString *)* combinations;
 
 -(id)initEdgeRouteWithEdge:(OYMEdge*)_edge;
--(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance andProperties:(NS_DICTIONARY_OF(NSString *, NSString *)*)_properties andDirection:(NSString *)_direction;
--(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance properties:(NS_DICTIONARY_OF(NSString *, NSString *)*)_properties andDirection:(NSString *)_direction andPosition:(float)_position;
+-(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance andProperties:(NS_DICTIONARY_OF(NSString *, NSString *)*)_properties andDirection:(NSString *)_direction fts:(NSString*)_fts fth:(NSString*)_fth tfs:(NSString*)_tfs tfh:(NSString*)_tfh;
+-(id)initEdgeRouteWithId:(NSString*)_edgeId type:(NSString*)_type startNode:(NSString*)_startNode endNode:(NSString*)_endNode building:(NSString*)_buildingId startFloorId:(NSString*)_startFloorId startFloorNumber:(int)_startFloorNumber endFloorId:(NSString*)_endFloorId endFloorNumber:(int)_endFloorNumber geometry:(NSArray*)_geometry distance:(double)_distance properties:(NS_DICTIONARY_OF(NSString *, NSString *)*)_properties andDirection:(NSString *)_direction andPosition:(float)_position fts:(NSString*)_fts fth:(NSString*)_fth tfs:(NSString*)_tfs tfh:(NSString*)_tfh;
 
 -(void)copy:(OYMEdgeRoute*)edge;
 -(NSComparisonResult)compare:(OYMEdgeRoute*)other;
@@ -65,6 +70,7 @@ static double const WALKINGSPEED = 3.0;
 -(int)changeFloor;
 -(double)getAngle:(OYMEdgeRoute*)dest;
 
+-(BOOL) isMultiBuilding;
 
 @end
 

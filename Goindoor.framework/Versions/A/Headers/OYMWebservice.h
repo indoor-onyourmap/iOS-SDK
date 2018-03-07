@@ -48,7 +48,8 @@ typedef NS_ENUM(NSUInteger, RequestType) {
     FLOOR,
     PROXIBEACON,
     NOTIFICATION,
-    INFO
+    INFO,
+    COMBINATIONS
 };
 
 typedef NS_ENUM(NSUInteger, HttpMethods){
