@@ -31,6 +31,10 @@ static NSString *const kOYMRoutePointKeyLocation = @"loc";
 @property (readonly) OYMRouteProjectedPoint* projectedPoint;
 /** Flag indication whether the user should recompute its route */
 @property (readonly) BOOL isRecomputeRequired;
+/** Flag telling whether the user has been going in the wrong direction */
+@property (readonly) BOOL wrongDirection;
+/** Flag telling whether the user has reached the end of the route */
+@property (readonly) BOOL endRoute;
 
 
 #pragma mark Constructors

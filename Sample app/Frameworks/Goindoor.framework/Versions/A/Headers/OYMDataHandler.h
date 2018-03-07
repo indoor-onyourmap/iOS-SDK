@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <ZipZap/ZipZap.h>
 
 #import "OYMReachability.h"
 
@@ -26,9 +27,10 @@
 #import "OYMPlace.h"
 #import "OYMEdge.h"
 #import "OYMBuilding.h"
+#import "OYMCombination.h"
 
 static const int STATUS_UPDATED                 = 0b000000000000;
-static const int STATUS_UPDATE_ALL              = 0b001111111111;
+static const int STATUS_UPDATE_ALL              = 0b111111111111;
 static const int STATUS_UPDATE_BEACONS          = 0b000000000001;
 static const int STATUS_UPDATE_BUILDINGS        = 0b000000000010;
 static const int STATUS_UPDATE_ASSETS           = 0b000000000100;
@@ -39,6 +41,8 @@ static const int STATUS_UPDATE_EDGES            = 0b000001000000;
 static const int STATUS_UPDATE_INDOOR_SETTINGS  = 0b000010000000;
 static const int STATUS_UPDATE_USER_PROFILE     = 0b000100000000;
 static const int STATUS_UPDATE_PROXIBEACON      = 0b001000000000;
+static const int STATUS_UPDATE_COMBINATIONS     = 0b010000000000;
+static const int STATUS_UPDATE_INDICATORS       = 0b100000000000;
 
 @class OYMGoIndoor;
 
@@ -132,6 +136,16 @@ static const int STATUS_UPDATE_PROXIBEACON      = 0b001000000000;
 - (OYMProxiBeacon*) getProxiBeacon:(NSString *)identifier;
 
 - (void) setProxiBeacons:(NS_ARRAY_OF(OYMProxiBeacon*)*)_beacons andEtag:(NSString *)_etag ;
+
+// Indicators
+
+- (OYMIndicator*) getIndicator:(NSString*)_uuid;
+- (void) setIndicators:(NSData*)_data andEtag:(NSString *)_etag ;
+
+// Combinations
+- (NS_ARRAY_OF(OYMCombination*)*) getCombinations;
+- (OYMCombination*) getCombination:(NSString*)_uuid;
+- (void) setCombinations:(NS_ARRAY_OF(OYMCombination*)*)_data andEtag:(NSString *)_etag ;
 
 @end
 

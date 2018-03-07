@@ -10,6 +10,13 @@
 "routing_upescalator" = "Puja amb les escales mecàniques al pis %i";
 "routing_arrival" = "Arribaràs a la teva destinació";
 "routing_straight" = "Continua tot recte";
+"routing_changebuilding" = "Canvia d'edifici";
+"routing_enterbuilding" = "Entra a l'edifici";
+"routing_leavebuilding" = "Surt de l'edifici";
+
+"routing_andthen" = "i després";
+"routing_and" = "i llavors";
 
 // Navigation
 "routing_now" = "Ara";
+"routing_soon" = "Ben aviat";

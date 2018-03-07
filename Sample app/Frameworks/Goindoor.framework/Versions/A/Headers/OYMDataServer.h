@@ -38,6 +38,8 @@
 - (void) getIndoorLocationSettings:(NSString *)etag ;
 - (void) getUserProfile:(NSString *)etag ;
 - (void) getProxiBeacons:(NSString *)etag ;
+- (void) getIndicators:(NSString *)etag;
+- (void) getCombinations:(NSString *)etag;
 
 - (void) updateUserProfile:(OYMUserProfile *)up ;
 

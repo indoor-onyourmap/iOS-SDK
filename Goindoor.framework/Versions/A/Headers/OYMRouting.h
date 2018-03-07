@@ -13,6 +13,8 @@
 #import "OYMRoute.h"
 #import "OYMEdgeRoute.h"
 #import "OYMGraph.h"
+#import "OYMDataHandler.h"
+@class OYMDataHandler;
 
 static const NSString* kOYMRoutingExceptionNoEdges = @"Edge list is empty";
 
@@ -47,8 +49,8 @@ static int const kOYMRoutingMaskPropertiesNotFulfilled= 1<<30;
  * @param destination Destination point
  * @return Route between the two points, <tt>nil</tt> if the route cannot be computed
  */
--(OYMRoute*)computeRouteFrom:(OYMRoutePoint*)start to:(OYMRoutePoint*)destination andUserProfile:(OYMUserProfile *)profile;
--(NSArray*)findShortestPathFrom:(OYMEdgeRoute*)startEdge to:(OYMEdgeRoute*)endEdge andUserProfile:(OYMUserProfile *)profile;
+-(OYMRoute*)computeRouteFrom:(OYMRoutePoint*)start to:(OYMRoutePoint*)destination andUserProfile:(OYMUserProfile *)profile andDataHandler:(OYMDataHandler*)dh;
+-(NSArray*)findShortestPathFrom:(OYMEdgeRoute*)startEdge to:(OYMEdgeRoute*)endEdge andUserProfile:(OYMUserProfile *)profile andDataHandler:(OYMDataHandler*)dh;
 
 @end
 

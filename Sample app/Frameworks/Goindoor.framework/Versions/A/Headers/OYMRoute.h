@@ -19,6 +19,7 @@
 #import "OYMRoutingResult.h"
 @class OYMRoutingResult;
 #import "OYMInstruction.h"
+@class OYMInstruction;
 
 
 /**

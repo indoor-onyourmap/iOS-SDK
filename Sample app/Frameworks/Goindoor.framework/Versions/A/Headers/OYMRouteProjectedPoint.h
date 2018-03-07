@@ -33,6 +33,10 @@ static NSString *const kOYMRouteProjectedPointKeyBearing = @"bearingAngle";
 @property (readonly) NSNumber* distanceToShape;
 /** Orientation of the route segment in which the user is, counted clockwise from north */
 @property (readonly) NSNumber* bearing;
+/** Flag telling whether the user has been going in the wrong direction */
+@property (readonly) BOOL wrongDirection;
+/** Flag telling whether the user has reached the end of the route */
+@property (readonly) BOOL endRoute;
 
 #pragma mark Constructors
 /**
@@ -63,6 +67,7 @@ static NSString *const kOYMRouteProjectedPointKeyBearing = @"bearingAngle";
 
 #pragma mark Class methods
 + (instancetype) project2Point:(OYMLocationResult*)loc toRoute:(OYMRoute*)route;
++ (void) cleanBuffer;
 
 @end
 #endif

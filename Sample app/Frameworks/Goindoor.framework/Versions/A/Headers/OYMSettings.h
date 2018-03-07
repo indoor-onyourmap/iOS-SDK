@@ -13,6 +13,8 @@
 #import "OYMConstant.h"
 #import "OYMSettings.h"
 #import "OYMValues.h"
+#import "OYMCategory.h"
+#import "OYMShortcut.h"
 
 typedef enum  {
     USERS,
@@ -33,6 +35,15 @@ static NSString *const kOYMSettingsKeyPlaces = @"places";
 /** Key to retrieve the notification settings */
 static NSString *const kOYMSettingsKeyNotifications = @"notifications";
 
+/** Key to retrieve the languages settings */
+static NSString *const kOYMSettingsKeyLanguages = @"languages";
+/** Key to retrieve the default language settings */
+static NSString *const kOYMSettingsKeyDefaultLanguage = @"default_language";
+/** Key to retrieve the categories settings */
+static NSString *const kOYMSettingsKeyCategories = @"categories";
+/** Key to retrieve the shortcuts settings */
+static NSString *const kOYMSettingsKeyShortcuts = @"shortcuts";
+
 /**
  *  This class defines a value stored for user settings.
  */
@@ -43,6 +54,12 @@ static NSString *const kOYMSettingsKeyNotifications = @"notifications";
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *edges;
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *places;
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *notifications;
+
+@property (readonly) NS_ARRAY_OF(NSString*) *languages;
+@property (readonly) NSString *defaultLanguage;
+@property (readonly) NS_DICTIONARY_OF(NSString*, OYMCategory*) *categories;
+@property (readonly) NS_DICTIONARY_OF(NSString*, OYMShortcut*) *shortcuts;
+
 
 @end
 

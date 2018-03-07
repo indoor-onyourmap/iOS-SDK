@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4E2BB9FA1B297E170025F63A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BB9F91B297E170025F63A /* UIView+Toast.m */; };
 		4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */; };
+		4E6022B6204FDAA6001151BB /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6022B5204FDAA6001151BB /* ZipZap.framework */; };
+		4E6022B8204FDAD8001151BB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6022B7204FDAD7001151BB /* libz.tbd */; };
+		4E6022BA204FDAE1001151BB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6022B9204FDAE1001151BB /* libc++.tbd */; };
 		4E94237E1B1887F700798E3B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E9423801B1887F700798E3B /* Localizable.strings */; };
 		4EBCB7841B186FBB00D7B257 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7831B186FBB00D7B257 /* main.m */; };
 		4EBCB7871B186FBB00D7B257 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB7861B186FBB00D7B257 /* AppDelegate.m */; };
@@ -64,6 +67,9 @@
 		4E2BB9F91B297E170025F63A /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Utils/UIView+Toast.m"; sourceTree = "<group>"; };
 		4E2BB9FB1B297E5F0025F63A /* UIView+Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Utils/UIView+Toast.h"; sourceTree = "<group>"; };
 		4E2BB9FC1B2AC6670025F63A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4E6022B5204FDAA6001151BB /* ZipZap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipZap.framework; path = Frameworks/ZipZap.framework; sourceTree = "<group>"; };
+		4E6022B7204FDAD7001151BB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4E6022B9204FDAE1001151BB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		4E94237F1B1887F700798E3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E9423811B18881400798E3B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E9423821B18882E00798E3B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -165,8 +171,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E6022BA204FDAE1001151BB /* libc++.tbd in Frameworks */,
+				4E6022B8204FDAD8001151BB /* libz.tbd in Frameworks */,
 				FC1C5E301BC7D87B0004BCDA /* QuartzCore.framework in Frameworks */,
 				FCD84F4F1C89C9B6004F19C6 /* Goindoor.framework in Frameworks */,
+				4E6022B6204FDAA6001151BB /* ZipZap.framework in Frameworks */,
 				4E2BB9FD1B2AC6670025F63A /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +309,9 @@
 		4EBCB7DD1B1872C900D7B257 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E6022B9204FDAE1001151BB /* libc++.tbd */,
+				4E6022B7204FDAD7001151BB /* libz.tbd */,
+				4E6022B5204FDAA6001151BB /* ZipZap.framework */,
 				FCD84F4E1C89C9B6004F19C6 /* Goindoor.framework */,
 				FC6EAE211BFB3D65001D3E9D /* Routing.bundle */,
 				FC1C5E2F1BC7D87B0004BCDA /* QuartzCore.framework */,
