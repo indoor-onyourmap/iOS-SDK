@@ -86,6 +86,10 @@
 		
 		<option value="//api/name/getBuildings:">- getBuildings:</option>
 		
+		<option value="//api/name/getCombinations">- getCombinations</option>
+		
+		<option value="//api/name/getIndicator:">- getIndicator:</option>
+		
 		<option value="//api/name/getLogger">- getLogger</option>
 		
 		<option value="//api/name/getNotification:">- getNotification:</option>
@@ -95,6 +99,8 @@
 		<option value="//api/name/getNotifications:">- getNotifications:</option>
 		
 		<option value="//api/name/getPlace:">- getPlace:</option>
+		
+		<option value="//api/name/getPlaceWithIdentifier:">- getPlaceWithIdentifier:</option>
 		
 		<option value="//api/name/getPlaces">- getPlaces</option>
 		
@@ -112,7 +118,7 @@
 		
 		<option value="//api/name/getUserProfile">- getUserProfile</option>
 		
-		<option value="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:">- initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:</option>
+		<option value="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andCBOptions:andConnectCallBack:">- initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andCBOptions:andConnectCallBack:</option>
 		
 		<option value="//api/name/setLocationType:">- setLocationType:</option>
 		
@@ -990,6 +996,52 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getPlaceWithIdentifier:" title="getPlaceWithIdentifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getPlaceWithIdentifier:">&ndash;&nbsp;getPlaceWithIdentifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Getter for a place.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (OYMPlace *)getPlaceWithIdentifier:(NSString *)<em>identifier</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The place if it exists, it can be nil</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getPlace:" title="getPlace:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getPlace:">&ndash;&nbsp;getPlace:</a></code>
 </h3>
@@ -1205,7 +1257,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>_ID</code></th>
-						<td><p>Building or floor ID whose places need to be retrieved</p></td>
+						<td><p>Building or floor ID whose places need to be retrieved, it can be nil</p></td>
 					</tr>
 				
 					<tr>
@@ -1635,6 +1687,98 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getIndicator:" title="getIndicator:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getIndicator:">&ndash;&nbsp;getIndicator:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Getter for an indicator</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (OYMIndicator *)getIndicator:(NSString *)<em>identifier</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The indicator if it exists, it can be nil</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCombinations" title="getCombinations"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCombinations">&ndash;&nbsp;getCombinations</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Getter for the combinations list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NS_ARRAY_OF ( OYMCombination *) *)getCombinations</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The combination list</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMGoIndoor.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/setLocationType:" title="setLocationType:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/setLocationType:">&ndash;&nbsp;setLocationType:</a></code>
 </h3>
@@ -1843,8 +1987,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:" title="initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:">&ndash;&nbsp;initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andConnectCallBack:</a></code>
+	<a name="//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andCBOptions:andConnectCallBack:" title="initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andCBOptions:andConnectCallBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andCBOptions:andConnectCallBack:">&ndash;&nbsp;initWithUrl:andUser:andAccount:andPassword:andLocationType:andLocationUpdate:andDebug:andUpdatePolicy:andUpdateTime:andCBOptions:andConnectCallBack:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1859,7 +2003,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithUrl:(NSString *)<em>_url</em> andUser:(NSString *)<em>_user</em> andAccount:(NSString *)<em>acc</em> andPassword:(NSString *)<em>pwd</em> andLocationType:(OYMGoIndoorLocationType)<em>_locationType</em> andLocationUpdate:(long)<em>_refresh</em> andDebug:(BOOL)<em>_debug</em> andUpdatePolicy:(OYMGoIndoorUpdate)<em>_policy</em> andUpdateTime:(long)<em>_updateTime</em> andConnectCallBack:(void ( ^ ) ( BOOL succeed , NSString *message ))<em>_connectCallBack</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithUrl:(NSString *)<em>_url</em> andUser:(NSString *)<em>_user</em> andAccount:(NSString *)<em>acc</em> andPassword:(NSString *)<em>pwd</em> andLocationType:(OYMGoIndoorLocationType)<em>_locationType</em> andLocationUpdate:(long)<em>_refresh</em> andDebug:(BOOL)<em>_debug</em> andUpdatePolicy:(OYMGoIndoorUpdate)<em>_policy</em> andUpdateTime:(long)<em>_updateTime</em> andCBOptions:(NSDictionary&lt;NSString*,id&gt; *)<em>options</em> andConnectCallBack:(void ( ^ ) ( BOOL succeed , NSString *message ))<em>_connectCallBack</em></code></div>
 
 		    
 			
@@ -1943,7 +2087,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 OnYourMap. All rights reserved. Updated: 2016-05-10</p>
+						<p class="copyright">Copyright &copy; 2018 OnYourMap. All rights reserved. Updated: 2018-03-14</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

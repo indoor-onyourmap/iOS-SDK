@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OYMBox Class Reference</title>
+	<title>OYMIndicator Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -56,9 +56,11 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/bottomLeft">bottomLeft</option>
+		<option value="//api/name/image">image</option>
 		
-		<option value="//api/name/upperRight">upperRight</option>
+		<option value="//api/name/text">text</option>
+		
+		<option value="//api/name/uuid">uuid</option>
 		
 	</optgroup>
 	
@@ -68,7 +70,7 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithBottomLeft:andUpperRight:">- initWithBottomLeft:andUpperRight:</option>
+		<option value="//api/name/initWithUuid:">- initWithUuid:</option>
 		
 	</optgroup>
 	
@@ -85,16 +87,19 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">OYMBox Class Reference</h1>
+					<h1 class="title">OYMIndicator Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td><a href="../Classes/OYMGeometry.html">OYMGeometry</a> : NSObject</td>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>OYMJsonProtocol</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>OYMBox.h<br />OYMBox.m</td>
+	<td>OYMIndicator.h<br />OYMIndicator.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -104,7 +109,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>A bounding box, defined by its bottom left corner and its upper right corner.</p>
+						<p>This class includes all the information regarding indicators that can be present in the routing.</p>
 					</div>
 					
 					
@@ -120,8 +125,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/bottomLeft" title="bottomLeft"></a>
-	<h3 class="method-title"><code><a href="#//api/name/bottomLeft">&nbsp;&nbsp;bottomLeft</a></code>
+	<a name="//api/name/uuid" title="uuid"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uuid">&nbsp;&nbsp;uuid</a></code>
 </h3>
 
 	<div class="method-info">
@@ -131,12 +136,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>WGS84 bottom left position</p>
+				<p>Automatically generated UUID</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) OYMLatLng *bottomLeft</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonnull) NSString *uuid</code></div>
 
 		    
 			
@@ -154,15 +159,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBox.h</code></p>
+				<p><code class="declared-in-ref">OYMIndicator.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/upperRight" title="upperRight"></a>
-	<h3 class="method-title"><code><a href="#//api/name/upperRight">&nbsp;&nbsp;upperRight</a></code>
+	<a name="//api/name/text" title="text"></a>
+	<h3 class="method-title"><code><a href="#//api/name/text">&nbsp;&nbsp;text</a></code>
 </h3>
 
 	<div class="method-info">
@@ -172,12 +177,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>WGS84 upper right position</p>
+				<p>Indicator text</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) OYMLatLng *upperRight</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, nullable) NSString *text</code></div>
 
 		    
 			
@@ -195,15 +200,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBox.h</code></p>
+				<p><code class="declared-in-ref">OYMIndicator.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithBottomLeft:andUpperRight:" title="initWithBottomLeft:andUpperRight:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithBottomLeft:andUpperRight:">&ndash;&nbsp;initWithBottomLeft:andUpperRight:</a></code>
+	<a name="//api/name/image" title="image"></a>
+	<h3 class="method-title"><code><a href="#//api/name/image">&nbsp;&nbsp;image</a></code>
 </h3>
 
 	<div class="method-info">
@@ -213,12 +218,53 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Default construction.</p>
+				<p>Indicator image</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithBottomLeft:(OYMLatLng *)<em>bl</em> andUpperRight:(OYMLatLng *)<em>ur</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nullable) UIImage *image</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">OYMIndicator.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithUuid:" title="initWithUuid:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithUuid:">&ndash;&nbsp;initWithUuid:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Indicator constructor.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable instancetype)initWithUuid:(nonnull NSString *)<em>_uuid</em></code></div>
 
 		    
 			
@@ -227,13 +273,8 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>bl</code></th>
-						<td><p>WGS84 bottom left position</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>ur</code></th>
-						<td><p>WGS84 upper right position</p></td>
+						<th scope="row" class="argument-name"><code>_uuid</code></th>
+						<td><p>Indicator UUID</p></td>
 					</tr>
 				
 				</table>
@@ -253,7 +294,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBox.h</code></p>
+				<p><code class="declared-in-ref">OYMIndicator.h</code></p>
 			</div>
 			
 			

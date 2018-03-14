@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OYMBox Class Reference</title>
+	<title>OYMShortcut Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -56,21 +56,15 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/bottomLeft">bottomLeft</option>
+		<option value="//api/name/icon">icon</option>
 		
-		<option value="//api/name/upperRight">upperRight</option>
+		<option value="//api/name/name">name</option>
 		
 	</optgroup>
 	
 
 	
 
-	
-	<optgroup label="Instance Methods">
-		
-		<option value="//api/name/initWithBottomLeft:andUpperRight:">- initWithBottomLeft:andUpperRight:</option>
-		
-	</optgroup>
 	
 	
 </select>
@@ -85,16 +79,19 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">OYMBox Class Reference</h1>
+					<h1 class="title">OYMShortcut Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td><a href="../Classes/OYMGeometry.html">OYMGeometry</a> : NSObject</td>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>OYMJsonProtocol</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>OYMBox.h<br />OYMBox.m</td>
+	<td>OYMShortcut.h<br />OYMShortcut.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -104,7 +101,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>A bounding box, defined by its bottom left corner and its upper right corner.</p>
+						<p>This class includes all the information regarding shortcuts that can be present.</p>
 					</div>
 					
 					
@@ -120,8 +117,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/bottomLeft" title="bottomLeft"></a>
-	<h3 class="method-title"><code><a href="#//api/name/bottomLeft">&nbsp;&nbsp;bottomLeft</a></code>
+	<a name="//api/name/name" title="name"></a>
+	<h3 class="method-title"><code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
 </h3>
 
 	<div class="method-info">
@@ -131,12 +128,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>WGS84 bottom left position</p>
+				<p>Shortcut names per language</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) OYMLatLng *bottomLeft</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NS_DICTIONARY_OF ( NSString *NSString **name</code></div>
 
 		    
 			
@@ -154,15 +151,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBox.h</code></p>
+				<p><code class="declared-in-ref">OYMShortcut.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/upperRight" title="upperRight"></a>
-	<h3 class="method-title"><code><a href="#//api/name/upperRight">&nbsp;&nbsp;upperRight</a></code>
+	<a name="//api/name/icon" title="icon"></a>
+	<h3 class="method-title"><code><a href="#//api/name/icon">&nbsp;&nbsp;icon</a></code>
 </h3>
 
 	<div class="method-info">
@@ -172,12 +169,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>WGS84 upper right position</p>
+				<p>Shortcut icon</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) OYMLatLng *upperRight</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSString *icon</code></div>
 
 		    
 			
@@ -195,65 +192,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBox.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/initWithBottomLeft:andUpperRight:" title="initWithBottomLeft:andUpperRight:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithBottomLeft:andUpperRight:">&ndash;&nbsp;initWithBottomLeft:andUpperRight:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Default construction.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithBottomLeft:(OYMLatLng *)<em>bl</em> andUpperRight:(OYMLatLng *)<em>ur</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>bl</code></th>
-						<td><p>WGS84 bottom left position</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>ur</code></th>
-						<td><p>WGS84 upper right position</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">OYMBox.h</code></p>
+				<p><code class="declared-in-ref">OYMShortcut.h</code></p>
 			</div>
 			
 			
