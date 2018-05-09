@@ -39,7 +39,16 @@
  * @return The image to be used
  */
 + (UIImage*) getImageForInstruction:(OYMInstruction*) inst;
+/**
+ *  This method provides a default image to be added as marker for each instruction.
+ *
+ * @param inst Instruction to be processed
+ * @return The map image to be used
+ */
++ (UIImage*) getMapImageForInstruction:(OYMInstruction*)inst;
 
++ (BOOL) isChangeInstruction:(OYMInstruction*)inst;
++ (NSString*) concatInstruction:(OYMInstruction*)ins1 and:(OYMInstruction*)ins2;
 
 @end
 #endif

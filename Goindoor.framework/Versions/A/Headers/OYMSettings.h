@@ -50,14 +50,22 @@ static NSString *const kOYMSettingsKeyShortcuts = @"shortcuts";
 @interface OYMSettings : NSObject <OYMJsonProtocol>
 
 #pragma mark Properties
+/** User settings */
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *users;
+/** Edge settings */
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *edges;
+/** Place settings */
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *places;
+/** Notification settings */
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMUserValue*) *notifications;
 
+/** Available languages */
 @property (readonly) NS_ARRAY_OF(NSString*) *languages;
+/** Default language */
 @property (readonly) NSString *defaultLanguage;
+/** Available categories */
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMCategory*) *categories;
+/** Available shortcuts */
 @property (readonly) NS_DICTIONARY_OF(NSString*, OYMShortcut*) *shortcuts;
 
 
