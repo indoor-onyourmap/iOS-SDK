@@ -20,6 +20,8 @@ static const NSString* kOYMRoutingExceptionNoEdges = @"Edge list is empty";
 
 static int const kOYMRoutingMaskPropertiesNotFulfilled= 1<<30;
 
+static double const kOYMRoutingInitialInstructionRemoveDistance= 3;
+
 @class OYMEdgeRoute;
 
 /**

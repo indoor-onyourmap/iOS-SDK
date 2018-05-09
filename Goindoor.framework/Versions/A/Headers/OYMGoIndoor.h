@@ -69,8 +69,8 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
     
     //NSString *url;
     NSString *profile;
-    NSString *account;
-    NSString *password;
+    //NSString *account;
+    //NSString *password;
     void (^connectCallback)(BOOL succeed, NSString *message);
     OYMGoIndoorLocationType locationType;
     long locationUpdate;
@@ -86,6 +86,9 @@ static const NSString* kOYMGoIndoorLocationKeyType = @"OYMType";
 }
 
 + (NSString*)url;
++ (NSString*)account;
++ (NSString*)password;
+
 
 /**
 *  Creates a OYMGoIndoor Object with the arguments supplied to this GoIndoorBuilder.

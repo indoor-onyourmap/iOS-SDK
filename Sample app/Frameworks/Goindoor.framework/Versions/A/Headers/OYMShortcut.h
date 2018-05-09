@@ -10,15 +10,20 @@
 #import "OYMConstant.h"
 #import "OYMJsonProtocol.h"
 
-/** Key to retrieve the name */
+/** Key to retrieve the shortcut name */
 static NSString *const kOYMShortcutKeyName = @"name";
-/** Key to retrieve the icon */
+/** Key to retrieve the shortcut icon */
 static NSString *const kOYMShortcutKeyIcon = @"icon";
 
 
+/**
+ *  This class includes all the information regarding shortcuts that can be present.
+ */
 @interface OYMShortcut : NSObject <OYMJsonProtocol>
 
+/** Shortcut names per language */
 @property (readonly) NS_DICTIONARY_OF(NSString*, NSString*) *name;
+/** Shortcut icon */
 @property (readonly) NSString *icon;
 
 - (instancetype) initWithName: (NS_DICTIONARY_OF(NSString*, NSString*)*)_name andIcon: (NSString*) _icon;

@@ -16,12 +16,14 @@
 @private
     NSString* floorId;
     NSString *baseUrl;
+    NSString *account;
+    NSString *password;
 }
 
 
 #pragma mark Constructors
 - (instancetype) initWithFloorId:(NSString*)fId;
-- (instancetype) initWithFloorId:(NSString *)fId andBaseUrl:(NSString*)url;
+- (instancetype) initWithFloorId:(NSString *)fId andBaseUrl:(NSString*)url andAccount:(NSString *)acc andPassword:(NSString *)pwd;
 
 
 @end
